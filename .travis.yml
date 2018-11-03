@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - openjdk10
+  - oraclejdk10
+
+install: ant deps
+script: ant test
+
