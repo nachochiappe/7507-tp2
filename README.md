@@ -5,4 +5,4 @@ Algoritmos y Programación III - TP2 (Java)
 - Chiappe, Ignacio
 - Choque, Franco
 - Montiel, Ramiro
-- Mutchnick, Julián
+- Mutchinick, Julián
