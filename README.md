@@ -1,2 +1,2 @@
-# 7507-tp2
+# Algo Empires
 Algoritmos y Programación III - TP2 (Java)
