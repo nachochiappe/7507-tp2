@@ -6,5 +6,7 @@ tmp/
 .project
 .settings/
 bin/
+.idea/
+*iml
 build.xml.old
 *.jar
