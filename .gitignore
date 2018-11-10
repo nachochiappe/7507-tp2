@@ -8,5 +8,6 @@ tmp/
 bin/
 .idea/
 *iml
+out/
 build.xml.old
 *.jar
