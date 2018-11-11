@@ -45,6 +45,7 @@ public class AlgoEmpiresTest {
 		Assert.assertEquals(jugador.getOro(), 100);
 	}
 
+	@Test
 	public void jugadorEmpiezaCon3Aldeanos() {
 		Jugador jugador = new Jugador("Jugador");
 		Assert.assertEquals(jugador.getUnidades().size(), 3);

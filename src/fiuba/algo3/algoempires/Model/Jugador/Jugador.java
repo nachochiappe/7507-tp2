@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Jugador {
 
     private final int ORO_INICIAL = 100;
+    private final int ALDEANOS_INICIALES = 3;
 
     private String nombre;
     private int oro;
@@ -19,7 +20,7 @@ public class Jugador {
         this.nombre = nombre;
         this.oro =  ORO_INICIAL;
         this.unidades = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < ALDEANOS_INICIALES; i++) {
             unidades.add(new Aldeano());
         }
         //TODO: Asignarle el edificio

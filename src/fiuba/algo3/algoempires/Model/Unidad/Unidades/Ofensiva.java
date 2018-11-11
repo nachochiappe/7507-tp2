@@ -4,7 +4,7 @@ import fiuba.algo3.algoempires.Model.Unidad.Unidad;
 
 public abstract class Ofensiva extends Unidad{
 
-    public int ataque;
+    protected int ataque;
 
     public void atacar (Unidad unidad) {
         return;
