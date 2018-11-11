@@ -27,4 +27,12 @@ public class Tablero {
 		construible.construiteEn(cordX,cordY);
 		
 	}
+	
+	public int getAncho() {
+		return ANCHO;
+	}
+	
+	public int getAlto() {
+		return ALTO;
+	}
 }
