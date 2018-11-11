@@ -1,7 +1,10 @@
 package fiuba.algo3.algoempires.Model.Jugador;
 
-import fiuba.algo3.algoempires.Model.Unidad.Unidad;
-import fiuba.algo3.algoempires.Model.Unidad.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.Entidades.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Entidades.Unidad;
+import fiuba.algo3.algoempires.Model.Entidades.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.Tablero;
+import javafx.scene.control.Tab;
 
 import java.util.ArrayList;
 
@@ -14,14 +17,15 @@ public class Jugador {
     private int oro;
     private ArrayList<Unidad> unidades;
     private ArrayList<Object> edificios;
+    Tablero tablero;
 
-
-    public Jugador(String nombre) {
+    public Jugador(String nombre, Tablero tablero) {
+        this.tablero = tablero;
         this.nombre = nombre;
         this.oro =  ORO_INICIAL;
         this.unidades = new ArrayList<>();
         for (int i = 0; i < ALDEANOS_INICIALES; i++) {
-            unidades.add(new Aldeano());
+            unidades.add(new Aldeano(this.tablero, new Posicion(i, i)));
         }
         //TODO: Asignarle el edificio
     }

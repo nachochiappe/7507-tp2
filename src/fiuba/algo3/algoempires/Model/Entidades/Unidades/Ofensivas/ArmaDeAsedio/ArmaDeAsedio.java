@@ -1,6 +1,7 @@
-package fiuba.algo3.algoempires.Model.Unidad.Unidades.Ofensivas.ArmaDeAsedio;
+package fiuba.algo3.algoempires.Model.Entidades.Unidades.Ofensivas.ArmaDeAsedio;
 
-import fiuba.algo3.algoempires.Model.Unidad.Unidades.Ofensiva;
+import fiuba.algo3.algoempires.Model.Entidades.Movimiento.Desplazamiento;
+import fiuba.algo3.algoempires.Model.Entidades.Unidades.Ofensiva;
 
 public class ArmaDeAsedio extends Ofensiva {
 
@@ -19,8 +20,8 @@ public class ArmaDeAsedio extends Ofensiva {
         estado = desmontada;
     }
 
-    public void mover(int posicion) {
-        this.estado.mover(posicion);
+    public void mover(Desplazamiento desplazamiento) {
+        //this.estado.mover(desplazamiento);
     }
 
     public void atacar(Object edificio) {

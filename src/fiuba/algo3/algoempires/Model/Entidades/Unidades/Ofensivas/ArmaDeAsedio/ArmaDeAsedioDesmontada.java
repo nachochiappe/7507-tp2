@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Model.Unidad.Unidades.Ofensivas.ArmaDeAsedio;
+package fiuba.algo3.algoempires.Model.Entidades.Unidades.Ofensivas.ArmaDeAsedio;
 
 public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
 

@@ -1,6 +1,6 @@
-package fiuba.algo3.algoempires.Model.Unidad.Unidades;
+package fiuba.algo3.algoempires.Model.Entidades.Unidades;
 
-import fiuba.algo3.algoempires.Model.Unidad.Unidad;
+import fiuba.algo3.algoempires.Model.Entidades.Unidad;
 
 public abstract class Ofensiva extends Unidad{
 

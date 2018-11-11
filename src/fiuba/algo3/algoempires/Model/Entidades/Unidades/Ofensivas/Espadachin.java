@@ -1,6 +1,6 @@
-package fiuba.algo3.algoempires.Model.Unidad.Unidades.Ofensivas;
+package fiuba.algo3.algoempires.Model.Entidades.Unidades.Ofensivas;
 
-import fiuba.algo3.algoempires.Model.Unidad.Unidades.Ofensiva;
+import fiuba.algo3.algoempires.Model.Entidades.Unidades.Ofensiva;
 
 public class Espadachin extends Ofensiva {
     private final int MAX_HP = 100;

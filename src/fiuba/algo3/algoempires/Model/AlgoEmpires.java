@@ -31,7 +31,7 @@ public class AlgoEmpires {
 	}
 
 	public void agregarJugador(String unNombre) {
-	    jugadores.put(unNombre, new Jugador(unNombre));
+	    jugadores.put(unNombre, new Jugador(unNombre, tablero));
     }
 
     public HashMap<String, Jugador> getJugadores() {

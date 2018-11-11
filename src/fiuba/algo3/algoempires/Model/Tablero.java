@@ -35,4 +35,12 @@ public class Tablero {
 	public int getAlto() {
 		return ALTO;
 	}
+
+	public static int ancho() {
+		return ANCHO;
+	}
+
+	public static int alto() {
+		return ANCHO;
+	}
 }
