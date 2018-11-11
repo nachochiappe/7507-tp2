@@ -1,8 +1,8 @@
 package fiuba.algo3.algoempires.Model.Jugador;
 
-import fiuba.algo3.algoempires.Model.Entidades.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Entidades.Unidad;
-import fiuba.algo3.algoempires.Model.Entidades.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Tablero;
 
 import java.util.ArrayList;
@@ -34,6 +34,11 @@ public class Jugador {
         System.out.println("Mueve la unidad");
     }
 
+    public void empezarTurno() {
+        for(Unidad unidad: unidades) {
+            unidad.habilitarMovimiento();
+        }
+    }
 
     public void terminarTurno() {
         System.out.println("Termina el turno");

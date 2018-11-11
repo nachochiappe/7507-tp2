@@ -1,8 +1,8 @@
 package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-import fiuba.algo3.algoempires.Model.Entidades.Unidad;
-import fiuba.algo3.algoempires.Model.Entidades.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
 import junit.framework.Assert;
 import org.junit.Test;
