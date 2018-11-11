@@ -1,3 +1,4 @@
+/*
 package fiuba.algo3.algoempires.Deprecated;
 
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
@@ -6,7 +7,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Tablero;
 
 public class ArmaAsedio implements Unidad {
-	
+
 	int costo;
 	int vida;
 	Tablero tablero;
@@ -16,7 +17,7 @@ public class ArmaAsedio implements Unidad {
 	Movimiento movimientoIzquierda = new MovimientoIzquierda();
 	Movimiento movimientoDerecha = new MovimientoDerecha();
 	boolean yaMovio;
-	
+
 	public ArmaAsedio(Tablero _tablero, Posicion _posicion) {
 		this.costo = 200;
 		this.vida = 150;
@@ -24,7 +25,7 @@ public class ArmaAsedio implements Unidad {
 		this.posicion = _posicion;
 		this.yaMovio = false;
 	}
-	
+
 	@Override
 	public void moverArriba() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -35,7 +36,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverAbajo() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -46,7 +47,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverIzquierda() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -57,7 +58,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverDerecha() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -68,7 +69,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverArribaIzquierda() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -80,7 +81,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverArribaDerecha() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -92,7 +93,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverAbajoIzquierda() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -104,7 +105,7 @@ public class ArmaAsedio implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-	
+
 	@Override
 	public void moverAbajoDerecha() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
 		if (!yaMovio) {
@@ -117,3 +118,4 @@ public class ArmaAsedio implements Unidad {
 		}
 	}
 }
+*/

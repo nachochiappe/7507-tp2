@@ -1,4 +1,5 @@
-package fiuba.algo3.algoempires.Model.Movimiento;
+/*
+package fiuba.algo3.algoempires.Deprecated;
 
 public class Posicion {
     private int x;
@@ -25,3 +26,4 @@ public class Posicion {
         return this.y;
     }
 }
+*/

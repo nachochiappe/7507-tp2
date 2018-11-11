@@ -1,5 +1,5 @@
 package fiuba.algo3.algoempires.Deprecated;
-
+/*
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 
@@ -117,3 +117,4 @@ public class Aldeano implements Unidad {
 		}
 	}
 }
+*/

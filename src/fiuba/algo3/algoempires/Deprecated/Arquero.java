@@ -1,3 +1,4 @@
+/*
 package fiuba.algo3.algoempires.Deprecated;
 
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
@@ -116,4 +117,4 @@ public class Arquero implements Unidad {
 			throw new UnidadYaSeMovioException();
 		}
 	}
-}
+}*/

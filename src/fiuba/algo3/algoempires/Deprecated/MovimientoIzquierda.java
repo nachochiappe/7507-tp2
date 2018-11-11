@@ -1,3 +1,4 @@
+/*
 package fiuba.algo3.algoempires.Deprecated;
 
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
@@ -14,3 +15,4 @@ public class MovimientoIzquierda implements Movimiento {
 		return posicion_nueva;
 	}
 }
+*/
