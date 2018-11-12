@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 import java.util.HashMap;
 
@@ -28,8 +29,10 @@ public class AlgoEmpires {
 	}
 
 	public void agregarPlazaCentralInicial() {
-		Construible plazaCentral = new PlazaCentral();
-		tablero.construir(plazaCentral,0,0);
+		Construible plazaCentral = new PlazaCentral(tablero);
+		Posicion posicionDeInicio = new Posicion(0,0);
+		Posicion posicionDeFin = new Posicion(1,1);
+		tablero.construir(plazaCentral,posicionDeInicio,posicionDeFin);
 	}
 
 	public void agregarJugador(String unNombre) {

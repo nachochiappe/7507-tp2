@@ -7,14 +7,14 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 public abstract class Edificio {
 	//vida
 	public int vida;
+	Tablero tablero;
 	Posicion posicionInicial;
-	Posicion posicionFinal;
 
-	public void construiteEn(Posicion posicionDeInicio, Posicion posicionDeFin) {
-		posicionInicial = posicionDeInicio;
-		posicionFinal = posicionDeFin;
-	}
 	public void  reparate(Unidad Unidad) {
 	   
    }
+	
+	public Posicion obtenerPosicionInicial() {
+		return posicionInicial;
+	}
 }

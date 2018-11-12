@@ -7,15 +7,16 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PlazaCentral {
+public class PlazaCentralTest {
     
 	@Test
-    public void plazaCentralSeCreaEnCeroCeroYOcupa2x2(){
-        PlazaCentral plaza = new PlazaCentral();
+    public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2(){
+        Tablero tablero = new Tablero();
+        tablero.inicializarTablero();
+		PlazaCentral plaza = new PlazaCentral(tablero);
         Posicion posicionInicial = new Posicion(0,0);
-        Posicion posicionFinal = new Posicion(1,1);
-        plaza.construiteEn(posicionInicial,posicionFinal);
-        Assert.assertTrue(plaza.posicionInicial.dentroDe(0,0));
-        Assert.assertTrue(plaza.posicionFinal.dentroDe(1,1));
+        plaza.construiteEn(posicionInicial);
+        Assert.assertTrue(plaza.obtenerPosicionInicial().dentroDe(0,0));
+//        Assert.assertTrue(plaza.obtenerPosicionFinal().dentroDe(1,1));
     }
 }

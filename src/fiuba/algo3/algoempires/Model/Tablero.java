@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class Tablero {
 	
@@ -25,8 +26,8 @@ public class Tablero {
 		return true;
 	}
 
-	public void construir(Construible construible, int cordX, int cordY) {
-		construible.construiteEn(cordX,cordY);
+	public void construir(Construible construible, Posicion posicionDeInicio, Posicion posicionDeFin) {
+		construible.construiteEn(posicionDeInicio);
 		
 	}
 	
