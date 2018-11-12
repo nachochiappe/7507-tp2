@@ -1,17 +1,30 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 
-public class Cuartel extends Edificio implements Construible{
+public class Cuartel extends Edificio implements Construible, Posicionable{
 
 	public int vida=250;
 	static final int COSTO=50;
 	static final int TURNOSCONTRUCCION=3;
+	static final int OCUPA_ANCHO = 2;
+	static final int OCUPA_ALTO = 2;
+	
+	public Cuartel(Tablero tablero) {
+		this.tablero = tablero;
+	}
 	
 	public void construiteEn(Posicion posicionDeInicio) {
+		posicionInicial = posicionDeInicio;
+		Posicion posicionDeFin = posicionInicial.mismosValores(posicionInicial);
+		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
+		posicionDeFin.aumentarAlto(OCUPA_ALTO-1);
+		posicionFinal = posicionDeFin;
+		this.tablero.poner(this, posicionDeInicio, posicionDeFin);
 	}
 	
 	
