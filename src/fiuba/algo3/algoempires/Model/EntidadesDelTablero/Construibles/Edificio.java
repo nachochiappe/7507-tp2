@@ -9,12 +9,20 @@ public abstract class Edificio {
 	public int vida;
 	Tablero tablero;
 	Posicion posicionInicial;
-
+	Posicion posicionFinal;
+	
+	public boolean estaVacio() {
+		return false;
+	}
+	
 	public void  reparate(Unidad Unidad) {
 	   
-   }
+    }
 	
 	public Posicion obtenerPosicionInicial() {
 		return posicionInicial;
+	}
+	public Posicion obtenerPosicionFinal() {
+		return posicionFinal;
 	}
 }

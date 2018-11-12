@@ -1,18 +1,19 @@
 package fiuba.algo3.algoempires.Model;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.*;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class Tablero {
 	
-	private int [][] matriz =  new int[ANCHO][ALTO];;
+	private Posicionable [][] matriz =  new Posicionable[ANCHO][ALTO];;
 	static final int ANCHO = 20;
 	static final int ALTO = 20;
 	
 	public void inicializarTablero() {
 		for (int i=0; i<ANCHO; i++) {
 			for(int j=0; j<ALTO; j++) {
-				matriz[i][j] = 0;
+				matriz[i][j] = new LugarVacio();
 			}
 		}
 	}
@@ -20,14 +21,18 @@ public class Tablero {
 	public boolean estasVacio() {
 		for (int i=0; i<ANCHO; i++) {
 			for(int j=0; j<ALTO; j++) {
-				if(matriz[i][j] != 0) return false;
+				if(!(matriz[i][j].estaVacio())) return false;
 			}
 		}
 		return true;
 	}
 
-	public void construir(Construible construible, Posicion posicionDeInicio, Posicion posicionDeFin) {
-		construible.construiteEn(posicionDeInicio);
+	public void poner(Posicionable posicionable, Posicion posicionDeInicio, Posicion posicionDeFin) {
+		for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
+			for(int j = posicionDeInicio.getPosicionX(); j<=posicionDeFin.getPosicionY(); j++) {
+				matriz[i][j]= posicionable;
+			}
+		}
 		
 	}
 	

@@ -1,11 +1,12 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
-public class PlazaCentral extends Edificio implements Construible{
+public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
 	int vida=450;
 	static final int COSTO=100;
@@ -19,8 +20,11 @@ public class PlazaCentral extends Edificio implements Construible{
 	
 	public void construiteEn(Posicion posicionDeInicio) {
 		posicionInicial = posicionDeInicio;
-		Posicion posicionDeFin = new Posicion((posicionInicial.getPosicionX()+OCUPA_ANCHO),(posicionInicial.getPosicionY()+OCUPA_ALTO));
-		this.tablero.construir(this, posicionDeInicio, posicionDeFin);
+		Posicion posicionDeFin = posicionInicial.mismosValores(posicionInicial);
+		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
+		posicionDeFin.aumentarAlto(OCUPA_ALTO-1);
+		posicionFinal = posicionDeFin;
+		this.tablero.poner(this, posicionDeInicio, posicionDeFin);
 	}
 		
 	public void reparate(Unidad unidad) {
