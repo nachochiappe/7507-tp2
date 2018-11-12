@@ -1,9 +1,10 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Tablero;
 
-public class Castillo extends Edificio {
+public class Castillo extends Edificio implements Construible{
 	public void construiteEn(int cordX, int cordY) {
 	}
 	int vida=250;
