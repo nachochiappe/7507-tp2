@@ -1,5 +1,7 @@
 package fiuba.algo3.algoempires.Model;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
 import java.util.HashMap;

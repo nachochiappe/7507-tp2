@@ -1,5 +1,7 @@
 package fiuba.algo3.algoempires.Model;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+
 public class Tablero {
 	
 	private int [][] matriz =  new int[ANCHO][ALTO];;
