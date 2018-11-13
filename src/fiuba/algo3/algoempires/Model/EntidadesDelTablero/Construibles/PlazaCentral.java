@@ -1,9 +1,14 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+<<<<<<< Updated upstream
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+=======
+import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+>>>>>>> Stashed changes
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -20,7 +25,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		this.tablero = tablero;
 	}
 	
-	public void construiteEn(Posicion posicionDeInicio) {
+	public void construiteEn(Posicion posicionDeInicio) throws ConstruccionFueraDelMapaException {
 		posicionInicial = posicionDeInicio;
 		Posicion posicionDeFin = posicionInicial.mismosValores(posicionInicial);
 		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
