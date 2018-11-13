@@ -12,7 +12,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 
 public class ColocarUnidadesYEdificios {
 	@Test(expected = ConstruccionFueraDelMapaException.class)
-    public void testConstruirPlazaCentralEnBordeLevantaError() {
+    public void testConstruirPlazaCentralEnBordeLevantaError() throws ConstruccionFueraDelMapaException{
     	Tablero tablero = new Tablero();
     	Posicion posicion = new Posicion(19,19);
     	PlazaCentral plaza = new PlazaCentral(tablero);
