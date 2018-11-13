@@ -4,11 +4,8 @@ import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-<<<<<<< Updated upstream
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
-=======
 import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
->>>>>>> Stashed changes
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
