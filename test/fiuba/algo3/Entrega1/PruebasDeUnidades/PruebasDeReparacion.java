@@ -33,7 +33,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoPuedeRepararPlazaCentral() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException{
+    public void testAldeanoPuedeRepararPlazaCentral() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -48,7 +48,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoPuedeRepararCuartel() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException{
+    public void testAldeanoPuedeRepararCuartel() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -71,7 +71,7 @@ public class PruebasDeReparacion {
     */
 	
 	@Test(expected = AldeanoYaEstaReparandoException.class)
-    public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException{
+    public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -91,7 +91,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoNoSumaOroMientrasRepara() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException{
+    public void testAldeanoNoSumaOroMientrasRepara() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -108,7 +108,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoVuelveASumarOroDespuesDeReparar() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException{
+    public void testAldeanoVuelveASumarOroDespuesDeReparar() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
