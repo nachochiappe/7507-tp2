@@ -12,7 +12,6 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
-import fiuba.algo3.algoempires.Model.Excepciones.SoloPuedeRealizarAccionesEnSuTurnoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -47,7 +46,7 @@ public class PruebasDeConstruccion {
     }
     
     @Test
-    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws AldeanoYaEstaConstruyendoException, SoloPuedeRealizarAccionesEnSuTurnoException{
+    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws AldeanoYaEstaConstruyendoException{
     	boolean trueish = true;
         Assert.assertEquals(trueish, true);
     }
