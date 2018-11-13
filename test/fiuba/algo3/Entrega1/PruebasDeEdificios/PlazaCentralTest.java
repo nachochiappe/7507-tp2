@@ -4,13 +4,14 @@ import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class PlazaCentralTest {
     
 	@Test
-    public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2(){
+    public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2() throws ConstruccionFueraDelMapaException{
         Tablero tablero = new Tablero();
         tablero.inicializarTablero();
 		PlazaCentral plaza = new PlazaCentral(tablero);
@@ -21,7 +22,7 @@ public class PlazaCentralTest {
     }
 
 	@Test
-    public void testDosPlazasCentralesSeCreaEnCeroCeroYOcupa2x2YLaOtraASuDerecha(){
+    public void testDosPlazasCentralesSeCreaEnCeroCeroYOcupa2x2YLaOtraASuDerecha() throws ConstruccionFueraDelMapaException{
         Tablero tablero = new Tablero();
         tablero.inicializarTablero();
 		PlazaCentral plaza1 = new PlazaCentral(tablero);
