@@ -24,7 +24,7 @@ public class Jugador {
         this.oro =  ORO_INICIAL;
         this.unidades = new ArrayList<>();
         for (int i = 0; i < ALDEANOS_INICIALES; i++) {
-            unidades.add(new Aldeano(this.tablero, new Posicion(i, i)));
+            unidades.add(new Aldeano(this.tablero, this, new Posicion(i, i)));
         }
         //TODO: Asignarle el edificio
     }

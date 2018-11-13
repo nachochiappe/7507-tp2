@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.*;
 
 public abstract class Unidad {
@@ -11,7 +12,7 @@ public abstract class Unidad {
     protected int hp;
     protected int costo;
     //TODO: Determinar si cada unidad va a tener una referencia a su Jugador o solamente el nombre
-    protected String jugador;
+    protected Jugador jugador;
     protected Posicion posicion;
     protected Movible movible = new Movible();
     protected NoMovible noMovible = new NoMovible();
@@ -52,7 +53,7 @@ public abstract class Unidad {
         this.posicion = posicion;
     }
 
-    public String getJugador() {
+    public Jugador getJugador() {
         return jugador;
     }
 }

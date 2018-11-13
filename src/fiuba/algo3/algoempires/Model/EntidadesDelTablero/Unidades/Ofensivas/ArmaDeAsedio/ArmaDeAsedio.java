@@ -8,6 +8,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
 public class ArmaDeAsedio extends Ofensiva {
 
@@ -19,7 +20,7 @@ public class ArmaDeAsedio extends Ofensiva {
     private ArmaDeAsedioDesmontada desmontada;
     Tablero tablero;
 
-    public ArmaDeAsedio(Tablero tablero, Posicion posicion) {
+    public ArmaDeAsedio(Tablero tablero, Jugador jugador, Posicion posicion) {
         this.costo = COSTO;
         this.hp = MAX_HP;
         montada = new ArmaDeAsedioMontada(this);
