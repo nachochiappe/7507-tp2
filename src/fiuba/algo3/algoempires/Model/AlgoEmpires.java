@@ -14,6 +14,7 @@ public class AlgoEmpires {
 	
 	private HashMap<String, Jugador> jugadores;
 	private Tablero tablero;
+	private Jugador turnoActual;
 
 	public AlgoEmpires() {
 	    jugadores = new HashMap<>();
@@ -46,4 +47,8 @@ public class AlgoEmpires {
     public boolean sePuedeEmpezarAJugar() {
 	    return jugadores.size() == JUGADORES_NECESARIOS;
     }
+
+	public void setTurnoActual(Jugador jugador) {
+		this.turnoActual = jugador;
+	}
 }

@@ -3,12 +3,14 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
-	int vida=450;
+	private static final int MAX_VIDA = 450;
+	public int vida = MAX_VIDA;
 	static final int COSTO=100;
 	static final int TURNOSCONTRUCCION=3;
 	static final int OCUPA_ANCHO = 2;
@@ -27,8 +29,13 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		this.tablero.poner(this, posicionDeInicio, posicionDeFin);
 	}
 		
-	public void reparate(Unidad unidad) {
-		
+	public void reparate(Aldeano aldeano) {
+		if (this.vida < MAX_VIDA) {
+			this.vida += 25;
+		}
+		else {
+			aldeano.deshabilitarReparacion();
+		}
 	}
 	
 	//estos get son para las pruebas...despues los saco

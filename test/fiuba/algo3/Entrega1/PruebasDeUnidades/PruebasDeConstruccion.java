@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoempires.Model.AlgoEmpires;
+//import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
+//import fiuba.algo3.algoempires.Model.Excepciones.SoloPuedeRealizarAccionesEnSuTurnoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -45,11 +46,26 @@ public class PruebasDeConstruccion {
         Assert.assertTrue(plazaCentral.obtenerPosicionFinal().dentroDe(11,11));
     }
     
-    @Test
-    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws AldeanoYaEstaConstruyendoException{
-    	boolean trueish = true;
-        Assert.assertEquals(trueish, true);
+    /*
+    @Test(expected = SoloPuedeRealizarAccionesEnSuTurnoException.class)
+    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws AldeanoYaEstaConstruyendoException, SoloPuedeRealizarAccionesEnSuTurnoException{
+    	AlgoEmpires juego = new AlgoEmpires();
+    	Tablero tablero = new Tablero();
+        tablero.inicializarTablero();
+        Jugador jugador = new Jugador("Jugador1", tablero);
+        Jugador jugador2 = new Jugador("Jugador2", tablero);
+        juego.setTurnoActual(jugador);
+        ArrayList<Unidad> lista_unidades = jugador.getUnidades();
+        Aldeano aldeano = (Aldeano) lista_unidades.get(0);
+        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        Posicion posicion = new Posicion(10,10);
+        aldeano.construir(plazaCentral, posicion);
+        juego.setTurnoActual(jugador2);
+        Cuartel cuartel = new Cuartel(tablero);
+        Posicion posicion2 = new Posicion(0,0);
+        aldeano.construir(cuartel, posicion2);
     }
+    */
     
     @Test
     public void testAldeanoNoSumaOroMientrasConstruye() throws AldeanoYaEstaConstruyendoException{

@@ -3,12 +3,14 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 
 public class Cuartel extends Edificio implements Construible, Posicionable{
 
-	public int vida=250;
+	private static final int MAX_VIDA = 250;
+	public int vida = MAX_VIDA;
 	static final int COSTO=50;
 	static final int TURNOSCONTRUCCION=3;
 	static final int OCUPA_ANCHO = 2;
@@ -35,6 +37,13 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 	public int getVida() {
 		return vida;
 	}
-	public void reparate(Unidad unidad) {		
+	
+	public void reparate(Aldeano aldeano) {
+		if (this.vida < MAX_VIDA) {
+			this.vida += 50;
+		}
+		else {
+			aldeano.deshabilitarReparacion();
+		}
 	}
 }

@@ -1,7 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public abstract class Edificio {
@@ -15,7 +15,7 @@ public abstract class Edificio {
 		return false;
 	}
 	
-	public void  reparate(Unidad Unidad) {
+	public void reparate(Aldeano aldeano) {
 	   
     }
 	
