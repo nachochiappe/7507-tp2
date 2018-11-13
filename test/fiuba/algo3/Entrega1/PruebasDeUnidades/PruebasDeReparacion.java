@@ -13,6 +13,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentr
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
+import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
