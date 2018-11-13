@@ -28,7 +28,12 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
 		posicionDeFin.aumentarAlto(OCUPA_ALTO-1);
 		posicionFinal = posicionDeFin;
-		this.tablero.poner(this, posicionDeInicio, posicionDeFin);
+		try {
+			this.tablero.poner(this, posicionDeInicio, posicionDeFin);
+		}
+		catch (ArrayIndexOutOfBoundsException e){
+			throw new ConstruccionFueraDelMapaException("La construcción está fuera del mapa");
+		};
 	}
 		
 	public void reparate(Aldeano aldeano) {

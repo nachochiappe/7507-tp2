@@ -34,10 +34,13 @@ public class Tablero {
 		if(!posicionDeFin.dentroDe(ANCHO,ALTO)) throw new ConstruccionFueraDelMapaException("Construccion fuera del mapa!");
 		for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
 			for(int j = posicionDeInicio.getPosicionX(); j<=posicionDeFin.getPosicionY(); j++) {
-				matriz[i][j]= posicionable;
+				matriz[i][j] = posicionable;
 			}
-		}
-		
+		}	
+	}
+	
+	public Posicionable obtenerPosicionable(int posicionX, int posicionY) {
+		return matriz[posicionX][posicionY];
 	}
 	
 	public int getAncho() {
