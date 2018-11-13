@@ -3,15 +3,19 @@ package fiuba.algo3.Entrega1.PruebasDeEdificios;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.*;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class PlazaCentralTest {
     
 	@Test
-    public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2() throws ConstruccionFueraDelMapaException{
+    public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2() throws FueraDelMapaException{
         Tablero tablero = new Tablero();
         tablero.inicializarTablero();
 		PlazaCentral plaza = new PlazaCentral(tablero);
@@ -22,7 +26,7 @@ public class PlazaCentralTest {
     }
 
 	@Test
-    public void testDosPlazasCentralesSeCreaEnCeroCeroYOcupa2x2YLaOtraASuDerecha() throws ConstruccionFueraDelMapaException{
+    public void testDosPlazasCentralesSeCreaEnCeroCeroYOcupa2x2YLaOtraASuDerecha() throws FueraDelMapaException{
         Tablero tablero = new Tablero();
         tablero.inicializarTablero();
 		PlazaCentral plaza1 = new PlazaCentral(tablero);
@@ -39,4 +43,14 @@ public class PlazaCentralTest {
         Assert.assertTrue(plaza2.obtenerPosicionFinal().dentroDe(1,3));
     }
 	
+	@Test
+    public void testPlazaCentralCreaAldeano() throws FueraDelMapaException{
+		Tablero tablero = new Tablero();
+        Jugador jugador = new Jugador("JugadorTest", tablero);
+        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        Posicion posicion = new Posicion();
+        Aldeano aldeano = new Aldeano(tablero, jugador, posicion);
+        plazaCentral.crearUnidad(aldeano);
+        Assert.assertEquals(tablero.obtenerPosicionable(posicion.getPosicionX(), posicion.getPosicionY()), aldeano);
+    }
 }

@@ -6,7 +6,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.*;
 
-public abstract class Unidad {
+public abstract class Unidad implements Posicionable {
 
     //Todas las unidades tienen hp y costo
     protected int hp;

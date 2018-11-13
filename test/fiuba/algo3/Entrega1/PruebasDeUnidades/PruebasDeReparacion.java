@@ -13,7 +13,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentr
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
-import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -26,14 +26,14 @@ public class PruebasDeReparacion {
         Jugador jugador = new Jugador("JugadorTest", tablero);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        Castillo castillo = new Castillo();
+        Castillo castillo = new Castillo(tablero);
         castillo.vida = 985;
         aldeano.reparar(castillo);
         Assert.assertEquals(1000, castillo.getVida());
     }
 	
 	@Test
-    public void testAldeanoPuedeRepararPlazaCentral() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoPuedeRepararPlazaCentral() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -48,7 +48,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoPuedeRepararCuartel() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoPuedeRepararCuartel() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -71,7 +71,7 @@ public class PruebasDeReparacion {
     */
 	
 	@Test(expected = AldeanoYaEstaReparandoException.class)
-    public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -91,7 +91,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoNoSumaOroMientrasRepara() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoNoSumaOroMientrasRepara() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -108,7 +108,7 @@ public class PruebasDeReparacion {
     }
 	
 	@Test
-    public void testAldeanoVuelveASumarOroDespuesDeReparar() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoVuelveASumarOroDespuesDeReparar() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
 		Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);

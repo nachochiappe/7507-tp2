@@ -13,14 +13,14 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentr
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
 //import fiuba.algo3.algoempires.Model.Excepciones.SoloPuedeRealizarAccionesEnSuTurnoException;
-import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class PruebasDeConstruccion {
 	
     @Test
-    public void testAldeanoPuedeConstruirCuartel() throws AldeanoYaEstaConstruyendoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoPuedeConstruirCuartel() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
         Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -34,7 +34,7 @@ public class PruebasDeConstruccion {
     }
     
     @Test
-    public void testAldeanoPuedeConstruirPlazaCentral() throws AldeanoYaEstaConstruyendoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoPuedeConstruirPlazaCentral() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
     	Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -69,7 +69,7 @@ public class PruebasDeConstruccion {
     */
     
     @Test
-    public void testAldeanoNoSumaOroMientrasConstruye() throws AldeanoYaEstaConstruyendoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoNoSumaOroMientrasConstruye() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
     	Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
@@ -84,7 +84,7 @@ public class PruebasDeConstruccion {
     }
     
     @Test(expected = AldeanoYaEstaConstruyendoException.class)
-    public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, ConstruccionFueraDelMapaException{
+    public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
     	Tablero tablero = new Tablero();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);

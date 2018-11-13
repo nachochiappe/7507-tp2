@@ -8,7 +8,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Tablero;
 
 public class Aldeano extends Unidad {
@@ -39,7 +39,7 @@ public class Aldeano extends Unidad {
         this.sumatoria_oro = sumaOro;
     }
 
-	public void construir(Construible construible, Posicion posicion) throws AldeanoYaEstaConstruyendoException, ConstruccionFueraDelMapaException {
+	public void construir(Construible construible, Posicion posicion) throws AldeanoYaEstaConstruyendoException, FueraDelMapaException {
 		this.construccion.construir(construible, posicion);
         this.deshabilitarConstruccion();
         return;
@@ -73,6 +73,11 @@ public class Aldeano extends Unidad {
 	public void deshabilitarReparacion() {
 		this.reparacion = reparando;
 		this.sumatoria_oro = noSumaOro;
+	}
+
+	@Override
+	public boolean estaVacio() {
+		return false;
 	}
 
 }

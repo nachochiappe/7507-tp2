@@ -21,7 +21,7 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 		this.tablero = tablero;
 	}
 	
-	public void construiteEn(Posicion posicionDeInicio) throws ConstruccionFueraDelMapaException{
+	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException{
 		posicionInicial = posicionDeInicio;
 		Posicion posicionDeFin = posicionInicial.mismosValores(posicionInicial);
 		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
@@ -31,7 +31,7 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 			this.tablero.poner(this, posicionDeInicio, posicionDeFin);
 		}
 		catch (ArrayIndexOutOfBoundsException e){
-			throw new ConstruccionFueraDelMapaException("La construcción está fuera del mapa");
+			throw new FueraDelMapaException("La construcción está fuera del mapa");
 		};
 	}
 	

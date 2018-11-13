@@ -4,7 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 
 import java.util.HashMap;
 
@@ -30,7 +30,7 @@ public class AlgoEmpires {
 		return tablero.estasVacio();
 	}
 
-	public void agregarPlazaCentralInicial() throws ConstruccionFueraDelMapaException {
+	public void agregarPlazaCentralInicial() throws FueraDelMapaException {
 		Posicionable plazaCentral = new PlazaCentral(tablero);
 		Posicion posicionDeInicio = new Posicion(0,0);
 		Posicion posicionDeFin = new Posicion(1,1);

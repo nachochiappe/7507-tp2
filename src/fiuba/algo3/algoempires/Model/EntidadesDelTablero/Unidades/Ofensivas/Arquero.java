@@ -16,4 +16,9 @@ public class Arquero extends Ofensiva {
         this.tablero = tablero;
         this.posicion = posicion;
     }
+
+	@Override
+	public boolean estaVacio() {
+		return false;
+	}
 }

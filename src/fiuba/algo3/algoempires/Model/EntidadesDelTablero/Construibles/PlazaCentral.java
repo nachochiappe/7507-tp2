@@ -5,7 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
-import fiuba.algo3.algoempires.Model.Excepciones.ConstruccionFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -22,7 +22,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		this.tablero = tablero;
 	}
 	
-	public void construiteEn(Posicion posicionDeInicio) throws ConstruccionFueraDelMapaException {
+	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
 		posicionInicial = posicionDeInicio;
 		Posicion posicionDeFin = posicionInicial.mismosValores(posicionInicial);
 		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
@@ -32,7 +32,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 			this.tablero.poner(this, posicionDeInicio, posicionDeFin);
 		}
 		catch (ArrayIndexOutOfBoundsException e){
-			throw new ConstruccionFueraDelMapaException("La construcción está fuera del mapa");
+			throw new FueraDelMapaException("La construcción está fuera del mapa");
 		};
 	}
 		

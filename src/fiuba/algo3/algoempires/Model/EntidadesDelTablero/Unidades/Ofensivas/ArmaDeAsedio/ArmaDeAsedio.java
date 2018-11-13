@@ -65,4 +65,9 @@ public class ArmaDeAsedio extends Ofensiva {
         return montada;
     }
 
+	@Override
+	public boolean estaVacio() {
+		return false;
+	}
+
 }
