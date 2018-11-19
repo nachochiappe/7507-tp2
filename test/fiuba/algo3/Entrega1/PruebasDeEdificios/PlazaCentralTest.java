@@ -10,7 +10,8 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-
+import java.util.ArrayList;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -66,4 +67,16 @@ public class PlazaCentralTest {
 		plaza.recibeDanioDe(espadachin);
 		Assert.assertTrue(LugarVacio.class.isInstance(plaza));
 	}
+
+    @Test
+    public void testPlazaCentralCreaAldeanoSumaUnaUnidadAlJugador(){
+        Tablero tablero = new Tablero();
+        Jugador jugador=new Jugador("jugadorTest",tablero);
+        PlazaCentral plazaCentral= new PlazaCentral(tablero);
+        Posicion posicion =  new Posicion(18,18);
+        Aldeano aldeano=plazaCentral.crearAldeano(tablero,jugador,posicion);
+        Assert.assertEquals(aldeano.getClass(),Aldeano.class);
+        ArrayList<Unidad> lista_unidades = jugador.getUnidades();
+        Assert.assertEquals(lista_unidades.size(),4);
+    }
 }
