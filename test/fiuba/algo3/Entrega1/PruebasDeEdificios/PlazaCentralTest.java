@@ -46,16 +46,16 @@ public class PlazaCentralTest {
         Assert.assertTrue(plaza2.obtenerPosicionInicial().dentroDe(0,2));
         Assert.assertTrue(plaza2.obtenerPosicionFinal().dentroDe(1,3));
     }
-	
-	@Test
-    public void testPlazaCentralCreaAldeano() throws FueraDelMapaException{
-		Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
-        Posicion posicion = new Posicion();
-        Aldeano aldeano = new Aldeano(tablero, jugador, posicion);
-        plazaCentral.crearUnidad(aldeano);
-        Assert.assertEquals(tablero.obtenerPosicionable(posicion.getPosicionX(), posicion.getPosicionY()), aldeano);
+
+    @Test
+
+    public void testPlazaCentralCreaAldeanoDevuelveUnAldeano(){
+        Tablero tablero = new Tablero();
+        Jugador jugador=new Jugador("jugadorTest",tablero);
+        PlazaCentral plazaCentral= new PlazaCentral(tablero);
+        Posicion posicion =  new Posicion(18,18);
+        Aldeano aldeano=plazaCentral.crearAldeano(tablero,jugador,posicion);
+        Assert.assertEquals(aldeano.getClass(),Aldeano.class);
     }
 	@Test
     public void testPlazaCentralSeVuelveLugarVacionCuandoQuedaSinVida() {

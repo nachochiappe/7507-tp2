@@ -14,24 +14,20 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class CuartelTest {
     @Test
-    public void testCuartelCreaEspadachin() throws FueraDelMapaException{
-    	Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
-        Cuartel cuartel = new Cuartel(tablero);
-        Posicion posicion = new Posicion();
-        Espadachin espadachin = new Espadachin(tablero, jugador, posicion);
-        cuartel.crearUnidad(espadachin);
-        Assert.assertEquals(tablero.obtenerPosicionable(posicion.getPosicionX(), posicion.getPosicionY()), espadachin);
+    public void testCuartelCreaArqueroDevuelveArquero() {
+        Tablero tablero = new Tablero();
+        Jugador jugador=new Jugador("jugadorTest",tablero);
+        Cuartel cuartel= new Cuartel(tablero);
+        Posicion posicion =  new Posicion(18,18);
+        Arquero arquero=cuartel.crearArquero(tablero,jugador,posicion);
+        Assert.assertEquals(arquero.getClass(),Arquero.class);
     }
-    
-    @Test
-    public void testCuartelCreaArquero() throws FueraDelMapaException{
-    	Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
-        Cuartel cuartel = new Cuartel(tablero);
-        Posicion posicion = new Posicion();
-        Arquero arquero = new Arquero(tablero, jugador, posicion);
-        cuartel.crearUnidad(arquero);
-        Assert.assertEquals(tablero.obtenerPosicionable(posicion.getPosicionX(), posicion.getPosicionY()), arquero);
+    public void testCuartelCreaEspadachinDevuelveEspadachin() {
+        Tablero tablero = new Tablero();
+        Jugador jugador=new Jugador("jugadorTest",tablero);
+        Cuartel cuartel= new Cuartel(tablero);
+        Posicion posicion =  new Posicion(18,18);
+        Espadachin espadachin=cuartel.crearEspadachin(tablero,jugador,posicion);
+        Assert.assertEquals(espadachin.getClass(),Espadachin.class);
     }
 }

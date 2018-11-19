@@ -11,7 +11,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class CastilloTest {
     @Test
-    public void testCastilloCreaArmaDeAsedio() throws FueraDelMapaException{
+    public void testCastilloCreaArmaDeAsedio() throws FueraDelMapaException {
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador("JugadorTest", tablero);
         Castillo castillo = new Castillo(tablero);
