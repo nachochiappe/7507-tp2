@@ -5,6 +5,8 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -12,7 +14,6 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
 	private static final int MAX_VIDA = 450;
-	public int vida = MAX_VIDA;
 	static final int COSTO=100;
 	static final int TURNOSCONTRUCCION=3;
 	static final int OCUPA_ANCHO = 2;
@@ -20,6 +21,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 	
 	public PlazaCentral(Tablero tablero) {
 		this.tablero = tablero;
+		this.vida = MAX_VIDA;
 	}
 	
 	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
@@ -45,12 +47,25 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		}
 	}
 	
+	public void mori() {
+		LugarVacio lugar = LugarVacio.class.cast(this);
+	}
+	
 	//estos get son para las pruebas...despues los saco
 	public int getCosto() {
 		return COSTO;
 	}
 	public int getVida() {
 		return vida;
+	}
+
+
+
+	private void estoyDestruido() {
+		if(vida <= 0) {
+			this.mori();
+		}
+		
 	}
 	
 }

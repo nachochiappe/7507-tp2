@@ -2,15 +2,19 @@ package fiuba.algo3.Entrega1.PruebasDeEdificios;
 
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 public class PlazaCentralTest {
     
@@ -53,4 +57,13 @@ public class PlazaCentralTest {
         plazaCentral.crearUnidad(aldeano);
         Assert.assertEquals(tablero.obtenerPosicionable(posicion.getPosicionX(), posicion.getPosicionY()), aldeano);
     }
+	@Test
+    public void testPlazaCentralSeVuelveLugarVacionCuandoQuedaSinVida() {
+		Tablero tablero = Mockito.mock(Tablero.class);
+		PlazaCentral plaza = new PlazaCentral(tablero);
+		Espadachin espadachin = Mockito.mock(Espadachin.class);
+		Mockito.when(espadachin.cuantoDanioAEdificio()).thenReturn(450);
+		plaza.recibeDanioDe(espadachin);
+		Assert.assertTrue(LugarVacio.class.isInstance(plaza));
+	}
 }

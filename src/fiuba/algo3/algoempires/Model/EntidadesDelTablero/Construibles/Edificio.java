@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -30,5 +31,14 @@ public abstract class Edificio {
 	}
 	public Posicion obtenerPosicionFinal() {
 		return posicionFinal;
+	}
+
+	public int obtenerVida() {
+		return this.vida;
+	}
+	
+	public void recibeDanioDe(Ofensiva ofensivo) {
+		int danio = ofensivo.cuantoDanioAEdificio();
+		this.vida = this.vida - danio;
 	}
 }

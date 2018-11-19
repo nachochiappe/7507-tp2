@@ -21,4 +21,13 @@ public class Espadachin extends Ofensiva {
 	public boolean estaVacio() {
 		return false;
 	}
+	@Override
+	public int cuantoDanioAUnidad() {
+		return 25;
+	}
+	
+	@Override
+	public int cuantoDanioAEdificio() {
+		return 15;
+	}
 }

@@ -1,5 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
@@ -56,4 +58,10 @@ public abstract class Unidad implements Posicionable {
     public Jugador getJugador() {
         return jugador;
     }
+
+	public void recibeDanioDe(Ofensiva ofensiva) {
+		int danio = ofensiva.cuantoDanioAUnidad();
+		this.hp = this.hp - danio;	
+	}
+
 }
