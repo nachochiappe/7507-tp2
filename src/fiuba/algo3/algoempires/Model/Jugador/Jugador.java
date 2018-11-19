@@ -60,4 +60,8 @@ public class Jugador {
     public void modificarOro(int oro) {
         this.oro += oro;
     }
+
+    public void agregarUnidad(Unidad unidad){
+        this.unidades.add(unidad);
+    }
 }
