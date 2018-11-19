@@ -42,5 +42,24 @@ public class Posicion {
 	public void aumentarAlto(int alto) {
 		this.y = y + alto;
 	}
+
+	public boolean mismaPosicion(Posicion posicion) {
+		if( this.x == posicion.getPosicionX() && this.y == posicion.getPosicionY()) 
+			return true;
+		return false;
+	}
+	
+	public boolean estaEnRango(Posicion posicion, int rango) {
+		
+		for(int i = this.x - rango; i <= this.x + rango ; i++) {
+			for(int j = this.y - rango; j <= this.y + rango; j++) {
+				Posicion posicionEnBusqueda = new Posicion(i,j);
+				if(posicion.mismaPosicion(posicionEnBusqueda))
+					return true;
+			}
+		}
+		return false;
+		
+	}
 	
 }
