@@ -7,6 +7,11 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+
 
 public class Cuartel extends Edificio implements Construible, Posicionable{
 
@@ -52,4 +57,21 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 			aldeano.deshabilitarReparacion();
 		}
 	}
+
+	public Arquero crearArquero(Tablero tablero,Jugador jugador,Posicion posicion){
+		//falta crear la excepcion
+		//if (jugador.getOro()<75) throw new OroInsuficienteException();
+		Arquero arquero = new Arquero(tablero,jugador,posicion);
+		jugador.agregarUnidad(arquero);
+		return arquero;
+	}
+
+	public Espadachin crearEspadachin(Tablero tablero,Jugador jugador,Posicion posicion){
+		//falta crear la excepcion
+		//if (jugador.getOro()<75) throw new OroInsuficienteException();
+		Espadachin espadachin = new Espadachin(tablero,jugador,posicion);
+		jugador.agregarUnidad(espadachin);
+		return espadachin;
+	}
+
 }

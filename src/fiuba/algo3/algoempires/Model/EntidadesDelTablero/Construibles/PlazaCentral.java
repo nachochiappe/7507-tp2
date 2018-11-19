@@ -5,11 +5,10 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
 public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
@@ -67,5 +66,14 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		}
 		
 	}
-	
+
+	public Aldeano crearAldeano(Tablero tablero,Jugador jugador,Posicion posicion){
+		//falta crear la excepcion
+		//if (jugador.getOro()<25) throw new OroInsuficienteException();
+		Aldeano aldeano = new Aldeano(tablero,jugador,posicion);
+		jugador.agregarUnidad(aldeano);
+		return aldeano;
+	}
+
+
 }
