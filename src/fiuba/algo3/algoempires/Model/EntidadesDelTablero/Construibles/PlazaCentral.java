@@ -1,13 +1,14 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.TableroS;
 
-public class PlazaCentral extends Edificio implements Construible {
+public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
 	private static final int MAX_VIDA = 450;
 	static final int COSTO=100;
@@ -20,13 +21,15 @@ public class PlazaCentral extends Edificio implements Construible {
 	}
 	
 	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
-		posicionInicial = posicionDeInicio;
-		Posicion posicionDeFin = posicionInicial.mismosValores(posicionInicial);
-		posicionDeFin.aumentarAncho(OCUPA_ANCHO-1);
-		posicionDeFin.aumentarAlto(OCUPA_ALTO-1);
-		posicionFinal = posicionDeFin;
+		this.posiciones.addFirst(posicionDeInicio);
+		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + OCUPA_ALTO; i++) {
+			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + OCUPA_ANCHO; j++) {
+				Posicion posicionActual = new Posicion(i,j);
+				posiciones.add(posicionActual);
+			}
+		}
 		try {
-			Tablero.getInstance().poner(this, posicionDeInicio, posicionDeFin);
+			TableroS.getInstance().poner(this, posiciones.getFirst(), posiciones.getLast());
 		}
 		catch (ArrayIndexOutOfBoundsException e){
 			throw new FueraDelMapaException("La construcción está fuera del mapa");

@@ -11,7 +11,8 @@ public abstract class Ofensiva extends Unidad{
     	if(!unidad.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
         unidad.recibeDanioDe(this);
     }
-	public void atacar(Edificio edificio) {
+	public void atacar(Edificio edificio) throws ObjetivoFueraDeRangoException {
+    	if(!edificio.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
 		edificio.recibeDanioDe(this);
 		
 	}
