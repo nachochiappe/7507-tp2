@@ -3,6 +3,7 @@ package fiuba.algo3.Entrega1.PruebasDeEdificios;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -42,7 +43,7 @@ public class PlazaCentralTest {
     }
 
     @Test
-    public void testPlazaCentralCreaAldeanoDevuelveUnAldeano() throws OroInsuficienteException{
+    public void testPlazaCentralCreaAldeanoDevuelveUnAldeano() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
@@ -62,7 +63,7 @@ public class PlazaCentralTest {
 	}*/
 
     @Test
-    public void testPlazaCentralCreaAldeanoSumaUnaUnidadAlJugador() throws OroInsuficienteException{
+    public void testPlazaCentralCreaAldeanoSumaUnaUnidadAlJugador() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
@@ -74,14 +75,14 @@ public class PlazaCentralTest {
     }
     @Test
 
-    public void testPlazaCentralCrearAldeanoRestaOro() throws OroInsuficienteException{
+    public void testPlazaCentralCrearAldeanoRestaOro() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Jugador jugador = new Jugador("jugador");
         jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(10, 10));
         Assert.assertEquals(jugador.getOro(),75);
     }
 
     @Test(expected=OroInsuficienteException.class)
-    public void testPlazaCentralCrearAldeanoSinOroLanzaExcepcion() throws OroInsuficienteException{
+    public void testPlazaCentralCrearAldeanoSinOroLanzaExcepcion() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Jugador jugador = new Jugador("jugador");
         jugador.modificarOro(-100);
         jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(10, 10));

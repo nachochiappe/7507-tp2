@@ -8,13 +8,15 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 import java.util.ArrayList;
 
 public class CuartelTest {
     @Test
-    public void testCuartelCreaArqueroDevuelveArquero() throws OroInsuficienteException {
+    public void testCuartelCreaArqueroDevuelveArquero() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -32,7 +34,7 @@ public class CuartelTest {
     }
     @Test
 
-    public void testCuartelCreaArqueroSumaUnaUnidadAlJugador() throws OroInsuficienteException{
+    public void testCuartelCreaArqueroSumaUnaUnidadAlJugador() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -42,7 +44,7 @@ public class CuartelTest {
         Assert.assertEquals(lista_unidades.size(),4);
     }
     @Test
-    public void testCuartelCreaEspadachinSumaUnaUnidadAlJugador() throws OroInsuficienteException{
+    public void testCuartelCreaEspadachinSumaUnaUnidadAlJugador() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -70,7 +72,7 @@ public class CuartelTest {
     }
 
     @Test(expected=OroInsuficienteException.class)
-    public void testCuartelCrearArqueroSinOroLanzaExcepcion() throws OroInsuficienteException {
+    public void testCuartelCrearArqueroSinOroLanzaExcepcion() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         jugador.modificarOro(-100);
@@ -80,7 +82,7 @@ public class CuartelTest {
     }
 
     @Test(expected=OroInsuficienteException.class)
-    public void testCuartelCrearEspadachinSinOroLanzaExcepcion() throws OroInsuficienteException {
+    public void testCuartelCrearEspadachinSinOroLanzaExcepcion() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         jugador.modificarOro(-100);

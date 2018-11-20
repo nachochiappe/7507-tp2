@@ -7,13 +7,15 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 import java.util.ArrayList;
 
 public class CastilloTest {
     @Test
-    public void testCastilloCreaArmaDeAsedio() throws OroInsuficienteException {
+    public void testCastilloCreaArmaDeAsedio() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador= new Jugador("jugadorTest");
         jugador.modificarOro(200);
@@ -24,7 +26,7 @@ public class CastilloTest {
     }
 
     @Test
-    public void testCastilloCreaArmaDeAsedioSumaUnaUnidadAlJugador()throws OroInsuficienteException{
+    public void testCastilloCreaArmaDeAsedioSumaUnaUnidadAlJugador()throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         jugador.modificarOro(200);
@@ -36,7 +38,7 @@ public class CastilloTest {
     }
 
     @Test
-    public void testPlazaCentralCrearAldeanoRestaOro() throws OroInsuficienteException{
+    public void testPlazaCentralCrearAldeanoRestaOro() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         jugador.modificarOro(200);
@@ -47,7 +49,7 @@ public class CastilloTest {
     }
 
     @Test(expected=OroInsuficienteException.class)
-    public void testCastilloCrearArmaDeAsedioSinOroLanzaExcepcion() throws OroInsuficienteException{
+    public void testCastilloCrearArmaDeAsedioSinOroLanzaExcepcion() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         Castillo castillo = new Castillo();

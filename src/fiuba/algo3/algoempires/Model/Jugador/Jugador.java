@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -15,9 +16,12 @@ public class Jugador {
 
     private final int ORO_INICIAL = 100;
     private final int ALDEANOS_INICIALES = 3;
+    private final int TOPE_POBLACION = 50;
 
     private String nombre;
+    private EstadoJugador estado;
     private int oro;
+    private int tope_poblacion;
     private ArrayList<Unidad> unidades;
     private ArrayList<Edificio> edificios;
 
@@ -25,7 +29,9 @@ public class Jugador {
     public Jugador(String nombre) {
 
         this.nombre = nombre;
-        this.oro =  ORO_INICIAL;
+        this.estado = new Deshabilitado();
+        this.oro = ORO_INICIAL;
+        this.tope_poblacion = TOPE_POBLACION;
         this.unidades = new ArrayList<>();
         for (int i = 0; i < ALDEANOS_INICIALES; i++) {
             unidades.add(new Aldeano(this, new Posicion(i, i)));
@@ -41,12 +47,14 @@ public class Jugador {
 
 
     public void empezarTurno() {
+    	this.estado = new Habilitado();
         for(Unidad unidad: unidades) {
             unidad.comenzarTurno();
         }
     }
 
     public void terminarTurno() {
+    	this.estado = new Deshabilitado();
         System.out.println("Termina el turno");
     }
 
@@ -67,8 +75,13 @@ public class Jugador {
         this.oro += oro;
     }
 
-    public void agregarUnidad(Unidad unidad){
-        this.unidades.add(unidad);
+    public void agregarUnidad(Unidad unidad) throws ExcedeTopePoblacionalException {
+    	if (this.unidades.size() < this.tope_poblacion) {
+    		this.unidades.add(unidad);
+    	}
+    	else {
+    		throw new ExcedeTopePoblacionalException();
+    	}
     }
 
     public int obtenerPoblacion() { return this.unidades.size(); }

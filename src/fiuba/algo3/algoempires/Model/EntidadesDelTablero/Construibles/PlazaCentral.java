@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -70,7 +71,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
 	}
 
-	public Aldeano crearAldeano(Jugador jugador,Posicion posicion)  throws OroInsuficienteException {
+	public Aldeano crearAldeano(Jugador jugador,Posicion posicion)  throws OroInsuficienteException, ExcedeTopePoblacionalException {
 		if (jugador.getOro()<25) throw new OroInsuficienteException();
 		jugador.modificarOro(-25);
 		Aldeano aldeano = new Aldeano(jugador,posicion);

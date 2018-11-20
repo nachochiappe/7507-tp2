@@ -10,7 +10,6 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arqu
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 
 
@@ -61,7 +60,7 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 	}
 
 
-	public Arquero crearArquero(Jugador jugador,Posicion posicion) throws OroInsuficienteException{
+	public Arquero crearArquero(Jugador jugador,Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
 		if (jugador.getOro()<75) throw new OroInsuficienteException();
 		jugador.modificarOro(-75);
 		Arquero arquero = new Arquero(jugador,posicion);
@@ -71,7 +70,7 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 
 
 
-	public Espadachin crearEspadachin(Jugador jugador,Posicion posicion) throws OroInsuficienteException{
+	public Espadachin crearEspadachin(Jugador jugador,Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
 		if (jugador.getOro()<100) throw new OroInsuficienteException();
 		jugador.modificarOro(-100);
 		Espadachin espadachin = new Espadachin(jugador,posicion);

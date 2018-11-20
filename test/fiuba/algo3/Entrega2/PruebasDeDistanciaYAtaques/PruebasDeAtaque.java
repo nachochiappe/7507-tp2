@@ -1,4 +1,4 @@
-package fiuba.algo3.Entrega1.PruebasDeUnidades;
+package fiuba.algo3.Entrega2.PruebasDeDistanciaYAtaques;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;

@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldean
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
@@ -51,7 +52,7 @@ public class Castillo extends Edificio implements Posicionable {
         return false;
     }
 
-    public ArmaDeAsedio crearArmaDeAsedio(Jugador jugador, Posicion posicion) throws OroInsuficienteException {
+    public ArmaDeAsedio crearArmaDeAsedio(Jugador jugador, Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
         if (jugador.getOro()<200) throw new OroInsuficienteException();
         jugador.modificarOro(-200);
         ArmaDeAsedio arma = new ArmaDeAsedio( jugador, posicion);

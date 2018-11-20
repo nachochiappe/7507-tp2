@@ -2,6 +2,8 @@ package fiuba.algo3.Entrega2.ReglasDePoblacion;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
+import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -14,7 +16,7 @@ public class ReglasDePoblacion {
 
 
     @Test
-    public void crearUnidadSubePoblacion() throws OroInsuficienteException{
+    public void crearUnidadSubePoblacion() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Jugador jugador = new Jugador("jugador");
         Assert.assertEquals(jugador.obtenerPoblacion(), 3);
         jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
@@ -22,7 +24,7 @@ public class ReglasDePoblacion {
     }
 
     @Test
-    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException,OroInsuficienteException {
+    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException, OroInsuficienteException, ExcedeTopePoblacionalException {
         Jugador jugador = new Jugador("jugador");
         Jugador otroJuagador = new Jugador("jugador malo");
         Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
@@ -34,4 +36,18 @@ public class ReglasDePoblacion {
         Assert.assertEquals(jugador.obtenerPoblacion(), 3);
     }
 
+    @Test(expected = ExcedeTopePoblacionalException.class)
+    public void testNoSePuedeExcederTopePoblacional() throws OroInsuficienteException, ExcedeTopePoblacionalException {
+    	Jugador jugador = new Jugador("jugador");
+    	jugador.modificarOro(5000);
+    	for (int i = 1; i <= 20; i++) {
+    		Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(i, 0));
+    	}
+    	for (int i = 1; i <= 20; i++) {
+    		Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(0, i));
+    	}
+    	for (int i = 1; i <= 8; i++) {
+    		Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(i, i));
+    	}
+    }
 }
