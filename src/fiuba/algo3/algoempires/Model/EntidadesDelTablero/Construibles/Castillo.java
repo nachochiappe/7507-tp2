@@ -9,7 +9,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arma
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
-public class Castillo extends Edificio {
+public class Castillo extends Edificio implements Posicionable {
 
     private static final int MAX_VIDA = 1000;
     public int vida = MAX_VIDA;
@@ -28,7 +28,7 @@ public class Castillo extends Edificio {
             }
         }
         try {
-            //Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
+            Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
         }
         catch (ArrayIndexOutOfBoundsException e){
             throw new FueraDelMapaException("La construcción está fuera del mapa");
