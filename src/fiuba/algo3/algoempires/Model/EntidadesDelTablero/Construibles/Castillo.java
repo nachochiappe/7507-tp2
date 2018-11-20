@@ -51,8 +51,9 @@ public class Castillo extends Edificio implements Posicionable {
         return false;
     }
 
-    public ArmaDeAsedio crearArmaDeAsedio(Jugador jugador, Posicion posicion) {
-        //if (jugador.getOro()<25) throw new OroInsuficienteException();
+    public ArmaDeAsedio crearArmaDeAsedio(Jugador jugador, Posicion posicion) throws OroInsuficienteException {
+        if (jugador.getOro()<200) throw new OroInsuficienteException();
+        jugador.modificarOro(-200);
         ArmaDeAsedio arma = new ArmaDeAsedio( jugador, posicion);
         jugador.agregarUnidad(arma);
         return arma;

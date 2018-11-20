@@ -61,8 +61,9 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 	}
 
 
-	public Arquero crearArquero(Jugador jugador,Posicion posicion){
-		//if (jugador.getOro()<75) throw new OroInsuficienteException();
+	public Arquero crearArquero(Jugador jugador,Posicion posicion) throws OroInsuficienteException{
+		if (jugador.getOro()<75) throw new OroInsuficienteException();
+		jugador.modificarOro(-75);
 		Arquero arquero = new Arquero(jugador,posicion);
 		jugador.agregarUnidad(arquero);
 		return arquero;
@@ -70,8 +71,9 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 
 
 
-	public Espadachin crearEspadachin(Jugador jugador,Posicion posicion){
-		//if (jugador.getOro()<75) throw new OroInsuficienteException();
+	public Espadachin crearEspadachin(Jugador jugador,Posicion posicion) throws OroInsuficienteException{
+		if (jugador.getOro()<100) throw new OroInsuficienteException();
+		jugador.modificarOro(-100);
 		Espadachin espadachin = new Espadachin(jugador,posicion);
 		jugador.agregarUnidad(espadachin);
 		return espadachin;

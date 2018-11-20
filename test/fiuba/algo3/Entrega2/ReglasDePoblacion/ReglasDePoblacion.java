@@ -8,12 +8,13 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 public class ReglasDePoblacion {
 
 
     @Test
-    public void crearUnidadSubePoblacion() {
+    public void crearUnidadSubePoblacion() throws OroInsuficienteException{
         Jugador jugador = new Jugador("jugador");
         Assert.assertEquals(jugador.obtenerPoblacion(), 3);
         jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
@@ -21,7 +22,7 @@ public class ReglasDePoblacion {
     }
 
     @Test
-    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException {
+    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException,OroInsuficienteException {
         Jugador jugador = new Jugador("jugador");
         Jugador otroJuagador = new Jugador("jugador malo");
         Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));

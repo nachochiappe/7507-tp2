@@ -9,7 +9,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
-
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import java.util.ArrayList;
 
 public class PlazaCentralTest {
@@ -42,7 +42,7 @@ public class PlazaCentralTest {
     }
 
     @Test
-    public void testPlazaCentralCreaAldeanoDevuelveUnAldeano(){
+    public void testPlazaCentralCreaAldeanoDevuelveUnAldeano() throws OroInsuficienteException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
@@ -62,7 +62,7 @@ public class PlazaCentralTest {
 	}*/
 
     @Test
-    public void testPlazaCentralCreaAldeanoSumaUnaUnidadAlJugador(){
+    public void testPlazaCentralCreaAldeanoSumaUnaUnidadAlJugador() throws OroInsuficienteException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
@@ -71,5 +71,19 @@ public class PlazaCentralTest {
         Assert.assertEquals(aldeano.getClass(),Aldeano.class);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Assert.assertEquals(lista_unidades.size(),4);
+    }
+    @Test
+
+    public void testPlazaCentralCrearAldeanoRestaOro() throws OroInsuficienteException{
+        Jugador jugador = new Jugador("jugador");
+        jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(10, 10));
+        Assert.assertEquals(jugador.getOro(),75);
+    }
+
+    @Test(expected=OroInsuficienteException.class)
+    public void testPlazaCentralCrearAldeanoSinOroLanzaExcepcion() throws OroInsuficienteException{
+        Jugador jugador = new Jugador("jugador");
+        jugador.modificarOro(-100);
+        jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(10, 10));
     }
 }

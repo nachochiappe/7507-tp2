@@ -8,12 +8,13 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 import java.util.ArrayList;
 
 public class CuartelTest {
     @Test
-    public void testCuartelCreaArqueroDevuelveArquero() {
+    public void testCuartelCreaArqueroDevuelveArquero() throws OroInsuficienteException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -21,7 +22,7 @@ public class CuartelTest {
         Arquero arquero = cuartel.crearArquero(jugador,posicion);
         Assert.assertEquals(arquero.getClass(),Arquero.class);
     }
-    public void testCuartelCreaEspadachinDevuelveEspadachin() {
+    public void testCuartelCreaEspadachinDevuelveEspadachin() throws OroInsuficienteException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -31,7 +32,7 @@ public class CuartelTest {
     }
     @Test
 
-    public void testCuartelCreaArqueroSumaUnaUnidadAlJugador(){
+    public void testCuartelCreaArqueroSumaUnaUnidadAlJugador() throws OroInsuficienteException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -41,7 +42,7 @@ public class CuartelTest {
         Assert.assertEquals(lista_unidades.size(),4);
     }
     @Test
-    public void testCuartelCreaEspadachinSumaUnaUnidadAlJugador(){
+    public void testCuartelCreaEspadachinSumaUnaUnidadAlJugador() throws OroInsuficienteException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -50,4 +51,42 @@ public class CuartelTest {
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Assert.assertEquals(lista_unidades.size(),4);
     }
+
+    public void testCuartelCrearArqueroRestaOro() throws OroInsuficienteException{
+        Tablero.getInstance().inicializarTablero();
+        Jugador jugador=new Jugador("jugadorTest");
+        Cuartel cuartel= new Cuartel();
+        Posicion posicion =  new Posicion(18,18);
+        Arquero arquero=cuartel.crearArquero(jugador,posicion);
+        Assert.assertEquals(jugador.getOro(),25);
+    }
+    public void testCuartelCrearEspadachinRestaOro() throws OroInsuficienteException{
+        Tablero.getInstance().inicializarTablero();
+        Jugador jugador=new Jugador("jugadorTest");
+        Cuartel cuartel= new Cuartel();
+        Posicion posicion =  new Posicion(18,18);
+        Espadachin espadachin=cuartel.crearEspadachin(jugador,posicion);
+        Assert.assertEquals(jugador.getOro(),0);
+    }
+
+    @Test(expected=OroInsuficienteException.class)
+    public void testCuartelCrearArqueroSinOroLanzaExcepcion() throws OroInsuficienteException {
+        Tablero.getInstance().inicializarTablero();
+        Jugador jugador=new Jugador("jugadorTest");
+        jugador.modificarOro(-100);
+        Cuartel cuartel= new Cuartel();
+        Posicion posicion =  new Posicion(18,18);
+        cuartel.crearArquero(jugador,posicion);
+    }
+
+    @Test(expected=OroInsuficienteException.class)
+    public void testCuartelCrearEspadachinSinOroLanzaExcepcion() throws OroInsuficienteException {
+        Tablero.getInstance().inicializarTablero();
+        Jugador jugador=new Jugador("jugadorTest");
+        jugador.modificarOro(-100);
+        Cuartel cuartel= new Cuartel();
+        Posicion posicion =  new Posicion(18,18);
+        Espadachin espadachin=cuartel.crearEspadachin(jugador,posicion);
+    }
+
 }

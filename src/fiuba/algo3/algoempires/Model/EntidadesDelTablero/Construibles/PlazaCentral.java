@@ -70,8 +70,9 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
 	}
 
-	public Aldeano crearAldeano(Jugador jugador,Posicion posicion)  {
-		//if (jugador.getOro()<25) throw new OroInsuficienteException();
+	public Aldeano crearAldeano(Jugador jugador,Posicion posicion)  throws OroInsuficienteException {
+		if (jugador.getOro()<25) throw new OroInsuficienteException();
+		jugador.modificarOro(-25);
 		Aldeano aldeano = new Aldeano(jugador,posicion);
 		jugador.agregarUnidad(aldeano);
 		return aldeano;
