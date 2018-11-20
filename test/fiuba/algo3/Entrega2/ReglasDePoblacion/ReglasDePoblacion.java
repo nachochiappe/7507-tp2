@@ -26,14 +26,30 @@ public class ReglasDePoblacion {
     @Test
     public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException, OroInsuficienteException, ExcedeTopePoblacionalException {
         Jugador jugador = new Jugador("jugador");
-        Jugador otroJuagador = new Jugador("jugador malo");
+        Jugador otroJugador = new Jugador("jugador malo");
         Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
         Assert.assertEquals(jugador.obtenerPoblacion(), 4);
-        Espadachin espadachin = new Espadachin(otroJuagador, new Posicion(12,13));
-        Espadachin espadachin2 = new Espadachin(otroJuagador, new Posicion(12,11));
+        Espadachin espadachin = new Espadachin(otroJugador, new Posicion(12,13));
+        Espadachin espadachin2 = new Espadachin(otroJugador, new Posicion(12,11));
         espadachin.atacar(aldeano);
         espadachin2.atacar(aldeano);
         Assert.assertEquals(jugador.obtenerPoblacion(), 3);
+    }
+    
+    @Test
+    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException {
+    	Jugador jugador = new Jugador("jugador");
+    	Jugador otroJugador = new Jugador("jugador malo");
+    	Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
+    	Assert.assertEquals(jugador.obtenerPoblacion(), 4);
+    	jugador.sumarOroDelTurno();
+    	Assert.assertEquals(155, jugador.getOro());
+    	Espadachin espadachin = new Espadachin(otroJugador, new Posicion(12,13));
+        Espadachin espadachin2 = new Espadachin(otroJugador, new Posicion(12,11));
+        espadachin.atacar(aldeano);
+        espadachin2.atacar(aldeano);
+        jugador.sumarOroDelTurno();
+        Assert.assertEquals(215, jugador.getOro());
     }
 
     @Test(expected = ExcedeTopePoblacionalException.class)

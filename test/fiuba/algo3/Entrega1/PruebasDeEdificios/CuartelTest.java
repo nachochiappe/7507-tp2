@@ -24,7 +24,7 @@ public class CuartelTest {
         Arquero arquero = cuartel.crearArquero(jugador,posicion);
         Assert.assertEquals(arquero.getClass(),Arquero.class);
     }
-    public void testCuartelCreaEspadachinDevuelveEspadachin() throws OroInsuficienteException {
+    public void testCuartelCreaEspadachinDevuelveEspadachin() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -54,7 +54,7 @@ public class CuartelTest {
         Assert.assertEquals(lista_unidades.size(),4);
     }
 
-    public void testCuartelCrearArqueroRestaOro() throws OroInsuficienteException{
+    public void testCuartelCrearArqueroRestaOro() throws OroInsuficienteException, ExcedeTopePoblacionalException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
@@ -62,7 +62,7 @@ public class CuartelTest {
         Arquero arquero=cuartel.crearArquero(jugador,posicion);
         Assert.assertEquals(jugador.getOro(),25);
     }
-    public void testCuartelCrearEspadachinRestaOro() throws OroInsuficienteException{
+    public void testCuartelCrearEspadachinRestaOro() throws OroInsuficienteException, ExcedeTopePoblacionalException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();

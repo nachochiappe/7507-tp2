@@ -11,6 +11,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Jugador {
 
@@ -69,6 +70,15 @@ public class Jugador {
 
     public int getOro() {
         return oro;
+    }
+    
+    public void sumarOroDelTurno() {
+    	for (Iterator<Unidad> it = unidades.iterator(); it.hasNext();) {
+    		Unidad unidad = it.next();
+    		if (unidad instanceof Aldeano) {
+    			((Aldeano) unidad).sumarOro();
+    		}
+    	}
     }
 
     public void modificarOro(int oro) {
