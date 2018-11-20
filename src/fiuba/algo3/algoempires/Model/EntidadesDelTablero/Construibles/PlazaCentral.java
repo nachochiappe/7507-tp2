@@ -1,14 +1,12 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
-import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.TableroS;
 
 public class PlazaCentral extends Edificio implements Construible, Posicionable{
 
@@ -18,8 +16,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 	static final int OCUPA_ANCHO = 2;
 	static final int OCUPA_ALTO = 2;
 	
-	public PlazaCentral(Tablero tablero) {
-		this.tablero = tablero;
+	public PlazaCentral() {
 		this.vida = MAX_VIDA;
 	}
 	
@@ -30,7 +27,7 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		posicionDeFin.aumentarAlto(OCUPA_ALTO-1);
 		posicionFinal = posicionDeFin;
 		try {
-			this.tablero.poner(this, posicionDeInicio, posicionDeFin);
+			TableroS.getInstance().poner(this, posicionDeInicio, posicionDeFin);
 		}
 		catch (ArrayIndexOutOfBoundsException e){
 			throw new FueraDelMapaException("La construcción está fuera del mapa");
@@ -67,10 +64,10 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		
 	}
 
-	public Aldeano crearAldeano(Tablero tablero,Jugador jugador,Posicion posicion){
+	public Aldeano crearAldeano(Jugador jugador,Posicion posicion){
 		//falta crear la excepcion
 		//if (jugador.getOro()<25) throw new OroInsuficienteException();
-		Aldeano aldeano = new Aldeano(tablero,jugador,posicion);
+		Aldeano aldeano = new Aldeano(jugador,posicion);
 		jugador.agregarUnidad(aldeano);
 		return aldeano;
 	}

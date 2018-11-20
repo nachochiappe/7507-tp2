@@ -1,32 +1,32 @@
 package fiuba.algo3.Entrega1.PruebasDeUnidades;
 
-import java.util.ArrayList;
-
-import org.junit.Assert;
-import org.junit.Test;
-
-//import fiuba.algo3.algoempires.Model.AlgoEmpires;
-import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
-//import fiuba.algo3.algoempires.Model.Excepciones.SoloPuedeRealizarAccionesEnSuTurnoException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.TableroS;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+
+//import fiuba.algo3.algoempires.Model.AlgoEmpires;
+//import fiuba.algo3.algoempires.Model.Excepciones.SoloPuedeRealizarAccionesEnSuTurnoException;
 
 public class PruebasDeConstruccion {
 	
     @Test
     public void testAldeanoPuedeConstruirCuartel() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-        Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        Cuartel cuartel = new Cuartel(tablero);
+        Cuartel cuartel = new Cuartel();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(cuartel, posicion);
         Assert.assertTrue(cuartel.obtenerPosicionInicial().dentroDe(10,10));
@@ -35,12 +35,12 @@ public class PruebasDeConstruccion {
     
     @Test
     public void testAldeanoPuedeConstruirPlazaCentral() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-    	Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(plazaCentral, posicion);
         Assert.assertTrue(plazaCentral.obtenerPosicionInicial().dentroDe(10,10));
@@ -70,12 +70,12 @@ public class PruebasDeConstruccion {
     
     @Test
     public void testAldeanoNoSumaOroMientrasConstruye() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-    	Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.sumarOro();
         aldeano.construir(plazaCentral, posicion);
@@ -85,15 +85,15 @@ public class PruebasDeConstruccion {
     
     @Test(expected = AldeanoYaEstaConstruyendoException.class)
     public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-    	Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(plazaCentral, posicion);
-        Cuartel cuartel = new Cuartel(tablero);
+        Cuartel cuartel = new Cuartel();
         Posicion posicion2 = new Posicion(0,0);
         aldeano.construir(cuartel, posicion2);
     }

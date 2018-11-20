@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 

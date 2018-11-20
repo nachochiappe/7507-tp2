@@ -1,34 +1,35 @@
 package fiuba.algo3.Entrega1.PruebasDeEdificios;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.TableroS;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import java.util.ArrayList;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 
 public class CastilloTest {
     @Test
-    public void testCastilloCreaArmaDeAsedio()  { Tablero tablero = new Tablero();
-        Jugador jugador=new Jugador("jugadorTest",tablero);
-        Castillo castillo= new Castillo(tablero);
-        Posicion posicion =  new Posicion(18,18);
-        ArmaDeAsedio arma=castillo.crearArmaDeAsedio(tablero,jugador,posicion);
+    public void testCastilloCreaArmaDeAsedio()  {
+        TableroS.getInstance().inicializarTablero();
+        Jugador jugador= new Jugador("jugadorTest");
+        Castillo castillo= new Castillo();
+        Posicion posicion = new Posicion(18,18);
+        ArmaDeAsedio arma = castillo.crearArmaDeAsedio(jugador,posicion);
         Assert.assertEquals(arma.getClass(),ArmaDeAsedio.class);
     }
 
     @Test
-
     public void testCastilloCreaArmaDeAsedioSumaUnaUnidadAlJugador(){
+        TableroS.getInstance().inicializarTablero();
         Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
-        Castillo castillo = new Castillo(tablero);
+        Jugador jugador = new Jugador("JugadorTest");
+        Castillo castillo = new Castillo();
         Posicion posicion =  new Posicion(18,18);
-        ArmaDeAsedio arma=castillo.crearArmaDeAsedio(tablero,jugador,posicion);
+        ArmaDeAsedio arma=castillo.crearArmaDeAsedio(jugador,posicion);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Assert.assertEquals(lista_unidades.size(),4);
     }

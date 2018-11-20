@@ -1,32 +1,31 @@
 package fiuba.algo3.Entrega1.PruebasDeUnidades;
 
-import java.util.ArrayList;
-
-import org.junit.Assert;
-import org.junit.Test;
-
-import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.TableroS;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class PruebasDeReparacion {
         
 	@Test
     public void testAldeanoPuedeRepararCastillo() throws AldeanoYaEstaReparandoException{
-		Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        Castillo castillo = new Castillo(tablero);
+        Castillo castillo = new Castillo();
         castillo.vida = 985;
         aldeano.reparar(castillo);
         Assert.assertEquals(1000, castillo.getVida());
@@ -34,12 +33,12 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoPuedeRepararPlazaCentral() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-		Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(plazaCentral, posicion);
         plazaCentral.vida = 425;
@@ -49,12 +48,12 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoPuedeRepararCuartel() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-		Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        Cuartel cuartel = new Cuartel(tablero);
+        Cuartel cuartel = new Cuartel();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(cuartel, posicion);
         cuartel.vida = 200;
@@ -72,16 +71,16 @@ public class PruebasDeReparacion {
 	
 	@Test(expected = AldeanoYaEstaReparandoException.class)
     public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-		Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         Aldeano aldeano2 = (Aldeano) lista_unidades.get(1);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(plazaCentral, posicion);
-        Cuartel cuartel = new Cuartel(tablero);
+        Cuartel cuartel = new Cuartel();
         Posicion posicion2 = new Posicion(0,0);
         aldeano2.construir(cuartel, posicion2);
         plazaCentral.vida = 400;
@@ -92,12 +91,12 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoNoSumaOroMientrasRepara() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-		Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.sumarOro();
         aldeano.construir(plazaCentral, posicion);
@@ -109,12 +108,12 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoVuelveASumarOroDespuesDeReparar() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-		Tablero tablero = new Tablero();
+        TableroS tablero = TableroS.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest", tablero);
+        Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.sumarOro();
         aldeano.construir(plazaCentral, posicion);

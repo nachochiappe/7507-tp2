@@ -2,7 +2,7 @@ package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -42,15 +42,17 @@ public class AlgoEmpiresTest {
 
 	@Test
 	public void jugadorEmpiezaCon100DeOro() {
-		Tablero tablero = new Tablero();
-		Jugador jugador = new Jugador("Jugador", tablero);
+		TableroS tablero = TableroS.getInstance();
+		tablero.inicializarTablero();
+		Jugador jugador = new Jugador("Jugador");
 		Assert.assertEquals(jugador.getOro(), 100);
 	}
 
 	@Test
 	public void jugadorEmpiezaCon3Aldeanos() {
-		Tablero tablero = new Tablero();
-		Jugador jugador = new Jugador("Jugador", tablero);
+		TableroS tablero = TableroS.getInstance();
+		tablero.inicializarTablero();
+		Jugador jugador = new Jugador("Jugador");
 		Assert.assertEquals(jugador.getUnidades().size(), 3);
 		for (Unidad unidad: jugador.getUnidades()) {
 			Assert.assertTrue(unidad instanceof Aldeano);

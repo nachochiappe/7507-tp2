@@ -14,7 +14,7 @@ public class AlgoEmpires {
     private final int JUGADORES_NECESARIOS = 2;
 	
 	private HashMap<String, Jugador> jugadores;
-	private Tablero tablero;
+	private TableroS tablero;
 	private Jugador turnoActual;
 
 	public AlgoEmpires() {
@@ -22,7 +22,7 @@ public class AlgoEmpires {
     }
 	
 	public void inicializarTablero() {
-		tablero = new Tablero();
+		tablero = TableroS.getInstance();
 		tablero.inicializarTablero();
 	}
 
@@ -31,14 +31,14 @@ public class AlgoEmpires {
 	}
 
 	public void agregarPlazaCentralInicial() throws FueraDelMapaException {
-		Posicionable plazaCentral = new PlazaCentral(tablero);
+		Posicionable plazaCentral = new PlazaCentral();
 		Posicion posicionDeInicio = new Posicion(0,0);
 		Posicion posicionDeFin = new Posicion(1,1);
 		tablero.poner(plazaCentral,posicionDeInicio,posicionDeFin);
 	}
 
 	public void agregarJugador(String unNombre) {
-	    jugadores.put(unNombre, new Jugador(unNombre, tablero));
+	    jugadores.put(unNombre, new Jugador(unNombre));
     }
 
     public HashMap<String, Jugador> getJugadores() {

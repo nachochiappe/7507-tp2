@@ -1,15 +1,13 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Tablero;
 
 public class Aldeano extends Unidad {
 	
@@ -26,13 +24,11 @@ public class Aldeano extends Unidad {
 
     private final int MAX_HP = 50;
     private final int COSTO = 25;
-    Tablero tablero;
 
-    public Aldeano(Tablero _tablero, Jugador jugador, Posicion posicion) {
+    public Aldeano(Jugador jugador, Posicion posicion) {
         this.costo = COSTO;
         this.hp = MAX_HP;
         this.jugador = jugador;
-        this.tablero = _tablero;
         this.posicion = posicion;
         this.construccion = noConstruyendo;
         this.reparacion = noReparando;

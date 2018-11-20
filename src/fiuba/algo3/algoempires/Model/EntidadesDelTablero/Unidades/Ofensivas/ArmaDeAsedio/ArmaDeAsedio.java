@@ -3,10 +3,9 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arm
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Ofensiva;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
-import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
@@ -18,15 +17,14 @@ public class ArmaDeAsedio extends Ofensiva {
     private ArmaDeAsedioEstado estado;
     private ArmaDeAsedioMontada montada;
     private ArmaDeAsedioDesmontada desmontada;
-    Tablero tablero;
 
-    public ArmaDeAsedio(Tablero tablero, Jugador jugador, Posicion posicion) {
+
+    public ArmaDeAsedio(Jugador jugador, Posicion posicion) {
         this.costo = COSTO;
         this.hp = MAX_HP;
         montada = new ArmaDeAsedioMontada(this);
         desmontada = new ArmaDeAsedioDesmontada(this);
         estado = desmontada;
-        this.tablero = tablero;
         this.posicion = posicion;
     }
 

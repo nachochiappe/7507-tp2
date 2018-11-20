@@ -1,8 +1,7 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class NoReparando implements Reparacion {
 
