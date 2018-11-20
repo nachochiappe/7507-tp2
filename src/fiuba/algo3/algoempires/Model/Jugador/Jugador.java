@@ -2,6 +2,9 @@ package fiuba.algo3.algoempires.Model.Jugador;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
+import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
+import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -32,13 +35,14 @@ public class Jugador {
     }
 
 
-    public void moverUnidad(Object unidad, Object posicion) {
-        System.out.println("Mueve la unidad");
+    public void moverUnidad(Unidad unidad, Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
+        unidades.get(unidades.indexOf(unidad)).mover(desplazamiento);
     }
+
 
     public void empezarTurno() {
         for(Unidad unidad: unidades) {
-            unidad.habilitarMovimiento();
+            unidad.comenzarTurno();
         }
     }
 
@@ -65,5 +69,12 @@ public class Jugador {
 
     public void agregarUnidad(Unidad unidad){
         this.unidades.add(unidad);
+    }
+
+    public int obtenerPoblacion() { return this.unidades.size(); }
+
+    //TODO: BORRAR ESTO DESPUES DE LA ENTREGA 2
+    public PlazaCentral getPlazaCentral() {
+        return (PlazaCentral)this.edificios.get(0);
     }
 }

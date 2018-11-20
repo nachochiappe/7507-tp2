@@ -1,14 +1,10 @@
 package fiuba.algo3.Entrega1.PruebasDeUnidades;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.TableroS;
-import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -38,7 +34,7 @@ public class PruebasDeAtaque {
 */
 	@Test(expected = ObjetivoFueraDeRangoException.class)
     public void testEspadachinAtacaAOtroEspadachinQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador player1 = new Jugador("Pepito");
 		Jugador player2 = new Jugador("Fulanito");

@@ -6,7 +6,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 
-public class Castillo extends Edificio implements Posicionable {
+public class Castillo extends Edificio {
 
     private static final int MAX_VIDA = 1000;
     public int vida = MAX_VIDA;

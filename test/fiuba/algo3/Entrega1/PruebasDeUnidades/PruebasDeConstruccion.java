@@ -8,7 +8,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoExcept
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class PruebasDeConstruccion {
 	
     @Test
     public void testAldeanoPuedeConstruirCuartel() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -35,7 +35,7 @@ public class PruebasDeConstruccion {
     
     @Test
     public void testAldeanoPuedeConstruirPlazaCentral() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -70,7 +70,7 @@ public class PruebasDeConstruccion {
     
     @Test
     public void testAldeanoNoSumaOroMientrasConstruye() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -85,7 +85,7 @@ public class PruebasDeConstruccion {
     
     @Test(expected = AldeanoYaEstaConstruyendoException.class)
     public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();

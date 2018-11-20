@@ -5,7 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arqu
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class CuartelTest {
     @Test
     public void testCuartelCreaArqueroDevuelveArquero() {
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
         Posicion posicion =  new Posicion(18,18);
@@ -22,7 +22,7 @@ public class CuartelTest {
         Assert.assertEquals(arquero.getClass(),Arquero.class);
     }
     public void testCuartelCreaEspadachinDevuelveEspadachin() {
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
         Posicion posicion =  new Posicion(18,18);
@@ -32,7 +32,7 @@ public class CuartelTest {
     @Test
 
     public void testCuartelCreaArqueroSumaUnaUnidadAlJugador(){
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
         Posicion posicion =  new Posicion(18,18);
@@ -42,7 +42,7 @@ public class CuartelTest {
     }
     @Test
     public void testCuartelCreaEspadachinSumaUnaUnidadAlJugador(){
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         Cuartel cuartel= new Cuartel();
         Posicion posicion =  new Posicion(18,18);

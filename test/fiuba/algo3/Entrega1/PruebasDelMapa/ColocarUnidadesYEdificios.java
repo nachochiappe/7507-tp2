@@ -10,7 +10,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espa
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarCastilloEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Castillo castillo = new Castillo();
 		Posicion posicionDeInicio = new Posicion(0, 0);
@@ -32,7 +32,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarPlazaCentralEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		PlazaCentral plaza = new PlazaCentral();
 		Posicion posicionDeInicio = new Posicion(10, 10);
@@ -46,7 +46,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarCuartelEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Cuartel cuartel = new Cuartel();
 		Posicion posicionDeInicio = new Posicion(10, 10);
@@ -60,7 +60,7 @@ public class ColocarUnidadesYEdificios {
 
 	@Test(expected = FueraDelMapaException.class)
 	public void testNoPuedoColocarPlazaCentralFueraDeTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		PlazaCentral plaza = new PlazaCentral();
 		Posicion posicionDeInicio = new Posicion(25, 25);
@@ -70,7 +70,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test(expected = FueraDelMapaException.class)
 	public void testNoPuedoColocarCuartelFueraDeTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Cuartel cuartel = new Cuartel();
 		Posicion posicionDeInicio = new Posicion(25, 25);
@@ -80,7 +80,7 @@ public class ColocarUnidadesYEdificios {
 
 	@Test(expected = FueraDelMapaException.class)
 	public void testConstruirPlazaCentralEnBordeLevantaError() throws FueraDelMapaException{
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Posicion posicion = new Posicion(19,19);
 		PlazaCentral plaza = new PlazaCentral();
@@ -89,7 +89,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarAldeanoEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion posicion = new Posicion(10, 10);
@@ -100,7 +100,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarArqueroEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion posicion = new Posicion(10, 10);
@@ -111,7 +111,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarEspadachinEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion posicion = new Posicion(10, 10);
@@ -122,7 +122,7 @@ public class ColocarUnidadesYEdificios {
 	
 	@Test
 	public void testPuedoColocarArmaDeAsedioEnTablero() throws FueraDelMapaException {
-		TableroS tablero = TableroS.getInstance();
+		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion posicion = new Posicion(10, 10);

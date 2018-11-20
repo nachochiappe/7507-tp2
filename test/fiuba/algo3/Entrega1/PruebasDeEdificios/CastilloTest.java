@@ -5,7 +5,6 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arma
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.TableroS;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 public class CastilloTest {
     @Test
     public void testCastilloCreaArmaDeAsedio()  {
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador= new Jugador("jugadorTest");
         Castillo castillo= new Castillo();
         Posicion posicion = new Posicion(18,18);
@@ -24,8 +23,7 @@ public class CastilloTest {
 
     @Test
     public void testCastilloCreaArmaDeAsedioSumaUnaUnidadAlJugador(){
-        TableroS.getInstance().inicializarTablero();
-        Tablero tablero = new Tablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         Castillo castillo = new Castillo();
         Posicion posicion =  new Posicion(18,18);

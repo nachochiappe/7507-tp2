@@ -3,7 +3,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arm
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;

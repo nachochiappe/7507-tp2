@@ -1,13 +1,14 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 
-public abstract class Edificio {
+public abstract class Edificio implements Posicionable {
 	//vida
 	public int vida;
 	Posicion posicionInicial;
@@ -22,7 +23,7 @@ public abstract class Edificio {
     }
 	
 	public void crearUnidad(Unidad unidad) throws FueraDelMapaException {
-		TableroS.getInstance().poner(unidad, unidad.getPosicion(), unidad.getPosicion());
+		Tablero.getInstance().poner(unidad, unidad.getPosicion(), unidad.getPosicion());
 	}
 	
 	public Posicion obtenerPosicionInicial() {

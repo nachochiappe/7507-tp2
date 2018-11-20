@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;

@@ -9,7 +9,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -20,7 +20,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaArribaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -32,7 +32,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaAbajoUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -44,7 +44,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -56,7 +56,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -68,7 +68,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaArribaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -80,7 +80,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaArribaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -92,7 +92,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaAbajoIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -104,7 +104,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testAldeanoSeMueveParaAbajoDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -116,7 +116,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = DestinoFueraDelMapaException.class)
     public void testAldeanoNoPuedeSalirDelMapa() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(20, 20);
@@ -126,7 +126,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = UnidadYaSeMovioException.class)
     public void testAldeanoNoSeMueveMasDeUnaVezPorTurno() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -138,7 +138,7 @@ public class PruebasDeMovimientoYDireccion {
     //--------------ARQUERO----------------
     @Test
     public void testArqueroSeMueveParaArribaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -150,7 +150,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaAbajoUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -162,7 +162,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -174,7 +174,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -186,7 +186,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaArribaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -198,7 +198,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaArribaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -210,7 +210,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaAbajoIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -222,7 +222,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArqueroSeMueveParaAbajoDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -234,7 +234,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = DestinoFueraDelMapaException.class)
     public void testArqueroNoPuedeSalirDelMapa() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(20, 20);
@@ -244,7 +244,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = UnidadYaSeMovioException.class)
     public void testArqueroNoSeMueveMasDeUnaVezPorTurno() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -256,7 +256,7 @@ public class PruebasDeMovimientoYDireccion {
     //--------------ESPADACHIN----------------
     @Test
     public void testEspadachinSeMueveParaArribaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -268,7 +268,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaAbajoUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -280,7 +280,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -292,7 +292,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -304,7 +304,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaArribaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -316,7 +316,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaArribaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -328,7 +328,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaAbajoIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -340,7 +340,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testEspadachinSeMueveParaAbajoDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -352,7 +352,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = DestinoFueraDelMapaException.class)
     public void testEspadachinNoPuedeSalirDelMapa() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(20, 20);
@@ -362,7 +362,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = UnidadYaSeMovioException.class)
     public void testEspadachinNoSeMueveMasDeUnaVezPorTurno() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -374,7 +374,7 @@ public class PruebasDeMovimientoYDireccion {
     //--------------ARMA DE ASEDIO----------------
     @Test
     public void testArmaDeAsedioSeMueveParaArribaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -386,7 +386,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaAbajoUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -398,7 +398,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -410,7 +410,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -422,7 +422,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaArribaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -434,7 +434,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaArribaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -446,7 +446,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaAbajoIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -458,7 +458,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test
     public void testArmaDeAsedioSeMueveParaAbajoDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
@@ -470,7 +470,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = DestinoFueraDelMapaException.class)
     public void testArmaDeAsedioNoPuedeSalirDelMapa() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(20, 20);
@@ -480,7 +480,7 @@ public class PruebasDeMovimientoYDireccion {
 
     @Test(expected = UnidadYaSeMovioException.class)
     public void testArmaDeAsedioNoSeMueveMasDeUnaVezPorTurno() throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);

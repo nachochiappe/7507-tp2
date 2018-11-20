@@ -14,7 +14,7 @@ public class AlgoEmpires {
     private final int JUGADORES_NECESARIOS = 2;
 	
 	private HashMap<String, Jugador> jugadores;
-	private TableroS tablero;
+	private Tablero tablero;
 	private Jugador turnoActual;
 
 	public AlgoEmpires() {
@@ -22,7 +22,7 @@ public class AlgoEmpires {
     }
 	
 	public void inicializarTablero() {
-		tablero = TableroS.getInstance();
+		tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 	}
 

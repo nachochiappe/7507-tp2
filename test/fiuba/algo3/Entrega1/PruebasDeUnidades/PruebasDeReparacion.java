@@ -10,7 +10,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class PruebasDeReparacion {
         
 	@Test
     public void testAldeanoPuedeRepararCastillo() throws AldeanoYaEstaReparandoException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -33,7 +33,7 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoPuedeRepararPlazaCentral() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -48,7 +48,7 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoPuedeRepararCuartel() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -71,7 +71,7 @@ public class PruebasDeReparacion {
 	
 	@Test(expected = AldeanoYaEstaReparandoException.class)
     public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -91,7 +91,7 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoNoSumaOroMientrasRepara() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -108,7 +108,7 @@ public class PruebasDeReparacion {
 	
 	@Test
     public void testAldeanoVuelveASumarOroDespuesDeReparar() throws AldeanoYaEstaConstruyendoException, AldeanoYaEstaReparandoException, FueraDelMapaException{
-        TableroS tablero = TableroS.getInstance();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();

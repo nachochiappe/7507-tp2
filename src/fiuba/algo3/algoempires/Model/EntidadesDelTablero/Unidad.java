@@ -1,6 +1,6 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -31,6 +31,10 @@ public abstract class Unidad implements Posicionable {
         this.movimiento = movible;
     }
 
+    public void comenzarTurno() {
+        this.habilitarMovimiento();
+    }
+
     public void deshabilitarMovimiento() {
         this.movimiento = noMovible;
     }
@@ -59,7 +63,11 @@ public abstract class Unidad implements Posicionable {
 
 	public void recibeDanioDe(Ofensiva ofensiva) {
 		int danio = ofensiva.cuantoDanioAUnidad();
-		this.hp = this.hp - danio;	
+		this.hp = this.hp - danio;
+		if (this.hp < 1) {
+		    jugador.getUnidades().remove(this);
+		    this.posicion = null;
+        }
 	}
 
 	public boolean estasEnRango(Posicion posicionAtacante, int rango){

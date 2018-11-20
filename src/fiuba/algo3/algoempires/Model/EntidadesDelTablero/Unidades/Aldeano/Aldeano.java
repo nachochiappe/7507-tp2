@@ -41,6 +41,11 @@ public class Aldeano extends Unidad {
         return;
 	}
 
+	public void comenzarTurno() {
+    	this.habilitarMovimiento();
+    	this.sumarOro();
+	}
+
 	public void habilitarConstruccion() {
 		this.construccion = noConstruyendo;
 		this.sumatoria_oro = sumaOro;

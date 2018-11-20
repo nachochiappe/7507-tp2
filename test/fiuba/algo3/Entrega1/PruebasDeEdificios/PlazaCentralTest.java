@@ -6,7 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldean
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class PlazaCentralTest {
     
 	@Test
     public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2() throws FueraDelMapaException{
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
 		PlazaCentral plaza = new PlazaCentral();
         Posicion posicionInicial = new Posicion(0,0);
         plaza.construiteEn(posicionInicial);
@@ -26,7 +26,7 @@ public class PlazaCentralTest {
 
 	@Test
     public void testDosPlazasCentralesSeCreaEnCeroCeroYOcupa2x2YLaOtraASuDerecha() throws FueraDelMapaException{
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
 		PlazaCentral plaza1 = new PlazaCentral();
         Posicion posicionInicial = new Posicion(0,0);
         plaza1.construiteEn(posicionInicial);
@@ -43,7 +43,7 @@ public class PlazaCentralTest {
 
     @Test
     public void testPlazaCentralCreaAldeanoDevuelveUnAldeano(){
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
         Posicion posicion =  new Posicion(18,18);
@@ -63,7 +63,7 @@ public class PlazaCentralTest {
 
     @Test
     public void testPlazaCentralCreaAldeanoSumaUnaUnidadAlJugador(){
-        TableroS.getInstance().inicializarTablero();
+        Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
         Posicion posicion =  new Posicion(18,18);

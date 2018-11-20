@@ -1,7 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas;
 
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
 public class Arquero extends Ofensiva {
