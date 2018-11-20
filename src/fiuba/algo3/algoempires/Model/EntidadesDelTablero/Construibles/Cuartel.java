@@ -8,7 +8,10 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
-import fiuba.algo3.algoempires.Model.TableroS;
+import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
+
 
 
 public class Cuartel extends Edificio implements Construible, Posicionable{
@@ -18,11 +21,11 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 	static final int TURNOSCONTRUCCION=3;
 	static final int OCUPA_ANCHO = 2;
 	static final int OCUPA_ALTO = 2;
-	
+
 	public Cuartel() {
 		this.vida = MAX_VIDA;
 	}
-	
+
 	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
 		this.posiciones.addFirst(posicionDeInicio);
 		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + OCUPA_ALTO; i++) {
@@ -32,14 +35,14 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 			}
 		}
 		try {
-			TableroS.getInstance().poner(this, posiciones.getFirst(), posiciones.getLast());
+			Tablero.getInstance().poner(this, posiciones.getFirst(), posiciones.getLast());
 		}
 		catch (ArrayIndexOutOfBoundsException e){
 			throw new FueraDelMapaException("La construcción está fuera del mapa");
 		};
 	}
-	
-	
+
+
 	//estos get son para las pruebas...despues los saco
 	public int getCosto() {
 		return COSTO;
@@ -47,7 +50,7 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 	public int getVida() {
 		return vida;
 	}
-	
+
 	public void reparate(Aldeano aldeano) {
 		if (this.vida < MAX_VIDA) {
 			this.vida += 50;
@@ -57,16 +60,17 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 		}
 	}
 
+
 	public Arquero crearArquero(Jugador jugador,Posicion posicion){
-		//falta crear la excepcion
 		//if (jugador.getOro()<75) throw new OroInsuficienteException();
 		Arquero arquero = new Arquero(jugador,posicion);
 		jugador.agregarUnidad(arquero);
 		return arquero;
 	}
 
+
+
 	public Espadachin crearEspadachin(Jugador jugador,Posicion posicion){
-		//falta crear la excepcion
 		//if (jugador.getOro()<75) throw new OroInsuficienteException();
 		Espadachin espadachin = new Espadachin(jugador,posicion);
 		jugador.agregarUnidad(espadachin);
@@ -74,3 +78,4 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 	}
 
 }
+

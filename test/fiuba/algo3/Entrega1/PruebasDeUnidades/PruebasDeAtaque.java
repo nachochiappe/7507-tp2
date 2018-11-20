@@ -11,7 +11,6 @@ import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.TableroS;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
