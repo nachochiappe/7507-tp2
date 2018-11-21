@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -111,4 +112,22 @@ public class PruebasDeAtaque {
 		espadachin.atacar(arqueroMalo);
 		Assert.assertEquals(arqueroMalo.getHp(), 50);
 	}
+	
+	@Test
+    public void testArmaDeAsedioMontadaAtacaCuartelYLeSacaVida() throws ObjetivoFueraDeRangoException{
+		Jugador jugador = Mockito.mock(Jugador.class);
+		Posicion posicionArma = new Posicion(4,4);
+		Posicion posicionCastillo = new Posicion(9,4);
+		Castillo castilloMalo = new Castillo();
+		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicionArma);
+		try {
+			castilloMalo.construiteEn(posicionCastillo);
+		} catch (FueraDelMapaException e) {
+			System.out.println("Error al construir el castillo de prueba");
+		}
+		armaDeAsedio.toggleMontar();
+		armaDeAsedio.atacar(castilloMalo);
+		Assert.assertEquals(castilloMalo.obtenerVida(), 925);
+	}
+	
 }

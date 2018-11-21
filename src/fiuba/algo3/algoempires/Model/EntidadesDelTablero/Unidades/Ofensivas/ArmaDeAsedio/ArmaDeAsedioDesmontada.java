@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio;
 
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 
@@ -18,8 +19,12 @@ public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
     }
 
     @Override
-    public void atacar(Object edificio) throws ArmaDeAsedioNoMontadaException {
-        throw new ArmaDeAsedioNoMontadaException();
+    public void atacar(Posicionable edificio){
+        try {
+			throw new ArmaDeAsedioNoMontadaException();
+		} catch (ArmaDeAsedioNoMontadaException e) {
+			e.printStackTrace();
+		}
     }
 
     @Override

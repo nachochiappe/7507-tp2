@@ -7,7 +7,9 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -45,14 +47,6 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
         }
     }
 
-    public void atacar(Object edificio) {
-        try {
-            this.estado.atacar(edificio);
-        } catch (ArmaDeAsedioNoMontadaException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void toggleMontar() {
         this.estado.toggleMontar();
     }
@@ -76,6 +70,11 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
 	@Override
 	public int cuantoDanioAUnidad() {
+		try {
+			throw new ArmaDeAsedioNoAtacaUnidadesException();
+		} catch (ArmaDeAsedioNoAtacaUnidadesException e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 
@@ -92,8 +91,11 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 	@Override
 	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException {
     	if(!posicionable.estasEnRango(this.getPosicion(), this.rango)) throw new ObjetivoFueraDeRangoException();
-		posicionable.atacadoPor(this);
+		try {
+			this.estado.atacar(posicionable);
+		} catch (ArmaDeAsedioNoMontadaException e) {
+			e.printStackTrace();
+		}
 	}
-
 
 }
