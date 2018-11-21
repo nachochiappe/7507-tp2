@@ -5,8 +5,8 @@ import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
@@ -16,10 +16,12 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
     private final int MAX_HP = 150;
     private final int COSTO = 200;
+    private final int MAX_RANGO = 5;
 
     private ArmaDeAsedioEstado estado;
     private ArmaDeAsedioMontada montada;
     private ArmaDeAsedioDesmontada desmontada;
+    private int rango;
 
 
     public ArmaDeAsedio(Jugador jugador, Posicion posicion) {
@@ -29,6 +31,7 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
         desmontada = new ArmaDeAsedioDesmontada(this);
         estado = desmontada;
         this.posicion = posicion;
+        this.rango = MAX_RANGO;
     }
 
     public void mover(Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
@@ -72,32 +75,25 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 	}
 
 	@Override
-	public void atacar(Unidad unidad) throws ObjetivoFueraDeRangoException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void atacar(Edificio edificio) throws ObjetivoFueraDeRangoException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public int cuantoDanioAUnidad() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int cuantoDanioAEdificio() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 75;
 	}
 
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) {
 		this.recibeDanioDe(ofensivo);
 	}
+
+	@Override
+	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException {
+    	if(!posicionable.estasEnRango(this.getPosicion(), this.rango)) throw new ObjetivoFueraDeRangoException();
+		posicionable.atacadoPor(this);
+	}
+
 
 }
