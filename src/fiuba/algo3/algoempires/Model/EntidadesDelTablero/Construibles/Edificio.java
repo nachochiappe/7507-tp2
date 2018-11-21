@@ -1,7 +1,6 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
@@ -46,9 +45,9 @@ public abstract class Edificio {
 	}
 
 	public boolean estasEnRango(Posicion posicionAtacante, int rango) {
-		Iterator iterator = posiciones.iterator();
+		Iterator<Posicion> iterator = posiciones.iterator();
 		while (iterator.hasNext()) {
-			if(posicionAtacante.estaEnRango((Posicion)iterator.next(), rango))
+			if(posicionAtacante.estaEnRango(iterator.next(), rango))
 				return true;
 		}
 		return false;
