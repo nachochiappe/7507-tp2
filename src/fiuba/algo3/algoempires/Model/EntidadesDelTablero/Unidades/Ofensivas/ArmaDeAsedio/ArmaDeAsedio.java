@@ -1,15 +1,18 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio;
 
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
-public class ArmaDeAsedio extends Ofensiva {
+public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
     private final int MAX_HP = 150;
     private final int COSTO = 200;
@@ -66,6 +69,30 @@ public class ArmaDeAsedio extends Ofensiva {
 	@Override
 	public boolean estaVacio() {
 		return false;
+	}
+
+	@Override
+	public void atacar(Unidad unidad) throws ObjetivoFueraDeRangoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atacar(Edificio edificio) throws ObjetivoFueraDeRangoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int cuantoDanioAUnidad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int cuantoDanioAEdificio() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
