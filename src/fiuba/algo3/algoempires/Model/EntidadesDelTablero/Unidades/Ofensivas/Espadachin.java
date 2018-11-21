@@ -19,19 +19,12 @@ public class Espadachin extends Unidad implements Ofensiva {
         this.posicion = posicion;
         this.rango = MAX_RANGO;
     }
-/*
+
 	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException {
+    	if(!posicionable.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
 		posicionable.atacadoPor(this);
 	}
-*/
-    public void atacar (Unidad unidad) throws ObjetivoFueraDeRangoException {
-    	if(!unidad.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
-        unidad.recibeDanioDe(this);
-    }
-	public void atacar(Edificio edificio) throws ObjetivoFueraDeRangoException {
-    	if(!edificio.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
-		edificio.recibeDanioDe(this);	
-	}	
+
     
     @Override
 	public boolean estaVacio() {
@@ -43,5 +36,10 @@ public class Espadachin extends Unidad implements Ofensiva {
 	
 	public int cuantoDanioAEdificio() {
 		return 15;
+	}
+
+	@Override
+	public void atacadoPor(Ofensiva ofensivo) {
+		this.recibeDanioDe(ofensivo);
 	}
 }

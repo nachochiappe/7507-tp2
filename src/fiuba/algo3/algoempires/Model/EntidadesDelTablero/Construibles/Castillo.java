@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -59,4 +60,8 @@ public class Castillo extends Edificio implements Posicionable {
         jugador.agregarUnidad(arma);
         return arma;
     }
+	@Override
+	public void atacadoPor(Ofensiva ofensivo) {
+		this.recibeDanioDe(ofensivo);
+	}
 }

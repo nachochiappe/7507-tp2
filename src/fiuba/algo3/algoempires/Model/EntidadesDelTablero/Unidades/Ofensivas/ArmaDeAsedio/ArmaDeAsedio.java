@@ -95,4 +95,9 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 		return 0;
 	}
 
+	@Override
+	public void atacadoPor(Ofensiva ofensivo) {
+		this.recibeDanioDe(ofensivo);
+	}
+
 }

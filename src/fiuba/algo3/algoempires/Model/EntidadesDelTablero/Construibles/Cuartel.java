@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -76,6 +77,11 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 		Espadachin espadachin = new Espadachin(jugador,posicion);
 		jugador.agregarUnidad(espadachin);
 		return espadachin;
+	}
+
+	@Override
+	public void atacadoPor(Ofensiva ofensivo) {
+		this.recibeDanioDe(ofensivo);
 	}
 
 }

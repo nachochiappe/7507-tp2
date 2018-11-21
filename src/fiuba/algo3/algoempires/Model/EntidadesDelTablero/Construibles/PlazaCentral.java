@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
@@ -77,6 +78,12 @@ public class PlazaCentral extends Edificio implements Construible, Posicionable{
 		Aldeano aldeano = new Aldeano(jugador,posicion);
 		jugador.agregarUnidad(aldeano);
 		return aldeano;
+	}
+
+	@Override
+	public void atacadoPor(Ofensiva ofensivo) {
+		this.recibeDanioDe(ofensivo);
+		
 	}
 
 
