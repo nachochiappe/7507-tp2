@@ -1,13 +1,9 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaReparandoException;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -28,31 +24,24 @@ public class Aldeano extends Unidad {
 
 	public void comenzarTurno() {
     	this.habilitarMovimiento();
-		this.estado.comenzarTurno();
+		try {
+			this.estado.comenzarTurno();
+		} catch (EdificioNoNecesitaRepararse | EdificioYaConstruidoException | SoloSePermiteUnAldeanoException edificioNoNecesitaRepararse) {
+			//nunca debería llegar acá
+			this.estado = new Idle(this);
+		}
 	}
 
-	public void empezarConstruccion(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException {
+	public void construir(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException {
 		this.estado.empezarConstruccion(edificio, posicion);
-	}
-
-	public void construir(Edificio edificio) throws AldeanoOcupadoException {
-		this.estado.construir(edificio);
-	}
-
-	public void reparar(Edificio edificio) throws AldeanoOcupadoException {
-    	this.estado.reparar(edificio);
 	}
 
 	public void empezarAConstruir(Edificio edificio) {
 		this.estado = new Construyendo(this, edificio);
 	}
 
-	public void empezarAReparar(Edificio edificio) {
-		this.estado = new Reparando(this, edificio);
-	}
-
 	public void terminarAccion() {
-		this.estado = new Idle(this);
+		this.estado.terminarAccion();
 	}
 
 	public void sumarOro() {

@@ -1,12 +1,15 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Excepciones.EdificioEnConstruccionException;
+import fiuba.algo3.algoempires.Model.Excepciones.EdificioNoNecesitaRepararse;
+import fiuba.algo3.algoempires.Model.Excepciones.EdificioYaConstruidoException;
+import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 
 public interface EstadoEdilicio {
 
-    void reparar();
+    void edificar(Aldeano aldeano) throws EdificioNoNecesitaRepararse, SoloSePermiteUnAldeanoException;
 
-    void construir();
-
-    void crearUnidad(Unidad unidad);
+    void crearUnidad(Unidad unidad) throws EdificioEnConstruccionException;
 }

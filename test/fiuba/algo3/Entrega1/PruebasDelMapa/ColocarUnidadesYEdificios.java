@@ -8,6 +8,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arma
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
@@ -79,12 +80,12 @@ public class ColocarUnidadesYEdificios {
 	}
 
 	@Test(expected = FueraDelMapaException.class)
-	public void testConstruirPlazaCentralEnBordeLevantaError() throws FueraDelMapaException{
+	public void testConstruirPlazaCentralEnBordeLevantaError() throws FueraDelMapaException, SoloSePermiteUnAldeanoException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Posicion posicion = new Posicion(19,19);
 		PlazaCentral plaza = new PlazaCentral();
-		plaza.construiteEn(posicion);
+		plaza.construiteEn(new Aldeano(new Jugador("jugador"),posicion), posicion);
 	}
 	
 	@Test

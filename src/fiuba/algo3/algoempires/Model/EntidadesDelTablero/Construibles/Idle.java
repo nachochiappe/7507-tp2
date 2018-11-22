@@ -1,4 +1,29 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
-public class Idle {
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Excepciones.EdificioNoNecesitaRepararse;
+import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
+
+public class Idle implements EstadoEdilicio {
+
+    private Edificio edificio;
+
+
+    Idle(Edificio edificio) {
+        this.edificio = edificio;
+    }
+
+    @Override
+    public void edificar(Aldeano aldeano) throws EdificioNoNecesitaRepararse, SoloSePermiteUnAldeanoException {
+        edificio.aldeanoValido(aldeano);
+        if(this.edificio.isFullHp()){
+            throw new EdificioNoNecesitaRepararse();
+        }
+        this.edificio._reparar(aldeano);
+    }
+
+    @Override
+    public void crearUnidad(Unidad unidad) {
+    }
 }

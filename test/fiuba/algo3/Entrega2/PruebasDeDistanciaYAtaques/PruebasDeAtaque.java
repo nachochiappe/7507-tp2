@@ -3,10 +3,12 @@ package fiuba.algo3.Entrega2.PruebasDeDistanciaYAtaques;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
+import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import org.junit.Assert;
@@ -23,8 +25,8 @@ public class PruebasDeAtaque {
 		Posicion pos = new Posicion(3,3);
 		PlazaCentral plaza = new PlazaCentral();
 		try {
-			plaza.construiteEn(pos);
-		} catch (FueraDelMapaException e) {
+			plaza.construiteEn(new Aldeano(jugador, pos), pos);
+		} catch (FueraDelMapaException | SoloSePermiteUnAldeanoException e) {
 			System.out.println("Error al construir la plaza de prueba");
 		}
 		Espadachin espadachin = new Espadachin(jugador, pos);
@@ -62,9 +64,11 @@ public class PruebasDeAtaque {
 		Espadachin espadachinBueno = new Espadachin (player1, pos1);
 		Castillo castilloMalo = new Castillo();
 		try {
-			castilloMalo.construiteEn(pos2);
+			castilloMalo.construiteEn(new Aldeano(player1, pos2), pos2);
 		} catch (FueraDelMapaException e) {
 			System.out.println("Error al construir el castillo de prueba");
+		} catch (SoloSePermiteUnAldeanoException e) {
+			e.printStackTrace();
 		}
 		espadachinBueno.atacar(castilloMalo);
 	}
@@ -75,9 +79,11 @@ public class PruebasDeAtaque {
 		Posicion pos = new Posicion(4,4);
 		Cuartel cuartel = new Cuartel();
 		try {
-			cuartel.construiteEn(pos);
+			cuartel.construiteEn(new Aldeano(jugador, pos), pos);
 		} catch (FueraDelMapaException e) {
 			System.out.println("Error al construir el cuartel de prueba");
+		} catch (SoloSePermiteUnAldeanoException e) {
+			e.printStackTrace();
 		}
 		Arquero arquero = new Arquero(jugador, pos);
 		arquero.atacar(cuartel);
@@ -121,9 +127,11 @@ public class PruebasDeAtaque {
 		Castillo castilloMalo = new Castillo();
 		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicionArma);
 		try {
-			castilloMalo.construiteEn(posicionCastillo);
+			castilloMalo.construiteEn(new Aldeano(jugador, posicionArma), posicionCastillo);
 		} catch (FueraDelMapaException e) {
 			System.out.println("Error al construir el castillo de prueba");
+		} catch (SoloSePermiteUnAldeanoException e) {
+			e.printStackTrace();
 		}
 		armaDeAsedio.toggleMontar();
 		armaDeAsedio.atacar(castilloMalo);

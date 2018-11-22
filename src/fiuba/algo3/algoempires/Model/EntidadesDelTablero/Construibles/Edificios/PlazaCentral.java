@@ -11,7 +11,7 @@ import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 
-public class PlazaCentral extends Edificio implements Construible {
+public class PlazaCentral extends Edificio {
 
 	private static final int MAX_VIDA = 450;
 	private static final int HP_REGEN = 25;

@@ -4,8 +4,9 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
+import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class PruebasDeConstruccion {
 	
     @Test
-    public void testAldeanoPuedeConstruirCuartel() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
+    public void testAldeanoPuedeConstruirCuartel() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
@@ -34,7 +35,7 @@ public class PruebasDeConstruccion {
     }
     
     @Test
-    public void testAldeanoPuedeConstruirPlazaCentral() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
+    public void testAldeanoPuedeConstruirPlazaCentral() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
@@ -49,7 +50,7 @@ public class PruebasDeConstruccion {
     
     /*
     @Test(expected = SoloPuedeRealizarAccionesEnSuTurnoException.class)
-    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws AldeanoYaEstaConstruyendoException, SoloPuedeRealizarAccionesEnSuTurnoException{
+    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws  SoloPuedeRealizarAccionesEnSuTurnoException{
     	AlgoEmpires juego = new AlgoEmpires();
     	Tablero tablero = new Tablero();
         tablero.inicializarTablero();
@@ -69,7 +70,7 @@ public class PruebasDeConstruccion {
     */
     
     @Test
-    public void testAldeanoNoSumaOroMientrasConstruye() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
+    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
@@ -82,9 +83,8 @@ public class PruebasDeConstruccion {
         aldeano.sumarOro();
         Assert.assertEquals(120, jugador.getOro());
     }
-    
-    @Test(expected = AldeanoYaEstaConstruyendoException.class)
-    public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws AldeanoYaEstaConstruyendoException, FueraDelMapaException{
+
+    public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");

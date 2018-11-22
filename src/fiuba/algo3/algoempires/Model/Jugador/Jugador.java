@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -87,6 +88,14 @@ public class Jugador {
 
     public void agregarOro(int oro) {
         this.oro += oro;
+    }
+
+    public void sacarOro(int oro) throws OroInsuficienteException {
+        if(this.oro < oro) {
+            throw new OroInsuficienteException();
+        } else {
+            this.oro = this.oro - oro;
+        }
     }
 
     public void agregarUnidad(Unidad unidad) throws ExcedeTopePoblacionalException {

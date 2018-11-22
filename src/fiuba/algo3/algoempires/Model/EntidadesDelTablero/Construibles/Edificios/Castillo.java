@@ -26,7 +26,7 @@ public class Castillo extends Edificio implements Posicionable {
         return vida;
     }
 
-    @Override
+
     public void construir(Aldeano aldeano) {
         //TODO: EXCEPTION CASTILLO NO PUEDE CONSTRUIR
     }

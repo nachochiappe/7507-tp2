@@ -14,7 +14,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import java.util.ArrayList;
 
 public class PlazaCentralTest {
-    
+    /*
 	@Test
     public void testPlazaCentralSeCreaEnCeroCeroYOcupa2x2() throws FueraDelMapaException{
         Tablero.getInstance().inicializarTablero();
