@@ -14,41 +14,44 @@ import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 
-public class PlazaCentral extends Edificio implements Construible, Posicionable{
+public class PlazaCentral extends Edificio implements Construible {
 
 	private static final int MAX_VIDA = 450;
+	private static final int HP_REGEN = 25;
 	static final int COSTO=100;
 	static final int TURNOSCONTRUCCION=3;
 	static final int OCUPA_ANCHO = 2;
 	static final int OCUPA_ALTO = 2;
+	public int vida;
 
 	public PlazaCentral() {
 		this.vida = MAX_VIDA;
 	}
 
-	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
-		this.posiciones.addFirst(posicionDeInicio);
-		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + OCUPA_ALTO; i++) {
-			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + OCUPA_ANCHO; j++) {
-				Posicion posicionActual = new Posicion(i,j);
-				posiciones.add(posicionActual);
-			}
-		}
-		try {
-			Tablero.getInstance().poner(this, posiciones.getFirst(), posiciones.getLast());
-		}
-		catch (ArrayIndexOutOfBoundsException e){
-			throw new FueraDelMapaException("La construcción está fuera del mapa");
-		};
+
+	@Override
+	public int getHpRegen() {
+		return HP_REGEN;
 	}
 
-	public void reparate(Aldeano aldeano) {
-		if (this.vida < MAX_VIDA) {
-			this.vida += 25;
-		}
-		else {
-			aldeano.deshabilitarReparacion();
-		}
+	@Override
+	public int getMaxHp() {
+		return MAX_VIDA;
+	}
+
+	@Override
+	public int getTurnosConstruccion() {
+		return TURNOSCONTRUCCION;
+	}
+
+	@Override
+	public int getAlto() {
+		return OCUPA_ALTO;
+	}
+
+	@Override
+	public int getAncho() {
+		return OCUPA_ANCHO;
 	}
 
 	public void mori() {

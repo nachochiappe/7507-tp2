@@ -20,7 +20,7 @@ public class ArmaDeAsedioMontada implements ArmaDeAsedioEstado {
 
 
     public void atacar(Posicionable edificio) throws ArmaDeAsedioNoMontadaException {
-    	edificio.atacadoPor(this);
+    	edificio.atacadoPor(this.armaDeAsedio);
     }
 
     @Override

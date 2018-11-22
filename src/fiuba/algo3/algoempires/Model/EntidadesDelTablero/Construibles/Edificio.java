@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
@@ -11,22 +12,41 @@ import java.util.LinkedList;
 
 import fiuba.algo3.algoempires.Model.Tablero;
 
-public abstract class Edificio {
+public abstract class Edificio implements Posicionable {
 	//vida
 	public int vida;
+	public int turnosConstruyendo;
 	LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
+	EstadoEdilicio estadoEdilicio;
+	Construyendo construyendo;
+	Reparando reparando;
 
 	public boolean estaVacio() {
 		return false;
 	}
 
 	public void reparate(Aldeano aldeano) {
-
+		this.estadoEdilicio = new Reparando(this, aldeano);
 	}
 
-	public void crearUnidad(Unidad unidad) throws FueraDelMapaException {
-		Tablero.getInstance().poner(unidad, unidad.getPosicion(), unidad.getPosicion());
+	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
+		this.posiciones.addFirst(posicionDeInicio);
+		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + this.getAlto(); i++) {
+			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + this.getAncho(); j++) {
+				Posicion posicionActual = new Posicion(i,j);
+				posiciones.add(posicionActual);
+			}
+		}
+		try {
+			Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
+		}
+		catch (ArrayIndexOutOfBoundsException e){
+			throw new FueraDelMapaException("La construcción está fuera del mapa");
+		};
 	}
+
+
+
 
 	public Posicion obtenerPosicionInicial() {
 		return this.posiciones.getFirst();
@@ -52,4 +72,25 @@ public abstract class Edificio {
 		}
 		return false;
 	}
+
+	public void reparar(Aldeano aldeano) {
+		this.vida += this.getHpRegen();
+		if(this.vida == this.getMaxHp()) {
+			aldeano.habilitarReparacion();
+			this.estadoEdilicio = new Idle(this);
+		}
+	}
+
+	public void construir(Aldeano aldeano) {
+		turnosConstruyendo++;
+		if (turnosConstruyendo == this.getTurnosConstruccion()) {
+			aldeano.deshabilitarConstruccion();
+		}
+	}
+
+	public abstract int getHpRegen();
+	public abstract int getMaxHp();
+	public abstract int getTurnosConstruccion();
+	public abstract int getAlto();
+	public abstract int getAncho();
 }

@@ -14,32 +14,18 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 
 
-public class Cuartel extends Edificio implements Construible, Posicionable{
+public class Cuartel extends Edificio implements Construible {
 
 	private static final int MAX_VIDA = 250;
 	static final int COSTO=50;
-	static final int TURNOSCONTRUCCION=3;
-	static final int OCUPA_ANCHO = 2;
-	static final int OCUPA_ALTO = 2;
+	public int vida;
+	private static final int HP_REGEN = 50;
+	private static final int TURNOSCONTRUCCION=3;
+	private static final int OCUPA_ANCHO = 2;
+	private static final int OCUPA_ALTO = 2;
 
 	public Cuartel() {
 		this.vida = MAX_VIDA;
-	}
-
-	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
-		this.posiciones.addFirst(posicionDeInicio);
-		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + OCUPA_ALTO; i++) {
-			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + OCUPA_ANCHO; j++) {
-				Posicion posicionActual = new Posicion(i,j);
-				posiciones.add(posicionActual);
-			}
-		}
-		try {
-			Tablero.getInstance().poner(this, posiciones.getFirst(), posiciones.getLast());
-		}
-		catch (ArrayIndexOutOfBoundsException e){
-			throw new FueraDelMapaException("La construcción está fuera del mapa");
-		};
 	}
 
 
@@ -51,13 +37,29 @@ public class Cuartel extends Edificio implements Construible, Posicionable{
 		return vida;
 	}
 
-	public void reparate(Aldeano aldeano) {
-		if (this.vida < MAX_VIDA) {
-			this.vida += 50;
-		}
-		else {
-			aldeano.deshabilitarReparacion();
-		}
+	@Override
+	public int getHpRegen() {
+		return HP_REGEN;
+	}
+
+	@Override
+	public int getMaxHp() {
+		return MAX_VIDA;
+	}
+
+	@Override
+	public int getTurnosConstruccion() {
+		return TURNOSCONTRUCCION;
+	}
+
+	@Override
+	public int getAlto() {
+		return OCUPA_ALTO;
+	}
+
+	@Override
+	public int getAncho() {
+		return OCUPA_ANCHO;
 	}
 
 
