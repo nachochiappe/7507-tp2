@@ -1,5 +1,5 @@
 package fiuba.algo3.Entrega1.PruebasDeEdificios;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;

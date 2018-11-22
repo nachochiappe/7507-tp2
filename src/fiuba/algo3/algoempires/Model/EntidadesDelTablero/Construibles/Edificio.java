@@ -14,22 +14,18 @@ import fiuba.algo3.algoempires.Model.Tablero;
 
 public abstract class Edificio implements Posicionable {
 	//vida
-	public int vida;
-	public int turnosConstruyendo;
-	LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
-	EstadoEdilicio estadoEdilicio;
-	Construyendo construyendo;
-	Reparando reparando;
+	private int vida;
+	private int turnosConstruyendo;
+	private LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
+	private EstadoEdilicio estadoEdilicio;
+	private Aldeano aldeanoAsignado;
 
 	public boolean estaVacio() {
 		return false;
 	}
 
-	public void reparate(Aldeano aldeano) {
-		this.estadoEdilicio = new Reparando(this, aldeano);
-	}
 
-	public void construiteEn(Posicion posicionDeInicio) throws FueraDelMapaException {
+	public void construiteEn(Aldeano aldeano, Posicion posicionDeInicio) throws FueraDelMapaException {
 		this.posiciones.addFirst(posicionDeInicio);
 		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + this.getAlto(); i++) {
 			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + this.getAncho(); j++) {
@@ -39,6 +35,8 @@ public abstract class Edificio implements Posicionable {
 		}
 		try {
 			Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
+			this.aldeanoAsignado = aldeano;
+			this.estadoEdilicio = new Construyendo(this, aldeanoAsignado);
 		}
 		catch (ArrayIndexOutOfBoundsException e){
 			throw new FueraDelMapaException("La construcción está fuera del mapa");
@@ -76,16 +74,19 @@ public abstract class Edificio implements Posicionable {
 	public void reparar(Aldeano aldeano) {
 		this.vida += this.getHpRegen();
 		if(this.vida == this.getMaxHp()) {
-			aldeano.habilitarReparacion();
-			this.estadoEdilicio = new Idle(this);
+			aldeano.terminarAccion();
 		}
 	}
 
 	public void construir(Aldeano aldeano) {
 		turnosConstruyendo++;
 		if (turnosConstruyendo == this.getTurnosConstruccion()) {
-			aldeano.deshabilitarConstruccion();
+			aldeano.terminarAccion();
 		}
+	}
+
+	public void desligarAldeano() {
+		this.aldeanoAsignado = null;
 	}
 
 	public abstract int getHpRegen();

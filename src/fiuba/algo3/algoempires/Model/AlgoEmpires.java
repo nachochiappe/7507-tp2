@@ -1,7 +1,7 @@
 package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.*;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;

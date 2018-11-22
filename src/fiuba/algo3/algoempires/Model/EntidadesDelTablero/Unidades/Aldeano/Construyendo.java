@@ -1,14 +1,42 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
-public class Construyendo implements Construccion {
+public class Construyendo implements EstadoAldeano {
+
+	private Aldeano aldeano;
+	private Edificio edificio;
+
+	public Construyendo(Aldeano aldeano, Edificio edificio) {
+		this.aldeano = aldeano;
+		this.edificio = edificio;
+	}
 
 	@Override
-	public void construir(Construible construible, Posicion posicion) throws AldeanoYaEstaConstruyendoException {
-		throw new AldeanoYaEstaConstruyendoException();
+	public void comenzarTurno() {
+		this.edificio.construir(this.aldeano);
+	}
+
+	@Override
+	public void construir(Edificio construible) throws AldeanoOcupadoException {
+		throw new AldeanoOcupadoException();
+	}
+
+	@Override
+	public void reparar(Edificio edificio) throws AldeanoOcupadoException {
+		throw new AldeanoOcupadoException();
+	}
+
+	@Override
+	public void empezarConstruccion(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException {
+		throw new AldeanoOcupadoException();
+	}
+
+	@Override
+	public void terminarAccion() {
+		this.edificio.desligarAldeano();
 	}
 
 }

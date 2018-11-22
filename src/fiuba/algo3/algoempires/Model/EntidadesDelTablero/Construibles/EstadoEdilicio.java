@@ -1,6 +1,12 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+
 public interface EstadoEdilicio {
-    public void comenzarTurno();
-    public void crearUnidad();
+
+    void reparar();
+
+    void construir();
+
+    void crearUnidad(Unidad unidad);
 }

@@ -1,27 +1,24 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-
-import fiuba.algo3.algoempires.Model.Tablero;
-
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 
 public class PlazaCentral extends Edificio implements Construible {
 
 	private static final int MAX_VIDA = 450;
 	private static final int HP_REGEN = 25;
-	static final int COSTO=100;
-	static final int TURNOSCONTRUCCION=3;
-	static final int OCUPA_ANCHO = 2;
-	static final int OCUPA_ALTO = 2;
+	private static final int COSTO=100;
+	private static final int TURNOSCONTRUCCION=3;
+	private static final int OCUPA_ANCHO = 2;
+	private static final int OCUPA_ALTO = 2;
 	public int vida;
 
 	public PlazaCentral() {

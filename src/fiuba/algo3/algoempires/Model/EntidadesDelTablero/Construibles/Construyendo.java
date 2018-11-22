@@ -1,8 +1,9 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 
-public class Construyendo implements EstadoEdilicio {
+public class Construyendo implements EstadoEdilicio{
 
     Edificio edificio;
     Aldeano aldeano;
@@ -13,12 +14,17 @@ public class Construyendo implements EstadoEdilicio {
     }
 
     @Override
-    public void comenzarTurno() {
-        this.edificio.construir(aldeano);
+    public void reparar() {
+
     }
 
     @Override
-    public void crearUnidad() {
-        //TODO: ARMAR EXCEPCION
+    public void construir() {
+
+    }
+
+    @Override
+    public void crearUnidad(Unidad unidad) {
+
     }
 }

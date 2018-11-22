@@ -1,15 +1,13 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios;
 
-import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
-import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 
@@ -17,7 +15,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 public class Cuartel extends Edificio implements Construible {
 
 	private static final int MAX_VIDA = 250;
-	static final int COSTO=50;
+	private static final int COSTO=50;
 	public int vida;
 	private static final int HP_REGEN = 50;
 	private static final int TURNOSCONTRUCCION=3;

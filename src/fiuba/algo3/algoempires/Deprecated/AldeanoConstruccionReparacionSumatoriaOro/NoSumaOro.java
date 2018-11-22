@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
+package fiuba.algo3.algoempires.Deprecated.AldeanoConstruccionReparacionSumatoriaOro;
 
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 

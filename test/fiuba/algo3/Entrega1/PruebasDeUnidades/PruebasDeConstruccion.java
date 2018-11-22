@@ -1,7 +1,7 @@
 package fiuba.algo3.Entrega1.PruebasDeUnidades;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoYaEstaConstruyendoException;

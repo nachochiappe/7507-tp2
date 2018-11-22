@@ -1,8 +1,8 @@
 package fiuba.algo3.Entrega2.PruebasDeDistanciaYAtaques;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Castillo;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Cuartel;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;

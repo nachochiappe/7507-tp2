@@ -1,15 +1,14 @@
-package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
+package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios;
 
-import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class Castillo extends Edificio implements Posicionable {
 

@@ -1,6 +1,6 @@
 package fiuba.algo3.Entrega1.PruebasDeEdificios;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.PlazaCentral;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
