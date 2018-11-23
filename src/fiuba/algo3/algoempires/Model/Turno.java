@@ -1,10 +1,12 @@
 package fiuba.algo3.algoempires.Model;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Iterator;
 
 import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+
 
 public class Turno {
 	private List <Jugador> jugadores;
@@ -14,10 +16,11 @@ public class Turno {
 
     public Turno(List <Jugador> listaJugadores) throws CantidadJugadoresIncorrectaException {
         if (listaJugadores.size() != CANTIDAD_JUGADORES) throw new CantidadJugadoresIncorrectaException();
+        Collections.shuffle(listaJugadores);
         this.jugadores = listaJugadores;
         this.it = listaJugadores.iterator();
         this.jugadorActual = this.it.next();
-        this.jugadorActual.empezarTurno();
+        //this.jugadorActual.empezarTurno();
     }
 
     public void siguienteTurno() {

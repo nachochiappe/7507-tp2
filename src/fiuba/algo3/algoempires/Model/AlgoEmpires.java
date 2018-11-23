@@ -2,11 +2,15 @@ package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
+import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class AlgoEmpires {
@@ -16,11 +20,26 @@ public class AlgoEmpires {
 	private HashMap<String, Jugador> jugadores;
 	private Tablero tablero;
 	private Jugador turnoActual;
+	private Turno turno;
 
 	public AlgoEmpires() {
 	    jugadores = new HashMap<>();
     }
-	
+
+    public void empezarJuego() throws CantidadJugadoresIncorrectaException {
+		this.inicializarTablero();
+
+		this.turno = new Turno(new ArrayList<>(jugadores.values()));
+	}
+
+	public Jugador getJugadorActual() {
+		return this.turno.getJugadorActual();
+	}
+
+	public void pasarTurno() {
+		this.turno.siguienteTurno();
+	}
+
 	public void inicializarTablero() {
 		tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
