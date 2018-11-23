@@ -69,13 +69,9 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 	}
 
 	@Override
-	public int cuantoDanioAUnidad() {
-		try {
-			throw new ArmaDeAsedioNoAtacaUnidadesException();
-		} catch (ArmaDeAsedioNoAtacaUnidadesException e) {
-			e.printStackTrace();
-		}
-		return 0;
+	public int cuantoDanioAUnidad() throws ArmaDeAsedioNoAtacaUnidadesException {
+		throw new ArmaDeAsedioNoAtacaUnidadesException();
+
 	}
 
 	@Override
@@ -84,18 +80,15 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 	}
 
 	@Override
-	public void atacadoPor(Ofensiva ofensivo) {
+	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
+
 	}
 
 	@Override
-	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException {
+	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
     	if(!posicionable.estasEnRango(this.getPosicion(), this.rango)) throw new ObjetivoFueraDeRangoException();
-		try {
 			this.estado.atacar(posicionable);
-		} catch (ArmaDeAsedioNoMontadaException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

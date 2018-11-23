@@ -19,12 +19,9 @@ public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
     }
 
     @Override
-    public void atacar(Posicionable edificio){
-        try {
-			throw new ArmaDeAsedioNoMontadaException();
-		} catch (ArmaDeAsedioNoMontadaException e) {
-			e.printStackTrace();
-		}
+    public void atacar(Posicionable edificio) throws ArmaDeAsedioNoMontadaException{
+		throw new ArmaDeAsedioNoMontadaException();
+
     }
 
     @Override

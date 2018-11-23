@@ -5,6 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -19,7 +20,6 @@ public class PlazaCentral extends Edificio {
 	private static final int TURNOSCONTRUCCION=3;
 	private static final int OCUPA_ANCHO = 2;
 	private static final int OCUPA_ALTO = 2;
-	public int vida;
 
 	public PlazaCentral() {
 		this.vida = MAX_VIDA;
@@ -81,7 +81,7 @@ public class PlazaCentral extends Edificio {
 	}
 
 	@Override
-	public void atacadoPor(Ofensiva ofensivo) {
+	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
 		
 	}

@@ -54,7 +54,7 @@ public class Aldeano extends Unidad {
 	}
 
 	@Override
-	public void atacadoPor(Ofensiva ofensivo) {
+	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
 	}
 

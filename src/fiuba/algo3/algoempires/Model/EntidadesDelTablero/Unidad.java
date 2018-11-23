@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -60,7 +61,7 @@ public abstract class Unidad implements Posicionable {
         return jugador;
     }
 
-	public void recibeDanioDe(Ofensiva ofensiva) {
+	public void recibeDanioDe(Ofensiva ofensiva) throws ArmaDeAsedioNoAtacaUnidadesException {
 		int danio = ofensiva.cuantoDanioAUnidad();
 		this.hp = this.hp - danio;
 		if (this.hp < 1) {

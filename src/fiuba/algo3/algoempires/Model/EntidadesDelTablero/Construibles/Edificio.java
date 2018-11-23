@@ -15,7 +15,7 @@ import fiuba.algo3.algoempires.Model.Tablero;
 
 public abstract class Edificio implements Posicionable, Construible {
 	//vida
-	private int vida;
+	public int vida;
 	private int turnosConstruyendo;
 	private LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
 	private EstadoEdilicio estadoEdilicio;

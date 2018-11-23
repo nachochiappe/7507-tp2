@@ -4,6 +4,8 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
@@ -19,7 +21,7 @@ public class Espadachin extends Unidad implements Ofensiva {
         this.rango = MAX_RANGO;
     }
 
-	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException {
+	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
     	if(!posicionable.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
 		posicionable.atacadoPor(this);
 	}
@@ -29,7 +31,7 @@ public class Espadachin extends Unidad implements Ofensiva {
 	public boolean estaVacio() {
 		return false;
 	}
-	public int cuantoDanioAUnidad() {
+	public int cuantoDanioAUnidad() throws ArmaDeAsedioNoAtacaUnidadesException {
 		return 25;
 	}
 	
@@ -38,7 +40,7 @@ public class Espadachin extends Unidad implements Ofensiva {
 	}
 
 	@Override
-	public void atacadoPor(Ofensiva ofensivo) {
+	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
 	}
 }

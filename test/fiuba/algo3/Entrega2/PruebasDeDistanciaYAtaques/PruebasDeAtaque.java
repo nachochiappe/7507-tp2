@@ -6,6 +6,8 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
@@ -20,7 +22,7 @@ public class PruebasDeAtaque {
 
 
 	@Test
-    public void testEspadachinAtacaPlazaCentralYLeBajaVida() throws ObjetivoFueraDeRangoException{
+    public void testEspadachinAtacaPlazaCentralYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(3,3);
 		PlazaCentral plaza = new PlazaCentral();
@@ -31,11 +33,11 @@ public class PruebasDeAtaque {
 		}
 		Espadachin espadachin = new Espadachin(jugador, pos);
 		espadachin.atacar(plaza);
-		Assert.assertEquals(plaza.obtenerVida(), 435);
+		Assert.assertEquals(plaza.obtenerVida(), 35);
 	}
 	
 	@Test
-    public void testEspadachinAtacaAOtroEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException {
+    public void testEspadachinAtacaAOtroEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
 		Espadachin espadachin = new Espadachin(jugador, pos);
@@ -45,7 +47,7 @@ public class PruebasDeAtaque {
 	}
 
 	@Test(expected = ObjetivoFueraDeRangoException.class)
-    public void testEspadachinAtacaAOtroEspadachinQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException {
+    public void testEspadachinAtacaAOtroEspadachinQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Jugador player1 = new Jugador("Pepito");
 		Jugador player2 = new Jugador("Fulanito");
 		Posicion pos1 = new Posicion(0,0);
@@ -56,7 +58,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test(expected = ObjetivoFueraDeRangoException.class)
-    public void testEspadachinAtacaACastilloQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException {
+    public void testEspadachinAtacaACastilloQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Jugador player1 = new Jugador("Pepito");
 		Jugador player2 = new Jugador("Fulanito");
 		Posicion pos1 = new Posicion(0,0);
@@ -74,7 +76,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException{
+    public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
 		Cuartel cuartel = new Cuartel();
@@ -87,11 +89,11 @@ public class PruebasDeAtaque {
 		}
 		Arquero arquero = new Arquero(jugador, pos);
 		arquero.atacar(cuartel);
-		Assert.assertEquals(cuartel.obtenerVida(), 240);
+		Assert.assertEquals(cuartel.obtenerVida(), 40);
 	}
 	
 	@Test
-    public void testArqueroAtacaAOtroArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException {
+    public void testArqueroAtacaAOtroArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
 		Arquero arquero = new Arquero(jugador, pos);
@@ -100,7 +102,7 @@ public class PruebasDeAtaque {
 		Assert.assertEquals(arqueroMalo.getHp(), 60);
 	}
 	@Test
-    public void testArqueroAtacaAUnEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException {
+    public void testArqueroAtacaAUnEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
 		Arquero arquero = new Arquero(jugador, pos);
@@ -110,7 +112,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testEspadachinAtacaAUnArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException {
+    public void testEspadachinAtacaAUnArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
 		Arquero arqueroMalo = new Arquero(jugador, pos);
@@ -120,7 +122,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testArmaDeAsedioMontadaAtacaCuartelYLeSacaVida() throws ObjetivoFueraDeRangoException{
+    public void testArmaDeAsedioMontadaAtacaCuartelYLeSacaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion posicionArma = new Posicion(4,4);
 		Posicion posicionCastillo = new Posicion(9,4);
@@ -135,7 +137,28 @@ public class PruebasDeAtaque {
 		}
 		armaDeAsedio.toggleMontar();
 		armaDeAsedio.atacar(castilloMalo);
-		Assert.assertEquals(castilloMalo.obtenerVida(), 925);
+		Assert.assertTrue(castilloMalo.obtenerVida()<0);
+	}
+
+	@Test (expected = ArmaDeAsedioNoAtacaUnidadesException.class)
+    public void testArmaDeAsedioMontadaAtacaArqueroYLevantaExcepcion() throws ArmaDeAsedioNoAtacaUnidadesException, ObjetivoFueraDeRangoException, ArmaDeAsedioNoMontadaException {
+		Jugador jugador = Mockito.mock(Jugador.class);
+		Posicion posicionArma = new Posicion(4,4);
+		Posicion posicionArquero = new Posicion(9,4);
+		Arquero arqueroMalo = new Arquero(jugador, posicionArquero);
+		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicionArma);
+		armaDeAsedio.toggleMontar();
+		armaDeAsedio.atacar(arqueroMalo);
+	}
+	
+	@Test (expected = ArmaDeAsedioNoMontadaException.class)
+    public void testArmaDeAsedioNoMontadaIntentaAtacarYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+		Jugador jugador = Mockito.mock(Jugador.class);
+		Posicion posicionArma = new Posicion(4,4);
+		Posicion posicionArquero = new Posicion(9,4);
+		Arquero arqueroMalo = new Arquero(jugador, posicionArquero);
+		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicionArma);
+		armaDeAsedio.atacar(arqueroMalo);
 	}
 	
 }

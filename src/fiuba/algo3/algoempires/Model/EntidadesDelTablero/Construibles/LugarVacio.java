@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class LugarVacio implements Posicionable{
@@ -10,7 +11,7 @@ public class LugarVacio implements Posicionable{
 	}
 
 	@Override
-	public void atacadoPor(Ofensiva ofensivo) {
+	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 	}
 
 	@Override
