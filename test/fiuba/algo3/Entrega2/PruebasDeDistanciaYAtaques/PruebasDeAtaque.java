@@ -161,4 +161,23 @@ public class PruebasDeAtaque {
 		armaDeAsedio.atacar(arqueroMalo);
 	}
 	
+	@Test
+    public void testCastilloAtacaArqueroQueTieneEnRangoYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+		Jugador player1 = new Jugador("Pepito");
+		Jugador player2 = new Jugador("Fulanito");
+		Posicion posEsp = new Posicion(0,0);
+		Posicion posCastillo = new Posicion(0,3);
+		Espadachin espadachinMalo = new Espadachin (player1, posEsp);
+		Castillo castillo = new Castillo();
+		try {
+			castillo.construiteEn(new Aldeano(player1, posCastillo), posCastillo);
+		} catch (FueraDelMapaException e) {
+			System.out.println("Error al construir el castillo de prueba");
+		} catch (SoloSePermiteUnAldeanoException e) {
+			e.printStackTrace();
+		}
+		castillo.atacar(espadachinMalo);
+		Assert.assertEquals(espadachinMalo.getHp(), 80);
+	}
+	
 }

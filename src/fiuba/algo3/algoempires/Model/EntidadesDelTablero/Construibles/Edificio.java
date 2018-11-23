@@ -17,7 +17,7 @@ public abstract class Edificio implements Posicionable, Construible {
 	//vida
 	public int vida;
 	private int turnosConstruyendo;
-	private LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
+	protected LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
 	private EstadoEdilicio estadoEdilicio;
 	private Aldeano aldeanoAsignado;
 
@@ -27,7 +27,7 @@ public abstract class Edificio implements Posicionable, Construible {
 
 
 	public void construiteEn(Aldeano aldeano, Posicion posicionDeInicio) throws FueraDelMapaException, SoloSePermiteUnAldeanoException {
-		this.posiciones.addFirst(posicionDeInicio);
+//		this.posiciones.addFirst(posicionDeInicio);
 		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + this.getAlto(); i++) {
 			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + this.getAncho(); j++) {
 				Posicion posicionActual = new Posicion(i,j);

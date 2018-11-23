@@ -1,25 +1,33 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+
+import java.util.Iterator;
+
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
+import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
-public class Castillo extends Edificio implements Posicionable {
+public class Castillo extends Edificio implements Posicionable, Ofensiva {
 
     private static final int MAX_VIDA = 1000;
     private static final int HP_REGEN = 15;
     private static final int OCUPA_ANCHO = 4;
     private static final int OCUPA_ALTO = 4;
+    private static final int MAX_RANGO = 3;
+    private int rango;
 
     public Castillo() {
         this.vida = MAX_VIDA;
+        this.rango = MAX_RANGO;
     }
 
     public int getVida() {
@@ -70,5 +78,28 @@ public class Castillo extends Edificio implements Posicionable {
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
+	}
+
+	@Override
+	public void atacar(Posicionable posicionable) throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+		Iterator<Posicion> iterator = posiciones.iterator();
+		while (iterator.hasNext()) {
+			if(posicionable.estasEnRango(iterator.next(), rango)) {
+				posicionable.atacadoPor(this);
+				return;
+			}
+		}
+
+	}
+
+
+	@Override
+	public int cuantoDanioAUnidad() throws ArmaDeAsedioNoAtacaUnidadesException {
+		return 20;
+	}
+
+	@Override
+	public int cuantoDanioAEdificio() {
+		return 20;
 	}
 }

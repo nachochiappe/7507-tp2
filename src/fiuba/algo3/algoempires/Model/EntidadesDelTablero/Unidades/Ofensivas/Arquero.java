@@ -20,7 +20,8 @@ public class Arquero extends Unidad implements Ofensiva {
         this.posicion = posicion;
         this.rango = MAX_RANGO;
     }
-
+    
+    @Override
 	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		if(!posicionable.estasEnRango(this.getPosicion(), rango)) throw new ObjetivoFueraDeRangoException();
 		posicionable.atacadoPor(this);
