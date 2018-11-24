@@ -1,7 +1,11 @@
 package fiuba.algo3.Entrega2.ReglasDePoblacion;
 
+import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
+import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
+import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -22,7 +26,7 @@ public class ReglasDePoblacion {
     }
 
     @Test
-    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException, OroInsuficienteException, ExcedeTopePoblacionalException {
+    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException, OroInsuficienteException, ExcedeTopePoblacionalException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
         Jugador jugador = new Jugador("jugador");
         Jugador otroJugador = new Jugador("jugador malo");
         Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
@@ -35,19 +39,23 @@ public class ReglasDePoblacion {
     }
     
     @Test
-    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException {
-    	Jugador jugador = new Jugador("jugador");
-    	Jugador otroJugador = new Jugador("jugador malo");
+    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, CantidadJugadoresIncorrectaException {
+    	AlgoEmpires juego = new AlgoEmpires();
+    	juego.agregarJugador("Jugador1");
+    	juego.agregarJugador("Jugador2");
+    	juego.empezarJuego();
+    	Jugador jugador = juego.getJugadorActual();
     	Aldeano aldeano = jugador.getPlazaCentral().crearAldeano(jugador, new Posicion(12, 12));
     	Assert.assertEquals(jugador.obtenerPoblacion(), 4);
-    	jugador.sumarOroDelTurno();
-    	Assert.assertEquals(155, jugador.getOro());
-    	Espadachin espadachin = new Espadachin(otroJugador, new Posicion(12,13));
-        Espadachin espadachin2 = new Espadachin(otroJugador, new Posicion(12,11));
+    	Assert.assertEquals(135, jugador.getOro());
+    	juego.pasarTurno();
+    	Jugador jugadorMalo = juego.getJugadorActual();
+    	Espadachin espadachin = new Espadachin(jugadorMalo, new Posicion(12,13));
+        Espadachin espadachin2 = new Espadachin(jugadorMalo, new Posicion(12,11));
         espadachin.atacar(aldeano);
         espadachin2.atacar(aldeano);
-        jugador.sumarOroDelTurno();
-        Assert.assertEquals(215, jugador.getOro());
+        juego.pasarTurno();
+        Assert.assertEquals(195, jugador.getOro());
     }
 
     @Test(expected = ExcedeTopePoblacionalException.class)

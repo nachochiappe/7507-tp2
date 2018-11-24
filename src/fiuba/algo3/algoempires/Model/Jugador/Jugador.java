@@ -72,15 +72,6 @@ public class Jugador {
     public int getOro() {
         return oro;
     }
-    
-    public void sumarOroDelTurno() {
-    	for (Iterator<Unidad> it = unidades.iterator(); it.hasNext();) {
-    		Unidad unidad = it.next();
-    		if (unidad instanceof Aldeano) {
-    			((Aldeano) unidad).sumarOro();
-    		}
-    	}
-    }
 
     public void modificarOro(int oro) {
         this.oro += oro;

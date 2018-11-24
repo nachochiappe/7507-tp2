@@ -5,10 +5,12 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
+import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
@@ -70,18 +72,22 @@ public class PruebasDeConstruccion {
     */
     
     @Test
-    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
+    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, CantidadJugadoresIncorrectaException {
+    	AlgoEmpires juego = new AlgoEmpires();
+    	juego.agregarJugador("Jugador1");
+    	juego.agregarJugador("Jugador2");
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        juego.empezarJuego();
+        Jugador jugador = juego.getJugadorActual();
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
-        aldeano.sumarOro();
         aldeano.construir(plazaCentral, posicion);
-        aldeano.sumarOro();
-        Assert.assertEquals(120, jugador.getOro());
+        juego.pasarTurno();
+        juego.pasarTurno();
+        Assert.assertEquals(200, jugador.getOro());
     }
 
     public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {

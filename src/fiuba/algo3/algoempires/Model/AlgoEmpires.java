@@ -28,8 +28,9 @@ public class AlgoEmpires {
 
     public void empezarJuego() throws CantidadJugadoresIncorrectaException {
 		this.inicializarTablero();
-
 		this.turno = new Turno(new ArrayList<>(jugadores.values()));
+		this.turnoActual = this.turno.getJugadorActual();
+		this.turnoActual.empezarTurno();
 	}
 
 	public Jugador getJugadorActual() {
