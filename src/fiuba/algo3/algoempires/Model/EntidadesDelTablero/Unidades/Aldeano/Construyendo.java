@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
 import fiuba.algo3.algoempires.Model.Excepciones.EdificioNoNecesitaRepararse;
 import fiuba.algo3.algoempires.Model.Excepciones.EdificioYaConstruidoException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -30,6 +31,12 @@ public class Construyendo implements EstadoAldeano {
 	@Override
 	public void terminarAccion() {
 		this.edificio.desligarAldeano();
+	}
+
+	@Override
+	public void empezarReparacion(Edificio edificio) throws EdificioNoNecesitaRepararse, SoloSePermiteUnAldeanoException, AldeanoOcupadoException {
+		throw new AldeanoOcupadoException();
+		
 	}
 
 }

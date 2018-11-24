@@ -92,7 +92,9 @@ public abstract class Edificio implements Posicionable, Construible {
 			this.aldeanoAsignado = aldeano;
 			return;
 		} else {
-			throw new SoloSePermiteUnAldeanoException();
+			if (this.aldeanoAsignado != aldeano) {
+				throw new SoloSePermiteUnAldeanoException();
+			}
 		}
 	}
 

@@ -42,6 +42,7 @@ public class Aldeano extends Unidad {
 
 	public void terminarAccion() {
 		this.estado.terminarAccion();
+		this.estado = new Idle(this);
 	}
 
 	public void sumarOro() {
@@ -56,6 +57,10 @@ public class Aldeano extends Unidad {
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
+	}
+
+	public void reparar(Edificio edificio) throws AldeanoOcupadoException, SoloSePermiteUnAldeanoException, EdificioNoNecesitaRepararse {
+		this.estado.empezarReparacion(edificio);
 	}
 
 }
