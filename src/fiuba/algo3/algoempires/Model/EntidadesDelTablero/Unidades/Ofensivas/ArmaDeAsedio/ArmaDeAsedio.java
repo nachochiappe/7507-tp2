@@ -1,17 +1,12 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio;
 
-import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
-import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 
 public class ArmaDeAsedio extends Unidad implements Ofensiva {
@@ -36,10 +31,10 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
         this.rango = MAX_RANGO;
     }
 
-    public void mover(Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
+    public void mover(Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
         try {
             this.estado.mover(desplazamiento);
-            this.posicion = this.movimiento.mover(desplazamiento, this.posicion);
+            this.movimiento.mover(desplazamiento, this);
             this.deshabilitarMovimiento();
             return;
         } catch (ArmaDeAsedioMontadaException armaDeAsedioException) {

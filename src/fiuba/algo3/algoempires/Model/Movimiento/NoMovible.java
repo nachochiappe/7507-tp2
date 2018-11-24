@@ -1,10 +1,11 @@
 package fiuba.algo3.algoempires.Model.Movimiento;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 
 public class NoMovible implements Movimiento {
     @Override
-    public Posicion mover(Desplazamiento desplazamiento, Posicion posicion) throws UnidadYaSeMovioException {
+    public void mover(Desplazamiento desplazamiento, Unidad unidad) throws UnidadYaSeMovioException {
         throw new UnidadYaSeMovioException();
     }
 }

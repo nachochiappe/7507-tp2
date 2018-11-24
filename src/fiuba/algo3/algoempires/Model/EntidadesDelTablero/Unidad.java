@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.*;
@@ -21,10 +22,9 @@ public abstract class Unidad implements Posicionable {
 
 
     //TODO: Ver cómo integro esto del movimiento con el arma de asedio
-    public void mover(Desplazamiento desplazamiento) throws UnidadYaSeMovioException, DestinoFueraDelMapaException {
-        this.posicion = this.movimiento.mover(desplazamiento, this.posicion);
+    public void mover(Desplazamiento desplazamiento) throws UnidadYaSeMovioException, DestinoFueraDelMapaException, PosicionOcupadaException {
+        this.movimiento.mover(desplazamiento, this);
         this.deshabilitarMovimiento();
-        return;
     }
 
     public void habilitarMovimiento() {

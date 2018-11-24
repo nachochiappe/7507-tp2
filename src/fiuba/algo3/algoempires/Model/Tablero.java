@@ -2,8 +2,11 @@ package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import javafx.geometry.Pos;
 
 public class Tablero {
     private static Tablero ourInstance = new Tablero();
@@ -36,13 +39,6 @@ public class Tablero {
         return true;
     }
 
-    public void vaciarTablero() {
-        for (int i=0; i<ANCHO; i++) {
-            for(int j=0; j<ALTO; j++) {
-                matriz[i][j] = new LugarVacio();
-            }
-        }
-    }
 
     public void poner(Posicionable posicionable, Posicion posicionDeInicio, Posicion posicionDeFin) throws FueraDelMapaException {
         if(!posicionDeFin.dentroDe(ANCHO,ALTO)) throw new FueraDelMapaException("Fuera del mapa!");
@@ -50,6 +46,16 @@ public class Tablero {
             for(int j = posicionDeInicio.getPosicionX(); j<=posicionDeFin.getPosicionY(); j++) {
                 matriz[i][j] = posicionable;
             }
+        }
+    }
+
+    public void poner(Posicionable posicionable, Posicion posicion) throws PosicionOcupadaException, DestinoFueraDelMapaException {
+        try {
+            Posicionable actual = matriz[posicion.getPosicionX()][posicion.getPosicionY()];
+            if(!actual.estaVacio()) throw new PosicionOcupadaException();
+            matriz[posicion.getPosicionX()][posicion.getPosicionY()] = posicionable;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DestinoFueraDelMapaException();
         }
     }
 

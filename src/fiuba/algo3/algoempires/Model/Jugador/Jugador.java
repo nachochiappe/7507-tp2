@@ -2,10 +2,7 @@ package fiuba.algo3.algoempires.Model.Jugador;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
-import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
-import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
-import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
@@ -43,7 +40,7 @@ public class Jugador {
     }
 
 
-    public void moverUnidad(Unidad unidad, Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException {
+    public void moverUnidad(Unidad unidad, Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
         unidades.get(unidades.indexOf(unidad)).mover(desplazamiento);
     }
 

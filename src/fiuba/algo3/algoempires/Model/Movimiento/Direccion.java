@@ -4,7 +4,6 @@ public class Direccion {
     public static Desplazamiento arriba() {
        return new Desplazamiento(0, 1);
     }
-
     public static Desplazamiento abajo() {
         return new Desplazamiento(0, -1);
     }
