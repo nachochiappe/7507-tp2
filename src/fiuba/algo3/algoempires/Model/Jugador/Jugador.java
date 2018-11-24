@@ -1,12 +1,15 @@
 package fiuba.algo3.algoempires.Model.Jugador;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Tablero;
+import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,7 +26,7 @@ public class Jugador {
     private int tope_poblacion;
     private ArrayList<Unidad> unidades;
     private ArrayList<Edificio> edificios;
-
+    private Posicion posicion;
 
     public Jugador(String nombre) {
 
@@ -40,21 +43,44 @@ public class Jugador {
     }
 
 
-    public void moverUnidad(Unidad unidad, Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
-        unidades.get(unidades.indexOf(unidad)).mover(desplazamiento);
+    //Constructor llamado únicamente al principio del juego
+    public Jugador(String nombre, Posicion posicion) {
+
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.estado = new Deshabilitado();
+        this.oro = ORO_INICIAL;
+        this.tope_poblacion = TOPE_POBLACION;
+        this.unidades = new ArrayList<>();
+        for (int i = 0; i < ALDEANOS_INICIALES; i++) {
+            Aldeano aldeano = new Aldeano(this, new Posicion( posicion.getPosicionX() + i, posicion.getPosicionY() +i));
+            unidades.add(aldeano);
+            try {
+                Tablero.getInstance().poner(aldeano, aldeano.getPosicion());
+            } catch (PosicionOcupadaException | DestinoFueraDelMapaException e) {
+                //Nunca debería llegar acá
+                System.out.println("What a Terrible Error");
+            }
+        }
+        edificios = new ArrayList<>();
+        edificios.add(new PlazaCentral(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() + 2)));
+        edificios.add(new Castillo(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() - 6)));
     }
 
-
     public void empezarTurno() {
-    	this.estado = new Habilitado();
+        this.estado = new Habilitado();
         for(Unidad unidad: unidades) {
             unidad.comenzarTurno();
         }
     }
 
     public void terminarTurno() {
-    	this.estado = new Deshabilitado();
+        this.estado = new Deshabilitado();
         System.out.println("Termina el turno");
+    }
+
+    public void moverUnidad(Unidad unidad, Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
+        unidades.get(unidades.indexOf(unidad)).mover(desplazamiento);
     }
 
 

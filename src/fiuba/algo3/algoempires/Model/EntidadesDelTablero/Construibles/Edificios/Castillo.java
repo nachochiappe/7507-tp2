@@ -15,6 +15,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Tablero;
 
 public class Castillo extends Edificio implements Posicionable, Ofensiva {
 
@@ -28,6 +29,20 @@ public class Castillo extends Edificio implements Posicionable, Ofensiva {
     public Castillo() {
         this.vida = MAX_VIDA;
         this.rango = MAX_RANGO;
+    }
+
+
+    //Constructor llamado únicamente al principio del juego
+    public Castillo(Posicion posicion) {
+        this.vida = MAX_VIDA;
+        this.rango = MAX_RANGO;
+        for(int i = 0; i<OCUPA_ALTO;  i++) {
+            this.posiciones.add(new Posicion(posicion.getPosicionX(), posicion.getPosicionY() + i));
+        }
+        for(int i = 0; i<OCUPA_ANCHO;  i++) {
+            this.posiciones.add(new Posicion(posicion.getPosicionX() + i, posicion.getPosicionY()));
+        }
+        Tablero.getInstance().poner(this, this.posiciones);
     }
 
     public int getVida() {

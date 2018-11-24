@@ -34,16 +34,11 @@ public abstract class Edificio implements Posicionable, Construible {
 				posiciones.add(posicionActual);
 			}
 		}
-		try {
-			Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
-			aldeanoValido(aldeano);
-			this.vida = 50;
-			aldeano.empezarAConstruir(this);
-			this.estadoEdilicio = new Construyendo(this);
-		}
-		catch (ArrayIndexOutOfBoundsException e){
-			throw new FueraDelMapaException("La construcción está fuera del mapa");
-		};
+		Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
+		aldeanoValido(aldeano);
+		this.vida = 50;
+		aldeano.empezarAConstruir(this);
+		this.estadoEdilicio = new Construyendo(this);
 	}
 
 	public void crearUnidad(Unidad unidad){};

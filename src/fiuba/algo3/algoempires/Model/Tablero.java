@@ -7,6 +7,9 @@ import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
+
+import java.util.LinkedList;
+
 public class Tablero {
     private static Tablero ourInstance = new Tablero();
 
@@ -18,8 +21,8 @@ public class Tablero {
 
     }
     private Posicionable[][] matriz =  new Posicionable[ANCHO][ALTO];;
-    private static final int ANCHO = 20;
-    private static final int ALTO = 20;
+    private static final int ANCHO = 100;
+    private static final int ALTO = 100;
 
     public void inicializarTablero() {
         for (int i=0; i<ANCHO; i++) {
@@ -55,6 +58,19 @@ public class Tablero {
             matriz[posicion.getPosicionX()][posicion.getPosicionY()] = posicionable;
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new DestinoFueraDelMapaException();
+        }
+    }
+
+
+    //Método llamado únicamente al principio del juego
+    public void poner(Posicionable posicionable, LinkedList<Posicion> posiciones) {
+        try {
+            for(Posicion posicion: posiciones) {
+                matriz[posicion.getPosicionX()][posicion.getPosicionY()] = posicionable;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            //Nunca debería llegar acá
+            System.out.println("What a Terrible Error");
         }
     }
 

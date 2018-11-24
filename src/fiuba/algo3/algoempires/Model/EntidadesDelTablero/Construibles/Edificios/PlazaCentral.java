@@ -10,6 +10,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Model.Tablero;
 
 
 public class PlazaCentral extends Edificio {
@@ -25,6 +26,18 @@ public class PlazaCentral extends Edificio {
 		this.vida = MAX_VIDA;
 	}
 
+
+	//Constructor llamado únicamente al principio del juego
+	public PlazaCentral(Posicion posicion) {
+		this.vida = MAX_VIDA;
+		for(int i = 0; i<OCUPA_ALTO;  i++) {
+			this.posiciones.add(new Posicion(posicion.getPosicionX(), posicion.getPosicionY() + i));
+		}
+		for(int i = 0; i<OCUPA_ANCHO;  i++) {
+			this.posiciones.add(new Posicion(posicion.getPosicionX() + i, posicion.getPosicionY()));
+		}
+		Tablero.getInstance().poner(this, this.posiciones);
+	}
 
 	@Override
 	public int getHpRegen() {

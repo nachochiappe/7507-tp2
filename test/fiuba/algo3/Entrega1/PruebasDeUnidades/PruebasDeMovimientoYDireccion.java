@@ -121,7 +121,7 @@ public class PruebasDeMovimientoYDireccion {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
-        Posicion posicion = new Posicion(20, 20);
+        Posicion posicion = new Posicion(200, 200);
         Aldeano aldeano = new Aldeano(jugador, posicion);
         aldeano.mover(Direccion.arriba());
     }
@@ -239,7 +239,7 @@ public class PruebasDeMovimientoYDireccion {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
-        Posicion posicion = new Posicion(20, 20);
+        Posicion posicion = new Posicion(200, 200);
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.arriba());
     }
@@ -357,7 +357,7 @@ public class PruebasDeMovimientoYDireccion {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
-        Posicion posicion = new Posicion(20, 20);
+        Posicion posicion = new Posicion(200, 200);
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.arriba());
     }
@@ -475,7 +475,7 @@ public class PruebasDeMovimientoYDireccion {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
-        Posicion posicion = new Posicion(20, 20);
+        Posicion posicion = new Posicion(200, 200);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.arriba());
     }

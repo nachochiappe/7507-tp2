@@ -50,16 +50,14 @@ public class AlgoEmpires {
 		return tablero.estasVacio();
 	}
 
-	public void agregarPlazaCentralInicial() throws FueraDelMapaException {
-		Posicionable plazaCentral = new PlazaCentral();
-		Posicion posicionDeInicio = new Posicion(0,0);
-		Posicion posicionDeFin = new Posicion(1,1);
-		tablero.poner(plazaCentral,posicionDeInicio,posicionDeFin);
-	}
 
 	public void agregarJugador(String unNombre) {
 	    jugadores.put(unNombre, new Jugador(unNombre));
     }
+
+	public void agregarJugador(String unNombre, Posicion posicion) {
+		jugadores.put(unNombre, new Jugador(unNombre, posicion));
+	}
 
     public HashMap<String, Jugador> getJugadores() {
         return jugadores;
