@@ -6,7 +6,6 @@ import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import javafx.geometry.Pos;
 
 public class Tablero {
     private static Tablero ourInstance = new Tablero();
@@ -19,8 +18,8 @@ public class Tablero {
 
     }
     private Posicionable[][] matriz =  new Posicionable[ANCHO][ALTO];;
-    static final int ANCHO = 20;
-    static final int ALTO = 20;
+    private static final int ANCHO = 20;
+    private static final int ALTO = 20;
 
     public void inicializarTablero() {
         for (int i=0; i<ANCHO; i++) {
