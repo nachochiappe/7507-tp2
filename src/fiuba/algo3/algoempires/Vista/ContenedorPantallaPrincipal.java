@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -28,26 +29,32 @@ public class ContenedorPantallaPrincipal extends VBox {
 
         this.stage = stage;
 
-        this.setAlignment(Pos.CENTER);
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
-        Image imagen = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Portada.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        this.setAlignment(Pos.TOP_CENTER);
+        this.setSpacing(80);
+        this.setPadding(new Insets(80));
+        Image imagen = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Portada(1024x768).jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
-
         Button botonEntrar = new Button();
-        botonEntrar.setText("Entrar");
+        botonEntrar.setText("Jugar");
 
         Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 30));
 
-        etiqueta.setText("Bienvenidos al Algo Empires");
-        etiqueta.setTextFill(Color.web("#66A7C5"));
+        etiqueta.setText("Bienvenidos a Algo Empires");
+        etiqueta.setTextFill(Color.web("#000000"));
 
 //        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
 //        botonEntrar.setOnAction(botonEntrarHandler);
 
-        this.getChildren().addAll(etiqueta, botonEntrar);
+        TextField nombreJugador1 = new TextField();
+        nombreJugador1.setText("Nombre de Jugador1");
+        nombreJugador1.setMaxWidth(140);
+        TextField nombreJugador2 = new TextField();
+        nombreJugador2.setText("Nombre de Jugador2");
+        nombreJugador2.setMaxWidth(140);
+        
+        this.getChildren().addAll(etiqueta,nombreJugador1, nombreJugador2, botonEntrar);
     }
 
 }
