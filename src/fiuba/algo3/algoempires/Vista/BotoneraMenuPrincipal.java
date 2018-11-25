@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Vista;
 
-import fiuba.algo3.algoempires.Controlador.BotonJugarEventHandler;
+import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonJugarEventHandler;
+import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,6 +36,7 @@ public class BotoneraMenuPrincipal extends VBox {
         Button botonSalir = new Button();
         botonSalir.setText("Salir");
         botonSalir.setMaxWidth(140);
+        botonSalir.setOnAction(new BotonSalirEventHandler());
         //BOTÓN SALIR--------------//
 
 
