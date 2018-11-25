@@ -5,11 +5,8 @@ import fiuba.algo3.algoempires.Vista.ContenedorPantallaPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 
 
 public class Aplicacion extends Application {
