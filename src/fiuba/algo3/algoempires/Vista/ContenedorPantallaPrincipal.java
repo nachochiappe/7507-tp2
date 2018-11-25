@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Vista.Eventos.BotonJugarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,7 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-//import Vista.eventos.BotonEntrarEventHandler;
+
 
 public class ContenedorPantallaPrincipal extends VBox {
 
@@ -35,8 +36,9 @@ public class ContenedorPantallaPrincipal extends VBox {
         Image imagen = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Portada(1024x768).jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
-        Button botonEntrar = new Button();
-        botonEntrar.setText("Jugar");
+        Button botonJugar = new Button();
+        botonJugar.setText("Jugar");
+        botonJugar.setMaxWidth(140);
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 30));
@@ -44,8 +46,8 @@ public class ContenedorPantallaPrincipal extends VBox {
         etiqueta.setText("Bienvenidos a Algo Empires");
         etiqueta.setTextFill(Color.web("#000000"));
 
-//        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
-//        botonEntrar.setOnAction(botonEntrarHandler);
+        BotonJugarEventHandler botonJugarHandler = new BotonJugarEventHandler(stage, proximaEscena);
+        botonJugar.setOnAction(botonJugarHandler);
 
         TextField nombreJugador1 = new TextField();
         nombreJugador1.setText("Nombre de Jugador1");
@@ -54,7 +56,7 @@ public class ContenedorPantallaPrincipal extends VBox {
         nombreJugador2.setText("Nombre de Jugador2");
         nombreJugador2.setMaxWidth(140);
         
-        this.getChildren().addAll(etiqueta,nombreJugador1, nombreJugador2, botonEntrar);
+        this.getChildren().addAll(etiqueta,nombreJugador1, nombreJugador2, botonJugar);
     }
 
 }
