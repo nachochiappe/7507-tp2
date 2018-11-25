@@ -65,9 +65,12 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 
         canvasCentral = new Canvas(640, 640);
 // ------ Esto va de prueba ---------- 
-        Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(5,5));
+        Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(0,0));
         VistaAldeano vistaAldeano = new VistaAldeano(aldeano, canvasCentral);
         vistaAldeano.dibujar();
+        Aldeano aldeano2 = new Aldeano(new Jugador("rama"), new Posicion(19,19));
+        VistaAldeano vistaAldeano2 = new VistaAldeano(aldeano2, canvasCentral);
+        vistaAldeano2.dibujar();
 // -------- hasta aca -------------------------
         contenedorCentral = new VBox(canvasCentral);
         contenedorCentral.setAlignment(Pos.CENTER);

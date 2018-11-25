@@ -22,11 +22,11 @@ public class VistaAldeano {
 
     public void dibujar() {
         this.clean();
-        canvas.getGraphicsContext2D().drawImage(graficoAldeano, aldeano.getPosicion().getPosicionX(), aldeano.getPosicion().getPosicionY());
+        canvas.getGraphicsContext2D().drawImage(graficoAldeano, aldeano.getPosicion().getPosicionX() * 32, aldeano.getPosicion().getPosicionY() * 32);
     }
 
     public void clean() {
-        canvas.getGraphicsContext2D().drawImage(vacio, aldeano.getPosicion().getPosicionX(), aldeano.getPosicion().getPosicionY());
+        canvas.getGraphicsContext2D().drawImage(vacio, aldeano.getPosicion().getPosicionX() * 32 , aldeano.getPosicion().getPosicionY() * 32);
     }
 
     public void update() {
