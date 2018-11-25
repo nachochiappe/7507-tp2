@@ -1,5 +1,8 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -28,7 +31,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 
     public ContenedorPantallaDeJuego(Stage stage) {
         this.setMenu(stage);
-//        this.setCentro(robot);
+        this.setCentro();
 //        this.setBotonera(robot);
     }
 
@@ -57,24 +60,25 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
     }
-/*
-    private void setCentro(Robot robot) {
+    
+    private void setCentro() {
 
-        canvasCentral = new Canvas(460, 220);
-        vistaRobot = new VistaRobot(robot, canvasCentral);
-        vistaRobot.dibujar();
-
+        canvasCentral = new Canvas(640, 640);
+// ------ Esto va de prueba ---------- 
+        Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(5,5));
+        VistaAldeano vistaAldeano = new VistaAldeano(aldeano, canvasCentral);
+        vistaAldeano.dibujar();
+// -------- hasta aca -------------------------
         contenedorCentral = new VBox(canvasCentral);
         contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
+        contenedorCentral.setSpacing(0);
         contenedorCentral.setPadding(new Insets(25));
-        Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        Image imagenMapa = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Mapa1.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagenMapa, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));
 
         this.setCenter(contenedorCentral);
     }
-*/
 
     public BarraDeMenu getBarraDeMenu() {
         return menuBar;
