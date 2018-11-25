@@ -1,8 +1,8 @@
 package fiuba.algo3.algoempires.Vista;
 
-import fiuba.algo3.algoempires.Vista.Eventos.OpcionAcercaDeEventHandler;
-import fiuba.algo3.algoempires.Vista.Eventos.OpcionPantallaCompletaEventHandler;
-import fiuba.algo3.algoempires.Vista.Eventos.OpcionSalirEventHandler;
+import fiuba.algo3.algoempires.Controlador.OpcionAcercaDeEventHandler;
+import fiuba.algo3.algoempires.Controlador.OpcionPantallaCompletaEventHandler;
+import fiuba.algo3.algoempires.Controlador.OpcionSalirEventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;

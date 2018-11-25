@@ -8,6 +8,6 @@ public class Resoluciones {
 	public static void main(String[] args){
 		Toolkit t = Toolkit.getDefaultToolkit();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize.height);
+		System.out.println("Tu resolucion es de " + screenSize.width + "x" + screenSize.height);
 	}
 }

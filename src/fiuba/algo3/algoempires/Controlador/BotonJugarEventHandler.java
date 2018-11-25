@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista.Eventos;
+package fiuba.algo3.algoempires.Controlador;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

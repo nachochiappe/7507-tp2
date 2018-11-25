@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista.Eventos;
+package fiuba.algo3.algoempires.Controlador;
 
 import fiuba.algo3.algoempires.Vista.BarraDeMenu;
 import javafx.event.EventHandler;

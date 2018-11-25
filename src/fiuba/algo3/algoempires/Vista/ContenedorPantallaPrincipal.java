@@ -1,12 +1,13 @@
 package fiuba.algo3.algoempires.Vista;
 
-import fiuba.algo3.algoempires.Vista.Eventos.BotonJugarEventHandler;
+import fiuba.algo3.algoempires.Controlador.BotonJugarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -33,7 +34,7 @@ public class ContenedorPantallaPrincipal extends VBox {
         this.setAlignment(Pos.TOP_CENTER);
         this.setSpacing(80);
         this.setPadding(new Insets(80));
-        Image imagen = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Portada(1024x768).jpg");
+        Image imagen = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Portada2.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
         Button botonJugar = new Button();
@@ -41,11 +42,15 @@ public class ContenedorPantallaPrincipal extends VBox {
         botonJugar.setMaxWidth(140);
 
         Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 30));
-
-        etiqueta.setText("Bienvenidos a Algo Empires");
-        etiqueta.setTextFill(Color.web("#000000"));
-
+        //etiqueta.setFont(Font.font("Baskerville Old Face",80 ));
+        etiqueta.setText("Algo" +"\n"+  "Empires");
+        etiqueta.setStyle("-fx-font-family: Castellar;-fx-text-fill: #b30000; -fx-font-weight: 900; -fx-font-size: 120; -fx-text-alignment: center");
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(5.0);
+        dropShadow.setOffsetX(6.0);
+        dropShadow.setOffsetY(6.0);
+        dropShadow.setColor(Color.web("#4A0000"));
+        etiqueta.setEffect(dropShadow);
         BotonJugarEventHandler botonJugarHandler = new BotonJugarEventHandler(stage, proximaEscena);
         botonJugar.setOnAction(botonJugarHandler);
 

@@ -1,14 +1,15 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Controlador;
 
+import fiuba.algo3.algoempires.Vista.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.ContenedorPantallaPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
-import fiuba.algo3.algoempires.Vista.Eventos.AplicacionOnKeyPressEventHandler;
 
 
 public class Aplicacion extends Application {
@@ -30,7 +31,7 @@ public class Aplicacion extends Application {
         
         ContenedorPantallaDeJuego contenedorPantallaDeJuego = new ContenedorPantallaDeJuego(stage);
         Scene escenaJuego = new Scene(contenedorPantallaDeJuego, 1024, 768);
-    
+        
         AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
         escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler); 
       
