@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Vista;
 
 import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonJugarEventHandler;
+import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonReglasEventHandler;
 import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ public class BotoneraMenuPrincipal extends VBox {
         this.setSpacing(50);
         this.setPadding(new Insets(20));
 
+
         //BOTÓN JUGAR--------------//
         Button botonJugar = new Button();
         botonJugar.setText("Jugar");
@@ -30,6 +32,7 @@ public class BotoneraMenuPrincipal extends VBox {
         Button botonReglas = new Button();
         botonReglas.setText("Reglas");
         botonReglas.setMaxWidth(140);
+        botonReglas.setOnAction(new BotonReglasEventHandler(stage));
         //BOTÓN REGLAS--------------//
 
         //BOTÓN SALIR--------------//

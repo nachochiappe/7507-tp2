@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Controlador.PantallaPrincipal;
 
+import fiuba.algo3.algoempires.Vista.Reglas;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -8,17 +9,14 @@ import javafx.stage.Stage;
 public class BotonReglasEventHandler implements EventHandler<ActionEvent> {
 
     Stage stage;
-    Scene proximaEscena;
 
-    public BotonReglasEventHandler(Stage stage, Scene proximaEscena) {
+    public BotonReglasEventHandler(Stage stage) {
         this.stage = stage;
-        this.proximaEscena = proximaEscena;
     }
+
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        stage.setScene(proximaEscena);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreen(true);
+        new Reglas().display(stage);
     }
 }
