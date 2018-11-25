@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Controlador.VistaAldeanoEventHandler;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -20,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
 
 
 public class ContenedorPantallaDeJuego extends BorderPane {
@@ -68,6 +70,9 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(0,0));
         VistaAldeano vistaAldeano = new VistaAldeano(aldeano, canvasCentral);
         vistaAldeano.dibujar();
+        VistaAldeanoEventHandler vistaAldeanoEventHandler = new VistaAldeanoEventHandler(aldeano, vistaAldeano);
+        vistaAldeano.setOnAction(vistaAldeanoEventHandler);
+        
         Aldeano aldeano2 = new Aldeano(new Jugador("rama"), new Posicion(19,19));
         VistaAldeano vistaAldeano2 = new VistaAldeano(aldeano2, canvasCentral);
         vistaAldeano2.dibujar();

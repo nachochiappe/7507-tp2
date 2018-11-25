@@ -2,11 +2,12 @@ package fiuba.algo3.algoempires.Vista;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 
-public class VistaAldeano {
+public class VistaAldeano extends Button{
 
 	private Image vacio;
     private Aldeano aldeano;
@@ -16,7 +17,7 @@ public class VistaAldeano {
     public VistaAldeano(Aldeano aldeano, Canvas canvas) {
         this.aldeano = aldeano;
         this.canvas = canvas;
-        graficoAldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/AldeanoConOro.png");
+        graficoAldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Aldeano/AldeanoS.png");
         vacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/lugarVacio.png");
     }
 

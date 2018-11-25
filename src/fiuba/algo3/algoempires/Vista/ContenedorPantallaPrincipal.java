@@ -1,6 +1,5 @@
 package fiuba.algo3.algoempires.Vista;
 
-import fiuba.algo3.algoempires.Controlador.BotonJugarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
