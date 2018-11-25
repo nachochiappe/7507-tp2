@@ -34,7 +34,7 @@ public class Aplicacion extends Application {
       
         ContenedorPantallaPrincipal contenedorPantallaPrincipal = new ContenedorPantallaPrincipal(stage, escenaJuego);
         Scene escenaPrincipal = new Scene(contenedorPantallaPrincipal, 1024, 768);
-        
+        escenaPrincipal.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/Styles.css");
         stage.setScene(escenaPrincipal);
         stage.setFullScreen(true);
         stage.setResizable(true);
