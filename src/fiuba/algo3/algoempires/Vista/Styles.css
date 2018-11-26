@@ -1,10 +1,14 @@
 .button{
     -fx-font-size: 24;
     -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;
-    -fx-text-fill: black;
+    -fx-text-fill: "#362918";
     -fx-background-color: "#C19A6B";
 }
 .button:hover {
-    -fx-background-color: "#cdae88";
+    -fx-background-color: "#d7be9f";
     -fx-cursor: hand;
+}
+
+.button:focused {
+    -fx-focus-color: "#362918";
 }

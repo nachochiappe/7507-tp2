@@ -22,7 +22,7 @@ public class ContenedorPantallaPrincipal extends BorderPane {
 
         this.stage = stage;
 
-        this.setPadding(new Insets(10,0,30,0));
+        this.setPadding(new Insets(20,0,30,0));
 
         //IMAGEN DE FONDO-------//
         Image imagen = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Portada2.jpg");

@@ -25,6 +25,7 @@ public class BotoneraMenuPrincipal extends VBox {
         botonJugar.setMaxWidth(250);
         BotonJugarEventHandler botonJugarHandler = new BotonJugarEventHandler(stage, proximaEscena);
         botonJugar.setOnAction(botonJugarHandler);
+
         //BOTÓN JUGAR--------------//
 
 
@@ -40,8 +41,8 @@ public class BotoneraMenuPrincipal extends VBox {
         botonSalir.setText("Salir");
         botonSalir.setMaxWidth(250);
         botonSalir.setOnAction(new BotonSalirEventHandler());
-        //BOTÓN SALIR--------------//
 
+        //BOTÓN SALIR--------------//
 
         this.getChildren().addAll(botonJugar, botonReglas, botonSalir);
     }

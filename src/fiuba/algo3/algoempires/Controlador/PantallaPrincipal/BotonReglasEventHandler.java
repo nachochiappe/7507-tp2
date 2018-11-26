@@ -17,6 +17,8 @@ public class BotonReglasEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+
+        System.out.println(actionEvent.getEventType().getName());
         new Reglas().display(stage);
     }
 }
