@@ -5,7 +5,6 @@ import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonReglasEventHan
 import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -14,7 +13,7 @@ public class BotoneraMenuPrincipal extends VBox {
 
     Stage stage;
 
-    public BotoneraMenuPrincipal(Stage stage, Scene proximaEscena) {
+    public BotoneraMenuPrincipal(Stage stage) {
         this.stage = stage;
         this.setSpacing(40);
         this.setPadding(new Insets(20, 0, 0, 0));
@@ -23,8 +22,7 @@ public class BotoneraMenuPrincipal extends VBox {
         Button botonJugar = new Button();
         botonJugar.setText("Jugar");
         botonJugar.setMaxWidth(250);
-        BotonJugarEventHandler botonJugarHandler = new BotonJugarEventHandler(stage, proximaEscena);
-        botonJugar.setOnAction(botonJugarHandler);
+        botonJugar.setOnAction(new BotonJugarEventHandler(stage));
 
         //BOTÓN JUGAR--------------//
 

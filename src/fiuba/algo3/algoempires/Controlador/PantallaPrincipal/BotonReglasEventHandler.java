@@ -1,9 +1,8 @@
 package fiuba.algo3.algoempires.Controlador.PantallaPrincipal;
 
-import fiuba.algo3.algoempires.Vista.Reglas;
+import fiuba.algo3.algoempires.Vista.ContenedorReglas;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BotonReglasEventHandler implements EventHandler<ActionEvent> {
@@ -17,8 +16,6 @@ public class BotonReglasEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
-        System.out.println(actionEvent.getEventType().getName());
-        new Reglas().display(stage);
+        new ContenedorReglas().display(stage);
     }
 }

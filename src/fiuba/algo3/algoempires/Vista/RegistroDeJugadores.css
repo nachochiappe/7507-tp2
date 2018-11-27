@@ -1,0 +1,26 @@
+.root{
+    -fx-background-color: "#d7be9f";
+}
+
+.button {
+    -fx-background-color: "#564c3f";
+    -fx-text-fill: "#ffffff";
+    -fx-font-size: 22;
+}
+
+.button:hover {
+    -fx-background-color: "#9a7b55";
+    -fx-cursor: hand;
+}
+
+.textField {
+    -fx-focus-color: "#564c3f";
+    -fx-font-size: 18;
+}
+
+.header {
+    -fx-font-size: 32;
+    -fx-font-weight: 800;
+    -fx-fill-color: "#564c3f";
+    -fx-font-family: "Arial"
+}

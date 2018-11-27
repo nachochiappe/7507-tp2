@@ -16,7 +16,7 @@ public class ContenedorPantallaPrincipal extends BorderPane {
 
     Stage stage;
 
-    public ContenedorPantallaPrincipal(Stage stage, Scene proximaEscena) {
+    public ContenedorPantallaPrincipal(Stage stage) {
 
         super();
 
@@ -44,7 +44,7 @@ public class ContenedorPantallaPrincipal extends BorderPane {
 
         //LABEL MENU PRINCIPAL-------//
 
-        VBox botonora = new BotoneraMenuPrincipal(stage, proximaEscena);
+        VBox botonora = new BotoneraMenuPrincipal(stage);
         botonora.setAlignment(Pos.BOTTOM_CENTER);
 
         this.setBottom(botonora);

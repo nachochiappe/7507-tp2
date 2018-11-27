@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Controlador;
 
+import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Vista.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.ContenedorPantallaPrincipal;
 import javafx.application.Application;
@@ -13,6 +14,8 @@ public class Aplicacion extends Application {
 	
 	private static int width;
 	private static int height;
+
+	private AlgoEmpires algoEmpires;
 	
     public static void main(String[] args) {
 		Toolkit t = Toolkit.getDefaultToolkit();
@@ -25,21 +28,14 @@ public class Aplicacion extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("Algo Empires");
-        
-        ContenedorPantallaDeJuego contenedorPantallaDeJuego = new ContenedorPantallaDeJuego(stage);
-        Scene escenaJuego = new Scene(contenedorPantallaDeJuego, 1024, 768);
-        
-        AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
-        escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler); 
       
-        ContenedorPantallaPrincipal contenedorPantallaPrincipal = new ContenedorPantallaPrincipal(stage, escenaJuego);
+        ContenedorPantallaPrincipal contenedorPantallaPrincipal = new ContenedorPantallaPrincipal(stage);
         Scene escenaPrincipal = new Scene(contenedorPantallaPrincipal, 1024, 768);
-        escenaPrincipal.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/Styles.css");
+        escenaPrincipal.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/MenuPrincipal.css");
         stage.setScene(escenaPrincipal);
         stage.setFullScreen(true);
         stage.setResizable(true);
         stage.setAlwaysOnTop(true);
         stage.show();
 	}
-
 }

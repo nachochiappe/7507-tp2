@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 
 import static javafx.scene.text.Font.font;
 
-public class Reglas {
+public class ContenedorReglas {
 
-    public void display(Stage stage2) {
+    public void display(Stage rootStage) {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(stage2);
+        stage.initOwner(rootStage);
         stage.setTitle("Reglas del juego");
         BorderPane borderPane = new BorderPane();
         Text text = new Text();
