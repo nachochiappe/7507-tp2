@@ -28,6 +28,14 @@ public class ContenedorRegistroDeJugadores {
 
         VBox usuarios = new VBox();
 
+        Label inputLabel1 = new Label();
+        inputLabel1.setText("Nombre del jugador 1:");
+        inputLabel1.getStyleClass().add("label");
+
+        Label inputLabel2 = new Label();
+        inputLabel2.setText("Nombre del jugador 2:");
+        inputLabel2.getStyleClass().add("label");
+
         TextField nombreJugador1 = new TextField();
         nombreJugador1.setPromptText("Ingrese un nombre");
         nombreJugador1.setMaxWidth(300);
@@ -38,7 +46,7 @@ public class ContenedorRegistroDeJugadores {
         nombreJugador2.getStyleClass().add("textField");
         usuarios.setSpacing(20);
         usuarios.setPadding(new Insets(20));
-        usuarios.getChildren().addAll(nombreJugador1, nombreJugador2);
+        usuarios.getChildren().addAll(inputLabel1, nombreJugador1, inputLabel2, nombreJugador2);
         usuarios.setAlignment(Pos.CENTER);
 
         Button botonCancelar = new Button();
@@ -49,7 +57,7 @@ public class ContenedorRegistroDeJugadores {
         Button botonJugar = new Button();
         botonJugar.setText("Jugar");
         botonJugar.setPrefWidth(200);
-        botonJugar.setOnAction(new BotonComenzarEventHandler(stage, rootStage));
+        botonJugar.setOnAction(new BotonComenzarEventHandler(stage, rootStage, usuarios));
 
         HBox botonera = new HBox();
         botonera.setSpacing(20);
@@ -61,7 +69,7 @@ public class ContenedorRegistroDeJugadores {
         borderPane.setTop(header);
         borderPane.setCenter(usuarios);
         borderPane.setBottom(botonera);
-        Scene scene = new Scene(borderPane, 600, 500);
+        Scene scene = new Scene(borderPane, 600, 600);
         scene.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/RegistroDeJugadores.css");
         stage.setScene(scene);
         borderPane.requestFocus();

@@ -24,3 +24,10 @@
     -fx-fill-color: "#564c3f";
     -fx-font-family: "Arial"
 }
+
+.label {
+      -fx-font-size: 20;
+      -fx-font-weight: 600;
+      -fx-fill-color: "#564c3f";
+      -fx-font-family: "Arial"
+}

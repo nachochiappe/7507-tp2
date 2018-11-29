@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Vista;
 
 import fiuba.algo3.algoempires.Controlador.VistaAldeanoEventHandler;
+import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -30,11 +31,43 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 //    VistaMapa vistaMapa;
     Canvas canvasCentral;
     VBox contenedorCentral;
+    AlgoEmpires algoEmpires;
+    VBox statsJugador ;
 
-    public ContenedorPantallaDeJuego(Stage stage) {
+    public ContenedorPantallaDeJuego(Stage stage, AlgoEmpires algoEmpires) {
+        this.algoEmpires = algoEmpires;
         this.setMenu(stage);
         this.setCentro();
 //        this.setBotonera(robot);
+
+        Button button = new Button();
+        button.setText("Terminar Turno");
+        button.setOnAction(e -> {
+            algoEmpires.pasarTurno();
+            statsJugador = new VBox();
+            statsJugador.setSpacing(20);
+            statsJugador.setPadding(new Insets(20));
+            Label nombreJugador = new Label();
+            nombreJugador.setText(algoEmpires.getJugadorActual().getNombre());
+            Label oroJugador = new Label();
+            oroJugador.setText(String.valueOf(algoEmpires.getJugadorActual().getOro()));
+            statsJugador.getChildren().addAll(nombreJugador, oroJugador);
+            this.setRight(statsJugador);
+        });
+        this.setLeft(button);
+
+        statsJugador = new VBox();
+        statsJugador.setSpacing(20);
+        statsJugador.setPadding(new Insets(20));
+        Label nombreJugador = new Label();
+        nombreJugador.setText(algoEmpires.getJugadorActual().getNombre());
+        Label oroJugador = new Label();
+        oroJugador.setText(String.valueOf(algoEmpires.getJugadorActual().getOro()));
+        statsJugador.getChildren().addAll(nombreJugador, oroJugador);
+
+        this.setRight(statsJugador);
+
+
     }
 
 /*
