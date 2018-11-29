@@ -17,7 +17,7 @@ public class VistaAldeano extends Button{
     public VistaAldeano(Aldeano aldeano, Canvas canvas) {
         this.aldeano = aldeano;
         this.canvas = canvas;
-        graficoAldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Aldeano/AldeanoS.png");
+        graficoAldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoS.png");
         vacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/lugarVacio.png");
     }
 
