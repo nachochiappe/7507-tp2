@@ -16,7 +16,7 @@ public class VistaAldeanoEventHandler implements EventHandler<ActionEvent>{
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		vistaAldeano.clean();
+//		vistaAldeano.clean();
 		
 	}
 

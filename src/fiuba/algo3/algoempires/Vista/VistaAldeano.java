@@ -12,18 +12,26 @@ public class VistaAldeano extends Button{
 	private Image vacio;
     private Aldeano aldeano;
     private Image graficoAldeano;
-    Canvas canvas;
+    private Canvas canvas;
 
-    public VistaAldeano(Aldeano aldeano, Canvas canvas) {
+    public VistaAldeano(Aldeano aldeano) {
         this.aldeano = aldeano;
-        this.canvas = canvas;
         graficoAldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoS.png");
         vacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/lugarVacio.png");
+        canvas = new Canvas();
+        canvas.getGraphicsContext2D().drawImage(graficoAldeano, 0, 0);
     }
-
+    
+    public int getPosX() {
+    	return aldeano.getPosicion().getPosicionX();
+    }
+    
+    public int getPosY() {
+    	return aldeano.getPosicion().getPosicionY();
+    }
+/*
     public void dibujar() {
-        this.clean();
-        canvas.getGraphicsContext2D().drawImage(graficoAldeano, aldeano.getPosicion().getPosicionX() * 32, aldeano.getPosicion().getPosicionY() * 32);
+        canvas.getGraphicsContext2D().drawImage(graficoAldeano, 0, 0);
     }
 
     public void clean() {
@@ -33,4 +41,5 @@ public class VistaAldeano extends Button{
     public void update() {
         this.dibujar();
     }
+    */
 }

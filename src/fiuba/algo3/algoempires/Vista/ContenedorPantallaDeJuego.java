@@ -5,23 +5,27 @@ import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import pruebas.PruebasGridPane;
 
 
 
@@ -30,7 +34,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     BarraDeMenu menuBar;
 //    VistaMapa vistaMapa;
     Canvas canvasCentral;
-    VBox contenedorCentral;
+    VistaMapa contenedorCentral;
     AlgoEmpires algoEmpires;
     VBox statsJugador ;
 
@@ -98,18 +102,22 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     
     private void setCentro() {
 
-        canvasCentral = new Canvas(640, 640);
+        Canvas canvasCentral = new Canvas(640, 640);
+        contenedorCentral = new VistaMapa();
 // ------ Esto va de prueba ---------- 
-        Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(0,0));
-        VistaAldeano vistaAldeano = new VistaAldeano(aldeano, canvasCentral);
-        vistaAldeano.dibujar();
-        VistaAldeanoEventHandler vistaAldeanoEventHandler = new VistaAldeanoEventHandler(aldeano, vistaAldeano);
-        vistaAldeano.setOnAction(vistaAldeanoEventHandler);
         
+        contenedorCentral.setAlignment(Pos.CENTER);
+        Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(0,0));
+        VistaAldeano vistaAldeano = new VistaAldeano(aldeano);
+//        vistaMapa.agregar(vistaAldeano);
+        VistaAldeanoEventHandler vistaAldeanoEventHandler = new VistaAldeanoEventHandler(aldeano, vistaAldeano);
+        contenedorCentral.agregar(vistaAldeano);
+
         Aldeano aldeano2 = new Aldeano(new Jugador("rama"), new Posicion(19,19));
-        VistaAldeano vistaAldeano2 = new VistaAldeano(aldeano2, canvasCentral);
-        vistaAldeano2.dibujar();
+        VistaAldeano vistaAldeano2 = new VistaAldeano(aldeano2);
+
 // -------- hasta aca -------------------------
+/*
         contenedorCentral = new VBox(canvasCentral);
         contenedorCentral.setAlignment(Pos.CENTER);
         contenedorCentral.setSpacing(0);
@@ -117,7 +125,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         Image imagenMapa = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Mapa1.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagenMapa, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));
-
+*/
         this.setCenter(contenedorCentral);
     }
 
