@@ -45,8 +45,8 @@ public class BotonComenzarEventHandler implements EventHandler<ActionEvent> {
 
                 ContenedorPantallaDeJuego contenedorPantallaDeJuego = new ContenedorPantallaDeJuego(stage, algoEmpires);
                 Scene escenaJuego = new Scene(contenedorPantallaDeJuego, 1024, 768);
-                AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
-                escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
+                AplicacionOnKeyPressEventHandler aplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
+                escenaJuego.setOnKeyPressed(aplicacionOnKeyPressEventHandler);
 
                 stage.close();
                 rootStage.setScene(escenaJuego);

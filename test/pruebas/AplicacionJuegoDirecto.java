@@ -1,5 +1,7 @@
 package pruebas;
 
+import fiuba.algo3.algoempires.Controlador.AplicacionOnKeyPressEventHandler;
+import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Vista.ContenedorPantallaDeJuego;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,10 +15,17 @@ public class AplicacionJuegoDirecto  extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		stage.setTitle("Algo Empires");
-		ContenedorPantallaDeJuego pantallaDeJuego = new ContenedorPantallaDeJuego(stage);
-		Scene escena = new Scene(pantallaDeJuego, 1024,768);
-		stage.setScene(escena);
+		AlgoEmpires algoEmpires = new AlgoEmpires();
+		algoEmpires.agregarJugador("UNO");
+		algoEmpires.agregarJugador("DOS");
+		algoEmpires.empezarJuego();
+		stage.setTitle("Algo Empires Pruebas"); 
+        
+        ContenedorPantallaDeJuego contenedorPantallaDeJuego = new ContenedorPantallaDeJuego(stage, algoEmpires);
+        Scene escenaJuego = new Scene(contenedorPantallaDeJuego, 1024, 768);
+        AplicacionOnKeyPressEventHandler aplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
+        escenaJuego.setOnKeyPressed(aplicacionOnKeyPressEventHandler);
+        stage.setScene(escenaJuego);
         stage.show();	
 	}
 
