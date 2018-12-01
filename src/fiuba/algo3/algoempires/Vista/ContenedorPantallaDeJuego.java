@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -131,7 +133,9 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     		}
     	}
     	
-    	StackPane stackPane = new StackPane();
+    	//HARDCODEO UNIDADES DE PRUEBA
+    	//ALDEANO
+    	StackPane stackPaneAldeano = new StackPane();
     	Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
 		ImageView imageViewPiso = new ImageView();
 		imageViewPiso.setImage(pisoVacio);
@@ -146,10 +150,82 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		imageViewAldeano.setPreserveRatio(true);
 		imageViewAldeano.setSmooth(true);
 		imageViewAldeano.setCache(true);
-		stackPane.getChildren().addAll(imageViewPiso, imageViewAldeano);
-		imageViewAldeano.setOnMouseClicked(e -> mostrarMenuDeOpciones());
-		gridPane.add(stackPane, 10, 10);
+		stackPaneAldeano.getChildren().addAll(imageViewPiso, imageViewAldeano);
+		imageViewAldeano.setOnMouseClicked(e -> mostrarMenuDeAldeano());
+		gridPane.add(stackPaneAldeano, 10, 10);
+		
+    	//ARQUERO
+    	StackPane stackPaneArquero = new StackPane();
+		Image arquero = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png");
+		ImageView imageViewArquero = new ImageView();
+		imageViewArquero.setImage(arquero);
+		imageViewArquero.setFitWidth(40);
+		imageViewArquero.setPreserveRatio(true);
+		imageViewArquero.setSmooth(true);
+		imageViewArquero.setCache(true);
+		stackPaneArquero.getChildren().addAll(imageViewPiso, imageViewArquero);
+		imageViewArquero.setOnMouseClicked(e -> mostrarMenuDeArquero());
+		gridPane.add(stackPaneArquero, 11, 11);
+		
+    	//ESPADACHIN
+    	StackPane stackPaneEspadachin = new StackPane();
+		Image espadachin = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
+		ImageView imageViewEspadachin = new ImageView();
+		imageViewEspadachin.setImage(espadachin);
+		imageViewEspadachin.setFitWidth(40);
+		imageViewEspadachin.setPreserveRatio(true);
+		imageViewEspadachin.setSmooth(true);
+		imageViewEspadachin.setCache(true);
+		stackPaneEspadachin.getChildren().addAll(imageViewPiso, imageViewEspadachin);
+		imageViewEspadachin.setOnMouseClicked(e -> mostrarMenuDeEspadachin());
+		gridPane.add(stackPaneEspadachin, 12, 12);
     	
+		//HARDCODEO EDIFICIOS DE PRUEBA
+		//CASTILLO
+		StackPane stackPaneCastillo1 = new StackPane();
+		StackPane stackPaneCastillo2 = new StackPane();
+		StackPane stackPaneCastillo3 = new StackPane();
+		StackPane stackPaneCastillo4 = new StackPane();
+		Image castilloOriginal = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png");
+		PixelReader castillo = castilloOriginal.getPixelReader();
+		WritableImage castilloParte1 = new WritableImage(castillo, 0, 0, 64, 64);
+		WritableImage castilloParte2 = new WritableImage(castillo, 64, 0, 64, 64);
+		WritableImage castilloParte3 = new WritableImage(castillo, 0, 64, 64, 64);
+		WritableImage castilloParte4 = new WritableImage(castillo, 64, 64, 64, 64);
+		ImageView imageViewCastillo1 = new ImageView();
+		imageViewCastillo1.setImage(castilloParte1);
+		imageViewCastillo1.setFitWidth(40);
+		imageViewCastillo1.setPreserveRatio(true);
+		imageViewCastillo1.setSmooth(true);
+		imageViewCastillo1.setCache(true);
+		stackPaneCastillo1.getChildren().addAll(imageViewPiso, imageViewCastillo1);
+		gridPane.add(stackPaneCastillo1, 0, 0);
+		ImageView imageViewCastillo2 = new ImageView();
+		imageViewCastillo2.setImage(castilloParte2);
+		imageViewCastillo2.setFitWidth(40);
+		imageViewCastillo2.setPreserveRatio(true);
+		imageViewCastillo2.setSmooth(true);
+		imageViewCastillo2.setCache(true);
+		stackPaneCastillo2.getChildren().addAll(imageViewPiso, imageViewCastillo2);
+		gridPane.add(stackPaneCastillo2, 1, 0);
+		ImageView imageViewCastillo3 = new ImageView();
+		imageViewCastillo3.setImage(castilloParte3);
+		imageViewCastillo3.setFitWidth(40);
+		imageViewCastillo3.setPreserveRatio(true);
+		imageViewCastillo3.setSmooth(true);
+		imageViewCastillo3.setCache(true);
+		stackPaneCastillo3.getChildren().addAll(imageViewPiso, imageViewCastillo3);
+		gridPane.add(stackPaneCastillo3, 0, 1);
+		ImageView imageViewCastillo4 = new ImageView();
+		imageViewCastillo4.setImage(castilloParte4);
+		imageViewCastillo4.setFitWidth(40);
+		imageViewCastillo4.setPreserveRatio(true);
+		imageViewCastillo4.setSmooth(true);
+		imageViewCastillo4.setCache(true);
+		stackPaneCastillo4.getChildren().addAll(imageViewPiso, imageViewCastillo4);
+		gridPane.add(stackPaneCastillo4, 1, 1);
+		//imageViewCastillo.setOnMouseClicked(e -> mostrarMenuDeCastillo());
+		
     	this.setCenter(gridPane);
 
     	/*
@@ -181,7 +257,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         */
     }
 
-    private void mostrarMenuDeOpciones() {
+    private void mostrarMenuDeAldeano() {
 		// acá debería chequear si la unidad pertenece al equipo del jugador
     	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
     	this.unitVBox = new VBox(20);
@@ -209,6 +285,66 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     	Button botonConstruirCuartel = new Button("Construir Cuartel");
     	Button botonReparar = new Button("Reparar");
     	accionesVBox.getChildren().addAll(botonMoverUnidad, botonConstruirPlazaCentral, botonConstruirCuartel, botonReparar);
+    	this.unitVBox.getChildren().add(accionesVBox);
+    	this.leftBorderPane.setCenter(this.unitVBox);
+	}
+    
+    private void mostrarMenuDeEspadachin() {
+		// acá debería chequear si la unidad pertenece al equipo del jugador
+    	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
+    	this.unitVBox = new VBox(20);
+    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
+    	this.unitVBox.setPadding(new Insets(20));
+    	
+    	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
+		ImageView imageView = new ImageView();
+		imageView.setImage(imagenUnidad);
+		imageView.setFitWidth(50);
+		imageView.setPreserveRatio(true);
+		imageView.setSmooth(true);
+		imageView.setCache(true);
+		this.unitVBox.getChildren().add(imageView);
+		
+		Label nombreUnidad = new Label("Espadachin");
+		Label vidaUnidad = new Label("Vida: ");
+		this.unitVBox.getChildren().addAll(nombreUnidad, vidaUnidad);
+		
+		VBox accionesVBox = new VBox(20);
+    	accionesVBox.setPadding(new Insets(20));
+    	accionesVBox.setAlignment(Pos.TOP_CENTER);
+    	Button botonMoverUnidad = new Button("Mover Unidad");
+    	Button botonAtacar = new Button("Atacar");
+    	accionesVBox.getChildren().addAll(botonMoverUnidad, botonAtacar);
+    	this.unitVBox.getChildren().add(accionesVBox);
+    	this.leftBorderPane.setCenter(this.unitVBox);
+	}
+    
+    private void mostrarMenuDeArquero() {
+		// acá debería chequear si la unidad pertenece al equipo del jugador
+    	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
+    	this.unitVBox = new VBox(20);
+    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
+    	this.unitVBox.setPadding(new Insets(20));
+    	
+    	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png");
+		ImageView imageView = new ImageView();
+		imageView.setImage(imagenUnidad);
+		imageView.setFitWidth(50);
+		imageView.setPreserveRatio(true);
+		imageView.setSmooth(true);
+		imageView.setCache(true);
+		this.unitVBox.getChildren().add(imageView);
+		
+		Label nombreUnidad = new Label("Arquero");
+		Label vidaUnidad = new Label("Vida: ");
+		this.unitVBox.getChildren().addAll(nombreUnidad, vidaUnidad);
+		
+		VBox accionesVBox = new VBox(20);
+    	accionesVBox.setPadding(new Insets(20));
+    	accionesVBox.setAlignment(Pos.TOP_CENTER);
+    	Button botonMoverUnidad = new Button("Mover Unidad");
+    	Button botonAtacar = new Button("Atacar");
+    	accionesVBox.getChildren().addAll(botonMoverUnidad, botonAtacar);
     	this.unitVBox.getChildren().add(accionesVBox);
     	this.leftBorderPane.setCenter(this.unitVBox);
 	}
