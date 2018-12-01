@@ -27,6 +27,9 @@ public class VistaTablero extends GridPane{
 	public void agregar(VistaArquero vistaArquero) {
 		this.add(vistaArquero,10,12);
 	}
+	public void agregar(VistaArmaDeAsedio armaDeAsedio) {
+		this.add(armaDeAsedio,10,13);
+	}
 
 
 	public void iniciarTablero() {

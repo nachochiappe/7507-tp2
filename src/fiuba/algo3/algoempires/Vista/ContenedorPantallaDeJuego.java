@@ -117,8 +117,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 
     	this.vistaTablero.iniciarTablero();
 	
-    	//HARDCODEO UNIDADES DE PRUEBA
-    	//ALDEANO
+    	//UNIDADES DE PRUEBA (Con posicion harcodeada)
     	
     	VistaAldeano vistaAldeano = new VistaAldeano(unitVBox,leftBorderPane);
     	this.vistaTablero.agregar(vistaAldeano);
@@ -126,10 +125,19 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     	this.vistaTablero.agregar(vistaEspadachin);
     	VistaArquero vistaArquero = new VistaArquero(unitVBox,leftBorderPane);
     	this.vistaTablero.agregar(vistaArquero);
+    	VistaArmaDeAsedio vistaArmaDeAsedio = new VistaArmaDeAsedio(unitVBox,leftBorderPane);
+    	this.vistaTablero.agregar(vistaArmaDeAsedio);
 
- /*   	
+    	
 		//HARDCODEO EDIFICIOS DE PRUEBA
 		//CASTILLO
+    	Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
+		ImageView imageViewPiso = new ImageView();
+		imageViewPiso.setImage(pisoVacio);
+		imageViewPiso.setFitWidth(40);
+		imageViewPiso.setPreserveRatio(true);
+		imageViewPiso.setSmooth(true);
+		imageViewPiso.setCache(true);
 		StackPane stackPaneCastillo1 = new StackPane();
 		StackPane stackPaneCastillo2 = new StackPane();
 		StackPane stackPaneCastillo3 = new StackPane();
@@ -173,7 +181,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		stackPaneCastillo4.getChildren().addAll(imageViewPiso, imageViewCastillo4);
 		vistaTablero.add(stackPaneCastillo4, 1, 1);
 		//imageViewCastillo.setOnMouseClicked(e -> mostrarMenuDeCastillo());
-*/
+
     	this.setCenter(vistaTablero);
     }
 
