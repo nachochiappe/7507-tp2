@@ -12,24 +12,15 @@ import javafx.scene.shape.Rectangle;
 
 public class VistaTablero extends GridPane{
 	
-	private int rowNum = 20;
-	private int colNum = 20;
+
 	public VistaTablero() {
 	}
 
 	
-	public void agregar(VistaAldeano vistaAldeano) {
-		this.add(vistaAldeano,10,10);
+	public void agregar(VistaUnidad vistaUnidad) {
+		this.add(vistaUnidad,vistaUnidad.getPosX(),vistaUnidad.getPosY());
 	}
-	public void agregar(VistaEspadachin vistaEspadachin) {
-		this.add(vistaEspadachin,10,11);
-	}
-	public void agregar(VistaArquero vistaArquero) {
-		this.add(vistaArquero,10,12);
-	}
-	public void agregar(VistaArmaDeAsedio armaDeAsedio) {
-		this.add(armaDeAsedio,10,13);
-	}
+
 
 
 	public void iniciarTablero() {

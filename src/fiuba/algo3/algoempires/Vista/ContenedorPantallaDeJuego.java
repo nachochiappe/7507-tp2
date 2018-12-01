@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Vista;
 import fiuba.algo3.algoempires.Controlador.VistaAldeanoEventHandler;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -118,14 +119,17 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     	this.vistaTablero.iniciarTablero();
 	
     	//UNIDADES DE PRUEBA (Con posicion harcodeada)
-    	
-    	VistaAldeano vistaAldeano = new VistaAldeano(unitVBox,leftBorderPane);
+    	Unidad aldeano = new Aldeano(new Jugador("UNO"),new Posicion(10,10));
+    	Unidad espadachin = new Aldeano(new Jugador("UNO"),new Posicion(10,11));
+    	Unidad arquero = new Aldeano(new Jugador("UNO"),new Posicion(10,12));
+    	Unidad armaDeAsedio = new Aldeano(new Jugador("UNO"),new Posicion(10,13));
+    	VistaAldeano vistaAldeano = new VistaAldeano(aldeano, unitVBox,leftBorderPane);
     	this.vistaTablero.agregar(vistaAldeano);
-    	VistaEspadachin vistaEspadachin = new VistaEspadachin(unitVBox,leftBorderPane);
+    	VistaEspadachin vistaEspadachin = new VistaEspadachin(espadachin, unitVBox,leftBorderPane);
     	this.vistaTablero.agregar(vistaEspadachin);
-    	VistaArquero vistaArquero = new VistaArquero(unitVBox,leftBorderPane);
+    	VistaArquero vistaArquero = new VistaArquero(arquero, unitVBox,leftBorderPane);
     	this.vistaTablero.agregar(vistaArquero);
-    	VistaArmaDeAsedio vistaArmaDeAsedio = new VistaArmaDeAsedio(unitVBox,leftBorderPane);
+    	VistaArmaDeAsedio vistaArmaDeAsedio = new VistaArmaDeAsedio(armaDeAsedio, unitVBox,leftBorderPane);
     	this.vistaTablero.agregar(vistaArmaDeAsedio);
 
     	

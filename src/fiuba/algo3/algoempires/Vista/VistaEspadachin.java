@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,7 +10,8 @@ import javafx.scene.layout.VBox;
 public class VistaEspadachin  extends VistaUnidad{
 
 	
-    public VistaEspadachin(VBox unitVBox, BorderPane borderPane) {
+    public VistaEspadachin(Unidad espadachin, VBox unitVBox, BorderPane borderPane) {
+    	this.unidad = espadachin;
     	this.borderPane = borderPane;
     	this.unitVBox = unitVBox;
     	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");

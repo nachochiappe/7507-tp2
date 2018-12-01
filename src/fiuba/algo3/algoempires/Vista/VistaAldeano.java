@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,7 +15,8 @@ import javafx.scene.layout.VBox;
 public class VistaAldeano extends VistaUnidad{
 
 
-    public VistaAldeano(VBox unitVBox, BorderPane borderPane) {
+    public VistaAldeano(Unidad aldeano, VBox unitVBox, BorderPane borderPane) {
+    	this.unidad = aldeano;
     	this.borderPane = borderPane;
     	this.unitVBox = unitVBox;
     	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
@@ -34,8 +36,7 @@ public class VistaAldeano extends VistaUnidad{
     	Button botonConstruirCuartel = new Button("Construir Cuartel");
     	Button botonReparar = new Button("Reparar");
     	mostrarMenu(imageView, "Aldeano", botonMoverUnidad, botonConstruirPlazaCentral, botonConstruirCuartel, botonReparar);
-	}
-    
-
+    	botonMoverUnidad.setOnMouseClicked(e -> MostrarMenuDeMovimiento());
+	} 
 
 }
