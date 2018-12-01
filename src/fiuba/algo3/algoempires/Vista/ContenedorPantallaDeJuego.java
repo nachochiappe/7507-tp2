@@ -38,19 +38,17 @@ import pruebas.PruebasGridPane;
 public class ContenedorPantallaDeJuego extends BorderPane {
 
 	private BarraDeMenu menuBar;
-//    VistaMapa vistaMapa;
-    //private Canvas canvasCentral;
-    //private VistaMapa contenedorCentral;
+
     private AlgoEmpires algoEmpires;
     private VBox statsJugador ;
-    private GridPane gridPane;
+    private VistaTablero vistaTablero;
     private BorderPane leftBorderPane;
     private VBox unitVBox;
 
     public ContenedorPantallaDeJuego(Stage stage, AlgoEmpires algoEmpires) {
         this.algoEmpires = algoEmpires;
-        this.gridPane = new GridPane();
-        gridPane.setAlignment(Pos.CENTER);
+        this.vistaTablero = new VistaTablero();
+        vistaTablero.setAlignment(Pos.CENTER);
         this.leftBorderPane = new BorderPane();
         leftBorderPane.setPadding(new Insets(20));
         this.setMenu(stage);
@@ -116,70 +114,20 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     
     private void setCentro() {
     	
-    	Tablero tablero = Tablero.getInstance();
-    	
-    	for (int i = 0; i < tablero.getAncho(); i++) {
-    		for (int j = 0; j < tablero.getAlto(); j++) {
-    			StackPane stackPane = new StackPane();
-    			Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
-    			ImageView imageView = new ImageView();
-    			imageView.setImage(pisoVacio);
-    			imageView.setFitWidth(40);
-    			imageView.setPreserveRatio(true);
-    			imageView.setSmooth(true);
-    			imageView.setCache(true);
-    			stackPane.getChildren().add(imageView);
-                gridPane.add(stackPane, j, i);
-    		}
-    	}
-    	
+
+    	this.vistaTablero.iniciarTablero();
+	
     	//HARDCODEO UNIDADES DE PRUEBA
     	//ALDEANO
-    	StackPane stackPaneAldeano = new StackPane();
-    	Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
-		ImageView imageViewPiso = new ImageView();
-		imageViewPiso.setImage(pisoVacio);
-		imageViewPiso.setFitWidth(40);
-		imageViewPiso.setPreserveRatio(true);
-		imageViewPiso.setSmooth(true);
-		imageViewPiso.setCache(true);
-    	Image aldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
-		ImageView imageViewAldeano = new ImageView();
-		imageViewAldeano.setImage(aldeano);
-		imageViewAldeano.setFitWidth(40);
-		imageViewAldeano.setPreserveRatio(true);
-		imageViewAldeano.setSmooth(true);
-		imageViewAldeano.setCache(true);
-		stackPaneAldeano.getChildren().addAll(imageViewPiso, imageViewAldeano);
-		imageViewAldeano.setOnMouseClicked(e -> mostrarMenuDeAldeano());
-		gridPane.add(stackPaneAldeano, 10, 10);
-		
-    	//ARQUERO
-    	StackPane stackPaneArquero = new StackPane();
-		Image arquero = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png");
-		ImageView imageViewArquero = new ImageView();
-		imageViewArquero.setImage(arquero);
-		imageViewArquero.setFitWidth(40);
-		imageViewArquero.setPreserveRatio(true);
-		imageViewArquero.setSmooth(true);
-		imageViewArquero.setCache(true);
-		stackPaneArquero.getChildren().addAll(imageViewPiso, imageViewArquero);
-		imageViewArquero.setOnMouseClicked(e -> mostrarMenuDeArquero());
-		gridPane.add(stackPaneArquero, 11, 11);
-		
-    	//ESPADACHIN
-    	StackPane stackPaneEspadachin = new StackPane();
-		Image espadachin = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
-		ImageView imageViewEspadachin = new ImageView();
-		imageViewEspadachin.setImage(espadachin);
-		imageViewEspadachin.setFitWidth(40);
-		imageViewEspadachin.setPreserveRatio(true);
-		imageViewEspadachin.setSmooth(true);
-		imageViewEspadachin.setCache(true);
-		stackPaneEspadachin.getChildren().addAll(imageViewPiso, imageViewEspadachin);
-		imageViewEspadachin.setOnMouseClicked(e -> mostrarMenuDeEspadachin());
-		gridPane.add(stackPaneEspadachin, 12, 12);
     	
+    	VistaAldeano vistaAldeano = new VistaAldeano(unitVBox,leftBorderPane);
+    	this.vistaTablero.agregar(vistaAldeano);
+    	VistaEspadachin vistaEspadachin = new VistaEspadachin(unitVBox,leftBorderPane);
+    	this.vistaTablero.agregar(vistaEspadachin);
+    	VistaArquero vistaArquero = new VistaArquero(unitVBox,leftBorderPane);
+    	this.vistaTablero.agregar(vistaArquero);
+
+ /*   	
 		//HARDCODEO EDIFICIOS DE PRUEBA
 		//CASTILLO
 		StackPane stackPaneCastillo1 = new StackPane();
@@ -199,7 +147,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		imageViewCastillo1.setSmooth(true);
 		imageViewCastillo1.setCache(true);
 		stackPaneCastillo1.getChildren().addAll(imageViewPiso, imageViewCastillo1);
-		gridPane.add(stackPaneCastillo1, 0, 0);
+		vistaTablero.add(stackPaneCastillo1, 0, 0);
 		ImageView imageViewCastillo2 = new ImageView();
 		imageViewCastillo2.setImage(castilloParte2);
 		imageViewCastillo2.setFitWidth(40);
@@ -207,7 +155,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		imageViewCastillo2.setSmooth(true);
 		imageViewCastillo2.setCache(true);
 		stackPaneCastillo2.getChildren().addAll(imageViewPiso, imageViewCastillo2);
-		gridPane.add(stackPaneCastillo2, 1, 0);
+		vistaTablero.add(stackPaneCastillo2, 1, 0);
 		ImageView imageViewCastillo3 = new ImageView();
 		imageViewCastillo3.setImage(castilloParte3);
 		imageViewCastillo3.setFitWidth(40);
@@ -215,7 +163,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		imageViewCastillo3.setSmooth(true);
 		imageViewCastillo3.setCache(true);
 		stackPaneCastillo3.getChildren().addAll(imageViewPiso, imageViewCastillo3);
-		gridPane.add(stackPaneCastillo3, 0, 1);
+		vistaTablero.add(stackPaneCastillo3, 0, 1);
 		ImageView imageViewCastillo4 = new ImageView();
 		imageViewCastillo4.setImage(castilloParte4);
 		imageViewCastillo4.setFitWidth(40);
@@ -223,73 +171,15 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		imageViewCastillo4.setSmooth(true);
 		imageViewCastillo4.setCache(true);
 		stackPaneCastillo4.getChildren().addAll(imageViewPiso, imageViewCastillo4);
-		gridPane.add(stackPaneCastillo4, 1, 1);
+		vistaTablero.add(stackPaneCastillo4, 1, 1);
 		//imageViewCastillo.setOnMouseClicked(e -> mostrarMenuDeCastillo());
-		
-    	this.setCenter(gridPane);
+*/
+    	this.setCenter(vistaTablero);
     }
 
-    private void mostrarMenuDeAldeano() {
-		// acá debería chequear si la unidad pertenece al equipo del jugador
-    	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
-    	
-    	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(imagenUnidad);
-		Button botonMoverUnidad = new Button("Mover Unidad");
-    	Button botonConstruirPlazaCentral = new Button("Construir Plaza Central");
-    	Button botonConstruirCuartel = new Button("Construir Cuartel");
-    	Button botonReparar = new Button("Reparar");
-    	mostrarMenu(imageView, "Aldeano", botonMoverUnidad, botonConstruirPlazaCentral, botonConstruirCuartel, botonReparar);
-	}
-    
-    private void mostrarMenuDeEspadachin() {
-		// acá debería chequear si la unidad pertenece al equipo del jugador
-    	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
-    	
-    	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
-    	ImageView imageView = new ImageView();
-		imageView.setImage(imagenUnidad);
-		Button botonMoverUnidad = new Button("Mover Unidad");
-    	Button botonAtacar = new Button("Atacar");
-		mostrarMenu(imageView, "Espadachin", botonMoverUnidad, botonAtacar);
-	}
-    
-    private void mostrarMenuDeArquero() {
-		// acá debería chequear si la unidad pertenece al equipo del jugador
-    	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
-    	
-    	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(imagenUnidad);
-		Button botonMoverUnidad = new Button("Mover Unidad");
-    	Button botonAtacar = new Button("Atacar");
-		mostrarMenu(imageView, "Arquero", botonMoverUnidad, botonAtacar);
-	}
 
-    private void mostrarMenu(ImageView imageView, String _nombre, Button...buttons) {
-    	this.unitVBox = new VBox(20);
-    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
-    	this.unitVBox.setPadding(new Insets(20));
-		imageView.setFitWidth(50);
-		imageView.setPreserveRatio(true);
-		imageView.setSmooth(true);
-		imageView.setCache(true);
-		this.unitVBox.getChildren().add(imageView);
-		
-		Label nombre = new Label(_nombre);
-		Label vida = new Label("Vida: ");
-		this.unitVBox.getChildren().addAll(nombre, vida);
-		
-		VBox accionesVBox = new VBox(20);
-    	accionesVBox.setPadding(new Insets(20));
-    	accionesVBox.setAlignment(Pos.TOP_CENTER);
-    	for (Button button : buttons) {
-    		accionesVBox.getChildren().add(button);
-		}
-    	this.unitVBox.getChildren().add(accionesVBox);
-    	this.leftBorderPane.setCenter(this.unitVBox);
-    }
+ 
+
     
 	public BarraDeMenu getBarraDeMenu() {
         return menuBar;

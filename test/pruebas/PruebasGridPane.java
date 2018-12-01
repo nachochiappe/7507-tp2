@@ -17,9 +17,9 @@ public class PruebasGridPane extends GridPane{
 		        Canvas rec = new Canvas();
 		        rec.setWidth(32);
 		        rec.setHeight(32);
-		        rec.getGraphicsContext2D().
-		        GridPane.setRowIndex(rec, row);
-		        GridPane.setColumnIndex(rec, col);
+		        rec.getGraphicsContext2D();
+		        this.setRowIndex(rec, row);
+		        this.setColumnIndex(rec, col);
 		        this.getChildren().addAll(rec);
 		    }
 		}

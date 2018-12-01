@@ -1,45 +1,41 @@
 package fiuba.algo3.algoempires.Vista;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import javafx.scene.canvas.Canvas;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 
-public class VistaAldeano extends Button{
 
-	private Image vacio;
-    private Aldeano aldeano;
-    private Image graficoAldeano;
-    private Canvas canvas;
+public class VistaAldeano extends VistaUnidad{
 
-    public VistaAldeano(Aldeano aldeano) {
-        this.aldeano = aldeano;
-        graficoAldeano = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoS.png");
-        vacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/lugarVacio.png");
-        canvas = new Canvas();
-        canvas.getGraphicsContext2D().drawImage(graficoAldeano, 0, 0);
+
+    public VistaAldeano(VBox unitVBox, BorderPane borderPane) {
+    	this.borderPane = borderPane;
+    	this.unitVBox = unitVBox;
+    	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
+    	inicializarUnidad();
     }
     
-    public int getPosX() {
-    	return aldeano.getPosicion().getPosicionX();
-    }
+    @Override
+    protected void mostrarMenuUnidad() {
+		// acá debería chequear si la unidad pertenece al equipo del jugador
+    	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
+    	
+    	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
+		ImageView imageView = new ImageView();
+		imageView.setImage(imagenUnidad);
+		Button botonMoverUnidad = new Button("Mover Unidad");
+    	Button botonConstruirPlazaCentral = new Button("Construir Plaza Central");
+    	Button botonConstruirCuartel = new Button("Construir Cuartel");
+    	Button botonReparar = new Button("Reparar");
+    	mostrarMenu(imageView, "Aldeano", botonMoverUnidad, botonConstruirPlazaCentral, botonConstruirCuartel, botonReparar);
+	}
     
-    public int getPosY() {
-    	return aldeano.getPosicion().getPosicionY();
-    }
-/*
-    public void dibujar() {
-        canvas.getGraphicsContext2D().drawImage(graficoAldeano, 0, 0);
-    }
 
-    public void clean() {
-        canvas.getGraphicsContext2D().drawImage(vacio, aldeano.getPosicion().getPosicionX() * 32 , aldeano.getPosicion().getPosicionY() * 32);
-    }
 
-    public void update() {
-        this.dibujar();
-    }
-    */
 }
