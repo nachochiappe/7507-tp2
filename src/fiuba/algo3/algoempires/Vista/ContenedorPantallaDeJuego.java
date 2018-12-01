@@ -227,128 +227,70 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		//imageViewCastillo.setOnMouseClicked(e -> mostrarMenuDeCastillo());
 		
     	this.setCenter(gridPane);
-
-    	/*
-        Canvas canvasCentral = new Canvas(640, 640);
-        contenedorCentral = new VistaMapa();
-// ------ Esto va de prueba ---------- 
-        
-        contenedorCentral.setAlignment(Pos.CENTER);
-        Aldeano aldeano = new Aldeano(new Jugador("rama"), new Posicion(0,0));
-        VistaAldeano vistaAldeano = new VistaAldeano(aldeano);
-//        vistaMapa.agregar(vistaAldeano);
-        VistaAldeanoEventHandler vistaAldeanoEventHandler = new VistaAldeanoEventHandler(aldeano, vistaAldeano);
-        contenedorCentral.agregar(vistaAldeano);
-
-        Aldeano aldeano2 = new Aldeano(new Jugador("rama"), new Posicion(19,19));
-        VistaAldeano vistaAldeano2 = new VistaAldeano(aldeano2);
-
-// -------- hasta aca -------------------------
-
-        contenedorCentral = new VBox(canvasCentral);
-        contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(0);
-        contenedorCentral.setPadding(new Insets(25));
-        Image imagenMapa = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Mapa1.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagenMapa, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-        contenedorCentral.setBackground(new Background(imagenDeFondo));
-
-        this.setCenter(contenedorCentral);
-        */
     }
 
     private void mostrarMenuDeAldeano() {
 		// acá debería chequear si la unidad pertenece al equipo del jugador
     	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
-    	this.unitVBox = new VBox(20);
-    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
-    	this.unitVBox.setPadding(new Insets(20));
     	
     	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
 		ImageView imageView = new ImageView();
 		imageView.setImage(imagenUnidad);
-		imageView.setFitWidth(50);
-		imageView.setPreserveRatio(true);
-		imageView.setSmooth(true);
-		imageView.setCache(true);
-		this.unitVBox.getChildren().add(imageView);
-		
-		Label nombreUnidad = new Label("Aldeano");
-		Label vidaUnidad = new Label("Vida: ");
-		this.unitVBox.getChildren().addAll(nombreUnidad, vidaUnidad);
-		
-		VBox accionesVBox = new VBox(20);
-    	accionesVBox.setPadding(new Insets(20));
-    	accionesVBox.setAlignment(Pos.TOP_CENTER);
-    	Button botonMoverUnidad = new Button("Mover Unidad");
+		Button botonMoverUnidad = new Button("Mover Unidad");
     	Button botonConstruirPlazaCentral = new Button("Construir Plaza Central");
     	Button botonConstruirCuartel = new Button("Construir Cuartel");
     	Button botonReparar = new Button("Reparar");
-    	accionesVBox.getChildren().addAll(botonMoverUnidad, botonConstruirPlazaCentral, botonConstruirCuartel, botonReparar);
-    	this.unitVBox.getChildren().add(accionesVBox);
-    	this.leftBorderPane.setCenter(this.unitVBox);
+    	mostrarMenu(imageView, "Aldeano", botonMoverUnidad, botonConstruirPlazaCentral, botonConstruirCuartel, botonReparar);
 	}
     
     private void mostrarMenuDeEspadachin() {
 		// acá debería chequear si la unidad pertenece al equipo del jugador
     	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
-    	this.unitVBox = new VBox(20);
-    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
-    	this.unitVBox.setPadding(new Insets(20));
     	
     	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
-		ImageView imageView = new ImageView();
+    	ImageView imageView = new ImageView();
 		imageView.setImage(imagenUnidad);
-		imageView.setFitWidth(50);
-		imageView.setPreserveRatio(true);
-		imageView.setSmooth(true);
-		imageView.setCache(true);
-		this.unitVBox.getChildren().add(imageView);
-		
-		Label nombreUnidad = new Label("Espadachin");
-		Label vidaUnidad = new Label("Vida: ");
-		this.unitVBox.getChildren().addAll(nombreUnidad, vidaUnidad);
-		
-		VBox accionesVBox = new VBox(20);
-    	accionesVBox.setPadding(new Insets(20));
-    	accionesVBox.setAlignment(Pos.TOP_CENTER);
-    	Button botonMoverUnidad = new Button("Mover Unidad");
+		Button botonMoverUnidad = new Button("Mover Unidad");
     	Button botonAtacar = new Button("Atacar");
-    	accionesVBox.getChildren().addAll(botonMoverUnidad, botonAtacar);
-    	this.unitVBox.getChildren().add(accionesVBox);
-    	this.leftBorderPane.setCenter(this.unitVBox);
+		mostrarMenu(imageView, "Espadachin", botonMoverUnidad, botonAtacar);
 	}
     
     private void mostrarMenuDeArquero() {
 		// acá debería chequear si la unidad pertenece al equipo del jugador
     	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
-    	this.unitVBox = new VBox(20);
-    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
-    	this.unitVBox.setPadding(new Insets(20));
     	
     	Image imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png");
 		ImageView imageView = new ImageView();
 		imageView.setImage(imagenUnidad);
+		Button botonMoverUnidad = new Button("Mover Unidad");
+    	Button botonAtacar = new Button("Atacar");
+		mostrarMenu(imageView, "Arquero", botonMoverUnidad, botonAtacar);
+	}
+
+    private void mostrarMenu(ImageView imageView, String _nombre, Button...buttons) {
+    	this.unitVBox = new VBox(20);
+    	this.unitVBox.setAlignment(Pos.TOP_CENTER);
+    	this.unitVBox.setPadding(new Insets(20));
 		imageView.setFitWidth(50);
 		imageView.setPreserveRatio(true);
 		imageView.setSmooth(true);
 		imageView.setCache(true);
 		this.unitVBox.getChildren().add(imageView);
 		
-		Label nombreUnidad = new Label("Arquero");
-		Label vidaUnidad = new Label("Vida: ");
-		this.unitVBox.getChildren().addAll(nombreUnidad, vidaUnidad);
+		Label nombre = new Label(_nombre);
+		Label vida = new Label("Vida: ");
+		this.unitVBox.getChildren().addAll(nombre, vida);
 		
 		VBox accionesVBox = new VBox(20);
     	accionesVBox.setPadding(new Insets(20));
     	accionesVBox.setAlignment(Pos.TOP_CENTER);
-    	Button botonMoverUnidad = new Button("Mover Unidad");
-    	Button botonAtacar = new Button("Atacar");
-    	accionesVBox.getChildren().addAll(botonMoverUnidad, botonAtacar);
+    	for (Button button : buttons) {
+    		accionesVBox.getChildren().add(button);
+		}
     	this.unitVBox.getChildren().add(accionesVBox);
     	this.leftBorderPane.setCenter(this.unitVBox);
-	}
-
+    }
+    
 	public BarraDeMenu getBarraDeMenu() {
         return menuBar;
     }
