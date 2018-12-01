@@ -21,8 +21,8 @@ public class Tablero {
 
     }
     private Posicionable[][] matriz =  new Posicionable[ANCHO][ALTO];;
-    private static final int ANCHO = 100;
-    private static final int ALTO = 100;
+    private static final int ANCHO = 20;
+    private static final int ALTO = 20;
 
     public void inicializarTablero() {
         for (int i=0; i<ANCHO; i++) {
