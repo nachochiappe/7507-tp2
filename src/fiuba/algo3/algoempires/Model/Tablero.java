@@ -44,10 +44,14 @@ public class Tablero {
 
     public void poner(Posicionable posicionable, Posicion posicionDeInicio, Posicion posicionDeFin) throws FueraDelMapaException {
         if(!posicionDeFin.dentroDe(ANCHO,ALTO)) throw new FueraDelMapaException("Fuera del mapa!");
-        for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
-            for(int j = posicionDeInicio.getPosicionX(); j<=posicionDeFin.getPosicionY(); j++) {
-                matriz[i][j] = posicionable;
+        try {
+            for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
+                for(int j = posicionDeInicio.getPosicionX(); j<=posicionDeFin.getPosicionY(); j++) {
+                    matriz[i][j] = posicionable;
+                }
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new FueraDelMapaException("Fuera del mapa!");
         }
     }
 

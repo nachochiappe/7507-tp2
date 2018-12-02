@@ -4,6 +4,8 @@ import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
+import javafx.scene.layout.VBox;
 
 public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
 
@@ -27,5 +29,15 @@ public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
     @Override
     public void toggleMontar() {
         this.armaDeAsedio.setEstado(this.armaDeAsedio.getMontada());
+    }
+
+    @Override
+    public String getNombre() {
+        return "Arma de Asedio (desmontada)";
+    }
+
+    @Override
+    public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+        return botoneraAcciones.generarBotonera(this);
     }
 }

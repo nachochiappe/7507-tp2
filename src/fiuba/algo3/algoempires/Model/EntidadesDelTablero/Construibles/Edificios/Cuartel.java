@@ -10,7 +10,9 @@ import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 
 
 public class Cuartel extends Edificio implements Construible {
@@ -31,9 +33,6 @@ public class Cuartel extends Edificio implements Construible {
 	public int getCosto() {
 		return COSTO;
 	}
-	public int getVida() {
-		return vida;
-	}
 
 	@Override
 	public int getHpRegen() {
@@ -43,6 +42,22 @@ public class Cuartel extends Edificio implements Construible {
 	@Override
 	public int getMaxHp() {
 		return MAX_VIDA;
+	}
+
+	@Override
+	public int getHp() {
+		return this.vida;
+	}
+
+
+	@Override
+	public String getNombre() {
+		return "Cuartel";
+	}
+
+	@Override
+	public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+		return botoneraAcciones.generarBotonera(this);
 	}
 
 	@Override

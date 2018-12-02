@@ -11,7 +11,9 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 
 
 public class PlazaCentral extends Edificio {
@@ -61,6 +63,21 @@ public class PlazaCentral extends Edificio {
 	}
 
 	@Override
+	public int getHp() {
+		return this.vida;
+	}
+
+	@Override
+	public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+		return botoneraAcciones.generarBotonera(this);
+	}
+
+	@Override
+	public String getNombre() {
+		return "Plaza Central";
+	}
+
+	@Override
 	public int getTurnosConstruccion() {
 		return TURNOSCONTRUCCION;
 	}
@@ -82,9 +99,6 @@ public class PlazaCentral extends Edificio {
 	//estos get son para las pruebas...despues los saco
 	public int getCosto() {
 		return COSTO;
-	}
-	public int getVida() {
-		return vida;
 	}
 
 
@@ -109,6 +123,7 @@ public class PlazaCentral extends Edificio {
 		this.recibeDanioDe(ofensivo);
 		
 	}
+
 
 
 }

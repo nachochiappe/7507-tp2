@@ -16,9 +16,11 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 
-public class Castillo extends Edificio implements  Ofensiva {
+public class Castillo extends Edificio implements Ofensiva {
 
     private static final int MAX_VIDA = 1000;
     private static final int HP_REGEN = 15;
@@ -46,11 +48,6 @@ public class Castillo extends Edificio implements  Ofensiva {
         Tablero.getInstance().poner(this, this.posiciones);
     }
 
-    public int getVida() {
-        return vida;
-    }
-
-
     public void construir(Aldeano aldeano) {
         //TODO: EXCEPTION CASTILLO NO PUEDE CONSTRUIR
     }
@@ -63,6 +60,16 @@ public class Castillo extends Edificio implements  Ofensiva {
     @Override
     public int getMaxHp() {
         return MAX_VIDA;
+    }
+
+    @Override
+    public int getHp() {
+        return this.vida;
+    }
+
+    @Override
+    public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+        return botoneraAcciones.generarBotonera(this);
     }
 
     @Override
@@ -79,6 +86,12 @@ public class Castillo extends Edificio implements  Ofensiva {
     public int getAncho() {
         return OCUPA_ANCHO;
     }
+
+    @Override
+    public String getNombre() {
+        return "Castillo";
+    }
+
 
     public boolean estaVacio() {
         return false;

@@ -3,16 +3,18 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import javafx.geometry.Insets;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioDesmontada;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioMontada;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 public class BotoneraAcciones {
 
-    public BotoneraAcciones(Unidad unidad) {
-
+    public BotoneraAcciones(Posicionable posicionable) {
+        posicionable.getBotoneraAcciones(this);
     }
     /*
     public VBox generarBotonera(Unidad unidad) {
@@ -58,6 +60,23 @@ public class BotoneraAcciones {
         return botonera;
     }
 
+    public VBox generarBotonera(ArmaDeAsedioMontada armaDeAsedioMontada) {
+        VBox botonera = new VBox(20);
+
+        Button botonAtacar = new Button("Atacar");
+
+        botonera.getChildren().addAll(botonAtacar);
+        return botonera;
+    }
+
+    public VBox generarBotonera(ArmaDeAsedioDesmontada armaDeAsedioDesmontada) {
+        VBox botonera = new VBox(20);
+
+        Button botonMover = new Button("Mover");
+
+        botonera.getChildren().addAll(botonMover);
+        return botonera;
+    }
 
 
 }

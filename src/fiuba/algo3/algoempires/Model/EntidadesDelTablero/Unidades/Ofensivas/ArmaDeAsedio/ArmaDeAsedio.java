@@ -8,7 +8,9 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 
 public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
@@ -41,6 +43,16 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
         } catch (ArmaDeAsedioMontadaException armaDeAsedioException) {
             armaDeAsedioException.printStackTrace();
         }
+    }
+
+    @Override
+    public String getNombre() {
+        return this.estado.getNombre();
+    }
+
+    @Override
+    public int getMaxHp() {
+        return MAX_HP;
     }
 
     public void toggleMontar() {
@@ -91,5 +103,9 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
     	if(!posicionable.estasEnRango(this.getPosicion(), this.rango)) throw new ObjetivoFueraDeRangoException();
 			this.estado.atacar(posicionable);
 	}
+
+    public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+        return this.estado.getBotoneraAcciones(botoneraAcciones);
+    }
 
 }

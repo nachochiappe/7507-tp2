@@ -115,7 +115,6 @@ public abstract class Edificio implements Posicionable, Construible {
 
 
 	public abstract int getHpRegen();
-	public abstract int getMaxHp();
 	public abstract int getTurnosConstruccion();
 	public abstract int getAlto();
 	public abstract int getAncho();

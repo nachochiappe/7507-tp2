@@ -74,10 +74,4 @@ public abstract class Unidad implements Posicionable {
 		return posicionAtacante.estaEnRango(this.getPosicion(), rango);
 	}
 
-	public abstract String getNombre();
-
-
-    public int getMaxHp() {
-        return 20;
-    }
 }
