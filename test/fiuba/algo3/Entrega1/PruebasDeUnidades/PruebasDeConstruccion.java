@@ -53,8 +53,8 @@ public class PruebasDeConstruccion {
     	AlgoEmpires juego = new AlgoEmpires();
     	Tablero tablero = new Tablero();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("Jugador1", tablero);
-        Jugador jugador2 = new Jugador("Jugador2", tablero);
+        JugadorHUD jugador = new JugadorHUD("Jugador1", tablero);
+        JugadorHUD jugador2 = new JugadorHUD("Jugador2", tablero);
         juego.setTurnoActual(jugador);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);

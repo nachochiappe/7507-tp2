@@ -12,7 +12,7 @@ public abstract class Unidad implements Posicionable {
     //Todas las unidades tienen hp y costo
     protected int hp;
     protected int costo;
-    //TODO: Determinar si cada unidad va a tener una referencia a su Jugador o solamente el nombre
+    //TODO: Determinar si cada unidad va a tener una referencia a su  o solamente el nombre
     protected Jugador jugador;
     protected Posicion posicion;
     protected Movible movible = new Movible();
@@ -74,4 +74,10 @@ public abstract class Unidad implements Posicionable {
 		return posicionAtacante.estaEnRango(this.getPosicion(), rango);
 	}
 
+	public abstract String getNombre();
+
+
+    public int getMaxHp() {
+        return 20;
+    }
 }

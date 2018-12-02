@@ -2,11 +2,9 @@ package pruebas;
 
 import fiuba.algo3.algoempires.Controlador.AplicacionOnKeyPressEventHandler;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
-import fiuba.algo3.algoempires.Vista.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class AplicacionJuegoDirecto  extends Application {

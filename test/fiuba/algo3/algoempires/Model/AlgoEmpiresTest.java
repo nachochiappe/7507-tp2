@@ -45,7 +45,7 @@ public class AlgoEmpiresTest {
 	public void jugadorEmpiezaCon100DeOro() {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
-		Jugador jugador = new Jugador("Jugador");
+		Jugador jugador = new Jugador("JugadorHUD");
 		Assert.assertEquals(jugador.getOro(), 100);
 	}
 
@@ -53,7 +53,7 @@ public class AlgoEmpiresTest {
 	public void jugadorEmpiezaCon3Aldeanos() {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
-		Jugador jugador = new Jugador("Jugador");
+		Jugador jugador = new Jugador("JugadorHUD");
 		Assert.assertEquals(jugador.getUnidades().size(), 3);
 		for (Unidad unidad: jugador.getUnidades()) {
 			Assert.assertTrue(unidad instanceof Aldeano);

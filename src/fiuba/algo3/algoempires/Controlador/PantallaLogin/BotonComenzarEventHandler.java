@@ -5,7 +5,7 @@ import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
 import fiuba.algo3.algoempires.Model.Excepciones.JugadorYaExisteException;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
-import fiuba.algo3.algoempires.Vista.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

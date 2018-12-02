@@ -22,7 +22,7 @@ public class PruebasDeReparacion {
     public void testAldeanoPuedeRepararCastillo() {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        JugadorHUD jugador = new JugadorHUD("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         Castillo castillo = new Castillo();
@@ -35,7 +35,7 @@ public class PruebasDeReparacion {
     public void testAldeanoPuedeRepararPlazaCentral() throws FueraDelMapaException{
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        JugadorHUD jugador = new JugadorHUD("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         PlazaCentral plazaCentral = new PlazaCentral();
@@ -50,7 +50,7 @@ public class PruebasDeReparacion {
     public void testAldeanoPuedeRepararCuartel() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        JugadorHUD jugador = new JugadorHUD("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         Cuartel cuartel = new Cuartel();
@@ -73,7 +73,7 @@ public class PruebasDeReparacion {
     public void testAldeanoSoloPuedeRepararUnEdificioALaVez() throws  FueraDelMapaException{
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        JugadorHUD jugador = new JugadorHUD("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         Aldeano aldeano2 = (Aldeano) lista_unidades.get(1);
@@ -93,7 +93,7 @@ public class PruebasDeReparacion {
     public void testAldeanoNoSumaOroMientrasRepara() throws  FueraDelMapaException{
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        JugadorHUD jugador = new JugadorHUD("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         PlazaCentral plazaCentral = new PlazaCentral();
@@ -110,7 +110,7 @@ public class PruebasDeReparacion {
     public void testAldeanoVuelveASumarOroDespuesDeReparar() throws  FueraDelMapaException{
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        Jugador jugador = new Jugador("JugadorTest");
+        JugadorHUD jugador = new JugadorHUD("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
         PlazaCentral plazaCentral = new PlazaCentral();

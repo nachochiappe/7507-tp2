@@ -45,7 +45,7 @@ public class PlazaCentralTest {
     @Test
     public void testPlazaCentralCreaAldeanoDevuelveUnAldeano() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
-        Jugador jugador=new Jugador("jugadorTest");
+        JugadorHUD jugador=new JugadorHUD("jugadorTest");
         PlazaCentral plazaCentral= new PlazaCentral();
         Posicion posicion =  new Posicion(18,18);
         Aldeano aldeano=plazaCentral.crearAldeano(jugador,posicion);

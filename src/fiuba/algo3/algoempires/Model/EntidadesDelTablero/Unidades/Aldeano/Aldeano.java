@@ -33,6 +33,11 @@ public class Aldeano extends Unidad {
 		}
 	}
 
+	@Override
+	public String getNombre() {
+		return "Aldeano";
+	}
+
 	public void construir(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException {
 		this.estado.empezarConstruccion(edificio, posicion);
 	}
@@ -69,4 +74,7 @@ public class Aldeano extends Unidad {
 		this.estado.empezarReparacion(edificio);
 	}
 
+	public int getMaxHp() {
+		return MAX_HP;
+	}
 }

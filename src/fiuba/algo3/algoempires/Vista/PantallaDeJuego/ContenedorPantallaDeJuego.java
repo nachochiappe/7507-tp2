@@ -1,15 +1,15 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.PantallaDeJuego;
 
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonPasarTurno;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.*;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.JugadorHUD.JugadorHUD;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -26,10 +26,11 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 	public BarraDeMenu menuBar;
 
     public AlgoEmpires algoEmpires;
-	public VBox statsJugador ;
 	public VistaTablero vistaTablero;
 	public BorderPane leftBorderPane;
 	public VBox unitVBox;
+	public JugadorHUD jugadorHUD;
+	public SeleccionableHUD seleccionableHUD;
 
     public ContenedorPantallaDeJuego(Stage stage, AlgoEmpires algoEmpires) {
         this.algoEmpires = algoEmpires;
@@ -40,25 +41,11 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         this.setMenu(stage);
         this.setCentro();
 //        this.setBotonera(robot);
-
-        Button button = new Button();
-        button.setAlignment(Pos.TOP_CENTER);
-        button.setPadding(new Insets(20));
-        button.setText("Terminar Turno");
-        button.setOnAction(new BotonPasarTurno(this));
-        this.leftBorderPane.setTop(button);
+		jugadorHUD = new JugadorHUD(this);
         this.setLeft(leftBorderPane);
 
-        statsJugador = new VBox();
-        statsJugador.setSpacing(20);
-        statsJugador.setPadding(new Insets(20));
-        Label nombreJugador = new Label();
-        nombreJugador.setText(algoEmpires.getJugadorActual().getNombre());
-        Label oroJugador = new Label();
-        oroJugador.setText(String.valueOf(algoEmpires.getJugadorActual().getOro()));
-        statsJugador.getChildren().addAll(nombreJugador, oroJugador);
 
-        this.setRight(statsJugador);
+        this.setRight(jugadorHUD);
     }
 
 /*
