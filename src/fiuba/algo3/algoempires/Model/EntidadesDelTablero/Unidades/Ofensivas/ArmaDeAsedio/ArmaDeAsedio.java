@@ -92,4 +92,8 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 			this.estado.atacar(posicionable);
 	}
 
+	@Override
+	public String getNombre() {
+		return "Arma de Asedio";
+	}
 }

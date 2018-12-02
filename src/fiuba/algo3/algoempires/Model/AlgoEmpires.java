@@ -28,7 +28,7 @@ public class AlgoEmpires {
     }
 
     public void empezarJuego() throws CantidadJugadoresIncorrectaException {
-		this.inicializarTablero();
+		//this.inicializarTablero();
 		this.turno = new Turno(new ArrayList<>(jugadores.values()));
 		this.turnoActual = this.turno.getJugadorActual();
 		this.turnoActual.empezarTurno();
@@ -59,7 +59,10 @@ public class AlgoEmpires {
 		jugadores.put(unNombre, new Jugador(unNombre));
     }
 
-	public void agregarJugador(String unNombre, Posicion posicion) {
+	public void agregarJugador(String unNombre, Posicion posicion) throws JugadorYaExisteException {
+		if(jugadores.containsKey(unNombre)) {
+			throw new JugadorYaExisteException();
+		}
 		jugadores.put(unNombre, new Jugador(unNombre, posicion));
 	}
 
