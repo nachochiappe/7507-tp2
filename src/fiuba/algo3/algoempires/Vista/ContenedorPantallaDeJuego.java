@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonPasarTurno;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -22,13 +23,13 @@ import javafx.stage.Stage;
 
 public class ContenedorPantallaDeJuego extends BorderPane {
 
-	private BarraDeMenu menuBar;
+	public BarraDeMenu menuBar;
 
-    private AlgoEmpires algoEmpires;
-    private VBox statsJugador ;
-    private VistaTablero vistaTablero;
-    private BorderPane leftBorderPane;
-    private VBox unitVBox;
+    public AlgoEmpires algoEmpires;
+	public VBox statsJugador ;
+	public VistaTablero vistaTablero;
+	public BorderPane leftBorderPane;
+	public VBox unitVBox;
 
     public ContenedorPantallaDeJuego(Stage stage, AlgoEmpires algoEmpires) {
         this.algoEmpires = algoEmpires;
@@ -44,18 +45,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         button.setAlignment(Pos.TOP_CENTER);
         button.setPadding(new Insets(20));
         button.setText("Terminar Turno");
-        button.setOnAction(e -> {
-            algoEmpires.pasarTurno();
-            statsJugador = new VBox();
-            statsJugador.setSpacing(20);
-            statsJugador.setPadding(new Insets(20));
-            Label nombreJugador = new Label();
-            nombreJugador.setText(algoEmpires.getJugadorActual().getNombre());
-            Label oroJugador = new Label();
-            oroJugador.setText(String.valueOf(algoEmpires.getJugadorActual().getOro()));
-            statsJugador.getChildren().addAll(nombreJugador, oroJugador);
-            this.setRight(statsJugador);
-        });
+        button.setOnAction(new BotonPasarTurno(this));
         this.leftBorderPane.setTop(button);
         this.setLeft(leftBorderPane);
 
