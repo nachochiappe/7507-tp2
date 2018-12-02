@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.MenuPrincipal;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;

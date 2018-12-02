@@ -1,8 +1,7 @@
 package fiuba.algo3.algoempires.Controlador;
 
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
-import fiuba.algo3.algoempires.Vista.ContenedorPantallaDeJuego;
-import fiuba.algo3.algoempires.Vista.ContenedorPantallaPrincipal;
+import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorPantallaPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,7 +30,7 @@ public class Aplicacion extends Application {
       
         ContenedorPantallaPrincipal contenedorPantallaPrincipal = new ContenedorPantallaPrincipal(stage);
         Scene escenaPrincipal = new Scene(contenedorPantallaPrincipal, 1024, 768);
-        escenaPrincipal.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/MenuPrincipal.css");
+        escenaPrincipal.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/MenuPrincipal/MenuPrincipal.css");
         stage.setScene(escenaPrincipal);
         stage.setFullScreen(true);
         stage.setResizable(true);

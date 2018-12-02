@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.Login;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;

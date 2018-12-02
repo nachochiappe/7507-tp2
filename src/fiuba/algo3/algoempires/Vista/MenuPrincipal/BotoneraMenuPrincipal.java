@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.MenuPrincipal;
 
 import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonJugarEventHandler;
 import fiuba.algo3.algoempires.Controlador.PantallaPrincipal.BotonReglasEventHandler;

@@ -30,7 +30,7 @@ public class VistaTablero extends GridPane{
     		for (int j = 0; j < tablero.getAlto(); j++) {
     			StackPane stackPane = new StackPane();
     			Image pisoVacio = tablero.obtenerPosicionable(i, j).getSprite();
-    			System.out.println(pisoVacio.getUrl().replace(".png","-alt") + ".png");
+    			//System.out.println(pisoVacio.getUrl().replace(".png","-alt") + ".png");
     			ImageView imageView = new ImageView();
     			imageView.setImage(pisoVacio);
     			imageView.setFitWidth(40);

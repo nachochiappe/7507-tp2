@@ -1,6 +1,6 @@
 package fiuba.algo3.algoempires.Controlador.PantallaPrincipal;
 
-import fiuba.algo3.algoempires.Vista.ContenedorReglas;
+import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorReglas;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;

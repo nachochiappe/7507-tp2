@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.Login;
 
 import fiuba.algo3.algoempires.Controlador.PantallaLogin.BotonCancelarEventHandler;
 import fiuba.algo3.algoempires.Controlador.PantallaLogin.BotonComenzarEventHandler;
@@ -70,7 +70,7 @@ public class ContenedorRegistroDeJugadores {
         borderPane.setCenter(usuarios);
         borderPane.setBottom(botonera);
         Scene scene = new Scene(borderPane, 600, 600);
-        scene.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/RegistroDeJugadores.css");
+        scene.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/Login/RegistroDeJugadores.css");
         stage.setScene(scene);
         borderPane.requestFocus();
         stage.setFullScreen(false);

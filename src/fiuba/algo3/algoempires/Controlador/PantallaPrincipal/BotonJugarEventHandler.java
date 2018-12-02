@@ -1,6 +1,6 @@
 package fiuba.algo3.algoempires.Controlador.PantallaPrincipal;
 
-import fiuba.algo3.algoempires.Vista.ContenedorRegistroDeJugadores;
+import fiuba.algo3.algoempires.Vista.Login.ContenedorRegistroDeJugadores;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
