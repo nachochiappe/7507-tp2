@@ -39,11 +39,10 @@ public class Castillo extends Edificio implements Ofensiva {
     public Castillo(Posicion posicion) {
         this.vida = MAX_VIDA;
         this.rango = MAX_RANGO;
-        for(int i = 0; i<OCUPA_ALTO;  i++) {
-            this.posiciones.add(new Posicion(posicion.getPosicionX(), posicion.getPosicionY() + i));
-        }
-        for(int i = 0; i<OCUPA_ANCHO;  i++) {
-            this.posiciones.add(new Posicion(posicion.getPosicionX() + i, posicion.getPosicionY()));
+        for (int i = 0; i < OCUPA_ANCHO; i++) {
+        	for (int j = 0; j < OCUPA_ALTO; j++) {
+        		this.posiciones.add(new Posicion(posicion.getPosicionX() + i, posicion.getPosicionY() + j));
+        	}
         }
         Tablero.getInstance().poner(this, this.posiciones);
     }

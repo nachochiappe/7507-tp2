@@ -1,6 +1,10 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego;
 
+import java.util.List;
+
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
+import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -76,9 +80,34 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     
     private void setCentro() {
     	
-
+    	Tablero tablero = Tablero.getInstance();
+    	
     	this.vistaTablero.iniciarTablero();
+    	
+    	/*
+    	List<Posicionable> posicionables = tablero.obtenerTodosLosPosicionables();
+    	for (Posicionable posicionable : posicionables) {
+    		StackPane stackPane = new StackPane();
+			Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
+			ImageView imageView = new ImageView();
+			imageView.setImage(pisoVacio);
+			imageView.setFitWidth(40);
+			imageView.setPreserveRatio(true);
+			imageView.setSmooth(true);
+			imageView.setCache(true);
+			Image sprite = posicionable.getSprite();
+			ImageView imageViewSprite = new ImageView();
+			imageViewSprite.setImage(sprite);
+			imageViewSprite.setFitWidth(40);
+			imageViewSprite.setPreserveRatio(true);
+			imageViewSprite.setSmooth(true);
+			imageViewSprite.setCache(true);
+			stackPane.getChildren().addAll(imageView, imageViewSprite);
+            this.add(stackPane, j, i);
+    	}
+    	*/
 	
+    	/*
     	//UNIDADES DE PRUEBA (Con posicion harcodeada)
     	Unidad aldeano = new Aldeano(new Jugador("UNO"),new Posicion(10,10));
     	Unidad espadachin = new Aldeano(new Jugador("UNO"),new Posicion(10,11));
@@ -146,6 +175,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 		stackPaneCastillo4.getChildren().addAll(imageViewPiso, imageViewCastillo4);
 		vistaTablero.add(stackPaneCastillo4, 1, 1);
 		//imageViewCastillo.setOnMouseClicked(e -> mostrarMenuDeCastillo());
+		 */
 
     	this.setCenter(vistaTablero);
     }

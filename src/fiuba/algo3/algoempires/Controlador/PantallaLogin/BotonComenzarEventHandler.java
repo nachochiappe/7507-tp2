@@ -2,8 +2,10 @@ package fiuba.algo3.algoempires.Controlador.PantallaLogin;
 
 import fiuba.algo3.algoempires.Controlador.AplicacionOnKeyPressEventHandler;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
+import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
 import fiuba.algo3.algoempires.Model.Excepciones.JugadorYaExisteException;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.ActionEvent;
@@ -39,9 +41,12 @@ public class BotonComenzarEventHandler implements EventHandler<ActionEvent> {
             AlgoEmpires algoEmpires = new AlgoEmpires();
 
             try {
+            	
+            	Tablero tablero = Tablero.getInstance();
+            	tablero.inicializarTablero();
 
-                algoEmpires.agregarJugador(jugador1.getText());
-                algoEmpires.agregarJugador(jugador2.getText());
+                algoEmpires.agregarJugador(jugador1.getText(), new Posicion(0,0));
+                algoEmpires.agregarJugador(jugador2.getText(), new Posicion(19,19));
 
                 algoEmpires.empezarJuego();
 

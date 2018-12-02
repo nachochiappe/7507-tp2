@@ -7,8 +7,9 @@ import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
-
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Tablero {
     private static Tablero ourInstance = new Tablero();
@@ -44,21 +45,25 @@ public class Tablero {
 
     public void poner(Posicionable posicionable, Posicion posicionDeInicio, Posicion posicionDeFin) throws FueraDelMapaException {
         if(!posicionDeFin.dentroDe(ANCHO,ALTO)) throw new FueraDelMapaException("Fuera del mapa!");
-        try {
-            for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
-                for(int j = posicionDeInicio.getPosicionX(); j<=posicionDeFin.getPosicionY(); j++) {
-                    matriz[i][j] = posicionable;
-                }
+        System.out.println(posicionDeInicio.getPosicionX());
+        System.out.println(posicionDeInicio.getPosicionY());
+        System.out.println(posicionDeFin.getPosicionX());
+        System.out.println(posicionDeFin.getPosicionY());
+        for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
+            for(int j = posicionDeInicio.getPosicionY(); j<=posicionDeFin.getPosicionY(); j++) {
+                matriz[i][j] = posicionable;
+                System.out.println(i);
+                System.out.println(j);
             }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            throw new FueraDelMapaException("Fuera del mapa!");
         }
     }
 
     public void poner(Posicionable posicionable, Posicion posicion) throws PosicionOcupadaException, DestinoFueraDelMapaException {
         try {
             Posicionable actual = matriz[posicion.getPosicionX()][posicion.getPosicionY()];
-            if(!actual.estaVacio()) throw new PosicionOcupadaException();
+            if (actual != null) {
+            	if(!actual.estaVacio()) throw new PosicionOcupadaException();
+            }
             matriz[posicion.getPosicionX()][posicion.getPosicionY()] = posicionable;
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new DestinoFueraDelMapaException();
@@ -80,6 +85,18 @@ public class Tablero {
 
     public Posicionable obtenerPosicionable(int posicionX, int posicionY) {
         return matriz[posicionX][posicionY];
+    }
+    
+    public List<Posicionable> obtenerTodosLosPosicionables() {
+    	List<Posicionable> posicionables = new ArrayList<>();
+    	for (int i=0; i<ANCHO; i++) {
+            for(int j=0; j<ALTO; j++) {
+                if(!(matriz[i][j].estaVacio()) && !posicionables.contains(matriz[i][j])) {
+                	posicionables.add(matriz[i][j]);
+            	}
+            }
+        }
+    	return posicionables;
     }
 
     public int getAncho() {

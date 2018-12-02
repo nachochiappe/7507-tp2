@@ -39,6 +39,7 @@ public class Jugador {
             unidades.add(new Aldeano(this, new Posicion(i, i)));
         }
         edificios = new ArrayList<>();
+        edificios.add(new Castillo());
         edificios.add(new PlazaCentral());
     }
 
@@ -51,20 +52,44 @@ public class Jugador {
         this.estado = new Deshabilitado();
         this.oro = ORO_INICIAL;
         this.tope_poblacion = TOPE_POBLACION;
+        this.edificios = new ArrayList<>();
         this.unidades = new ArrayList<>();
-        for (int i = 0; i < ALDEANOS_INICIALES; i++) {
-            Aldeano aldeano = new Aldeano(this, new Posicion( posicion.getPosicionX() + i, posicion.getPosicionY() +i));
-            unidades.add(aldeano);
-            try {
-                Tablero.getInstance().poner(aldeano, aldeano.getPosicion());
-            } catch (PosicionOcupadaException | DestinoFueraDelMapaException e) {
-                //Nunca debería llegar acá
-                System.out.println("What a Terrible Error");
+        if (posicion.getPosicionX() == 0) {
+        	Castillo castillo = new Castillo(new Posicion(posicion.getPosicionX(), posicion.getPosicionY()));
+        	castillo.setEstadoEdilicioIdle();
+        	edificios.add(castillo);
+        	PlazaCentral plazaCentral = new PlazaCentral(new Posicion(posicion.getPosicionX() + 5, posicion.getPosicionY()));
+        	plazaCentral.setEstadoEdilicioIdle();
+        	edificios.add(plazaCentral);
+        	for (int i = 0; i < ALDEANOS_INICIALES; i++) {
+                Aldeano aldeano = new Aldeano(this, new Posicion(posicion.getPosicionX() + 5 + i, posicion.getPosicionY() + 2));
+                unidades.add(aldeano);
+                try {
+                    Tablero.getInstance().poner(aldeano, aldeano.getPosicion());
+                } catch (PosicionOcupadaException | DestinoFueraDelMapaException e) {
+                    //Nunca debería llegar acá
+                    System.out.println("What a Terrible Error");
+                }
             }
         }
-        edificios = new ArrayList<>();
-        edificios.add(new PlazaCentral(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() + 2)));
-        edificios.add(new Castillo(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() - 6)));
+        else {
+        	Castillo castillo = new Castillo(new Posicion(posicion.getPosicionX() - 3, posicion.getPosicionY() - 3));
+        	castillo.setEstadoEdilicioIdle();
+        	edificios.add(castillo);
+        	PlazaCentral plazaCentral = new PlazaCentral(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() - 1));
+        	plazaCentral.setEstadoEdilicioIdle();
+        	edificios.add(plazaCentral);
+        	for (int i = 0; i < ALDEANOS_INICIALES; i++) {
+                Aldeano aldeano = new Aldeano(this, new Posicion(posicion.getPosicionX() - 9 + i, posicion.getPosicionY() - 2));
+                unidades.add(aldeano);
+                try {
+                    Tablero.getInstance().poner(aldeano, aldeano.getPosicion());
+                } catch (PosicionOcupadaException | DestinoFueraDelMapaException e) {
+                    //Nunca debería llegar acá
+                    System.out.println("What a Terrible Error");
+                }
+            }
+        }
     }
 
     public void empezarTurno() {

@@ -125,4 +125,8 @@ public abstract class Edificio implements Posicionable, Construible {
 	public Posicion obtenerPosicionFinal() {
 		return this.posiciones.getLast();
 	}
+	
+	public void setEstadoEdilicioIdle() {
+		this.estadoEdilicio = new Idle(this);
+	}
 }
