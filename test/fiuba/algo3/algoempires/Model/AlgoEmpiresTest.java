@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Model;
 
+import fiuba.algo3.algoempires.Model.Excepciones.JugadorYaExisteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -26,14 +27,14 @@ public class AlgoEmpiresTest {
 	}*/
 	
 	@Test
-	public void siSeAgregaUnJugadorFaltaElOtro() {
+	public void siSeAgregaUnJugadorFaltaElOtro() throws JugadorYaExisteException {
 		AlgoEmpires algoEmpires = new AlgoEmpires();
 		algoEmpires.agregarJugador("Cosme Fulanito");
 		Assert.assertEquals(algoEmpires.getJugadores().size(), 1);
 	}
 	
 	@Test
-	public void siSeAgreganDosJugadoresSePuedeEmpezarAJugar() {
+	public void siSeAgreganDosJugadoresSePuedeEmpezarAJugar() throws JugadorYaExisteException {
 		AlgoEmpires algoEmpires = new AlgoEmpires();
 		algoEmpires.agregarJugador("Pepito");
 		algoEmpires.agregarJugador("Cosme");

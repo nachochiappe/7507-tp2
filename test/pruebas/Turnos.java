@@ -6,11 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
-import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
-import fiuba.algo3.algoempires.Model.Excepciones.EdificioNoNecesitaRepararse;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
@@ -21,7 +17,7 @@ import org.junit.Test;
 
 public class Turnos {
     @Test
-    public void aldeanoSumaOro() throws CantidadJugadoresIncorrectaException {
+    public void aldeanoSumaOro() throws CantidadJugadoresIncorrectaException, JugadorYaExisteException {
         AlgoEmpires algoEmpires = new AlgoEmpires();
         algoEmpires.agregarJugador("jugador1");
         algoEmpires.agregarJugador("jugador2");
@@ -34,7 +30,7 @@ public class Turnos {
     }
     
     @Test
-    public void aldeanoReparandoNoSumaOro() throws CantidadJugadoresIncorrectaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, EdificioNoNecesitaRepararse, FueraDelMapaException {
+    public void aldeanoReparandoNoSumaOro() throws CantidadJugadoresIncorrectaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, EdificioNoNecesitaRepararse, FueraDelMapaException, JugadorYaExisteException {
         AlgoEmpires algoEmpires = new AlgoEmpires();
         algoEmpires.agregarJugador("jugador1");
         algoEmpires.agregarJugador("jugador2");

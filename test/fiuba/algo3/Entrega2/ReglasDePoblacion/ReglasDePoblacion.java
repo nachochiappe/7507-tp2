@@ -3,16 +3,11 @@ package fiuba.algo3.Entrega2.ReglasDePoblacion;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
-import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
-import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
-import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import org.junit.Assert;
 import org.junit.Test;
-import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 
 public class ReglasDePoblacion {
 
@@ -39,7 +34,7 @@ public class ReglasDePoblacion {
     }
     
     @Test
-    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, CantidadJugadoresIncorrectaException {
+    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, CantidadJugadoresIncorrectaException, JugadorYaExisteException {
     	AlgoEmpires juego = new AlgoEmpires();
     	juego.agregarJugador("Jugador1");
     	juego.agregarJugador("Jugador2");

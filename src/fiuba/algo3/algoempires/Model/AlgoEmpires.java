@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
+import fiuba.algo3.algoempires.Model.Excepciones.JugadorYaExisteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
@@ -51,8 +52,11 @@ public class AlgoEmpires {
 	}
 
 
-	public void agregarJugador(String unNombre) {
-	    jugadores.put(unNombre, new Jugador(unNombre));
+	public void agregarJugador(String unNombre) throws JugadorYaExisteException {
+		if(jugadores.containsKey(unNombre)) {
+			throw new JugadorYaExisteException();
+		}
+		jugadores.put(unNombre, new Jugador(unNombre));
     }
 
 	public void agregarJugador(String unNombre, Posicion posicion) {

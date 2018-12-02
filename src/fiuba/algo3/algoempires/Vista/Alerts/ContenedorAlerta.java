@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.Alerts;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -9,16 +9,16 @@ import javafx.stage.Stage;
 
 import static javafx.scene.text.Font.font;
 
-public class ContenedorInvalidInput {
+public class ContenedorAlerta {
 
-    public void display(Stage rootStage) {
+    public void display(Stage rootStage, String message) {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(rootStage);
         stage.setTitle("Error");
         BorderPane borderPane = new BorderPane();
         Text text = new Text();
-        text.setText("Debe ingresar un nombre para ambos jugadores");
+        text.setText(message);
         text.setFont(font("Helvetica", FontPosture.ITALIC, 20));
 
         borderPane.setCenter(text);

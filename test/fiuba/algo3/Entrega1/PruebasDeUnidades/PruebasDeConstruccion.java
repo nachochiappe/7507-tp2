@@ -4,10 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
-import fiuba.algo3.algoempires.Model.Excepciones.CantidadJugadoresIncorrectaException;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
@@ -72,7 +69,7 @@ public class PruebasDeConstruccion {
     */
     
     @Test
-    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, CantidadJugadoresIncorrectaException {
+    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, CantidadJugadoresIncorrectaException, JugadorYaExisteException {
     	AlgoEmpires juego = new AlgoEmpires();
     	juego.agregarJugador("Jugador1");
     	juego.agregarJugador("Jugador2");
