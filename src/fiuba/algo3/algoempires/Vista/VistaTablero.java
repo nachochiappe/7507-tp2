@@ -29,7 +29,7 @@ public class VistaTablero extends GridPane{
     	for (int i = 0; i < tablero.getAncho(); i++) {
     		for (int j = 0; j < tablero.getAlto(); j++) {
     			StackPane stackPane = new StackPane();
-    			Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
+    			Image pisoVacio = tablero.obtenerPosicionable(i, j).getSprite();
     			ImageView imageView = new ImageView();
     			imageView.setImage(pisoVacio);
     			imageView.setFitWidth(40);

@@ -2,11 +2,14 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import javafx.scene.image.Image;
 
 public interface Posicionable {
-	public boolean estaVacio();
+	boolean estaVacio();
 
-	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException;
-	public boolean estasEnRango(Posicion posicion, int rango);
+	void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException;
+	boolean estasEnRango(Posicion posicion, int rango);
+
+	Image getSprite();
 
 }

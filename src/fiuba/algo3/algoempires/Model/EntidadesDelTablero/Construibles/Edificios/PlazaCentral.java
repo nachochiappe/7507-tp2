@@ -11,6 +11,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
+import javafx.scene.image.Image;
 
 
 public class PlazaCentral extends Edificio {
@@ -37,6 +38,16 @@ public class PlazaCentral extends Edificio {
 			this.posiciones.add(new Posicion(posicion.getPosicionX() + i, posicion.getPosicionY()));
 		}
 		Tablero.getInstance().poner(this, this.posiciones);
+	}
+
+	@Override
+	public Image getSpriteConstruido() {
+		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/PlazaCentral/PlazaCentralConstruida.png");
+	}
+
+	@Override
+	public Image getSpriteConstruyendo() {
+		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/PlazaCentral/PlazaCentralEnConstruccion.png");
 	}
 
 	@Override

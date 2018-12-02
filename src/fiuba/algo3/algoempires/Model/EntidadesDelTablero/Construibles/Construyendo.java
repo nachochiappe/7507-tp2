@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.EdificioEnConstruccionException;
 import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
+import javafx.scene.image.Image;
 
 public class Construyendo implements EstadoEdilicio{
 
@@ -23,5 +24,10 @@ public class Construyendo implements EstadoEdilicio{
     @Override
     public void crearUnidad(Unidad unidad) throws EdificioEnConstruccionException {
         throw new EdificioEnConstruccionException();
+    }
+
+    @Override
+    public Image getSprite() {
+        return this.edificio.getSpriteConstruyendo();
     }
 }

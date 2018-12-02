@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import javafx.scene.image.Image;
 
 public class LugarVacio implements Posicionable{
 	public boolean estaVacio() {
@@ -11,11 +12,16 @@ public class LugarVacio implements Posicionable{
 	}
 
 	@Override
-	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
+	public void atacadoPor(Ofensiva ofensivo) {
 	}
 
 	@Override
 	public boolean estasEnRango(Posicion posicion, int rango) {
 		return false;
+	}
+
+	@Override
+	public Image getSprite() {
+		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
 	}
 }

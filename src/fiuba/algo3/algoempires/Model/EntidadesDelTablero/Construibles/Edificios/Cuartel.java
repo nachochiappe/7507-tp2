@@ -10,7 +10,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
 import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-
+import javafx.scene.image.Image;
 
 
 public class Cuartel extends Edificio implements Construible {
@@ -82,6 +82,17 @@ public class Cuartel extends Edificio implements Construible {
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
+	}
+
+
+	@Override
+	public Image getSpriteConstruido() {
+		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Cuartel/CuartelConstruido.png");
+	}
+
+	@Override
+	public Image getSpriteConstruyendo() {
+		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Cuartel/CuartelEnConstruccion.png");
 	}
 
 }

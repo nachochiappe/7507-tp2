@@ -8,6 +8,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import javafx.scene.image.Image;
 
 public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
@@ -80,7 +81,12 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
 	}
 
-	@Override
+    @Override
+    public Image getSprite() {
+        return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio.png");
+    }
+
+    @Override
 	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
     	if(!posicionable.estasEnRango(this.getPosicion(), this.rango)) throw new ObjetivoFueraDeRangoException();
 			this.estado.atacar(posicionable);

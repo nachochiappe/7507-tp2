@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import fiuba.algo3.algoempires.Model.Tablero;
+import javafx.scene.image.Image;
 
 public abstract class Edificio implements Posicionable, Construible {
 	//vida
@@ -42,6 +43,10 @@ public abstract class Edificio implements Posicionable, Construible {
 	}
 
 	public void crearUnidad(Unidad unidad){};
+
+	public Image getSprite() {
+		return this.estadoEdilicio.getSprite();
+	}
 
 	public int obtenerVida() {
 		return this.vida;
@@ -100,6 +105,11 @@ public abstract class Edificio implements Posicionable, Construible {
 	public void desligarAldeano() {
 		this.aldeanoAsignado = null;
 	}
+
+
+	public abstract Image getSpriteConstruido();
+	public abstract Image getSpriteConstruyendo();
+
 
 	//------------GETTERS
 

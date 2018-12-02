@@ -16,8 +16,9 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
+import javafx.scene.image.Image;
 
-public class Castillo extends Edificio implements Posicionable, Ofensiva {
+public class Castillo extends Edificio implements  Ofensiva {
 
     private static final int MAX_VIDA = 1000;
     private static final int HP_REGEN = 15;
@@ -83,6 +84,16 @@ public class Castillo extends Edificio implements Posicionable, Ofensiva {
         return false;
     }
 
+    @Override
+    public Image getSpriteConstruido() {
+        return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png");
+    }
+
+    @Override
+    public Image getSpriteConstruyendo() {
+        return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloEnConstruccion.png");
+    }
+
     public ArmaDeAsedio crearArmaDeAsedio(Jugador jugador, Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
         if (jugador.getOro()<200) throw new OroInsuficienteException();
         jugador.modificarOro(-200);
@@ -95,7 +106,7 @@ public class Castillo extends Edificio implements Posicionable, Ofensiva {
 		this.recibeDanioDe(ofensivo);
 	}
 
-	@Override
+    @Override
 	public void atacar(Posicionable posicionable) throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
 		Iterator<Posicion> iterator = posiciones.iterator();
 		while (iterator.hasNext()) {

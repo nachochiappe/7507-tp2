@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import javafx.scene.image.Image;
 
 public class Aldeano extends Unidad {
 
@@ -57,6 +58,11 @@ public class Aldeano extends Unidad {
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
+	}
+
+	@Override
+	public Image getSprite() {
+		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
 	}
 
 	public void reparar(Edificio edificio) throws AldeanoOcupadoException, SoloSePermiteUnAldeanoException, EdificioNoNecesitaRepararse {
