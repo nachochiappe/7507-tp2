@@ -2,6 +2,8 @@ package pruebas;
 
 import fiuba.algo3.algoempires.Controlador.AplicacionOnKeyPressEventHandler;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
+import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -16,9 +18,13 @@ public class AplicacionJuegoDirecto  extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		AlgoEmpires algoEmpires = new AlgoEmpires();
-		algoEmpires.agregarJugador("UNO");
-		algoEmpires.agregarJugador("DOS");
-		algoEmpires.empezarJuego();
+		Tablero tablero = Tablero.getInstance();
+		tablero.inicializarTablero();
+
+        algoEmpires.agregarJugador("Jugador1", new Posicion(0,0));
+        algoEmpires.agregarJugador("Jugador2", new Posicion(19,19));
+
+        algoEmpires.empezarJuego();
 		stage.setTitle("Algo Empires Pruebas"); 
 
      
