@@ -20,7 +20,7 @@ public class VistaAldeano extends VistaUnidad{
     	this.borderPane = borderPane;
     	this.unitVBox = unitVBox;
     	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
-    	inicializarUnidad();
+    	inicializar();
     }
     
     @Override

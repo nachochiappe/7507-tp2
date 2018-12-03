@@ -14,7 +14,7 @@ public class VistaArmaDeAsedio extends VistaUnidad{
     	this.borderPane = borderPane;
     	this.unitVBox = unitVBox;
     	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio/ArmaDeAsedioS.png");
-    	inicializarUnidad();
+    	inicializar();
     }
 	
 	@Override

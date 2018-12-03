@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public abstract class VistaUnidad extends StackPane{
+public abstract class VistaUnidad extends StackPane implements VistaPosicionable{
     protected Unidad unidad;
     protected VBox unitVBox;
     protected Image imagenUnidad;
@@ -126,8 +126,8 @@ public abstract class VistaUnidad extends StackPane{
 		);
 		this.unitVBox.getChildren().addAll(botonArriba, botonIzquierda, botonDerecha, botonAbajo);
 	}
-    
-    public void inicializarUnidad() {
+    @Override
+    public void inicializar() {
     	Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
 		ImageView imageViewPiso = new ImageView();
 		imageViewPiso.setImage(pisoVacio);

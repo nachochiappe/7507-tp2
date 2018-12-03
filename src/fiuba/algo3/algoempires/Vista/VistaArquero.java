@@ -13,7 +13,7 @@ public class VistaArquero extends VistaUnidad{
 	    	this.borderPane = borderPane;
 	    	this.unitVBox = unitVBox;
 	    	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png");
-	    	inicializarUnidad();
+	    	inicializar();
 	    }
 		@Override
 		protected void mostrarMenuUnidad() {

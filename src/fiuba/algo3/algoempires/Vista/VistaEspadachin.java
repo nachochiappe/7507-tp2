@@ -15,7 +15,7 @@ public class VistaEspadachin  extends VistaUnidad{
     	this.borderPane = borderPane;
     	this.unitVBox = unitVBox;
     	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
-    	inicializarUnidad();
+    	inicializar();
     }
 	@Override
 	protected void mostrarMenuUnidad() {
