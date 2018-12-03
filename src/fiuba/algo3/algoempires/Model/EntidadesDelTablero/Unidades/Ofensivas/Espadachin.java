@@ -8,8 +8,11 @@ import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesExce
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Vista.VistaEspadachin;
+import fiuba.algo3.algoempires.Vista.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class Espadachin extends Unidad implements Ofensiva {
@@ -64,5 +67,10 @@ public class Espadachin extends Unidad implements Ofensiva {
 	@Override
 	public String getNombre() {
 		return "Espadachín";
+	}
+	@Override
+	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
+		VistaEspadachin vistaEspadachin = new VistaEspadachin(this, unitVBox, leftBorderPane);
+		return vistaEspadachin;
 	}
 }

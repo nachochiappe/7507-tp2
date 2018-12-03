@@ -82,7 +82,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     	
     	Tablero tablero = Tablero.getInstance();
     	
-    	this.vistaTablero.iniciarTablero();
+    	this.vistaTablero.iniciarTablero(unitVBox,leftBorderPane);
     	
     	/*
     	List<Posicionable> posicionables = tablero.obtenerTodosLosPosicionables();

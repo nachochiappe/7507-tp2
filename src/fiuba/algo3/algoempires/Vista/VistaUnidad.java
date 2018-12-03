@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public abstract class VistaUnidad extends StackPane implements VistaPosicionable{
+public abstract class VistaUnidad extends  VistaPosicionable{
     protected Unidad unidad;
     protected VBox unitVBox;
     protected Image imagenUnidad;

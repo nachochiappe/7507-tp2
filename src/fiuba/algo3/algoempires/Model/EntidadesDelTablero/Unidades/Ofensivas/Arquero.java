@@ -8,8 +8,11 @@ import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesExce
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Vista.VistaArquero;
+import fiuba.algo3.algoempires.Vista.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class Arquero extends Unidad implements Ofensiva {
@@ -66,5 +69,11 @@ public class Arquero extends Unidad implements Ofensiva {
 	@Override
 	public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
 		return null;
+	}
+
+	@Override
+	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
+		VistaArquero vistaArquero = new VistaArquero(this, unitVBox, leftBorderPane);
+		return vistaArquero;
 	}
 }
