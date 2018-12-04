@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaLugarVacio;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
@@ -50,7 +51,12 @@ public class LugarVacio implements Posicionable{
 	}
 
 	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
+	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
 		return new VistaLugarVacio(leftBorderPane);
+	}
+
+	@Override
+	public Jugador getJugador() {
+		return null;
 	}
 }

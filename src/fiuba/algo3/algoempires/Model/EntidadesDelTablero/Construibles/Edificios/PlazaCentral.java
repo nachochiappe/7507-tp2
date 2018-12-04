@@ -33,7 +33,7 @@ public class PlazaCentral extends Edificio {
 
 
 	//Constructor llamado únicamente al principio del juego
-	public PlazaCentral(Posicion posicion) {
+	public PlazaCentral(Posicion posicion, Jugador jugador) {
 		this.vida = MAX_VIDA;
 		for (int i = 0; i < OCUPA_ANCHO; i++) {
         	for (int j = 0; j < OCUPA_ALTO; j++) {
@@ -41,6 +41,7 @@ public class PlazaCentral extends Edificio {
         	}
         }
 		Tablero.getInstance().poner(this, this.posiciones);
+		this.jugador = jugador;
 	}
 
 	@Override
@@ -127,8 +128,8 @@ public class PlazaCentral extends Edificio {
 
 
 	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		VistaPlazaCentral vistaPlazaCentral = new VistaPlazaCentral(this, unitVBox, leftBorderPane);
+	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
+		VistaPlazaCentral vistaPlazaCentral = new VistaPlazaCentral(this, unitVBox, leftBorderPane, jugadorActual);
 		return vistaPlazaCentral;
 	}
 

@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.*;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 import java.util.Iterator;
@@ -21,6 +22,7 @@ public abstract class Edificio implements Posicionable, Construible {
 	protected LinkedList<Posicion> posiciones = new LinkedList<Posicion>();
 	private EstadoEdilicio estadoEdilicio;
 	private Aldeano aldeanoAsignado;
+	protected Jugador jugador;
 
 	public boolean estaVacio() {
 		return false;
@@ -118,7 +120,9 @@ public abstract class Edificio implements Posicionable, Construible {
 	public abstract int getTurnosConstruccion();
 	public abstract int getAlto();
 	public abstract int getAncho();
-
+	public Jugador getJugador() {
+		return this.jugador;
+	}
 	public Posicion obtenerPosicionInicial() {
 		return this.posiciones.getFirst();
 	}

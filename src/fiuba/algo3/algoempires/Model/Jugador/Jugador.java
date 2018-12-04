@@ -55,10 +55,10 @@ public class Jugador {
         this.edificios = new ArrayList<>();
         this.unidades = new ArrayList<>();
         if (posicion.getPosicionX() == 0) {
-        	Castillo castillo = new Castillo(new Posicion(posicion.getPosicionX(), posicion.getPosicionY()));
+        	Castillo castillo = new Castillo(new Posicion(posicion.getPosicionX(), posicion.getPosicionY()), this);
         	castillo.setEstadoEdilicioIdle();
         	edificios.add(castillo);
-        	PlazaCentral plazaCentral = new PlazaCentral(new Posicion(posicion.getPosicionX() + 5, posicion.getPosicionY()));
+        	PlazaCentral plazaCentral = new PlazaCentral(new Posicion(posicion.getPosicionX() + 5, posicion.getPosicionY()), this);
         	plazaCentral.setEstadoEdilicioIdle();
         	edificios.add(plazaCentral);
         	for (int i = 0; i < ALDEANOS_INICIALES; i++) {
@@ -73,10 +73,10 @@ public class Jugador {
             }
         }
         else {
-        	Castillo castillo = new Castillo(new Posicion(posicion.getPosicionX() - 3, posicion.getPosicionY() - 3));
+        	Castillo castillo = new Castillo(new Posicion(posicion.getPosicionX() - 3, posicion.getPosicionY() - 3), this);
         	castillo.setEstadoEdilicioIdle();
         	edificios.add(castillo);
-        	PlazaCentral plazaCentral = new PlazaCentral(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() - 1));
+        	PlazaCentral plazaCentral = new PlazaCentral(new Posicion(posicion.getPosicionX() - 6, posicion.getPosicionY() - 1), this);
         	plazaCentral.setEstadoEdilicioIdle();
         	edificios.add(plazaCentral);
         	for (int i = 0; i < ALDEANOS_INICIALES; i++) {

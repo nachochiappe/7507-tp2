@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero;
 
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
@@ -24,6 +25,8 @@ public interface Posicionable {
 
 	VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones);
 
-	VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane);
+	VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual);
+
+	Jugador getJugador();
 
 }

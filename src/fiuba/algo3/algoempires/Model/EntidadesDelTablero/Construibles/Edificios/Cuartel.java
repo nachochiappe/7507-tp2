@@ -27,8 +27,9 @@ public class Cuartel extends Edificio implements Construible {
 	private static final int OCUPA_ANCHO = 2;
 	private static final int OCUPA_ALTO = 2;
 
-	public Cuartel() {
+	public Cuartel(Jugador jugador) {
 		this.vida = MAX_VIDA;
+		this.jugador = jugador;
 	}
 
 
@@ -115,8 +116,8 @@ public class Cuartel extends Edificio implements Construible {
 
 
 	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		VistaCuartel vistaCuartel = new VistaCuartel(this, unitVBox, leftBorderPane);
+	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
+		VistaCuartel vistaCuartel = new VistaCuartel(this, unitVBox, leftBorderPane, jugadorActual);
 		return vistaCuartel;
 	}
 

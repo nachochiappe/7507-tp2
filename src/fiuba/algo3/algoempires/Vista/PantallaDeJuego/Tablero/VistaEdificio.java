@@ -4,6 +4,7 @@ import java.util.List;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,6 +24,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	protected int altoEdificio;
 	protected VBox unitVBox;
 	protected BorderPane borderPane;
+	protected Jugador jugadorActual;
 	
 	protected abstract void mostrarMenuEdificio();
 
@@ -50,7 +52,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			imageView.setSmooth(true);
 			imageView.setCache(true);
 			imageView.setOnMouseClicked(e -> {
-				this.borderPane.setCenter(new SeleccionableHUD(this.edificio));
+				this.borderPane.setCenter(new SeleccionableHUD(this.edificio, jugadorActual));
 			});
 			stackPane.getChildren().addAll(imageViewPiso, imageView);
 			this.stackPanes.add(stackPane);

@@ -79,8 +79,8 @@ public abstract class Unidad implements Posicionable {
 	}
 
     @Override
-    public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-        VistaUnidad vistaUnidad = new VistaUnidad(this, unitVBox, leftBorderPane);
+    public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
+        VistaUnidad vistaUnidad = new VistaUnidad(this, unitVBox, leftBorderPane, jugadorActual);
         return vistaUnidad;
     }
 

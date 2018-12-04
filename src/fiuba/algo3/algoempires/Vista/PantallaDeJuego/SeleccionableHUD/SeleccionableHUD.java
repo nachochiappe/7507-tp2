@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,7 +19,8 @@ public class SeleccionableHUD extends VBox {
         this.setMaxWidth(100);
     }
 
-    public SeleccionableHUD(Posicionable posicionable) {
+    public SeleccionableHUD(Posicionable posicionable, Jugador jugador) {
+        VBox botoneraAcciones = new VBox();
         this.setPadding(new Insets(20, 0, 20 , 0));
         Image sprite = posicionable.getSprite();
         ImageView imageView = new ImageView();
@@ -30,10 +32,11 @@ public class SeleccionableHUD extends VBox {
 
         Label nombre = new Label(posicionable.getNombre());
         Label vida = new Label("HP: " + posicionable.getHp() + "/" + posicionable.getMaxHp());
+        if (jugador.equals(posicionable.getJugador())) {
+            botoneraAcciones= new BotoneraAcciones().generarBotonera(posicionable);
+        }
 
-        BotoneraAcciones botoneraAcciones = new BotoneraAcciones();
-
-        this.getChildren().addAll(imageView, nombre, vida, botoneraAcciones.generarBotonera(posicionable));
+        this.getChildren().addAll(imageView, nombre, vida, botoneraAcciones);
         this.setMinWidth(100);
         this.setMaxWidth(100);
     }

@@ -39,8 +39,9 @@ public class Castillo extends Edificio implements Ofensiva {
 
 
     //Constructor llamado únicamente al principio del juego
-    public Castillo(Posicion posicion) {
+    public Castillo(Posicion posicion, Jugador jugador) {
         this.vida = MAX_VIDA;
+        this.jugador = jugador;
         this.rango = MAX_RANGO;
         for (int i = 0; i < OCUPA_ANCHO; i++) {
         	for (int j = 0; j < OCUPA_ALTO; j++) {
@@ -146,8 +147,8 @@ public class Castillo extends Edificio implements Ofensiva {
 
 
 	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		VistaCastillo vistaCastillo = new VistaCastillo(this, unitVBox, leftBorderPane);
+	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
+		VistaCastillo vistaCastillo = new VistaCastillo(this, unitVBox, leftBorderPane, jugadorActual);
 		return vistaCastillo;
 	}
 }

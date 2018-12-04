@@ -31,7 +31,7 @@ public class VistaTablero extends GridPane{
     		for (int j = 0; j < tablero.getAlto(); j++) {
     			Posicionable posicionable = tablero.obtenerPosicionable(i, j);
     			if (!(posicionablesDibujados.contains(posicionable))) {
-    				VistaPosicionable vistaPosicionable = posicionable.getView(unitVBox, leftBorderPane);
+    				VistaPosicionable vistaPosicionable = posicionable.getView(unitVBox, leftBorderPane, jugadorActual);
         			vistaPosicionable.agregarATablero(this, posicionable, i, j);
         			posicionablesDibujados.add(posicionable);
     			}

@@ -5,6 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
+import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.geometry.Insets;
@@ -20,12 +21,14 @@ public  class VistaUnidad extends  VistaPosicionable{
     protected Unidad unidad;
     protected VBox unitVBox;
     protected Image imagenUnidad;
+    protected Jugador jugadorActual;
 	protected BorderPane borderPane;
 
-	public VistaUnidad(Unidad unidad, VBox unitVBox, BorderPane leftBorderPane) {
+	public VistaUnidad(Unidad unidad, VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
 		this.unidad = unidad;
 		this.unitVBox = unitVBox;
 		this.borderPane = leftBorderPane;
+		this.jugadorActual = jugadorActual;
 		this.inicializar();
 	}
 
@@ -152,7 +155,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 		imageViewUnidad.setCache(true);
 		this.getChildren().addAll(imageViewPiso, imageViewUnidad);
 		imageViewUnidad.setOnMouseClicked(e -> {
-			SeleccionableHUD seleccionableHUD = new SeleccionableHUD(unidad);
+			SeleccionableHUD seleccionableHUD = new SeleccionableHUD(unidad, jugadorActual);
 			this.borderPane.setCenter(seleccionableHUD);
 		});
     }
