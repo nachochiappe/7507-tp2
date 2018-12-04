@@ -46,9 +46,8 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         this.setCentro();
 //        this.setBotonera(robot);
 		jugadorHUD = new JugadorHUD(this);
+		this.leftBorderPane.setCenter(new SeleccionableHUD());
         this.setLeft(leftBorderPane);
-
-
         this.setRight(jugadorHUD);
     }
 

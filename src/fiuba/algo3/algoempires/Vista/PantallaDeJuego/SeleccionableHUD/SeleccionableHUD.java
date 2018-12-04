@@ -14,10 +14,12 @@ public class SeleccionableHUD extends VBox {
 
     public SeleccionableHUD() {
         this.setPadding(new Insets(20));
+        this.setMinWidth(100);
+        this.setMaxWidth(100);
     }
 
     public SeleccionableHUD(Posicionable posicionable) {
-        this.setPadding(new Insets(20));
+        this.setPadding(new Insets(20, 0, 20 , 0));
         Image sprite = posicionable.getSprite();
         ImageView imageView = new ImageView();
         imageView.setImage(sprite);
@@ -32,6 +34,8 @@ public class SeleccionableHUD extends VBox {
         BotoneraAcciones botoneraAcciones = new BotoneraAcciones();
 
         this.getChildren().addAll(imageView, nombre, vida, botoneraAcciones.generarBotonera(posicionable));
+        this.setMinWidth(100);
+        this.setMaxWidth(100);
     }
 
 }

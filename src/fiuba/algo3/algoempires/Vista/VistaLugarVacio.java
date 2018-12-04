@@ -32,7 +32,7 @@ public class VistaLugarVacio extends VistaUnidad{
 		imageViewPiso.setCache(true);
 		this.getChildren().add(imageViewPiso);
 		imageViewPiso.setOnMouseClicked(e -> {
-			this.borderPane.setCenter(null);
+			this.borderPane.setCenter(new SeleccionableHUD());
 		});
 	}
 
