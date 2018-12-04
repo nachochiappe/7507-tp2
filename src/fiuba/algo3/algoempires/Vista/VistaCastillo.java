@@ -32,13 +32,6 @@ public class VistaCastillo extends VistaEdificio {
 
 	@Override
 	public void inicializar() {
-		Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
-		ImageView imageViewPiso = new ImageView();
-		imageViewPiso.setImage(pisoVacio);
-		imageViewPiso.setFitWidth(40);
-		imageViewPiso.setPreserveRatio(true);
-		imageViewPiso.setSmooth(true);
-		imageViewPiso.setCache(true);
 		PixelReader castillo = this.imagenEdificio.getPixelReader();
 		int pixels = 0;
 		for (int i = 0; i < 4; i++) {
@@ -49,6 +42,13 @@ public class VistaCastillo extends VistaEdificio {
 			pixels += 32;
 		}
 		for (int i = 0; i < this.anchoEdificio * this.altoEdificio; i++) {
+			Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
+			ImageView imageViewPiso = new ImageView();
+			imageViewPiso.setImage(pisoVacio);
+			imageViewPiso.setFitWidth(40);
+			imageViewPiso.setPreserveRatio(true);
+			imageViewPiso.setSmooth(true);
+			imageViewPiso.setCache(true);
 			StackPane stackPane = new StackPane();
 			ImageView imageView = new ImageView();
 			imageView.setImage(writableImages.get(i));
