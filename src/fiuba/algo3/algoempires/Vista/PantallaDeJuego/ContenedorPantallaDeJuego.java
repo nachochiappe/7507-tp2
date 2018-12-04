@@ -40,6 +40,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         this.setRight(jugadorHUD);
     }
 
+
 /*
     private void setBotonera(Robot robot) {
 
@@ -66,7 +67,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         this.setTop(menuBar);
     }
     
-    private void setCentro() {
+    public void setCentro() {
     	
     	Tablero tablero = Tablero.getInstance();
     	
