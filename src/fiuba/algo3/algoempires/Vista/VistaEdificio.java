@@ -4,6 +4,7 @@ import java.util.List;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -48,8 +49,9 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			imageView.setPreserveRatio(true);
 			imageView.setSmooth(true);
 			imageView.setCache(true);
-			//imageView.setOnMouseClicked(e -> mostrarMenuDeCastillo());
-			//this.imageViews.add(imageView);
+			imageView.setOnMouseClicked(e -> {
+				this.borderPane.setCenter(new SeleccionableHUD(this.edificio));
+			});
 			stackPane.getChildren().addAll(imageViewPiso, imageView);
 			this.stackPanes.add(stackPane);
 		}
