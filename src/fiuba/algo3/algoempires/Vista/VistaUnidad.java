@@ -1,6 +1,8 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
@@ -143,5 +145,11 @@ public abstract class VistaUnidad extends  VistaPosicionable{
 		imageViewUnidad.setCache(true);
 		this.getChildren().addAll(imageViewPiso, imageViewUnidad);
 		imageViewUnidad.setOnMouseClicked(e -> mostrarMenuUnidad());
+    }
+    
+    @Override
+    public void agregarATablero(VistaTablero vistaTablero, Posicionable _unidad, int i, int j) {
+    	Unidad unidad = (Unidad) _unidad;
+    	vistaTablero.add(this, unidad.getPosicion().getPosicionY(), unidad.getPosicion().getPosicionX());
     }
 }

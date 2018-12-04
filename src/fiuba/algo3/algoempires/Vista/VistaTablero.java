@@ -1,6 +1,10 @@
 package fiuba.algo3.algoempires.Vista;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
@@ -28,12 +32,16 @@ public class VistaTablero extends GridPane{
 	public void iniciarTablero(VBox unitVBox, BorderPane leftBorderPane) {
     	Tablero tablero = Tablero.getInstance();
     	
+    	List<Posicionable> posicionablesDibujados = new ArrayList<>();
     	for (int i = 0; i < tablero.getAncho(); i++) {
     		for (int j = 0; j < tablero.getAlto(); j++) {
-    			VistaPosicionable vistaPosicionable = tablero.obtenerPosicionable(i, j).getView(unitVBox, leftBorderPane);
-                this.add(vistaPosicionable, j, i);
+    			Posicionable posicionable = tablero.obtenerPosicionable(i, j);
+    			if (!(posicionablesDibujados.contains(posicionable))) {
+    				VistaPosicionable vistaPosicionable = posicionable.getView(unitVBox, leftBorderPane);
+        			vistaPosicionable.agregarATablero(this, posicionable, i, j);
+        			posicionablesDibujados.add(posicionable);
+    			}
     		}
-    	}
-		
+    	}		
 	}
 }

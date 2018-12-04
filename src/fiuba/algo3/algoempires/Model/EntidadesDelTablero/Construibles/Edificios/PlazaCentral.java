@@ -11,6 +11,8 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Vista.VistaCastillo;
+import fiuba.algo3.algoempires.Vista.VistaPlazaCentral;
 import fiuba.algo3.algoempires.Vista.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
@@ -128,8 +130,8 @@ public class PlazaCentral extends Edificio {
 
 	@Override
 	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		// TODO Auto-generated method stub
-		return null;
+		VistaPlazaCentral vistaPlazaCentral = new VistaPlazaCentral(this, unitVBox, leftBorderPane);
+		return vistaPlazaCentral;
 	}
 
 

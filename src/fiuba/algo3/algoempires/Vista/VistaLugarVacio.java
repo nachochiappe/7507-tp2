@@ -1,5 +1,7 @@
 package fiuba.algo3.algoempires.Vista;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
@@ -29,4 +31,8 @@ public class VistaLugarVacio extends VistaPosicionable{
 		this.getChildren().add(imageViewPiso);
 	}
 
+	@Override
+    public void agregarATablero(VistaTablero vistaTablero, Posicionable posicionable, int i, int j) {
+    	vistaTablero.add(this, j, i);
+    }
 }
