@@ -1,25 +1,14 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego;
 
-import java.util.List;
-
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.*;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.JugadorHUD.JugadorHUD;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaTablero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -81,7 +70,7 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     	
     	Tablero tablero = Tablero.getInstance();
     	
-    	this.vistaTablero.iniciarTablero(unitVBox,leftBorderPane);
+    	this.vistaTablero.iniciarTablero(unitVBox,leftBorderPane, algoEmpires.getJugadorActual());
     	
     	/*
     	List<Posicionable> posicionables = tablero.obtenerTodosLosPosicionables();

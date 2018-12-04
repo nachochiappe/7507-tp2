@@ -1,8 +1,7 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
@@ -15,17 +14,24 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public abstract class VistaUnidad extends  VistaPosicionable{
+public  class VistaUnidad extends  VistaPosicionable{
     protected Unidad unidad;
     protected VBox unitVBox;
     protected Image imagenUnidad;
 	protected BorderPane borderPane;
 
-	
-    public int getPosX() {
+	public VistaUnidad(Unidad unidad, VBox unitVBox, BorderPane leftBorderPane) {
+		this.unidad = unidad;
+		this.unitVBox = unitVBox;
+		this.borderPane = leftBorderPane;
+		this.inicializar();
+	}
+
+
+
+	public int getPosX() {
     	return unidad.getPosicion().getPosicionX();
     }
     
@@ -138,7 +144,8 @@ public abstract class VistaUnidad extends  VistaPosicionable{
 		imageViewPiso.setSmooth(true);
 		imageViewPiso.setCache(true);
 		ImageView imageViewUnidad = new ImageView();
-		imageViewUnidad.setImage(imagenUnidad);
+		imageViewUnidad.setImage(this.unidad.getSprite());
+
 		imageViewUnidad.setFitWidth(40);
 		imageViewUnidad.setPreserveRatio(true);
 		imageViewUnidad.setSmooth(true);

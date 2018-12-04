@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import javafx.scene.layout.StackPane;

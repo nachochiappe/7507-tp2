@@ -1,8 +1,6 @@
-package fiuba.algo3.algoempires.Vista;
+package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
-import java.util.List;
-
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import java.util.ArrayList;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.scene.image.Image;
@@ -13,25 +11,35 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public abstract class VistaEdificio extends VistaPosicionable {
-	
-	protected Edificio edificio;
-	protected Image imagenEdificio;
-	protected List<StackPane> stackPanes;
-	protected List<WritableImage> writableImages;
-	protected int anchoEdificio;
-	protected int altoEdificio;
-	protected VBox unitVBox;
-	protected BorderPane borderPane;
-	
-	protected abstract void mostrarMenuEdificio();
+public class VistaCastillo extends VistaEdificio {
 
+	public VistaCastillo(Edificio castillo, VBox unitVBox, BorderPane borderPane) {
+    	this.edificio = castillo;
+    	this.anchoEdificio = this.edificio.getAncho();
+    	this.altoEdificio = this.edificio.getAlto();
+    	this.borderPane = borderPane;
+    	this.unitVBox = unitVBox;
+    	this.imagenEdificio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png");
+    	this.stackPanes = new ArrayList<>();
+    	this.writableImages = new ArrayList<>();
+    	inicializar();
+    }
+	
+	@Override
+	protected void mostrarMenuEdificio() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void inicializar() {
-		PixelReader edificio = this.imagenEdificio.getPixelReader();
+		PixelReader castillo = this.imagenEdificio.getPixelReader();
 		int pixels = 0;
-		for (int i = 0; i < 2; i++) {
-			this.writableImages.add(new WritableImage(edificio, 0, pixels, 32, 32));
-			this.writableImages.add(new WritableImage(edificio, 32, pixels, 32, 32));
+		for (int i = 0; i < 4; i++) {
+			this.writableImages.add(new WritableImage(castillo, 0, pixels, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, 32, pixels, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, 64, pixels, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, 96, pixels, 32, 32));
 			pixels += 32;
 		}
 		for (int i = 0; i < this.anchoEdificio * this.altoEdificio; i++) {
@@ -56,19 +64,4 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			this.stackPanes.add(stackPane);
 		}
 	}
-	
-	@Override
-    public void agregarATablero(VistaTablero vistaTablero, Posicionable _edificio, int posX, int posY) {
-		Edificio edificio = (Edificio) _edificio;
-    	int posicionFinalX = edificio.obtenerPosicionFinal().getPosicionX();
-    	int posicionFinalY = edificio.obtenerPosicionFinal().getPosicionY();
-    	int k = 0;
-    	for (int i = posX; i <= posicionFinalX; i++) {
-    		for (int j = posY; j <= posicionFinalY; j++) {
-    			StackPane stackPane = stackPanes.get(k);
-    			vistaTablero.add(stackPane, j, i);
-    			k++;
-    		}
-    	}
-    }
 }

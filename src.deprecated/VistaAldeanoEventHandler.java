@@ -1,7 +1,7 @@
 package fiuba.algo3.algoempires.Controlador;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Vista.VistaAldeano;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaAldeano;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

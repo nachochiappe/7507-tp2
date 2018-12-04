@@ -1,18 +1,14 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio;
 
-import fiuba.algo3.algoempires.Model.Excepciones.*;
-import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
-import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
-import fiuba.algo3.algoempires.Vista.VistaArmaDeAsedio;
-import fiuba.algo3.algoempires.Vista.VistaPosicionable;
+import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class ArmaDeAsedio extends Unidad implements Ofensiva {
@@ -110,11 +106,5 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
     public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
         return this.estado.getBotoneraAcciones(botoneraAcciones);
     }
-
-	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		VistaArmaDeAsedio vistaArmaDeAsedio = new VistaArmaDeAsedio(this, unitVBox, leftBorderPane);
-		return vistaArmaDeAsedio;
-	}
 
 }

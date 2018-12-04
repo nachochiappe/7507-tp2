@@ -1,6 +1,5 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construible;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
@@ -11,9 +10,8 @@ import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
-import fiuba.algo3.algoempires.Vista.VistaCastillo;
-import fiuba.algo3.algoempires.Vista.VistaPlazaCentral;
-import fiuba.algo3.algoempires.Vista.VistaPosicionable;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPlazaCentral;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;

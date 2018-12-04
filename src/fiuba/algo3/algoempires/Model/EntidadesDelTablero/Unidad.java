@@ -6,6 +6,10 @@ import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.*;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaUnidad;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public abstract class Unidad implements Posicionable {
 
@@ -73,5 +77,11 @@ public abstract class Unidad implements Posicionable {
 	public boolean estasEnRango(Posicion posicionAtacante, int rango){
 		return posicionAtacante.estaEnRango(this.getPosicion(), rango);
 	}
+
+    @Override
+    public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
+        VistaUnidad vistaUnidad = new VistaUnidad(this, unitVBox, leftBorderPane);
+        return vistaUnidad;
+    }
 
 }

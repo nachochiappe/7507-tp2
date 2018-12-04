@@ -6,11 +6,8 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Vista.VistaAldeano;
-import fiuba.algo3.algoempires.Vista.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class Aldeano extends Unidad {
@@ -87,9 +84,4 @@ public class Aldeano extends Unidad {
     	return botoneraAcciones.generarBotonera(this);
 	}
 
-	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		VistaAldeano vistaAldeano = new VistaAldeano(this, unitVBox, leftBorderPane);
-		return vistaAldeano;
-	}
 }
