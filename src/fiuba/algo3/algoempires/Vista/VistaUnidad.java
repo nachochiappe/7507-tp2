@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -22,8 +23,7 @@ public abstract class VistaUnidad extends  VistaPosicionable{
     protected VBox unitVBox;
     protected Image imagenUnidad;
 	protected BorderPane borderPane;
-	
-	protected abstract void mostrarMenuUnidad();
+
 	
     public int getPosX() {
     	return unidad.getPosicion().getPosicionX();
@@ -144,7 +144,10 @@ public abstract class VistaUnidad extends  VistaPosicionable{
 		imageViewUnidad.setSmooth(true);
 		imageViewUnidad.setCache(true);
 		this.getChildren().addAll(imageViewPiso, imageViewUnidad);
-		imageViewUnidad.setOnMouseClicked(e -> mostrarMenuUnidad());
+		imageViewUnidad.setOnMouseClicked(e -> {
+			SeleccionableHUD seleccionableHUD = new SeleccionableHUD(unidad);
+			this.borderPane.setCenter(seleccionableHUD);
+		});
     }
     
     @Override

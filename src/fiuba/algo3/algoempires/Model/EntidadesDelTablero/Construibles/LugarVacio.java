@@ -52,6 +52,6 @@ public class LugarVacio implements Posicionable{
 
 	@Override
 	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane) {
-		return new VistaLugarVacio();
+		return new VistaLugarVacio(leftBorderPane);
 	}
 }

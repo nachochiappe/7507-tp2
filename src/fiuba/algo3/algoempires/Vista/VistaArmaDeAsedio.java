@@ -17,7 +17,7 @@ public class VistaArmaDeAsedio extends VistaUnidad{
     	inicializar();
     }
 	
-	@Override
+
 	protected void mostrarMenuUnidad() {
 		
     	ImageView imageView = new ImageView();

@@ -29,13 +29,9 @@ public class SeleccionableHUD extends VBox {
         Label nombre = new Label(posicionable.getNombre());
         Label vida = new Label("HP: " + posicionable.getHp() + "/" + posicionable.getMaxHp());
 
-        BotoneraAcciones botoneraAcciones = new BotoneraAcciones(posicionable);
+        BotoneraAcciones botoneraAcciones = new BotoneraAcciones();
 
-        this.getChildren().addAll(nombre, vida);
-    }
-
-    public SeleccionableHUD(Edificio edificio) {
-        this.setPadding(new Insets(20));
+        this.getChildren().addAll(imageView, nombre, vida, botoneraAcciones.generarBotonera(posicionable));
     }
 
 }

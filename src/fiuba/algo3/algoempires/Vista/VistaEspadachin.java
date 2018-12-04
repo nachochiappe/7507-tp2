@@ -17,7 +17,7 @@ public class VistaEspadachin  extends VistaUnidad{
     	this.imagenUnidad = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
     	inicializar();
     }
-	@Override
+
 	protected void mostrarMenuUnidad() {
 		// acá debería chequear si la unidad pertenece al equipo del jugador
     	// si no es suya, tiene que mostrar solo la vida y no el menú de opciones
