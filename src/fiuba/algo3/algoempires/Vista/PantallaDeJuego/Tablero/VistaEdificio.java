@@ -47,8 +47,8 @@ public abstract class VistaEdificio extends VistaPosicionable {
 		PixelReader edificio = this.imagenEdificio.getPixelReader();
 		int pixels = 0;
 		for (int i = 0; i < 2; i++) {
-			this.writableImages.add(new WritableImage(edificio, 0, pixels, 32, 32));
-			this.writableImages.add(new WritableImage(edificio, 32, pixels, 32, 32));
+			this.writableImages.add(new WritableImage(edificio, pixels, 0, 32, 32));
+			this.writableImages.add(new WritableImage(edificio, pixels, 32, 32, 32));
 			pixels += 32;
 		}
 		for (int i = 0; i < this.anchoEdificio * this.altoEdificio; i++) {
@@ -83,7 +83,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
     	for (int i = posX; i <= posicionFinalX; i++) {
     		for (int j = posY; j <= posicionFinalY; j++) {
     			StackPane stackPane = stackPanes.get(k);
-    			vistaTablero.add(stackPane, j, i);
+    			vistaTablero.add(stackPane, i, j);
     			k++;
     		}
     	}

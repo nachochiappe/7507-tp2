@@ -166,6 +166,6 @@ public  class VistaUnidad extends  VistaPosicionable{
     @Override
     public void agregarATablero(VistaTablero vistaTablero, Posicionable _unidad, int i, int j) {
     	Unidad unidad = (Unidad) _unidad;
-    	vistaTablero.add(this, unidad.getPosicion().getPosicionY(), unidad.getPosicion().getPosicionX());
+    	vistaTablero.add(this, unidad.getPosicion().getPosicionX(), unidad.getPosicion().getPosicionY());
     }
 }

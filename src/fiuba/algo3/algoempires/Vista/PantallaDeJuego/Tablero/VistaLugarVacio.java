@@ -34,6 +34,6 @@ public class VistaLugarVacio extends VistaPosicionable{
 
 	@Override
     public void agregarATablero(VistaTablero vistaTablero, Posicionable posicionable, int i, int j) {
-    	vistaTablero.add(this, j, i);
+    	vistaTablero.add(this, i, j);
     }
 }

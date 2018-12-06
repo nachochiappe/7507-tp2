@@ -32,10 +32,10 @@ public class VistaCastillo extends VistaEdificio {
 		PixelReader castillo = this.imagenEdificio.getPixelReader();
 		int pixels = 0;
 		for (int i = 0; i < 4; i++) {
-			this.writableImages.add(new WritableImage(castillo, 0, pixels, 32, 32));
-			this.writableImages.add(new WritableImage(castillo, 32, pixels, 32, 32));
-			this.writableImages.add(new WritableImage(castillo, 64, pixels, 32, 32));
-			this.writableImages.add(new WritableImage(castillo, 96, pixels, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, pixels, 0, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, pixels, 32, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, pixels, 64, 32, 32));
+			this.writableImages.add(new WritableImage(castillo, pixels, 96, 32, 32));
 			pixels += 32;
 		}
 		for (int i = 0; i < this.anchoEdificio * this.altoEdificio; i++) {

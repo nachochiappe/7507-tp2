@@ -52,8 +52,6 @@ public class Tablero {
         for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
             for(int j = posicionDeInicio.getPosicionY(); j<=posicionDeFin.getPosicionY(); j++) {
                 matriz[i][j] = posicionable;
-                System.out.println(i);
-                System.out.println(j);
             }
         }
     }
