@@ -56,13 +56,16 @@ public class Tablero {
         }
     }
 
-    public void poner(Posicionable posicionable, Posicion posicion) throws PosicionOcupadaException, DestinoFueraDelMapaException {
+    public void poner(Posicion posicionAnterior, Posicion posicionNueva, Posicionable posicionable) throws PosicionOcupadaException, DestinoFueraDelMapaException {
         try {
-            Posicionable actual = matriz[posicion.getPosicionX()][posicion.getPosicionY()];
+            Posicionable actual = matriz[posicionNueva.getPosicionX()][posicionNueva.getPosicionY()];
             if (actual != null) {
             	if(!actual.estaVacio()) throw new PosicionOcupadaException();
             }
-            matriz[posicion.getPosicionX()][posicion.getPosicionY()] = posicionable;
+            matriz[posicionNueva.getPosicionX()][posicionNueva.getPosicionY()] = posicionable;
+            if (posicionAnterior != null) {
+            	matriz[posicionAnterior.getPosicionX()][posicionAnterior.getPosicionY()] = new LugarVacio();
+            }
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new DestinoFueraDelMapaException();
         }

@@ -65,7 +65,7 @@ public class Jugador {
                 Aldeano aldeano = new Aldeano(this, new Posicion(posicion.getPosicionX() + 5 + i, posicion.getPosicionY() + 2));
                 unidades.add(aldeano);
                 try {
-                    Tablero.getInstance().poner(aldeano, aldeano.getPosicion());
+                    Tablero.getInstance().poner(null, aldeano.getPosicion(), aldeano);
                 } catch (PosicionOcupadaException | DestinoFueraDelMapaException e) {
                     //Nunca debería llegar acá
                     System.out.println("What a Terrible Error");
@@ -83,7 +83,7 @@ public class Jugador {
                 Aldeano aldeano = new Aldeano(this, new Posicion(posicion.getPosicionX() - 9 + i, posicion.getPosicionY() - 2));
                 unidades.add(aldeano);
                 try {
-                    Tablero.getInstance().poner(aldeano, aldeano.getPosicion());
+                    Tablero.getInstance().poner(null, aldeano.getPosicion(), aldeano);
                 } catch (PosicionOcupadaException | DestinoFueraDelMapaException e) {
                     //Nunca debería llegar acá
                     System.out.println("What a Terrible Error");

@@ -15,8 +15,8 @@ public class Movible implements Movimiento {
     public void mover(Desplazamiento desplazamiento, Unidad unidad) throws DestinoFueraDelMapaException, PosicionOcupadaException {
         Posicion posicionActual = unidad.getPosicion();
         Posicion nuevaPosicion = new Posicion(unidad.getPosicion().getPosicionX() + desplazamiento.getX(), unidad.getPosicion().getPosicionY() + desplazamiento.getY());
-        Tablero.getInstance().poner(unidad, nuevaPosicion);
-        Tablero.getInstance().poner(new LugarVacio(), posicionActual);
+        Tablero.getInstance().poner(posicionActual, nuevaPosicion, unidad);
+        //Tablero.getInstance().poner(new LugarVacio(), posicionActual);
         unidad.setPosicion(nuevaPosicion);
     }
 }
