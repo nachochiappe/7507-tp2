@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import javafx.scene.layout.BorderPane;
@@ -18,12 +19,10 @@ public class VistaTablero extends GridPane{
 
 	
 	public void agregar(VistaUnidad vistaUnidad) {
-		this.add(vistaUnidad,vistaUnidad.getPosX(),vistaUnidad.getPosY());
+		this.add(vistaUnidad,vistaUnidad.getPosY(),vistaUnidad.getPosX());
 	}
 
-
-
-	public void iniciarTablero(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
+	public void iniciarTablero(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
     	Tablero tablero = Tablero.getInstance();
     	
     	List<Posicionable> posicionablesDibujados = new ArrayList<>();
@@ -31,7 +30,7 @@ public class VistaTablero extends GridPane{
     		for (int j = 0; j < tablero.getAlto(); j++) {
     			Posicionable posicionable = tablero.obtenerPosicionable(i, j);
     			if (!(posicionablesDibujados.contains(posicionable))) {
-    				VistaPosicionable vistaPosicionable = posicionable.getView(unitVBox, leftBorderPane, jugadorActual);
+    				VistaPosicionable vistaPosicionable = posicionable.getView(contenedor, jugadorActual);
         			vistaPosicionable.agregarATablero(this, posicionable, i, j);
         			posicionablesDibujados.add(posicionable);
     			}

@@ -18,6 +18,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaCastillo;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -71,7 +72,7 @@ public class Castillo extends Edificio implements Ofensiva {
     }
 
     @Override
-    public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+    public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
         return botoneraAcciones.generarBotonera(this);
     }
 
@@ -147,8 +148,8 @@ public class Castillo extends Edificio implements Ofensiva {
 
 
 	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
-		VistaCastillo vistaCastillo = new VistaCastillo(this, unitVBox, leftBorderPane, jugadorActual);
+	public VistaPosicionable getView(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
+		VistaCastillo vistaCastillo = new VistaCastillo(contenedor, this, jugadorActual);
 		return vistaCastillo;
 	}
 }

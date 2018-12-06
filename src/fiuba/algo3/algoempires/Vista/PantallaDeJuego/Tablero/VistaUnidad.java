@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -18,16 +19,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public  class VistaUnidad extends  VistaPosicionable{
+	protected ContenedorPantallaDeJuego contenedor;
     protected Unidad unidad;
     protected VBox unitVBox;
     protected Image imagenUnidad;
     protected Jugador jugadorActual;
 	protected BorderPane borderPane;
 
-	public VistaUnidad(Unidad unidad, VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
+	public VistaUnidad(ContenedorPantallaDeJuego _contenedor, Unidad unidad, Jugador jugadorActual) {
+		this.contenedor = _contenedor;
 		this.unidad = unidad;
-		this.unitVBox = unitVBox;
-		this.borderPane = leftBorderPane;
+		this.unitVBox = this.contenedor.unitVBox;
+		this.borderPane = this.contenedor.leftBorderPane;
 		this.jugadorActual = jugadorActual;
 		this.inicializar();
 	}
@@ -155,7 +158,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 		imageViewUnidad.setCache(true);
 		this.getChildren().addAll(imageViewPiso, imageViewUnidad);
 		imageViewUnidad.setOnMouseClicked(e -> {
-			SeleccionableHUD seleccionableHUD = new SeleccionableHUD(unidad, jugadorActual);
+			SeleccionableHUD seleccionableHUD = new SeleccionableHUD(contenedor, unidad, jugadorActual);
 			this.borderPane.setCenter(seleccionableHUD);
 		});
     }

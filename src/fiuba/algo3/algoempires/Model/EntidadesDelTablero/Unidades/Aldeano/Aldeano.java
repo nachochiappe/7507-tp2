@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
@@ -80,8 +81,8 @@ public class Aldeano extends Unidad {
 		return MAX_HP;
 	}
 
-	public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
-    	return botoneraAcciones.generarBotonera(this);
+	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
+    	return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 
 }

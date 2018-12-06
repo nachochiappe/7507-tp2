@@ -12,6 +12,7 @@ import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaCuartel;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -60,7 +61,7 @@ public class Cuartel extends Edificio implements Construible {
 	}
 
 	@Override
-	public VBox getBotoneraAcciones(BotoneraAcciones botoneraAcciones) {
+	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
 		return botoneraAcciones.generarBotonera(this);
 	}
 
@@ -116,8 +117,8 @@ public class Cuartel extends Edificio implements Construible {
 
 
 	@Override
-	public VistaPosicionable getView(VBox unitVBox, BorderPane leftBorderPane, Jugador jugadorActual) {
-		VistaCuartel vistaCuartel = new VistaCuartel(this, unitVBox, leftBorderPane, jugadorActual);
+	public VistaPosicionable getView(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
+		VistaCuartel vistaCuartel = new VistaCuartel(contenedor, this, jugadorActual);
 		return vistaCuartel;
 	}
 

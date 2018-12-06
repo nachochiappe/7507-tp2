@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 import java.util.ArrayList;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,16 +15,9 @@ import javafx.scene.layout.VBox;
 
 public class VistaCastillo extends VistaEdificio {
 
-	public VistaCastillo(Edificio castillo, VBox unitVBox, BorderPane borderPane, Jugador jugadorActual) {
-    	this.edificio = castillo;
-    	this.anchoEdificio = this.edificio.getAncho();
-    	this.altoEdificio = this.edificio.getAlto();
-    	this.borderPane = borderPane;
-    	this.unitVBox = unitVBox;
+	public VistaCastillo(ContenedorPantallaDeJuego contenedor, Edificio castillo, Jugador jugadorActual) {
+		super(contenedor, castillo, jugadorActual);
     	this.imagenEdificio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png");
-    	this.stackPanes = new ArrayList<>();
-    	this.writableImages = new ArrayList<>();
-    	this.jugadorActual = jugadorActual;
     	inicializar();
     }
 	
@@ -60,7 +54,7 @@ public class VistaCastillo extends VistaEdificio {
 			imageView.setSmooth(true);
 			imageView.setCache(true);
 			imageView.setOnMouseClicked(e -> {
-				this.borderPane.setCenter(new SeleccionableHUD(this.edificio, jugadorActual));
+				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio, jugadorActual));
 			});
 			stackPane.getChildren().addAll(imageViewPiso, imageView);
 			this.stackPanes.add(stackPane);

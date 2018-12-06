@@ -1,10 +1,12 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +18,7 @@ import javafx.scene.layout.VBox;
 
 public abstract class VistaEdificio extends VistaPosicionable {
 	
+	protected ContenedorPantallaDeJuego contenedor;
 	protected Edificio edificio;
 	protected Image imagenEdificio;
 	protected List<StackPane> stackPanes;
@@ -27,6 +30,18 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	protected Jugador jugadorActual;
 	
 	protected abstract void mostrarMenuEdificio();
+	
+	public VistaEdificio(ContenedorPantallaDeJuego _contenedor, Edificio _edificio, Jugador _jugadorActual) {
+		this.contenedor = _contenedor;
+		this.unitVBox = this.contenedor.unitVBox;
+		this.borderPane = this.contenedor.leftBorderPane;
+		this.edificio = _edificio;
+    	this.anchoEdificio = this.edificio.getAncho();
+    	this.altoEdificio = this.edificio.getAlto();
+    	this.stackPanes = new ArrayList<>();
+    	this.writableImages = new ArrayList<>();
+    	this.jugadorActual = _jugadorActual;
+	}
 
 	public void inicializar() {
 		PixelReader edificio = this.imagenEdificio.getPixelReader();
@@ -52,7 +67,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			imageView.setSmooth(true);
 			imageView.setCache(true);
 			imageView.setOnMouseClicked(e -> {
-				this.borderPane.setCenter(new SeleccionableHUD(this.edificio, jugadorActual));
+				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio, jugadorActual));
 			});
 			stackPane.getChildren().addAll(imageViewPiso, imageView);
 			this.stackPanes.add(stackPane);
