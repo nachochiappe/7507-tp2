@@ -13,18 +13,20 @@ import javafx.event.EventHandler;
 
 public class BotonMoverUnidad implements EventHandler<ActionEvent> {
 
+	private Desplazamiento desplazamiento;
 	private Unidad unidad;
 	private ContenedorPantallaDeJuego contenedor;
 	
-	public BotonMoverUnidad(ContenedorPantallaDeJuego _contenedor, Unidad _unidad) {
+	public BotonMoverUnidad(ContenedorPantallaDeJuego _contenedor, Unidad _unidad, Desplazamiento _desplazamiento) {
 		this.contenedor = _contenedor;
 		this.unidad = _unidad;
+		this.desplazamiento = _desplazamiento;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
 		try {
-			this.unidad.mover(Direccion.izquierda());
+			this.unidad.mover(this.desplazamiento);
 			this.contenedor.vistaTablero.iniciarTablero(this.contenedor, this.contenedor.algoEmpires.getJugadorActual());
 		} catch (UnidadYaSeMovioException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
 			// TODO Auto-generated catch block
