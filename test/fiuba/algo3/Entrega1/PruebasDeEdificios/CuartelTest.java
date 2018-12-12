@@ -19,7 +19,7 @@ public class CuartelTest {
     public void testCuartelCreaArqueroDevuelveArquero() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Arquero arquero = cuartel.crearArquero(jugador,posicion);
         Assert.assertEquals(arquero.getClass(),Arquero.class);
@@ -27,7 +27,7 @@ public class CuartelTest {
     public void testCuartelCreaEspadachinDevuelveEspadachin() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Espadachin espadachin=cuartel.crearEspadachin(jugador,posicion);
         Assert.assertEquals(espadachin.getClass(),Espadachin.class);
@@ -37,7 +37,7 @@ public class CuartelTest {
     public void testCuartelCreaArqueroSumaUnaUnidadAlJugador() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Arquero arquero=cuartel.crearArquero(jugador,posicion);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -47,7 +47,7 @@ public class CuartelTest {
     public void testCuartelCreaEspadachinSumaUnaUnidadAlJugador() throws OroInsuficienteException, ExcedeTopePoblacionalException {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Espadachin espadachin=cuartel.crearEspadachin(jugador,posicion);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
@@ -57,7 +57,7 @@ public class CuartelTest {
     public void testCuartelCrearArqueroRestaOro() throws OroInsuficienteException, ExcedeTopePoblacionalException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Arquero arquero=cuartel.crearArquero(jugador,posicion);
         Assert.assertEquals(jugador.getOro(),25);
@@ -65,7 +65,7 @@ public class CuartelTest {
     public void testCuartelCrearEspadachinRestaOro() throws OroInsuficienteException, ExcedeTopePoblacionalException{
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Espadachin espadachin=cuartel.crearEspadachin(jugador,posicion);
         Assert.assertEquals(jugador.getOro(),0);
@@ -76,7 +76,7 @@ public class CuartelTest {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         jugador.modificarOro(-100);
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         cuartel.crearArquero(jugador,posicion);
     }
@@ -86,7 +86,7 @@ public class CuartelTest {
         Tablero.getInstance().inicializarTablero();
         Jugador jugador=new Jugador("jugadorTest");
         jugador.modificarOro(-100);
-        Cuartel cuartel= new Cuartel();
+        Cuartel cuartel= new Cuartel(jugador);
         Posicion posicion =  new Posicion(18,18);
         Espadachin espadachin=cuartel.crearEspadachin(jugador,posicion);
     }

@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arma
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -492,7 +493,7 @@ public class PruebasDeMovimientoYDireccion {
     }
 
     @Test(expected = PosicionOcupadaException.class)
-    public void testPosicionOcupada() throws UnidadYaSeMovioException, DestinoFueraDelMapaException, PosicionOcupadaException {
+    public void testPosicionOcupada() throws UnidadYaSeMovioException, DestinoFueraDelMapaException, PosicionOcupadaException, FueraDelMapaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
@@ -500,8 +501,8 @@ public class PruebasDeMovimientoYDireccion {
         Posicion posicion2 = new Posicion(10, 11);
         Aldeano aldeano = new Aldeano(jugador, posicion);
         Aldeano aldeano2 = new Aldeano(jugador, posicion2);
-        tablero.poner(aldeano,posicion);
-        tablero.poner(aldeano2, posicion2);
+        tablero.poner(aldeano,posicion, posicion2);
+        tablero.poner(aldeano2, posicion2, posicion2);
         aldeano.mover(Direccion.arriba());
     }
 }
