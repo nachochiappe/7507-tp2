@@ -1,7 +1,9 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
+import fiuba.algo3.algoempires.Controlador.Tablero.LugarVacioEventHandler;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -27,10 +29,11 @@ public class VistaLugarVacio extends VistaPosicionable{
 		imageViewPiso.setSmooth(true);
 		imageViewPiso.setCache(true);
 		this.getChildren().add(imageViewPiso);
+		imageViewPiso.setOnMouseClicked(new LugarVacioEventHandler(this.borderPane));
+/*
 		imageViewPiso.setOnMouseClicked(e -> {
 			this.borderPane.setCenter(new SeleccionableHUD());
-			System.out.println("Click en lugar vacio");
-		});
+		});*/
 	}
 
 	@Override
