@@ -29,6 +29,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 		this.getChildren().add(imageViewPiso);
 		imageViewPiso.setOnMouseClicked(e -> {
 			this.borderPane.setCenter(new SeleccionableHUD());
+			System.out.println("Click en lugar vacio");
 		});
 	}
 

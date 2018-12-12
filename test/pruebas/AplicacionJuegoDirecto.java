@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class AplicacionJuegoDirecto  extends Application {
@@ -30,6 +31,8 @@ public class AplicacionJuegoDirecto  extends Application {
      
         ContenedorPantallaDeJuego contenedorPantallaDeJuego = new ContenedorPantallaDeJuego(stage, algoEmpires);
         Scene escenaJuego = new Scene(contenedorPantallaDeJuego, 1024, 768);
+        escenaJuego.addEventFilter(MouseEvent.MOUSE_CLICKED, e -> System.out.println( e));
+        
         AplicacionOnKeyPressEventHandler aplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
         escenaJuego.setOnKeyPressed(aplicacionOnKeyPressEventHandler);
 

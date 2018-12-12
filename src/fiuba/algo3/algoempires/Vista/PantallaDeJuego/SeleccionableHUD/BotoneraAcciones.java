@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearAldeano;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonMoverUnidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -112,6 +113,7 @@ public class BotoneraAcciones {
         VBox botonera = new VBox(20);
 
         Button botonCrearAldeano = new Button("Crear Aldeano");
+        botonCrearAldeano.setOnAction(new BotonCrearAldeano());
 
         botonera.getChildren().addAll(botonCrearAldeano);
         return botonera;
