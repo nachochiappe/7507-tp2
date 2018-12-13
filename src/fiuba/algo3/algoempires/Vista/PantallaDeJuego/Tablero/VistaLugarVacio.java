@@ -30,10 +30,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 		imageViewPiso.setCache(true);
 		this.getChildren().add(imageViewPiso);
 		imageViewPiso.setOnMouseClicked(new LugarVacioEventHandler(this.borderPane));
-/*
-		imageViewPiso.setOnMouseClicked(e -> {
-			this.borderPane.setCenter(new SeleccionableHUD());
-		});*/
+
 	}
 
 	@Override

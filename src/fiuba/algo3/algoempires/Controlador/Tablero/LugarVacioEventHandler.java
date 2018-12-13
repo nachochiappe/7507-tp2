@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 
 public class LugarVacioEventHandler implements EventHandler<MouseEvent>{
 	
-	private Button boton;
+	private Button boton = new Button();
 	private BorderPane border;
 	
 	public LugarVacioEventHandler(BorderPane borderPane) {
@@ -25,7 +25,7 @@ public class LugarVacioEventHandler implements EventHandler<MouseEvent>{
 		
 		System.out.println("Click En lugar vaciiooo!");
 		border.setCenter(new SeleccionableHUD());
-//		Event.fireEvent(boton, new ActionEvent());
+		Event.fireEvent(boton, new MouseEvent(MouseEvent.DRAG_DETECTED, 0, 0, 0, 0, null, 0, false, false, false, false, false, false, false, false, false, false, null));
 		
 	}
 

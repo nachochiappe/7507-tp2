@@ -113,7 +113,7 @@ public class BotoneraAcciones {
         VBox botonera = new VBox(20);
 
         Button botonCrearAldeano = new Button("Crear Aldeano");
-        botonCrearAldeano.setOnAction(new BotonCrearAldeano());
+        botonCrearAldeano.setOnAction(new BotonCrearAldeano(plazaCentral));
 
         botonera.getChildren().addAll(botonCrearAldeano);
         return botonera;
