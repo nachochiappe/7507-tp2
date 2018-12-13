@@ -7,4 +7,6 @@ import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 
 public interface Movimiento {
     void mover(Desplazamiento desplazamiento, Unidad unidad) throws UnidadYaSeMovioException, DestinoFueraDelMapaException, PosicionOcupadaException;
+
+    boolean puedeAccionar();
 }

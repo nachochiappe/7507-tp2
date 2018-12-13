@@ -32,6 +32,10 @@ public abstract class Unidad implements Posicionable {
         this.deshabilitarMovimiento();
     }
 
+    public boolean puedeAccionar() {
+        return this.movimiento.puedeAccionar();
+    }
+
     public void habilitarMovimiento() {
         this.movimiento = movible;
     }

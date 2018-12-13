@@ -8,4 +8,9 @@ public class NoMovible implements Movimiento {
     public void mover(Desplazamiento desplazamiento, Unidad unidad) throws UnidadYaSeMovioException {
         throw new UnidadYaSeMovioException();
     }
+
+    @Override
+    public boolean puedeAccionar() {
+        return false;
+    }
 }

@@ -24,7 +24,6 @@ public class VistaTablero extends GridPane{
 
 	public void iniciarTablero(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
     	Tablero tablero = Tablero.getInstance();
-    	
     	List<Posicionable> posicionablesDibujados = new ArrayList<>();
     	for (int i = 0; i < tablero.getAncho(); i++) {
     		for (int j = 0; j < tablero.getAlto(); j++) {

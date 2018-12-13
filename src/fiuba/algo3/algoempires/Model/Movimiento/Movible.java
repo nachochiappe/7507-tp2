@@ -1,7 +1,6 @@
 package fiuba.algo3.algoempires.Model.Movimiento;
 
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
@@ -18,5 +17,10 @@ public class Movible implements Movimiento {
         Tablero.getInstance().poner(posicionActual, nuevaPosicion, unidad);
         //Tablero.getInstance().poner(new LugarVacio(), posicionActual);
         unidad.setPosicion(nuevaPosicion);
+    }
+
+    @Override
+    public boolean puedeAccionar() {
+        return true;
     }
 }
