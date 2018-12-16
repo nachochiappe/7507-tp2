@@ -4,15 +4,25 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
-import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaLugarVacio;
-import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaLugarVacio;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class LugarVacio implements Posicionable{
+
+	Posicion posicion;
+
+	public LugarVacio(Posicion posicion) {
+		this.posicion = posicion;
+	}
+
+	public Posicion getPosicion() {
+		return posicion;
+	}
+
 	public boolean estaVacio() {
 		return true;
 	}
@@ -53,7 +63,7 @@ public class LugarVacio implements Posicionable{
 
 	@Override
 	public VistaPosicionable getView(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
-		return new VistaLugarVacio(contenedor.leftBorderPane);
+		return new VistaLugarVacio(contenedor, this);
 	}
 
 	@Override

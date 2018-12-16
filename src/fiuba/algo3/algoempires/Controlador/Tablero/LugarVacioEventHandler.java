@@ -1,5 +1,7 @@
 package fiuba.algo3.algoempires.Controlador.Tablero;
 
+import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorPantallaPrincipal;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -11,20 +13,16 @@ import javafx.scene.layout.BorderPane;
 public class LugarVacioEventHandler implements EventHandler<MouseEvent>{
 	
 	private Button boton = new Button();
-	private BorderPane border;
+	private ContenedorPantallaDeJuego contenedor;
 	
-	public LugarVacioEventHandler(BorderPane borderPane) {
-		border = borderPane;
-	}
-	LugarVacioEventHandler(Button boton){
-		this.boton = boton;
+	public LugarVacioEventHandler(ContenedorPantallaDeJuego contenedor) {
+		this.contenedor = contenedor;
 	}
 	
 	@Override
 	public void handle(MouseEvent event) {
-		
-		System.out.println("Click En lugar vaciiooo!");
-		border.setCenter(new SeleccionableHUD());
+		this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD());
+		this.contenedor.vistaTablero.iniciarTablero(contenedor, contenedor.algoEmpires.getJugadorActual());
 		Event.fireEvent(boton, new MouseEvent(MouseEvent.DRAG_DETECTED, 0, 0, 0, 0, null, 0, false, false, false, false, false, false, false, false, false, false, null));
 		
 	}

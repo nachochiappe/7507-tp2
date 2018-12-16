@@ -1,9 +1,6 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.geometry.Insets;

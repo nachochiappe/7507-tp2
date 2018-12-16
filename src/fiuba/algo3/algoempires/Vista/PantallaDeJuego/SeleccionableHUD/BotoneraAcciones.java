@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD;
 
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearPlazaCentral;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
@@ -29,6 +30,7 @@ public class BotoneraAcciones {
         VBox botonera = new VBox(20);
         GridPane botonesMovimiento = generarBotoneraDireccional(contenedor, aldeano);
         Button botonConstruirPlazaCentral = new Button("Construir Plaza Central");
+        botonConstruirPlazaCentral.setOnAction(new BotonCrearPlazaCentral(contenedor, aldeano));
         Button botonConstruirCuartel = new Button("Construir Cuartel");
         Button botonReparar = new Button("Reparar");
         botonera.getChildren().addAll(botonesMovimiento, botonConstruirCuartel, botonConstruirPlazaCentral, botonReparar);

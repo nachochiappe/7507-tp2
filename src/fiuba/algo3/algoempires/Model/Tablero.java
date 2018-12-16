@@ -28,7 +28,7 @@ public class Tablero {
     public void inicializarTablero() {
         for (int i=0; i<ANCHO; i++) {
             for(int j=0; j<ALTO; j++) {
-                matriz[i][j] = new LugarVacio();
+                matriz[i][j] = new LugarVacio(new Posicion(i, j));
             }
         }
     }
@@ -64,7 +64,7 @@ public class Tablero {
             }
             matriz[posicionNueva.getPosicionX()][posicionNueva.getPosicionY()] = posicionable;
             if (posicionAnterior != null) {
-            	matriz[posicionAnterior.getPosicionX()][posicionAnterior.getPosicionY()] = new LugarVacio();
+            	matriz[posicionAnterior.getPosicionX()][posicionAnterior.getPosicionY()] = new LugarVacio(new Posicion(posicionAnterior.getPosicionX(), posicionAnterior.getPosicionY()));
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new DestinoFueraDelMapaException();

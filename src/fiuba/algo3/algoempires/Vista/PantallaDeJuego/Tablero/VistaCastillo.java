@@ -3,12 +3,15 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 import java.util.ArrayList;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -59,5 +62,15 @@ public class VistaCastillo extends VistaEdificio {
 			stackPane.getChildren().addAll(imageViewPiso, imageView);
 			this.stackPanes.add(stackPane);
 		}
+	}
+
+	@Override
+	public Posicion getPosicion() {
+		return null;
+	}
+
+	@Override
+	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
+
 	}
 }
