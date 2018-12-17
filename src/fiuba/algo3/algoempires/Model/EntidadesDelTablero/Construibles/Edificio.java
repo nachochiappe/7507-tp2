@@ -40,6 +40,7 @@ public abstract class Edificio implements Posicionable, Construible {
 		Tablero.getInstance().poner(this , posiciones.getFirst(), posiciones.getLast());
 		aldeanoValido(aldeano);
 		this.vida = 50;
+		this.jugador = aldeano.getJugador();
 		aldeano.empezarAConstruir(this);
 		this.estadoEdilicio = new Construyendo(this);
 	}

@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
@@ -29,6 +30,11 @@ public class VistaPlazaCentral extends VistaEdificio {
 
 	@Override
 	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
+
+	}
+
+	@Override
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
 
 	}
 }

@@ -46,7 +46,7 @@ public class VistaTablero extends GridPane{
 
 	public void iniciarConstruccion(Edificio e, Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
 		for (VistaPosicionable vistaPosicionable: posicionables) {
-			vistaPosicionable.setearClickListener(new CeldaCrearEdificio(contenedorPantallaDeJuego, aldeano, e, vistaPosicionable.getPosicion()));
+			vistaPosicionable.esperarConstruccion(contenedorPantallaDeJuego, aldeano, e, vistaPosicionable.getPosicion());
 		}
 	}
 }

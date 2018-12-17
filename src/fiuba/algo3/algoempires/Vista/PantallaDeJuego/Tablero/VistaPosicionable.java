@@ -1,7 +1,10 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -18,5 +21,7 @@ public abstract class VistaPosicionable extends StackPane {
 
 
 	public abstract void setearClickListener(EventHandler<MouseEvent> eventEventHandler);
+
+	public abstract void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion);
 
 }

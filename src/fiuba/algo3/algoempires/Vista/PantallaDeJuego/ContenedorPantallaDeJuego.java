@@ -24,8 +24,10 @@ public class ContenedorPantallaDeJuego extends BorderPane {
 	public VBox unitVBox;
 	public JugadorHUD jugadorHUD;
 	public SeleccionableHUD seleccionableHUD;
+	public Stage rootStage;
 
     public ContenedorPantallaDeJuego(Stage stage, AlgoEmpires algoEmpires) {
+        this.rootStage = stage;
         this.algoEmpires = algoEmpires;
         this.vistaTablero = new VistaTablero();
         vistaTablero.setAlignment(Pos.CENTER);

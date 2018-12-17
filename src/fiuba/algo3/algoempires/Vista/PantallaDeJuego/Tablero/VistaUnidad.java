@@ -1,10 +1,13 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import fiuba.algo3.algoempires.Controlador.Tablero.ClickPosicionableEventHandler;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
@@ -91,6 +94,14 @@ public  class VistaUnidad extends  VistaPosicionable{
 
 	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
 		this.setOnMouseClicked(eventEventHandler);
+	}
+
+	@Override
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
+		this.setearClickListener(event -> {
+			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
+			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
+		});
 	}
 
 }

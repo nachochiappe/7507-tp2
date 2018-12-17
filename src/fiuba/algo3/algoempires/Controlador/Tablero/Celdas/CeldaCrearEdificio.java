@@ -31,7 +31,7 @@ public class CeldaCrearEdificio implements EventHandler<MouseEvent>  {
         try {
             aldeano.construir(edificio, posicion);
         } catch (AldeanoOcupadoException | FueraDelMapaException | SoloSePermiteUnAldeanoException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         contenedorPantallaDeJuego.vistaTablero.iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
