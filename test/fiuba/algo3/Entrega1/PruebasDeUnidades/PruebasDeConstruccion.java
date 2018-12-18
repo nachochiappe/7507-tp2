@@ -26,7 +26,7 @@ public class PruebasDeConstruccion {
         Jugador jugador = new Jugador("JugadorTest");
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        Cuartel cuartel = new Cuartel(jugador);
+        Cuartel cuartel = new Cuartel();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(cuartel, posicion);
         Assert.assertTrue(cuartel.obtenerPosicionInicial().dentroDe(10,10));
@@ -96,7 +96,7 @@ public class PruebasDeConstruccion {
         PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(plazaCentral, posicion);
-        Cuartel cuartel = new Cuartel(jugador);
+        Cuartel cuartel = new Cuartel();
         Posicion posicion2 = new Posicion(0,0);
         aldeano.construir(cuartel, posicion2);
     }

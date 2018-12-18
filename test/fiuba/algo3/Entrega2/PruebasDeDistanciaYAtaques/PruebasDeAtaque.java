@@ -79,7 +79,7 @@ public class PruebasDeAtaque {
     public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
-		Cuartel cuartel = new Cuartel(jugador);
+		Cuartel cuartel = new Cuartel();
 		try {
 			cuartel.construiteEn(new Aldeano(jugador, pos), pos);
 		} catch (FueraDelMapaException e) {

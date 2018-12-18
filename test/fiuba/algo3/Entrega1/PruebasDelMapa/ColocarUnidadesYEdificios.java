@@ -49,7 +49,7 @@ public class ColocarUnidadesYEdificios {
 	public void testPuedoColocarCuartelEnTablero() throws FueraDelMapaException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
-		Cuartel cuartel = new Cuartel(null);
+		Cuartel cuartel = new Cuartel();
 		Posicion posicionDeInicio = new Posicion(10, 10);
 		Posicion posicionDeFin = new Posicion(11, 11);
 		tablero.poner(cuartel, posicionDeInicio, posicionDeFin);
@@ -73,7 +73,7 @@ public class ColocarUnidadesYEdificios {
 	public void testNoPuedoColocarCuartelFueraDeTablero() throws FueraDelMapaException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
-		Cuartel cuartel = new Cuartel(null);
+		Cuartel cuartel = new Cuartel();
 		Posicion posicionDeInicio = new Posicion(25, 25);
 		Posicion posicionDeFin = new Posicion(26, 26);
 		tablero.poner(cuartel, posicionDeInicio, posicionDeFin);
