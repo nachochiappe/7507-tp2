@@ -28,9 +28,8 @@ public class Cuartel extends Edificio implements Construible {
 	private static final int OCUPA_ANCHO = 2;
 	private static final int OCUPA_ALTO = 2;
 
-	public Cuartel(Jugador jugador) {
+	public Cuartel() {
 		this.vida = MAX_VIDA;
-		this.jugador = jugador;
 	}
 
 

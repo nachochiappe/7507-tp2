@@ -1,6 +1,6 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
-import fiuba.algo3.algoempires.Controlador.Tablero.ClickPosicionableEventHandler;
+import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.ClickPosicionableEventHandler;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
@@ -90,6 +90,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 	public Posicion getPosicion() {
 		return unidad.getPosicion();
 	}
+
 
 
 	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {

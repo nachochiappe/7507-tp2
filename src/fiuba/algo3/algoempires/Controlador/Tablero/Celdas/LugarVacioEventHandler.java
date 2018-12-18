@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Controlador.Tablero;
+package fiuba.algo3.algoempires.Controlador.Tablero.Celdas;
 
 import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorPantallaPrincipal;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
