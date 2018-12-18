@@ -74,7 +74,7 @@ public class Castillo extends Edificio implements Ofensiva {
     }
 
     @Override
-    public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
+    public VBox _getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
         return botoneraAcciones.generarBotonera(this);
     }
 

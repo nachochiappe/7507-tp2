@@ -61,7 +61,7 @@ public class Cuartel extends Edificio implements Construible {
 	}
 
 	@Override
-	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
+	public VBox _getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
 		return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 

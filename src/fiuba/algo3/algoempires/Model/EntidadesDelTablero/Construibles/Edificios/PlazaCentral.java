@@ -70,7 +70,7 @@ public class PlazaCentral extends Edificio {
 	}
 
 	@Override
-	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
+	public VBox _getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
 		return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 

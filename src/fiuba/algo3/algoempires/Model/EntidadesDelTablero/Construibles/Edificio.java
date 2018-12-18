@@ -13,7 +13,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorPantallaPrincipal;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 
 public abstract class Edificio implements Posicionable, Construible {
 	//vida
@@ -106,6 +110,10 @@ public abstract class Edificio implements Posicionable, Construible {
 
 	}
 
+	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
+		return this.estadoEdilicio.getBotoneraAcciones(contenedor, botoneraAcciones);
+	}
+
 	public boolean isFullHp() {
 		return this.vida == this.getMaxHp();
 	}
@@ -140,4 +148,6 @@ public abstract class Edificio implements Posicionable, Construible {
 	public void setEstadoEdilicioIdle() {
 		this.estadoEdilicio = new Idle(this);
 	}
+
+	public abstract VBox _getBotoneraAcciones(ContenedorPantallaDeJuego contenedorPantallaDeJuego, BotoneraAcciones botoneraAcciones);
 }
