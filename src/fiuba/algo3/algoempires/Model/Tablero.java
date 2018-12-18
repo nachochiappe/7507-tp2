@@ -70,7 +70,18 @@ public class Tablero {
             throw new DestinoFueraDelMapaException();
         }
     }
+    public void poner(Posicion posicion, Posicionable posicionable) throws PosicionOcupadaException, DestinoFueraDelMapaException {
+        try {
+            Posicionable actual = matriz[posicion.getPosicionX()][posicion.getPosicionY()];
+            if (actual != null) {
+                if(!actual.estaVacio()) throw new PosicionOcupadaException();
+            }
+            matriz[posicion.getPosicionX()][posicion.getPosicionY()] = posicionable;
 
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DestinoFueraDelMapaException();
+        }
+    }
 
     //Método llamado únicamente al principio del juego
     public void poner(Posicionable posicionable, LinkedList<Posicion> posiciones) {

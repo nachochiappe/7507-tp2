@@ -45,7 +45,7 @@ public abstract class Edificio implements Posicionable, Construible {
 		this.estadoEdilicio = new Construyendo(this);
 	}
 
-	public abstract Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException;
+	public abstract Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException;
 
 	public Image getSprite() {
 		return this.estadoEdilicio.getSprite();
@@ -99,6 +99,10 @@ public abstract class Edificio implements Posicionable, Construible {
 				throw new SoloSePermiteUnAldeanoException();
 			}
 		}
+	}
+
+	public void crearUnidad(Unidad unidad, Posicion posicion) {
+
 	}
 
 	public boolean isFullHp() {

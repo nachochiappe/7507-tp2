@@ -5,9 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
-import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
-import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Model.Tablero;
@@ -114,11 +112,12 @@ public class PlazaCentral extends Edificio {
 
 	}
 
-	public Aldeano crearAldeano(Jugador jugador,Posicion posicion)  throws OroInsuficienteException, ExcedeTopePoblacionalException {
+	public Aldeano crearAldeano(Jugador jugador,Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException {
 		if (jugador.getOro()<25) throw new OroInsuficienteException();
 		jugador.modificarOro(-25);
 		Aldeano aldeano = new Aldeano(jugador,posicion);
 		jugador.agregarUnidad(aldeano);
+		Tablero.getInstance().poner(posicion, aldeano);
 		return aldeano;
 	}
 
@@ -137,7 +136,7 @@ public class PlazaCentral extends Edificio {
 
 
 	@Override
-	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
+	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException {
 		return crearAldeano(this.getJugador(), unidad.getPosicion());
 		
 	}
