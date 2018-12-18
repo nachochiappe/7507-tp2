@@ -29,8 +29,9 @@ public abstract class Edificio implements Posicionable, Construible {
 	}
 
 
-	public void construiteEn(Aldeano aldeano, Posicion posicionDeInicio) throws FueraDelMapaException, SoloSePermiteUnAldeanoException {
+	public void construiteEn(Aldeano aldeano, Posicion posicionDeInicio) throws FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException {
 //		this.posiciones.addFirst(posicionDeInicio);
+		aldeano.getJugador().sacarOro(getCosto());
 		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + this.getAlto(); i++) {
 			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + this.getAncho(); j++) {
 				Posicion posicionActual = new Posicion(i,j);
@@ -125,6 +126,7 @@ public abstract class Edificio implements Posicionable, Construible {
 	public abstract int getTurnosConstruccion();
 	public abstract int getAlto();
 	public abstract int getAncho();
+	public abstract int getCosto();
 	public Jugador getJugador() {
 		return this.jugador;
 	}

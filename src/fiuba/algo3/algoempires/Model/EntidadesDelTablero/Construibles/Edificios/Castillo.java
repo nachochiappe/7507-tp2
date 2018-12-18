@@ -32,6 +32,7 @@ public class Castillo extends Edificio implements Ofensiva {
     private static final int OCUPA_ANCHO = 4;
     private static final int OCUPA_ALTO = 4;
     private static final int MAX_RANGO = 3;
+    private final int COSTO = 50;
     private int rango;
 
     public Castillo() {
@@ -90,6 +91,11 @@ public class Castillo extends Edificio implements Ofensiva {
     @Override
     public int getAncho() {
         return OCUPA_ANCHO;
+    }
+
+    @Override
+    public int getCosto() {
+        return COSTO;
     }
 
     @Override

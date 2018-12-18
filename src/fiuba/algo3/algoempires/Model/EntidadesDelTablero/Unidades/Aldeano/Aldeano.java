@@ -41,7 +41,7 @@ public class Aldeano extends Unidad {
 		return "Aldeano";
 	}
 
-	public void construir(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException {
+	public void construir(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException {
 		this.estado.empezarConstruccion(edificio, posicion);
 	}
 

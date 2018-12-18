@@ -31,6 +31,7 @@ public class CeldaCrearUnidad implements EventHandler<MouseEvent>  {
 		unidad.setPosicion(posicion);
         try {
 			edificio.crearUnidad(unidad);
+			contenedorPantallaDeJuego.actualizarJugadorHUD();
 		} catch (OroInsuficienteException | ExcedeTopePoblacionalException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

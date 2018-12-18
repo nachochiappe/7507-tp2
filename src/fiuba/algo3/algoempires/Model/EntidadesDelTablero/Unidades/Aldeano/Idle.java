@@ -1,10 +1,7 @@
 package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
-import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
-import fiuba.algo3.algoempires.Model.Excepciones.EdificioNoNecesitaRepararse;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 
 public class Idle implements EstadoAldeano{
@@ -21,7 +18,7 @@ public class Idle implements EstadoAldeano{
     }
 
     @Override
-    public void empezarConstruccion(Edificio edificio, Posicion posicion) throws FueraDelMapaException, SoloSePermiteUnAldeanoException {
+    public void empezarConstruccion(Edificio edificio, Posicion posicion) throws FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException {
         edificio.construiteEn(this.aldeano, posicion);
     }
 

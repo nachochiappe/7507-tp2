@@ -35,10 +35,9 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         leftBorderPane.setPadding(new Insets(20));
         this.setMenu(stage);
         this.setCentro();
-		jugadorHUD = new JugadorHUD(this);
 		this.leftBorderPane.setCenter(new SeleccionableHUD());
         this.setLeft(leftBorderPane);
-        this.setRight(jugadorHUD);
+        this.actualizarJugadorHUD();
     }
 
 
@@ -53,6 +52,10 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     	this.setCenter(vistaTablero);
     }
 
+    public void actualizarJugadorHUD() {
+        this.jugadorHUD = new JugadorHUD(this);
+        this.setRight(jugadorHUD);
+    }
 
     public VistaTablero getVistaTablero() {
     	return this.vistaTablero;

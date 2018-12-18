@@ -5,6 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.AldeanoOcupadoException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
 import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
@@ -29,8 +30,9 @@ public class CeldaCrearEdificio implements EventHandler<MouseEvent>  {
     @Override
     public void handle(MouseEvent event) {
         try {
-            aldeano.construir(edificio, posicion);
-        } catch (AldeanoOcupadoException | FueraDelMapaException | SoloSePermiteUnAldeanoException e) {
+            this.aldeano.construir(edificio, posicion);
+            this.contenedorPantallaDeJuego.actualizarJugadorHUD();
+        } catch (AldeanoOcupadoException | FueraDelMapaException | SoloSePermiteUnAldeanoException | OroInsuficienteException e) {
             System.out.println(e.getMessage());
         }
 
