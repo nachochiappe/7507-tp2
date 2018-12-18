@@ -1,5 +1,7 @@
 package pruebas;
 
+import java.io.File;
+
 import fiuba.algo3.algoempires.Controlador.AplicacionOnKeyPressEventHandler;
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Tablero;
@@ -8,6 +10,9 @@ import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class AplicacionJuegoDirecto  extends Application {
@@ -18,6 +23,12 @@ public class AplicacionJuegoDirecto  extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
+		String musicFile = "src/fiuba/algo3/algoempires/Vista/Sonidos/Common Fight(Pantalla de juego).mp3";
+		Media sound = new Media(new File(musicFile).toURI().toString()); 
+		MediaPlayer mediaPlayer = new MediaPlayer(sound); 
+		mediaPlayer.setAutoPlay(true);
+		mediaPlayer.play(); 
+		
 		AlgoEmpires algoEmpires = new AlgoEmpires();
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();

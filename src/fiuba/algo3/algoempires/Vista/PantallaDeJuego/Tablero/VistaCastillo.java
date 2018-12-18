@@ -1,6 +1,8 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import java.util.ArrayList;
+
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -79,4 +81,6 @@ public class VistaCastillo extends VistaEdificio {
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
 
 	}
+
+
 }

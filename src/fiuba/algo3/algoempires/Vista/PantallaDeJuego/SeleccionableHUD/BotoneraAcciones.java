@@ -49,11 +49,11 @@ public class BotoneraAcciones {
         return botonera;
     }
 
-    public VBox generarBotonera(PlazaCentral plazaCentral) {
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, PlazaCentral plazaCentral) {
         VBox botonera = new VBox(20);
 
         Button botonCrearAldeano = new Button("Crear Aldeano");
-        botonCrearAldeano.setOnAction(new BotonCrearAldeano(plazaCentral));
+        botonCrearAldeano.setOnAction(new BotonCrearAldeano(contenedor, plazaCentral));
 
         botonera.getChildren().addAll(botonCrearAldeano);
         return botonera;

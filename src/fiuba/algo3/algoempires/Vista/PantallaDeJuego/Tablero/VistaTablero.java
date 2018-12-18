@@ -11,6 +11,7 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import javafx.scene.layout.GridPane;
 
 public class VistaTablero extends GridPane{
@@ -51,6 +52,11 @@ public class VistaTablero extends GridPane{
 					vistaPosicionable.esperarConstruccion(contenedorPantallaDeJuego, aldeano, e, vistaPosicionable.getPosicion());
 				}
 			}
+		}
+	}
+	public void iniciarCreacionUnidad(Edificio e, Unidad unidad, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+		for (VistaPosicionable vistaPosicionable: posicionables) {
+			vistaPosicionable.esperarCreacionUnidad(contenedorPantallaDeJuego,e, unidad, vistaPosicionable.getPosicion());
 		}
 	}
 }

@@ -24,5 +24,7 @@ public abstract class VistaPosicionable extends StackPane {
 	public abstract void setearClickListener(EventHandler<MouseEvent> eventEventHandler);
 
 	public abstract void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion);
+	
+	public abstract void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion);
 
 }

@@ -35,34 +35,13 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         leftBorderPane.setPadding(new Insets(20));
         this.setMenu(stage);
         this.setCentro();
-//        this.setBotonera(robot);
 		jugadorHUD = new JugadorHUD(this);
 		this.leftBorderPane.setCenter(new SeleccionableHUD());
         this.setLeft(leftBorderPane);
         this.setRight(jugadorHUD);
     }
 
-/*
-    private void setBotonera(Robot robot) {
 
-        Button botonMover = new Button();
-        botonMover.setText("Mover");
-        BotonMoverHandler moveButtonHandler = new BotonMoverHandler(vistaRobot, robot);
-        botonMover.setOnAction(moveButtonHandler);
-
-        Button botonDireccion = new Button();
-        botonDireccion.setText("Cambiar direccion");
-        BotonDireccionHandler directionButtonHandler = new BotonDireccionHandler(robot);
-        botonDireccion.setOnAction(directionButtonHandler);
-
-        VBox contenedorVertical = new VBox(botonMover, botonDireccion);
-        contenedorVertical.setSpacing(10);
-        contenedorVertical.setPadding(new Insets(15));
-
-        this.setLeft(contenedorVertical);
-
-    }
-*/
     private void setMenu(Stage stage) {
         this.menuBar = new BarraDeMenu(stage);
         this.setTop(menuBar);
@@ -75,7 +54,9 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     }
 
 
- 
+    public VistaTablero getVistaTablero() {
+    	return this.vistaTablero;
+    }
 
     
 	public BarraDeMenu getBarraDeMenu() {

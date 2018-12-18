@@ -12,7 +12,6 @@ import javafx.scene.layout.BorderPane;
 
 public class LugarVacioEventHandler implements EventHandler<MouseEvent>{
 	
-	private Button boton = new Button();
 	private ContenedorPantallaDeJuego contenedor;
 	
 	public LugarVacioEventHandler(ContenedorPantallaDeJuego contenedor) {
@@ -23,7 +22,6 @@ public class LugarVacioEventHandler implements EventHandler<MouseEvent>{
 	public void handle(MouseEvent event) {
 		this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD());
 		this.contenedor.vistaTablero.iniciarTablero(contenedor, contenedor.algoEmpires.getJugadorActual());
-		Event.fireEvent(boton, new MouseEvent(MouseEvent.DRAG_DETECTED, 0, 0, 0, 0, null, 0, false, false, false, false, false, false, false, false, false, false, null));
 		
 	}
 

@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Excepciones.ExcedeTopePoblacionalException;
@@ -72,7 +73,7 @@ public class PlazaCentral extends Edificio {
 
 	@Override
 	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
-		return botoneraAcciones.generarBotonera(this);
+		return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 
 	@Override
@@ -132,6 +133,13 @@ public class PlazaCentral extends Edificio {
 	public VistaPosicionable getView(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
 		VistaPlazaCentral vistaPlazaCentral = new VistaPlazaCentral(contenedor, this, jugadorActual);
 		return vistaPlazaCentral;
+	}
+
+
+	@Override
+	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
+		return crearAldeano(this.getJugador(), unidad.getPosicion());
+		
 	}
 
 

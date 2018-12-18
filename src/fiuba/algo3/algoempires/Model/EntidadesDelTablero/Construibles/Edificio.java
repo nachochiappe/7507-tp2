@@ -45,7 +45,7 @@ public abstract class Edificio implements Posicionable, Construible {
 		this.estadoEdilicio = new Construyendo(this);
 	}
 
-	public void crearUnidad(Unidad unidad){};
+	public abstract Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException;
 
 	public Image getSprite() {
 		return this.estadoEdilicio.getSprite();

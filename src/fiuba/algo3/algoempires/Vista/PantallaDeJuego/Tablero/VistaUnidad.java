@@ -105,4 +105,16 @@ public  class VistaUnidad extends  VistaPosicionable{
 		});
 	}
 
+
+
+	@Override
+	public void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad,
+			Posicion posicion) {
+		this.setearClickListener(event -> {
+			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
+			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
+		});
+		
+	}
+
 }

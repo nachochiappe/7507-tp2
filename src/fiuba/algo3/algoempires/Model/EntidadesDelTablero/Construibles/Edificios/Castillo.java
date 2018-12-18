@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
@@ -151,5 +152,12 @@ public class Castillo extends Edificio implements Ofensiva {
 	public VistaPosicionable getView(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
 		VistaCastillo vistaCastillo = new VistaCastillo(contenedor, this, jugadorActual);
 		return vistaCastillo;
+	}
+
+
+	@Override
+	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

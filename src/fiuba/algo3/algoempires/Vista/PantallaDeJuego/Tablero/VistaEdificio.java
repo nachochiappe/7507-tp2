@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
+import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.scene.image.Image;
@@ -88,4 +91,11 @@ public abstract class VistaEdificio extends VistaPosicionable {
     		}
     	}
     }
+	
+	public void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion) {
+		this.setearClickListener(event -> {
+			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
+			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
+		});
+	}
 }

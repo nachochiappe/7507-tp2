@@ -1,6 +1,9 @@
 package fiuba.algo3.algoempires.Controlador.Tablero;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -8,23 +11,18 @@ import javafx.scene.input.MouseEvent;
 public class BotonCrearAldeano implements EventHandler<ActionEvent>  {
 
 	private PlazaCentral plazaCentral;
-	private boolean puedoCrearAldeano = false;
+	private ContenedorPantallaDeJuego contenedorPantallaDeJuego;
+	private Unidad unidad;
 	
-	public BotonCrearAldeano(PlazaCentral plazaCentral) {
+	public BotonCrearAldeano(ContenedorPantallaDeJuego contenedorPantallaDeJuego, PlazaCentral plazaCentral) {
+		this.contenedorPantallaDeJuego = contenedorPantallaDeJuego;
 		this.plazaCentral = plazaCentral;
+		this.unidad = new Aldeano(plazaCentral.getJugador(), null);
 	}
-
+	
 	@Override
 	public void handle(ActionEvent event) {
-		System.out.println("Boton presionado");
-		puedoCrearAldeano = true;
-		
+		this.contenedorPantallaDeJuego.getVistaTablero().iniciarCreacionUnidad(plazaCentral, unidad, contenedorPantallaDeJuego);
 	}
 	
-	public void handle(MouseEvent event) {
-		
-		
-	}
-	
-
 }
