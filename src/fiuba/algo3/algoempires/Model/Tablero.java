@@ -21,7 +21,7 @@ public class Tablero {
     private Tablero() {
 
     }
-    private Posicionable[][] matriz =  new Posicionable[ANCHO][ALTO];;
+    private Posicionable[][] matriz =  new Posicionable[ANCHO][ALTO];
     private static final int ANCHO = 20;
     private static final int ALTO = 20;
 

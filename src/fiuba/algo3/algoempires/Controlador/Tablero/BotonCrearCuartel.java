@@ -1,4 +1,4 @@
-package fiuba.algo3.algoempires.Controlador.Tablero.Celdas;
+package fiuba.algo3.algoempires.Controlador.Tablero;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;

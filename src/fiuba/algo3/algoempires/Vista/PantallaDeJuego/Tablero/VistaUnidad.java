@@ -17,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
+
 public  class VistaUnidad extends  VistaPosicionable{
 	public ContenedorPantallaDeJuego contenedor;
     public Unidad unidad;
@@ -98,7 +100,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 	}
 
 	@Override
-	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
 		this.setearClickListener(event -> {
 			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
 			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
@@ -115,6 +117,22 @@ public  class VistaUnidad extends  VistaPosicionable{
 			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
 		});
 		
+	}
+
+	@Override
+	public void mostrarSeleccionable() {
+		Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
+		ImageView imageViewSeleccionado = new ImageView();
+		imageViewSeleccionado.setImage(seleccionado);
+		imageViewSeleccionado.setFitWidth(40);
+		imageViewSeleccionado.setPreserveRatio(true);
+		imageViewSeleccionado.setSmooth(true);
+		imageViewSeleccionado.setCache(true);
+		getChildren().add(imageViewSeleccionado);
+	}
+
+	public void ocultarSeleccionable() {
+		getChildren().remove(2);
 	}
 
 }

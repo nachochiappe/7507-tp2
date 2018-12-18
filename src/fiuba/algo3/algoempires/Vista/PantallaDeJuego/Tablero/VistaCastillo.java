@@ -1,8 +1,7 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -15,9 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 public class VistaCastillo extends VistaEdificio {
 
@@ -67,10 +64,7 @@ public class VistaCastillo extends VistaEdificio {
 		}
 	}
 
-	@Override
-	public Posicion getPosicion() {
-		return null;
-	}
+
 
 	@Override
 	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
@@ -78,7 +72,7 @@ public class VistaCastillo extends VistaEdificio {
 	}
 
 	@Override
-	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
 
 	}
 

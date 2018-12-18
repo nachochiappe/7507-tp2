@@ -31,6 +31,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	protected VBox unitVBox;
 	protected BorderPane borderPane;
 	protected Jugador jugadorActual;
+	Posicion posicion;
 	
 	protected abstract void mostrarMenuEdificio();
 	
@@ -90,6 +91,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
     			k++;
     		}
     	}
+    	posicion = new Posicion(posX, posY);
     }
 	
 	public void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion) {
@@ -98,4 +100,25 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
 		});
 	}
+
+	public Posicion getPosicion() {
+		return this.posicion;
+	}
+
+	@Override
+	public void mostrarSeleccionable() {
+		Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
+		ImageView imageViewSeleccionado = new ImageView();
+		imageViewSeleccionado.setImage(seleccionado);
+		imageViewSeleccionado.setFitWidth(40);
+		imageViewSeleccionado.setPreserveRatio(true);
+		imageViewSeleccionado.setSmooth(true);
+		imageViewSeleccionado.setCache(true);
+		getChildren().add(imageViewSeleccionado);
+	}
+
+	public void ocultarSeleccionable() {
+		getChildren().remove(2);
+	}
+
 }

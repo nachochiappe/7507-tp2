@@ -1,7 +1,7 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD;
 
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearPlazaCentral;
-import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.BotonCrearCuartel;
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearCuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;

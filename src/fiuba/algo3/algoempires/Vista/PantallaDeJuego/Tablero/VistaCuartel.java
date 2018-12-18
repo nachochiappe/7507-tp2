@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
+import java.util.List;
+
 public class VistaCuartel extends VistaEdificio {
 
 
@@ -24,10 +26,7 @@ public class VistaCuartel extends VistaEdificio {
 		
 	}
 
-	@Override
-	public Posicion getPosicion() {
-		return null;
-	}
+
 
 	@Override
 	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
@@ -35,7 +34,7 @@ public class VistaCuartel extends VistaEdificio {
 	}
 
 	@Override
-	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
 
 	}
 }

@@ -10,6 +10,8 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
+import java.util.List;
+
 public abstract class VistaPosicionable extends StackPane {
 	public abstract void inicializar();
 
@@ -23,8 +25,9 @@ public abstract class VistaPosicionable extends StackPane {
 
 	public abstract void setearClickListener(EventHandler<MouseEvent> eventEventHandler);
 
-	public abstract void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion);
+	public abstract void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables);
 	
 	public abstract void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion);
-
+	public abstract void mostrarSeleccionable();
+	public abstract void ocultarSeleccionable();
 }

@@ -17,6 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.List;
+
 public class VistaLugarVacio extends VistaPosicionable{
 	
 	private Image pisoVacio;
@@ -59,8 +61,8 @@ public class VistaLugarVacio extends VistaPosicionable{
 	}
 
 	@Override
-	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion) {
-		Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
+		/*Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 		ImageView imageViewSeleccionado = new ImageView();
 		imageViewSeleccionado.setImage(seleccionado);
 		imageViewSeleccionado.setFitWidth(40);
@@ -68,13 +70,21 @@ public class VistaLugarVacio extends VistaPosicionable{
 		imageViewSeleccionado.setSmooth(true);
 		imageViewSeleccionado.setCache(true);
 		getChildren().add(imageViewSeleccionado);
+		*/
 		this.setearClickListener(new CeldaCrearEdificio(contenedor, aldeano, edificio, posicion));
 		this.setOnMouseEntered(event -> {
 			Image sprite =  new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/build.png");
 			ImageCursor imageCursor = new ImageCursor(sprite);
 			cursorProperty().set(imageCursor);
+			for (VistaPosicionable vistaPosicionable: vistaPosicionables) {
+				vistaPosicionable.mostrarSeleccionable();
+			}
+
 		});
 		this.setOnMouseExited(event -> {
+			for (VistaPosicionable vistaPosicionable: vistaPosicionables) {
+				vistaPosicionable.ocultarSeleccionable();
+			}
 			cursorProperty().set(Cursor.DEFAULT);
 		});
 	}
@@ -84,6 +94,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 	public void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion) {
 		this.setearClickListener(new CeldaCrearUnidad(contenedor, edificio, unidad, posicion));
 		this.setOnMouseEntered(event -> {
+
 			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 			ImageView imageViewSeleccionado = new ImageView();
 			imageViewSeleccionado.setImage(seleccionado);
@@ -95,12 +106,28 @@ public class VistaLugarVacio extends VistaPosicionable{
 			Image sprite =  new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/build.png");
 			ImageCursor imageCursor = new ImageCursor(sprite);
 			cursorProperty().set(imageCursor);
+
 		});
 		this.setOnMouseExited(event -> {
 			getChildren().remove(1);
 			cursorProperty().set(Cursor.DEFAULT);
 		});
-		
+	}
+
+	@Override
+	public void mostrarSeleccionable() {
+		Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
+		ImageView imageViewSeleccionado = new ImageView();
+		imageViewSeleccionado.setImage(seleccionado);
+		imageViewSeleccionado.setFitWidth(40);
+		imageViewSeleccionado.setPreserveRatio(true);
+		imageViewSeleccionado.setSmooth(true);
+		imageViewSeleccionado.setCache(true);
+		getChildren().add(imageViewSeleccionado);
+	}
+
+	public void ocultarSeleccionable() {
+		getChildren().remove(1);
 	}
 	
 	
