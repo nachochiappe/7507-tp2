@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearAldeano;
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearArqueroEventHandler;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonMoverUnidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
@@ -39,10 +40,11 @@ public class BotoneraAcciones {
         return botonera;
     }
 
-    public VBox generarBotonera(Cuartel cuartel) {
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, Cuartel cuartel) {
         VBox botonera = new VBox(20);
 
         Button botonCrearArquero = new Button("Crear Arquero");
+        botonCrearArquero.setOnAction(new BotonCrearArqueroEventHandler(contenedor, cuartel));
         Button botonCrearEspadachin = new Button("Crear Espadachín");
 
         botonera.getChildren().addAll(botonCrearArquero, botonCrearEspadachin);

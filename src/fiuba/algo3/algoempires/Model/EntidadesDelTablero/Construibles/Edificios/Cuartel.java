@@ -62,7 +62,7 @@ public class Cuartel extends Edificio implements Construible {
 
 	@Override
 	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
-		return botoneraAcciones.generarBotonera(this);
+		return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 
 	@Override
@@ -125,8 +125,7 @@ public class Cuartel extends Edificio implements Construible {
 
 	@Override
 	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
-		// TODO Auto-generated method stub
-		return null;
+		return crearArquero(unidad.getJugador(), unidad.getPosicion());
 	}
 
 }
