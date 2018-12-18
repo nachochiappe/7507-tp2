@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearAldeano;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearArqueroEventHandler;
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearEspadachinEventHandler;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonMoverUnidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
@@ -46,6 +47,7 @@ public class BotoneraAcciones {
         Button botonCrearArquero = new Button("Crear Arquero");
         botonCrearArquero.setOnAction(new BotonCrearArqueroEventHandler(contenedor, cuartel));
         Button botonCrearEspadachin = new Button("Crear Espadachín");
+        botonCrearEspadachin.setOnAction(new BotonCrearEspadachinEventHandler(contenedor, cuartel));
 
         botonera.getChildren().addAll(botonCrearArquero, botonCrearEspadachin);
         return botonera;

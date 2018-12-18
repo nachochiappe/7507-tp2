@@ -125,7 +125,10 @@ public class Cuartel extends Edificio implements Construible {
 
 	@Override
 	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
-		return crearArquero(unidad.getJugador(), unidad.getPosicion());
+		if(unidad instanceof Arquero)
+			return crearArquero(unidad.getJugador(), unidad.getPosicion());
+		else 
+			return crearEspadachin(unidad.getJugador(), unidad.getPosicion());
 	}
 
 }
