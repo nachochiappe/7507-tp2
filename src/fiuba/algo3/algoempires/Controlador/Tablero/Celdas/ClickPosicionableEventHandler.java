@@ -16,7 +16,7 @@ public class ClickPosicionableEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        SeleccionableHUD seleccionableHUD = new SeleccionableHUD(vistaUnidad.contenedor, vistaUnidad.unidad, vistaUnidad.jugadorActual);
+        SeleccionableHUD seleccionableHUD = new SeleccionableHUD(vistaUnidad.contenedor, vistaUnidad.unidad);
         vistaUnidad.borderPane.setCenter(seleccionableHUD);
         /*Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
         ImageView imageViewSeleccionado = new ImageView();

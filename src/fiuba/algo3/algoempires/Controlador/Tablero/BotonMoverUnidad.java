@@ -31,7 +31,7 @@ public class BotonMoverUnidad implements EventHandler<ActionEvent> {
 			Jugador jugador = this.contenedor.algoEmpires.getJugadorActual();
 			this.unidad.mover(this.desplazamiento);
 			this.contenedor.vistaTablero.iniciarTablero(this.contenedor, this.contenedor.algoEmpires.getJugadorActual());
-			this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD(this.contenedor, this.unidad, jugador));
+			this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD(this.contenedor, this.unidad));
 		} catch (UnidadYaSeMovioException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

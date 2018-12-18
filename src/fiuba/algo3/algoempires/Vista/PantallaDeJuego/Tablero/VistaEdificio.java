@@ -71,7 +71,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			imageView.setSmooth(true);
 			imageView.setCache(true);
 			imageView.setOnMouseClicked(e -> {
-				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio, jugadorActual));
+				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio));
 			});
 			stackPane.getChildren().addAll(imageViewPiso, imageView);
 			this.stackPanes.add(stackPane);

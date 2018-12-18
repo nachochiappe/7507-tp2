@@ -35,7 +35,8 @@ public class ContenedorPantallaDeJuego extends BorderPane {
         leftBorderPane.setPadding(new Insets(20));
         this.setMenu(stage);
         this.setCentro();
-		this.leftBorderPane.setCenter(new SeleccionableHUD());
+        this.seleccionableHUD = new SeleccionableHUD();
+		this.leftBorderPane.setCenter(seleccionableHUD);
         this.setLeft(leftBorderPane);
         this.actualizarJugadorHUD();
     }
