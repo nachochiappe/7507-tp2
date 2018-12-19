@@ -27,4 +27,8 @@ public class ExcedeTopePoblacionalException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String getMessage() {
+		return "Tope poblacional alcanzado";
+	}
 }

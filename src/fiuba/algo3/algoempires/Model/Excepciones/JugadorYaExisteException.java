@@ -25,5 +25,8 @@ public class JugadorYaExisteException extends Exception {
 		super(arg0, arg1, arg2, arg3);
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
+	public String getMessage() {
+		return "Jugador ya existe";
+	}
 }

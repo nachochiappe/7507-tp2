@@ -26,4 +26,8 @@ public class SoloSePermiteUnAldeanoException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String getMessage() {
+		return "Solo puede usar un aldeano a la vez";
+	}
 }

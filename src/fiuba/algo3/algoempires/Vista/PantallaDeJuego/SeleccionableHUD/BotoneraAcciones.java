@@ -7,7 +7,6 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.AldeanoConstruyendo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.AldeanoIdle;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioDesmontada;
@@ -60,9 +59,9 @@ public class BotoneraAcciones {
         VBox botonera = new VBox(20);
 
         Button botonCrearArquero = new Button("Crear Arquero");
-        botonCrearArquero.setOnAction(new BotonCrearArqueroEventHandler(contenedor, cuartel));
+        botonCrearArquero.setOnAction(new BotonCrearArquero(contenedor, cuartel));
         Button botonCrearEspadachin = new Button("Crear Espadachín");
-        botonCrearEspadachin.setOnAction(new BotonCrearEspadachinEventHandler(contenedor, cuartel));
+        botonCrearEspadachin.setOnAction(new BotonCrearEspadachin(contenedor, cuartel));
 
         botonera.getChildren().addAll(botonCrearArquero, botonCrearEspadachin);
         return botonera;
@@ -78,16 +77,16 @@ public class BotoneraAcciones {
         return botonera;
     }
 
-    public VBox generarBotonera(Castillo castillo) {
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, Castillo castillo) {
         VBox botonera = new VBox(20);
 
         Button botonCrearArmaDeAsedio = new Button("Crear Arma De Asedio");
-
+        botonCrearArmaDeAsedio.setOnAction(new BotonCrearArmaDeAsedio(contenedor, castillo));
         botonera.getChildren().addAll(botonCrearArmaDeAsedio);
         return botonera;
     }
 
-    public VBox generarBotonera(ArmaDeAsedioMontada armaDeAsedioMontada) {
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, ArmaDeAsedioMontada armaDeAsedioMontada) {
         VBox botonera = new VBox(20);
 
         Button botonAtacar = new Button("Atacar");
@@ -98,7 +97,7 @@ public class BotoneraAcciones {
         return botonera;
     }
 
-    public VBox generarBotonera(ArmaDeAsedioDesmontada armaDeAsedioDesmontada) {
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, ArmaDeAsedioDesmontada armaDeAsedioDesmontada) {
         VBox botonera = new VBox(20);
 
         Button botonMover = new Button("Mover");

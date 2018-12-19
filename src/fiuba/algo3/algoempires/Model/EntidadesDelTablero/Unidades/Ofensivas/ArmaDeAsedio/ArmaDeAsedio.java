@@ -32,6 +32,7 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
         estado = desmontada;
         this.posicion = posicion;
         this.rango = MAX_RANGO;
+        this.jugador = jugador;
     }
 
     public void mover(Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
@@ -105,7 +106,7 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 	}
 
     public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
-        return this.estado.getBotoneraAcciones(botoneraAcciones);
+        return this.estado.getBotoneraAcciones(contenedor, botoneraAcciones);
     }
 
 }

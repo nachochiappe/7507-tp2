@@ -27,4 +27,8 @@ public class UnidadYaSeMovioException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String getMessage() {
+		return "Solo puede moverse una vez por turno";
+	}
 }

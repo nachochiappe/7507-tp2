@@ -26,4 +26,8 @@ public class PosicionOcupadaException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String getMessage() {
+		return "Posición ocupada";
+	}
 }

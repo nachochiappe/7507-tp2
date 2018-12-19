@@ -6,4 +6,9 @@ public class FueraDelMapaException extends Exception{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String getMessage() {
+		return "Fuera del mapa";
+	}
+
 }

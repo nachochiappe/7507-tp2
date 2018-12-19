@@ -5,6 +5,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -32,8 +33,7 @@ public class CeldaCrearUnidad implements EventHandler<MouseEvent>  {
 			edificio.crearUnidad(unidad, posicion);
 			contenedorPantallaDeJuego.actualizarJugadorHUD();
 		} catch (OroInsuficienteException | ExcedeTopePoblacionalException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
 		}
 		contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
 		
