@@ -17,7 +17,7 @@ public class VistaCuartel extends VistaEdificio {
 
 	public VistaCuartel(ContenedorPantallaDeJuego contenedor, Edificio cuartel, Jugador jugadorActual) {
 		super(contenedor, cuartel, jugadorActual);
-    	this.imagenEdificio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/PlazaCentral/PlazaCentralConstruida.png");
+		this.imagenEdificio = cuartel.getSprite();
     	inicializar();
     }
 	

@@ -16,7 +16,7 @@ public class VistaPlazaCentral extends VistaEdificio {
 
 	public VistaPlazaCentral(ContenedorPantallaDeJuego contenedor, Edificio plazaCentral, Jugador jugadorActual) {
 		super(contenedor, plazaCentral, jugadorActual);
-    	this.imagenEdificio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/PlazaCentral/PlazaCentralConstruida.png");
+		this.imagenEdificio = plazaCentral.getSprite();
     	inicializar();
     }
 	
