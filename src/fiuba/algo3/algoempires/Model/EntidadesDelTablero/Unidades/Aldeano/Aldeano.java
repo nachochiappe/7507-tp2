@@ -23,7 +23,7 @@ public class Aldeano extends Unidad {
         this.hp = MAX_HP;
         this.jugador = jugador;
         this.posicion = posicion;
-        this.estado = new Idle(this);
+        this.estado = new AldeanoIdle(this);
     }
 
 	public void comenzarTurno() {
@@ -32,7 +32,7 @@ public class Aldeano extends Unidad {
 			this.estado.comenzarTurno();
 		} catch (EdificioNoNecesitaRepararse | EdificioYaConstruidoException | SoloSePermiteUnAldeanoException edificioNoNecesitaRepararse) {
 			//nunca debería llegar acá
-			this.estado = new Idle(this);
+			this.estado = new AldeanoIdle(this);
 		}
 	}
 
@@ -46,12 +46,12 @@ public class Aldeano extends Unidad {
 	}
 
 	public void empezarAConstruir(Edificio edificio) {
-		this.estado = new Construyendo(this, edificio);
+		this.estado = new AldeanoConstruyendo(this, edificio);
 	}
 
 	public void terminarAccion() {
 		this.estado.terminarAccion();
-		this.estado = new Idle(this);
+		this.estado = new AldeanoIdle(this);
 	}
 
 	public void sumarOro() {
@@ -82,7 +82,7 @@ public class Aldeano extends Unidad {
 	}
 
 	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
-    	return botoneraAcciones.generarBotonera(contenedor, this);
+    	return this.estado.getBotonearaAcciones(contenedor, botoneraAcciones);
 	}
 
 }

@@ -1,20 +1,15 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD;
 
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearPlazaCentral;
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearCuartel;
+import fiuba.algo3.algoempires.Controlador.Tablero.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonAtacar;
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearAldeano;
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearArqueroEventHandler;
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearEspadachinEventHandler;
-import fiuba.algo3.algoempires.Controlador.Tablero.BotonMoverUnidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.AldeanoConstruyendo;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.AldeanoIdle;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioDesmontada;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioMontada;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
@@ -32,13 +27,21 @@ public class BotoneraAcciones {
         return posicionable.getBotoneraAcciones(contenedor, this);
     }
 
-    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, Aldeano aldeano) {
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, AldeanoConstruyendo aldeanoConstruyendo) {
         VBox botonera = new VBox(20);
-        GridPane botonesMovimiento = generarBotoneraDireccional(contenedor, aldeano);
+        Button button = new Button("Cancelar Acción");
+        button.setOnAction(new BotonAldeanoCancelarAccion(contenedor, aldeanoConstruyendo.getAldeano()));
+        botonera.getChildren().addAll(button);
+        return botonera;
+    }
+
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, AldeanoIdle aldeanoIdle) {
+        VBox botonera = new VBox(20);
+        GridPane botonesMovimiento = generarBotoneraDireccional(contenedor, aldeanoIdle.getAldeano());
         Button botonConstruirPlazaCentral = new Button("Construir Plaza Central");
-        botonConstruirPlazaCentral.setOnAction(new BotonCrearPlazaCentral(contenedor, aldeano));
+        botonConstruirPlazaCentral.setOnAction(new BotonCrearPlazaCentral(contenedor, aldeanoIdle.getAldeano()));
         Button botonConstruirCuartel = new Button("Construir Cuartel");
-        botonConstruirCuartel.setOnAction(new BotonCrearCuartel(contenedor, aldeano));
+        botonConstruirCuartel.setOnAction(new BotonCrearCuartel(contenedor, aldeanoIdle.getAldeano()));
         Button botonReparar = new Button("Reparar");
         botonera.getChildren().addAll(botonesMovimiento, botonConstruirCuartel, botonConstruirPlazaCentral, botonReparar);
         return botonera;
