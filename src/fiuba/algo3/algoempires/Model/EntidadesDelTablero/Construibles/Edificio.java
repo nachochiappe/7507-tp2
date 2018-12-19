@@ -50,7 +50,7 @@ public abstract class Edificio implements Posicionable, Construible {
 		this.estadoEdilicio = new Construyendo(this);
 	}
 
-	public abstract Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException;
+	//public abstract Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException;
 
 	public Image getSprite() {
 		return this.estadoEdilicio.getSprite();
@@ -106,8 +106,11 @@ public abstract class Edificio implements Posicionable, Construible {
 		}
 	}
 
-	public void crearUnidad(Unidad unidad, Posicion posicion) {
-
+	public Unidad crearUnidad(Unidad unidad, Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException {
+		jugador.sacarOro(unidad.getCosto());
+		jugador.agregarUnidad(unidad);
+		Tablero.getInstance().poner(posicion, unidad);
+		return unidad;
 	}
 
 	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {

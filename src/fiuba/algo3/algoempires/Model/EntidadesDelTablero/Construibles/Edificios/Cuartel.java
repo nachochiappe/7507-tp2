@@ -81,24 +81,6 @@ public class Cuartel extends Edificio implements Construible {
 	}
 
 
-	public Arquero crearArquero(Jugador jugador,Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
-		if (jugador.getOro()<75) throw new OroInsuficienteException();
-		jugador.modificarOro(-75);
-		Arquero arquero = new Arquero(jugador,posicion);
-		jugador.agregarUnidad(arquero);
-		return arquero;
-	}
-
-
-
-	public Espadachin crearEspadachin(Jugador jugador,Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
-		if (jugador.getOro()<100) throw new OroInsuficienteException();
-		jugador.modificarOro(-100);
-		Espadachin espadachin = new Espadachin(jugador,posicion);
-		jugador.agregarUnidad(espadachin);
-		return espadachin;
-	}
-
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
@@ -122,14 +104,6 @@ public class Cuartel extends Edificio implements Construible {
 		return vistaCuartel;
 	}
 
-
-	@Override
-	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
-		if(unidad instanceof Arquero)
-			return crearArquero(unidad.getJugador(), unidad.getPosicion());
-		else 
-			return crearEspadachin(unidad.getJugador(), unidad.getPosicion());
-	}
 
 }
 

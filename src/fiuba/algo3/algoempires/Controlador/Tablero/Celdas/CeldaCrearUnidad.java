@@ -27,10 +27,9 @@ public class CeldaCrearUnidad implements EventHandler<MouseEvent>  {
 
 	@Override
 	public void handle(MouseEvent arg0) {
-		System.out.println("Clickk en el lugar a crear unidaddd!");
-		unidad.setPosicion(posicion);
         try {
-			edificio.crearUnidad(unidad);
+        	unidad.setPosicion(posicion);
+			edificio.crearUnidad(unidad, posicion);
 			contenedorPantallaDeJuego.actualizarJugadorHUD();
 		} catch (OroInsuficienteException | ExcedeTopePoblacionalException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
 			// TODO Auto-generated catch block

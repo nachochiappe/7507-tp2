@@ -159,11 +159,4 @@ public class Castillo extends Edificio implements Ofensiva {
 		VistaCastillo vistaCastillo = new VistaCastillo(contenedor, this, jugadorActual);
 		return vistaCastillo;
 	}
-
-
-	@Override
-	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

@@ -112,15 +112,6 @@ public class PlazaCentral extends Edificio {
 
 	}
 
-	public Aldeano crearAldeano(Jugador jugador,Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException {
-		if (jugador.getOro()<25) throw new OroInsuficienteException();
-		jugador.modificarOro(-25);
-		Aldeano aldeano = new Aldeano(jugador,posicion);
-		jugador.agregarUnidad(aldeano);
-		Tablero.getInstance().poner(posicion, aldeano);
-		return aldeano;
-	}
-
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {
 		this.recibeDanioDe(ofensivo);
@@ -133,14 +124,5 @@ public class PlazaCentral extends Edificio {
 		VistaPlazaCentral vistaPlazaCentral = new VistaPlazaCentral(contenedor, this, jugadorActual);
 		return vistaPlazaCentral;
 	}
-
-
-	@Override
-	public Unidad crearUnidad(Unidad unidad) throws OroInsuficienteException, ExcedeTopePoblacionalException, DestinoFueraDelMapaException, PosicionOcupadaException {
-		return crearAldeano(this.getJugador(), unidad.getPosicion());
-		
-	}
-
-
 
 }
