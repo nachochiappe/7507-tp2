@@ -42,7 +42,7 @@ public class VistaTablero extends GridPane {
                     vistaPosicionables[i][j] = vistaPosicionable;
                 } else {
                     VistaPosicionable vistaPosicionable = posicionable.getView(contenedor, jugadorActual);
-                   vistaPosicionables[i][j] = vistaPosicionable;
+                    vistaPosicionables[i][j] = vistaPosicionable;
                 }
             }
         }
@@ -56,7 +56,7 @@ public class VistaTablero extends GridPane {
                         List<VistaPosicionable> list = new ArrayList<>();
                         for (int a = 0; a < e.getAncho(); a++) {
                             list.add(vistaPosicionables[i + a][j]);
-                            for (int b = 0; b < e.getAlto(); b++ ) {
+                            for (int b = 0; b < e.getAlto(); b++) {
                                 list.add(vistaPosicionables[i + a][j + b]);
                             }
                         }
@@ -69,19 +69,28 @@ public class VistaTablero extends GridPane {
 
     public void iniciarCreacionUnidad(Edificio e, Unidad unidad, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
         for (VistaPosicionable[] row : vistaPosicionables) {
-            for (VistaPosicionable cell: row) {
+            for (VistaPosicionable cell : row) {
                 cell.esperarCreacionUnidad(contenedorPantallaDeJuego, e, unidad, cell.getPosicion());
             }
         }
     }
 
 
-	public void iniciarAtaque(Ofensiva ofensiva, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+    public void iniciarAtaque(                                                                                                                                                                                                                                           Ofensiva ofensiva, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
         for (VistaPosicionable[] row : vistaPosicionables) {
-            for (VistaPosicionable cell: row) {
+            for (VistaPosicionable cell : row) {
                 cell.esperarAtaque(contenedorPantallaDeJuego, ofensiva, cell.getPosicion());
             }
         }
-		
-	}
+    }
+
+    public void iniciarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+        for (VistaPosicionable[] row : vistaPosicionables) {
+            for (VistaPosicionable cell : row) {
+                if (aldeano.getPosicion().estaEnRango(cell.getPosicion(), 1)) {
+                    cell.esperarConstruccionReparacion(aldeano, contenedorPantallaDeJuego);
+                }
+            }
+        }
+    }
 }

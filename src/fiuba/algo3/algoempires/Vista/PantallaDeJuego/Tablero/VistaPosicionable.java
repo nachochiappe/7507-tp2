@@ -33,4 +33,5 @@ public abstract class VistaPosicionable extends StackPane {
 	public abstract void ocultarSeleccionable();
 
 	public abstract void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion);
+	public abstract void esperarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego);
 }

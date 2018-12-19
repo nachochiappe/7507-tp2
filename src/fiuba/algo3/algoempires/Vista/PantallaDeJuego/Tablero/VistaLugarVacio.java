@@ -10,6 +10,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
@@ -137,6 +138,14 @@ public class VistaLugarVacio extends VistaPosicionable{
 			Posicion posicion) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void esperarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+		this.setearClickListener(event -> {
+			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
+			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
+		});
 	}
 
 

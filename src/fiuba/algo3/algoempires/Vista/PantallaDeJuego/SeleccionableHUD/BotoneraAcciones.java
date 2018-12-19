@@ -41,7 +41,8 @@ public class BotoneraAcciones {
         botonConstruirPlazaCentral.setOnAction(new BotonCrearPlazaCentral(contenedor, aldeanoIdle.getAldeano()));
         Button botonConstruirCuartel = new Button("Construir Cuartel");
         botonConstruirCuartel.setOnAction(new BotonCrearCuartel(contenedor, aldeanoIdle.getAldeano()));
-        Button botonReparar = new Button("Reparar");
+        Button botonReparar = new Button("Construir/Reparar");
+        botonReparar.setOnAction(new BotonConstruirReparar(contenedor, aldeanoIdle.getAldeano()));
         botonera.getChildren().addAll(botonesMovimiento, botonConstruirCuartel, botonConstruirPlazaCentral, botonReparar);
         return botonera;
     }

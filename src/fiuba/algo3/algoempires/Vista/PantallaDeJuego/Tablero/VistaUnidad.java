@@ -166,4 +166,12 @@ public  class VistaUnidad extends  VistaPosicionable{
 		
 	}
 
+	@Override
+	public void esperarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+		this.setearClickListener(event -> {
+			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
+			contenedorAlerta.display(contenedor.rootStage, "Edificio inválido");
+		});
+	}
+
 }

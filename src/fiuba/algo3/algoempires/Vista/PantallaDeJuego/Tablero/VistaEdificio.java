@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaAtacable;
+import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaConstruirReparar;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
@@ -128,7 +130,6 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion) {
 		this.setearClickListener(new CeldaAtacable(contenedor, ofensiva, edificio, posicion));
 		this.setOnMouseEntered(event -> {
-	
 			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 			ImageView imageViewSeleccionado = new ImageView();
 			imageViewSeleccionado.setImage(seleccionado);
@@ -148,4 +149,8 @@ public abstract class VistaEdificio extends VistaPosicionable {
 		});
 	}
 
+	public void esperarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego){
+		this.setearClickListener(new CeldaConstruirReparar(contenedorPantallaDeJuego, this.edificio, aldeano));
+
+	}
 }
