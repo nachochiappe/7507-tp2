@@ -23,6 +23,7 @@ public class Espadachin extends Unidad implements Ofensiva {
         this.hp = MAX_HP;
         this.posicion = posicion;
         this.rango = MAX_RANGO;
+        this.jugador = jugador;
     }
 
 	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {

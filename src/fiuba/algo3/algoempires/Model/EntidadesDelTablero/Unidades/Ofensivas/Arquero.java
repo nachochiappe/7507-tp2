@@ -23,6 +23,7 @@ public class Arquero extends Unidad implements Ofensiva {
         this.hp = MAX_HP;
         this.posicion = posicion;
         this.rango = MAX_RANGO;
+        this.jugador = jugador;
     }
     
     @Override
