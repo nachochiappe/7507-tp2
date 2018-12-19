@@ -66,7 +66,7 @@ public class Arquero extends Unidad implements Ofensiva {
 
 	@Override
 	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
-		return null;
+		return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 
 }

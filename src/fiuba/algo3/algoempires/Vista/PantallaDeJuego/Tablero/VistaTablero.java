@@ -8,6 +8,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldean
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import javafx.scene.layout.GridPane;
@@ -73,4 +74,14 @@ public class VistaTablero extends GridPane {
             }
         }
     }
+
+
+	public void iniciarAtaque(Ofensiva ofensiva, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+        for (VistaPosicionable[] row : vistaPosicionables) {
+            for (VistaPosicionable cell: row) {
+                cell.esperarAtaque(contenedorPantallaDeJuego, ofensiva, cell.getPosicion());
+            }
+        }
+		
+	}
 }

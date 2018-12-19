@@ -5,6 +5,7 @@ import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaCrearUnidad;
 import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.LugarVacioEventHandler;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -129,8 +130,14 @@ public class VistaLugarVacio extends VistaPosicionable{
 	public void ocultarSeleccionable() {
 		getChildren().remove(1);
 	}
-	
-	
+
+
+	@Override
+	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva,
+			Posicion posicion) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -30,4 +31,6 @@ public abstract class VistaPosicionable extends StackPane {
 	public abstract void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion);
 	public abstract void mostrarSeleccionable();
 	public abstract void ocultarSeleccionable();
+
+	public abstract void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion);
 }

@@ -59,7 +59,7 @@ public class Espadachin extends Unidad implements Ofensiva {
 
 	@Override
 	public VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones) {
-		return null;
+		return botoneraAcciones.generarBotonera(contenedor, this);
 	}
 
 	@Override

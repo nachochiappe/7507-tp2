@@ -3,6 +3,8 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 import java.util.ArrayList;
 import java.util.List;
 
+import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaAtacable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
@@ -11,6 +13,8 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -119,6 +123,29 @@ public abstract class VistaEdificio extends VistaPosicionable {
 
 	public void ocultarSeleccionable() {
 		getChildren().remove(2);
+	}
+	
+	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion) {
+		this.setearClickListener(new CeldaAtacable(contenedor, ofensiva, edificio, posicion));
+		this.setOnMouseEntered(event -> {
+	
+			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
+			ImageView imageViewSeleccionado = new ImageView();
+			imageViewSeleccionado.setImage(seleccionado);
+			imageViewSeleccionado.setFitWidth(40);
+			imageViewSeleccionado.setPreserveRatio(true);
+			imageViewSeleccionado.setSmooth(true);
+			imageViewSeleccionado.setCache(true);
+			getChildren().add(imageViewSeleccionado);
+			Image sprite =  new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/SelecAtaque.png");
+			ImageCursor imageCursor = new ImageCursor(sprite);
+			cursorProperty().set(imageCursor);
+	
+		});
+		this.setOnMouseExited(event -> {
+			getChildren().remove(1);
+			cursorProperty().set(Cursor.DEFAULT);
+		});
 	}
 
 }

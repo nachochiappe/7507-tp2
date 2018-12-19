@@ -1,7 +1,10 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
+import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaAtacable;
+import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaCrearUnidad;
 import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.ClickPosicionableEventHandler;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -11,6 +14,7 @@ import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -114,7 +118,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 			Posicion posicion) {
 		this.setearClickListener(event -> {
 			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
-			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
+			contenedorAlerta.display(contenedor.rootStage, "No puede crear aquí");
 		});
 		
 	}
@@ -133,6 +137,33 @@ public  class VistaUnidad extends  VistaPosicionable{
 
 	public void ocultarSeleccionable() {
 		getChildren().remove(2);
+	}
+
+
+
+	@Override
+	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion) {
+		this.setearClickListener(new CeldaAtacable(contenedor, ofensiva, unidad, posicion));
+		this.setOnMouseEntered(event -> {
+
+			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
+			ImageView imageViewSeleccionado = new ImageView();
+			imageViewSeleccionado.setImage(seleccionado);
+			imageViewSeleccionado.setFitWidth(40);
+			imageViewSeleccionado.setPreserveRatio(true);
+			imageViewSeleccionado.setSmooth(true);
+			imageViewSeleccionado.setCache(true);
+			getChildren().add(imageViewSeleccionado);
+			Image sprite =  new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/SelecAtaque.png");
+			ImageCursor imageCursor = new ImageCursor(sprite);
+			cursorProperty().set(imageCursor);
+
+		});
+		this.setOnMouseExited(event -> {
+			getChildren().remove(1);
+			cursorProperty().set(Cursor.DEFAULT);
+		});
+		
 	}
 
 }

@@ -5,13 +5,16 @@ import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearCuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.PlazaCentral;
+import fiuba.algo3.algoempires.Controlador.Tablero.BotonAtacar;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearAldeano;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearArqueroEventHandler;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonCrearEspadachinEventHandler;
 import fiuba.algo3.algoempires.Controlador.Tablero.BotonMoverUnidad;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Arquero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioDesmontada;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedioMontada;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
@@ -38,6 +41,15 @@ public class BotoneraAcciones {
         botonConstruirCuartel.setOnAction(new BotonCrearCuartel(contenedor, aldeano));
         Button botonReparar = new Button("Reparar");
         botonera.getChildren().addAll(botonesMovimiento, botonConstruirCuartel, botonConstruirPlazaCentral, botonReparar);
+        return botonera;
+    }
+    
+    public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, Unidad ofensivo) {
+        VBox botonera = new VBox(20);
+        GridPane botonesMovimiento = generarBotoneraDireccional(contenedor, ofensivo);
+        Button botonAtacar = new Button("Atacar");
+        botonAtacar.setOnAction(new BotonAtacar(contenedor, (Ofensiva) ofensivo));
+        botonera.getChildren().addAll(botonesMovimiento, botonAtacar);
         return botonera;
     }
 
