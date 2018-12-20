@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesExce
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
+import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -30,12 +31,12 @@ public class CeldaAtacable  implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent arg0) {
 		try {
 			ofensiva.atacar(atacado);
+			contenedorPantallaDeJuego.actualizarJugadorHUD();
 		} catch (ObjetivoFueraDeRangoException | ArmaDeAsedioNoAtacaUnidadesException
 				| ArmaDeAsedioNoMontadaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
 		}
-		
+		contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());	
 	}
 
 }

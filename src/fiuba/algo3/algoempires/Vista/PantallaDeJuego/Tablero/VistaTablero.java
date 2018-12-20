@@ -76,7 +76,7 @@ public class VistaTablero extends GridPane {
     }
 
 
-    public void iniciarAtaque(                                                                                                                                                                                                                                           Ofensiva ofensiva, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+    public void iniciarAtaque(Ofensiva ofensiva, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
         for (VistaPosicionable[] row : vistaPosicionables) {
             for (VistaPosicionable cell : row) {
                 cell.esperarAtaque(contenedorPantallaDeJuego, ofensiva, cell.getPosicion());

@@ -160,7 +160,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 
 		});
 		this.setOnMouseExited(event -> {
-			getChildren().remove(1);
+			this.getChildren().remove(2);
 			cursorProperty().set(Cursor.DEFAULT);
 		});
 		
