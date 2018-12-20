@@ -22,7 +22,6 @@ public class VistaCastillo extends VistaEdificio {
 	public VistaCastillo(ContenedorPantallaDeJuego contenedor, Edificio castillo, Jugador jugadorActual) {
 		super(contenedor, castillo, jugadorActual);
     	this.imagenEdificio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png");
-    	inicializar();
     }
 	
 	@Override
@@ -50,7 +49,7 @@ public class VistaCastillo extends VistaEdificio {
 			imageViewPiso.setPreserveRatio(true);
 			imageViewPiso.setSmooth(true);
 			imageViewPiso.setCache(true);
-			StackPane stackPane = new StackPane();
+			VistaPosicionable vistaPosicionable = edificio.getView(contenedor, jugadorActual);
 			ImageView imageView = new ImageView();
 			imageView.setImage(writableImages.get(i));
 			imageView.setFitWidth(40);
@@ -60,17 +59,14 @@ public class VistaCastillo extends VistaEdificio {
 			imageView.setOnMouseClicked(e -> {
 				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio));
 			});
-			stackPane.getChildren().addAll(imageViewPiso, imageView);
-			this.stackPanes.add(stackPane);
+			vistaPosicionable.getChildren().addAll(imageViewPiso, imageView);
+			this.vistasPosicionables.add(vistaPosicionable);
 		}
 	}
 
 
 
-	@Override
-	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
 
-	}
 
 	@Override
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {

@@ -25,9 +25,8 @@ public class VistaTablero extends GridPane {
     }
 
 
-    public void agregar(VistaUnidad vistaUnidad) {
-
-        this.add(vistaUnidad, vistaUnidad.getPosY(), vistaUnidad.getPosX());
+    public void agregarVistaPosicionable(VistaPosicionable vistaPosicionable, int i, int j) {
+        this.vistaPosicionables[i][j] = vistaPosicionable;
     }
 
     public void iniciarTablero(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
@@ -37,12 +36,9 @@ public class VistaTablero extends GridPane {
                 Posicionable posicionable = tablero.obtenerPosicionable(i, j);
                 if (!(posicionablesDibujados.contains(posicionable))) {
                     VistaPosicionable vistaPosicionable = posicionable.getView(contenedor, jugadorActual);
+                    vistaPosicionable.inicializar();
                     vistaPosicionable.agregarATablero(this, posicionable, i, j);
                     posicionablesDibujados.add(posicionable);
-                    vistaPosicionables[i][j] = vistaPosicionable;
-                } else {
-                    VistaPosicionable vistaPosicionable = posicionable.getView(contenedor, jugadorActual);
-                    vistaPosicionables[i][j] = vistaPosicionable;
                 }
             }
         }
@@ -51,17 +47,15 @@ public class VistaTablero extends GridPane {
     public void iniciarConstruccion(Edificio e, Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
         for (int i = 0; i < tablero.getAncho(); i++) {
             for (int j = 0; j < tablero.getAlto(); j++) {
-                if (vistaPosicionables[i][j].getPosicion() != null) {
-                    if (aldeano.getPosicion().estaEnRango(vistaPosicionables[i][j].getPosicion(), 1)) {
-                        List<VistaPosicionable> list = new ArrayList<>();
-                        for (int a = 0; a < e.getAncho(); a++) {
-                            list.add(vistaPosicionables[i + a][j]);
-                            for (int b = 0; b < e.getAlto(); b++) {
-                                list.add(vistaPosicionables[i + a][j + b]);
-                            }
+                if (aldeano.getPosicion().estaEnRango(vistaPosicionables[i][j].getPosicion(), 1)) {
+                    List<VistaPosicionable> list = new ArrayList<>();
+                    for (int a = 0; a < e.getAncho(); a++) {
+                        list.add(vistaPosicionables[i + a][j]);
+                        for (int b = 0; b < e.getAlto(); b++) {
+                            list.add(vistaPosicionables[i + a][j + b]);
                         }
-                        vistaPosicionables[i][j].esperarConstruccion(contenedorPantallaDeJuego, aldeano, e, vistaPosicionables[i][j].getPosicion(), list);
                     }
+                    vistaPosicionables[i][j].esperarConstruccion(contenedorPantallaDeJuego, aldeano, e, vistaPosicionables[i][j].getPosicion(), list);
                 }
             }
         }

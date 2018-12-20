@@ -17,7 +17,6 @@ public class VistaPlazaCentral extends VistaEdificio {
 	public VistaPlazaCentral(ContenedorPantallaDeJuego contenedor, Edificio plazaCentral, Jugador jugadorActual) {
 		super(contenedor, plazaCentral, jugadorActual);
 		this.imagenEdificio = plazaCentral.getSprite();
-    	inicializar();
     }
 	
 	@Override
@@ -28,10 +27,6 @@ public class VistaPlazaCentral extends VistaEdificio {
 
 
 
-	@Override
-	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
-
-	}
 
 	@Override
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {

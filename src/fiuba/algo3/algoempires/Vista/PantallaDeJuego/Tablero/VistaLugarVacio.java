@@ -31,7 +31,6 @@ public class VistaLugarVacio extends VistaPosicionable{
 		pisoVacio  = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
 		this.contenedor = contenedor;
 		this.lugarVacio = lugarVacio;
-		inicializar();
 	}
 
 
@@ -50,6 +49,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 
 	@Override
     public void agregarATablero(VistaTablero vistaTablero, Posicionable posicionable, int i, int j) {
+		vistaTablero.agregarVistaPosicionable(this, i, j);
     	vistaTablero.add(this, i, j);
     }
 
@@ -64,15 +64,6 @@ public class VistaLugarVacio extends VistaPosicionable{
 
 	@Override
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
-		/*Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
-		ImageView imageViewSeleccionado = new ImageView();
-		imageViewSeleccionado.setImage(seleccionado);
-		imageViewSeleccionado.setFitWidth(40);
-		imageViewSeleccionado.setPreserveRatio(true);
-		imageViewSeleccionado.setSmooth(true);
-		imageViewSeleccionado.setCache(true);
-		getChildren().add(imageViewSeleccionado);
-		*/
 		this.setearClickListener(new CeldaCrearEdificio(contenedor, aldeano, edificio, posicion));
 		this.setOnMouseEntered(event -> {
 			Image sprite =  new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/build.png");

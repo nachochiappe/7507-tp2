@@ -26,5 +26,4 @@ public class SoloPuedeRealizarAccionesEnSuTurnoException extends Exception {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
-
 }

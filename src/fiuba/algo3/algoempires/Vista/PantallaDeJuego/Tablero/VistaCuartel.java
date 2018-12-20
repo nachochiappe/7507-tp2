@@ -18,7 +18,6 @@ public class VistaCuartel extends VistaEdificio {
 	public VistaCuartel(ContenedorPantallaDeJuego contenedor, Edificio cuartel, Jugador jugadorActual) {
 		super(contenedor, cuartel, jugadorActual);
 		this.imagenEdificio = cuartel.getSprite();
-    	inicializar();
     }
 	
 	@Override
@@ -29,10 +28,7 @@ public class VistaCuartel extends VistaEdificio {
 
 
 
-	@Override
-	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
 
-	}
 
 	@Override
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {

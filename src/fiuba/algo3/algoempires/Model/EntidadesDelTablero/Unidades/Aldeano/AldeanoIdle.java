@@ -37,6 +37,7 @@ public class AldeanoIdle implements EstadoAldeano{
 
 	@Override
 	public void empezarReparacion(Edificio edificio) throws EdificioNoNecesitaRepararse, SoloSePermiteUnAldeanoException, AldeanoOcupadoException {
+        this.aldeano.empezarAConstruir(edificio);
 		edificio.edificar(this.aldeano);
 	}
 

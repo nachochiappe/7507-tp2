@@ -16,15 +16,15 @@ import java.util.List;
 public abstract class VistaPosicionable extends StackPane {
 	public abstract void inicializar();
 
-	public void agregarATablero(VistaTablero vistaTablero, Posicionable posicionable, int i, int j) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void agregarATablero(VistaTablero vistaTablero, Posicionable posicionable, int i, int j);
+
 
 	public abstract Posicion getPosicion();
 
 
-	public abstract void setearClickListener(EventHandler<MouseEvent> eventEventHandler);
+	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
+		this.setOnMouseClicked(eventEventHandler);
+	}
 
 	public abstract void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables);
 	

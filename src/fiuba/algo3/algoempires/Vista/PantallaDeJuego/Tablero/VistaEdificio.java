@@ -1,14 +1,11 @@
 package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaAtacable;
 import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaConstruirReparar;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
-import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -25,17 +22,20 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class VistaEdificio extends VistaPosicionable {
 	
 	protected ContenedorPantallaDeJuego contenedor;
 	protected Edificio edificio;
-	protected Image imagenEdificio;
-	protected List<StackPane> stackPanes;
-	protected List<WritableImage> writableImages;
-	protected int anchoEdificio;
-	protected int altoEdificio;
-	protected VBox unitVBox;
-	protected BorderPane borderPane;
+	Image imagenEdificio;
+	List<VistaPosicionable> vistasPosicionables;
+	List<WritableImage> writableImages;
+	int anchoEdificio;
+	int altoEdificio;
+	private VBox unitVBox;
+	BorderPane borderPane;
 	protected Jugador jugadorActual;
 	Posicion posicion;
 	
@@ -48,7 +48,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 		this.edificio = _edificio;
     	this.anchoEdificio = this.edificio.getAncho();
     	this.altoEdificio = this.edificio.getAlto();
-    	this.stackPanes = new ArrayList<>();
+    	this.vistasPosicionables = new ArrayList<>();
     	this.writableImages = new ArrayList<>();
     	this.jugadorActual = _jugadorActual;
 	}
@@ -69,18 +69,18 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			imageViewPiso.setPreserveRatio(true);
 			imageViewPiso.setSmooth(true);
 			imageViewPiso.setCache(true);
-			StackPane stackPane = new StackPane();
+			VistaPosicionable vistaPosicionable = this.edificio.getView(contenedor, jugadorActual);
 			ImageView imageView = new ImageView();
 			imageView.setImage(writableImages.get(i));
 			imageView.setFitWidth(40);
 			imageView.setPreserveRatio(true);
 			imageView.setSmooth(true);
 			imageView.setCache(true);
-			imageView.setOnMouseClicked(e -> {
-				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio));
-			});
-			stackPane.getChildren().addAll(imageViewPiso, imageView);
-			this.stackPanes.add(stackPane);
+			vistaPosicionable.setearClickListener(e -> this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio)));
+			vistaPosicionable.setOnMouseEntered(e-> vistaPosicionable.cursorProperty().set(Cursor.HAND));
+			vistaPosicionable.setOnMouseExited(e-> vistaPosicionable.cursorProperty().set(Cursor.DEFAULT));
+			vistaPosicionable.getChildren().addAll(imageViewPiso, imageView);
+			this.vistasPosicionables.add(vistaPosicionable);
 		}
 	}
 	
@@ -92,8 +92,9 @@ public abstract class VistaEdificio extends VistaPosicionable {
     	int k = 0;
     	for (int i = posX; i <= posicionFinalX; i++) {
     		for (int j = posY; j <= posicionFinalY; j++) {
-    			StackPane stackPane = stackPanes.get(k);
+				VistaPosicionable stackPane = vistasPosicionables.get(k);
     			vistaTablero.add(stackPane, i, j);
+    			vistaTablero.agregarVistaPosicionable(this, i, j);
     			k++;
     		}
     	}
@@ -108,7 +109,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	}
 
 	public Posicion getPosicion() {
-		return this.posicion;
+		return this.posicion != null ? this.posicion : this.edificio.obtenerPosicionInicial();
 	}
 
 	@Override
@@ -150,7 +151,8 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	}
 
 	public void esperarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego){
-		this.setearClickListener(new CeldaConstruirReparar(contenedorPantallaDeJuego, this.edificio, aldeano));
-
+		for (VistaPosicionable vistaPosicionable: vistasPosicionables) {
+			vistaPosicionable.setearClickListener(new CeldaConstruirReparar(contenedorPantallaDeJuego, edificio, aldeano));
+		}
 	}
 }

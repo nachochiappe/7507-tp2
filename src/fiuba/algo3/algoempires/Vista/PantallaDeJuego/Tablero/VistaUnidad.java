@@ -37,7 +37,6 @@ public  class VistaUnidad extends  VistaPosicionable{
 		this.unitVBox = this.contenedor.unitVBox;
 		this.borderPane = this.contenedor.leftBorderPane;
 		this.jugadorActual = jugadorActual;
-		this.inicializar();
 	}
 
 
@@ -68,7 +67,6 @@ public  class VistaUnidad extends  VistaPosicionable{
 		imageViewUnidad.setCache(true);
 		this.getChildren().addAll(imageViewPiso, imageViewUnidad);
 		this.setearClickListener(new ClickPosicionableEventHandler(this));
-
 		this.setOnMouseEntered(event -> {
 			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 			ImageView imageViewSeleccionado = new ImageView();
@@ -89,6 +87,7 @@ public  class VistaUnidad extends  VistaPosicionable{
     @Override
     public void agregarATablero(VistaTablero vistaTablero, Posicionable _unidad, int i, int j) {
     	Unidad unidad = (Unidad) _unidad;
+    	vistaTablero.agregarVistaPosicionable(this, i, j);
     	vistaTablero.add(this, unidad.getPosicion().getPosicionX(), unidad.getPosicion().getPosicionY());
     }
 
@@ -99,9 +98,7 @@ public  class VistaUnidad extends  VistaPosicionable{
 
 
 
-	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
-		this.setOnMouseClicked(eventEventHandler);
-	}
+
 
 	@Override
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
