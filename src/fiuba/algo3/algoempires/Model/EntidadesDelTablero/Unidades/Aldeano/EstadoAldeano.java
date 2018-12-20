@@ -16,7 +16,7 @@ public interface EstadoAldeano {
 
     VBox getBotonearaAcciones(ContenedorPantallaDeJuego contenedor, BotoneraAcciones botoneraAcciones);
 
-    void empezarConstruccion(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException;
+    void empezarConstruccion(Edificio edificio, Posicion posicion) throws AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException;
     
 	void empezarReparacion(Edificio edificio) throws EdificioNoNecesitaRepararse, SoloSePermiteUnAldeanoException, AldeanoOcupadoException;
 }

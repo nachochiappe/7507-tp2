@@ -26,7 +26,7 @@ public class AldeanoIdle implements EstadoAldeano{
     }
 
     @Override
-    public void empezarConstruccion(Edificio edificio, Posicion posicion) throws FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException {
+    public void empezarConstruccion(Edificio edificio, Posicion posicion) throws FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException {
         edificio.construiteEn(this.aldeano, posicion);
     }
 

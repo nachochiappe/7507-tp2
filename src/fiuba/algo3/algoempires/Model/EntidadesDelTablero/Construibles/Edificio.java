@@ -33,11 +33,14 @@ public abstract class Edificio implements Posicionable, Construible {
 	}
 
 
-	public void construiteEn(Aldeano aldeano, Posicion posicionDeInicio) throws FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException {
+	public void construiteEn(Aldeano aldeano, Posicion posicionDeInicio) throws FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException {
 //		this.posiciones.addFirst(posicionDeInicio);
 		aldeano.getJugador().sacarOro(getCosto());
 		for(int i = posicionDeInicio.getPosicionX(); i < posicionDeInicio.getPosicionX() + this.getAlto(); i++) {
 			for(int j = posicionDeInicio.getPosicionY(); j < posicionDeInicio.getPosicionY() + this.getAncho(); j++) {
+				if (!Tablero.getInstance().obtenerPosicionable(i, j).estaVacio()) {
+					throw new PosicionOcupadaException();
+				}
 				Posicion posicionActual = new Posicion(i,j);
 				posiciones.add(posicionActual);
 			}
