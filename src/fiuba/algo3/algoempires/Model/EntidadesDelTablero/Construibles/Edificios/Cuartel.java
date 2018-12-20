@@ -32,8 +32,7 @@ public class Cuartel extends Edificio implements Construible {
 	public Cuartel() {
 		this.vida = MAX_VIDA;
 	}
-
-
+	
 	//estos get son para las pruebas...despues los saco
 	public int getCosto() {
 		return COSTO;

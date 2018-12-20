@@ -156,4 +156,9 @@ public abstract class Edificio implements Posicionable, Construible {
 	}
 
 	public abstract VBox _getBotoneraAcciones(ContenedorPantallaDeJuego contenedorPantallaDeJuego, BotoneraAcciones botoneraAcciones);
+
+	public void establecerJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+
 }
