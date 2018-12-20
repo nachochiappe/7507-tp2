@@ -26,22 +26,13 @@ public class VistaPlazaCentral extends VistaEdificio {
 		
 	}
 
-
-
 	@Override
-	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
-
-	}
-
-	@Override
-	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
-
-	}
-
-	@Override
-	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva,
-			Posicion posicion) {
+	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio,
+			Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
 }

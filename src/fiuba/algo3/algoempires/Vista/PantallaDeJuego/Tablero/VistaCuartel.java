@@ -28,12 +28,6 @@ public class VistaCuartel extends VistaEdificio {
 	}
 
 
-
-	@Override
-	public void setearClickListener(EventHandler<MouseEvent> eventEventHandler) {
-
-	}
-
 	@Override
 	public void esperarConstruccion(ContenedorPantallaDeJuego contenedor, Aldeano aldeano, Edificio edificio, Posicion posicion, List<VistaPosicionable> vistaPosicionables) {
 
