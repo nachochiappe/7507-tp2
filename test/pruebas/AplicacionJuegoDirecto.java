@@ -26,8 +26,8 @@ public class AplicacionJuegoDirecto  extends Application {
 		String musicFile = "src/fiuba/algo3/algoempires/Vista/Sonidos/Common Fight(Pantalla de juego).mp3";
 		Media sound = new Media(new File(musicFile).toURI().toString()); 
 		MediaPlayer mediaPlayer = new MediaPlayer(sound); 
-		mediaPlayer.setAutoPlay(true);
-		mediaPlayer.play(); 
+	//	mediaPlayer.setAutoPlay(true);
+	//	mediaPlayer.play(); 
 		
 		AlgoEmpires algoEmpires = new AlgoEmpires();
 		Tablero tablero = Tablero.getInstance();
