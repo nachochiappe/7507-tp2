@@ -8,6 +8,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Desplazamiento;
 import fiuba.algo3.algoempires.Model.Movimiento.Direccion;
+import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.ActionEvent;
@@ -32,8 +33,7 @@ public class BotonMoverUnidad implements EventHandler<ActionEvent> {
 			this.contenedor.vistaTablero.iniciarTablero(this.contenedor, this.contenedor.algoEmpires.getJugadorActual());
 			this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD(this.contenedor, this.unidad));
 		} catch (UnidadYaSeMovioException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new ContenedorAlerta().display(contenedor.rootStage, "Movimiento inválido");
 		}
 	}
 
