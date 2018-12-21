@@ -22,26 +22,26 @@ public class PruebasDeMovimientoYDireccion {
     //--------------ALDEANO----------------
 
     @Test
-    public void testAldeanoSeMueveParaArribaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
+    public void testAldeanoSeMueveParaAbajoUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
         Posicion posicion_nueva = new Posicion(10, 11);
         Aldeano aldeano = new Aldeano(jugador,posicion);
-        aldeano.mover(Direccion.arriba());
+        aldeano.mover(Direccion.abajo());
         assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
     }
 
     @Test
-    public void testAldeanoSeMueveParaAbajoUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
+    public void testAldeanoSeMueveParaArribaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
         Posicion posicion_nueva = new Posicion(10, 9);
         Aldeano aldeano = new Aldeano(jugador, posicion);
-        aldeano.mover(Direccion.abajo());
+        aldeano.mover(Direccion.arriba());
         assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
     }
 
@@ -70,36 +70,12 @@ public class PruebasDeMovimientoYDireccion {
     }
 
     @Test
-    public void testAldeanoSeMueveParaArribaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
-        Tablero tablero = Tablero.getInstance();
-        tablero.inicializarTablero();
-        Jugador jugador = new Jugador("Test");
-        Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 11);
-        Aldeano aldeano = new Aldeano(jugador, posicion);
-        aldeano.mover(Direccion.arribaIzquierda());
-        assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
-    }
-
-    @Test
-    public void testAldeanoSeMueveParaArribaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
-        Tablero tablero = Tablero.getInstance();
-        tablero.inicializarTablero();
-        Jugador jugador = new Jugador("Test");
-        Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 11);
-        Aldeano aldeano = new Aldeano(jugador, posicion);
-        aldeano.mover(Direccion.arribaDerecha());
-        assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
-    }
-
-    @Test
     public void testAldeanoSeMueveParaAbajoIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 9);
+        Posicion posicion_nueva = new Posicion(9, 11);
         Aldeano aldeano = new Aldeano(jugador, posicion);
         aldeano.mover(Direccion.abajoIzquierda());
         assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -111,9 +87,33 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 9);
+        Posicion posicion_nueva = new Posicion(11, 11);
         Aldeano aldeano = new Aldeano(jugador, posicion);
         aldeano.mover(Direccion.abajoDerecha());
+        assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
+    }
+
+    @Test
+    public void testAldeanoSeMueveParaArribaIzquierdaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
+        Tablero tablero = Tablero.getInstance();
+        tablero.inicializarTablero();
+        Jugador jugador = new Jugador("Test");
+        Posicion posicion = new Posicion(10, 10);
+        Posicion posicion_nueva = new Posicion(9, 9);
+        Aldeano aldeano = new Aldeano(jugador, posicion);
+        aldeano.mover(Direccion.arribaIzquierda());
+        assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
+    }
+
+    @Test
+    public void testAldeanoSeMueveParaArribaDerechaUnCasillero() throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
+        Tablero tablero = Tablero.getInstance();
+        tablero.inicializarTablero();
+        Jugador jugador = new Jugador("Test");
+        Posicion posicion = new Posicion(10, 10);
+        Posicion posicion_nueva = new Posicion(11, 9);
+        Aldeano aldeano = new Aldeano(jugador, posicion);
+        aldeano.mover(Direccion.arribaDerecha());
         assertEquals(aldeano.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
     }
 
@@ -145,7 +145,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(10, 11);
+        Posicion posicion_nueva = new Posicion(10, 9);
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.arriba());
         assertEquals(arquero.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -157,7 +157,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(10, 9);
+        Posicion posicion_nueva = new Posicion(10, 11);
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.abajo());
         assertEquals(arquero.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -193,7 +193,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 11);
+        Posicion posicion_nueva = new Posicion(9, 9);
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.arribaIzquierda());
         assertEquals(arquero.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -205,7 +205,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 11);
+        Posicion posicion_nueva = new Posicion(11, 9);
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.arribaDerecha());
         assertEquals(arquero.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -217,7 +217,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 9);
+        Posicion posicion_nueva = new Posicion(9, 11);
+
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.abajoIzquierda());
         assertEquals(arquero.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -229,7 +230,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 9);
+        Posicion posicion_nueva = new Posicion(11, 11);
+
         Arquero arquero = new Arquero(jugador, posicion);
         arquero.mover(Direccion.abajoDerecha());
         assertEquals(arquero.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -263,7 +265,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(10, 11);
+        Posicion posicion_nueva = new Posicion(10, 9);
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.arriba());
         assertEquals(espadachin.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -275,7 +277,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(10, 9);
+        Posicion posicion_nueva = new Posicion(10, 11);
+
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.abajo());
         assertEquals(espadachin.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -311,7 +314,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 11);
+        Posicion posicion_nueva = new Posicion(9, 9);
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.arribaIzquierda());
         assertEquals(espadachin.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -323,7 +326,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 11);
+        Posicion posicion_nueva = new Posicion(11, 9);
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.arribaDerecha());
         assertEquals(espadachin.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -335,7 +338,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 9);
+        Posicion posicion_nueva = new Posicion(9, 11);
+
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.abajoIzquierda());
         assertEquals(espadachin.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -347,7 +351,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 9);
+        Posicion posicion_nueva = new Posicion(11, 11);
+
         Espadachin espadachin = new Espadachin(jugador, posicion);
         espadachin.mover(Direccion.abajoDerecha());
         assertEquals(espadachin.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -381,7 +386,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(10, 11);
+        Posicion posicion_nueva = new Posicion(10, 9);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.arriba());
         assertEquals(armaDeAsedio.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -393,7 +398,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(10, 9);
+        Posicion posicion_nueva = new Posicion(10, 11);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.abajo());
         assertEquals(armaDeAsedio.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -429,7 +435,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 11);
+        Posicion posicion_nueva = new Posicion(9, 9);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.arribaIzquierda());
         assertEquals(armaDeAsedio.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -441,7 +447,7 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 11);
+        Posicion posicion_nueva = new Posicion(11, 9);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.arribaDerecha());
         assertEquals(armaDeAsedio.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -453,7 +459,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(9, 9);
+        Posicion posicion_nueva = new Posicion(9, 11);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.abajoIzquierda());
         assertEquals(armaDeAsedio.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -465,7 +472,8 @@ public class PruebasDeMovimientoYDireccion {
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("Test");
         Posicion posicion = new Posicion(10, 10);
-        Posicion posicion_nueva = new Posicion(11, 9);
+        Posicion posicion_nueva = new Posicion(11, 11);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(jugador, posicion);
         armaDeAsedio.mover(Direccion.abajoDerecha());
         assertEquals(armaDeAsedio.getPosicion().getPosicionY(), posicion_nueva.getPosicionY());
@@ -503,6 +511,6 @@ public class PruebasDeMovimientoYDireccion {
         Aldeano aldeano2 = new Aldeano(jugador, posicion2);
         tablero.poner(aldeano,posicion, posicion2);
         tablero.poner(aldeano2, posicion2, posicion2);
-        aldeano.mover(Direccion.arriba());
+        aldeano.mover(Direccion.abajo());
     }
 }
