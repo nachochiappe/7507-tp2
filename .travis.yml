@@ -1,11 +1,6 @@
 language: java
 jdk:
-  - oraclejdk8
-Addons:
-  apt:
-    packages:
-    - oracle-java8-installer
-install: ant
+  - oracle jdk8
 
 script:
   - ant test
