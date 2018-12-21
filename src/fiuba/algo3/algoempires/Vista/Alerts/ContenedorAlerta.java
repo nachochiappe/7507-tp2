@@ -30,7 +30,7 @@ public class ContenedorAlerta {
         BorderPane.setAlignment(buttonDismiss, Pos.CENTER);
         borderPane.setBottom(buttonDismiss);
         Scene scene = new Scene(borderPane, 500, 200);
-
+        scene.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/Alerts/ContenedorAlerta.css");
         stage.setScene(scene);
         stage.setFullScreen(false);
         stage.showAndWait();

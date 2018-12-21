@@ -113,6 +113,14 @@ public  class VistaUnidad extends  VistaPosicionable{
 			ContenedorAlerta contenedorAlerta = new ContenedorAlerta();
 			contenedorAlerta.display(contenedor.rootStage, "No puede construir aquí");
 		});
+		this.setOnMouseEntered(e -> {
+			for (VistaPosicionable vistaPosicionable: vistaPosicionables) { vistaPosicionable.mostrarSeleccionable();
+			}
+		});
+		this.setOnMouseExited(e-> {
+			for (VistaPosicionable vistaPosicionable: vistaPosicionables) { vistaPosicionable.ocultarSeleccionable();
+			}
+		});
 	}
 
 
