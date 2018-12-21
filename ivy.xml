@@ -14,13 +14,10 @@
         <dependency org="net.sourceforge.cobertura" name="cobertura" rev="2.1.1" conf="build->default"/>
         
         <dependency org="pmd" name="pmd" rev="4.3" conf="analysis->default"/>
-
         <dependency>
-            <groupId>javafx</groupId>
-            <artifactId>jfxrt</artifactId>
-            <version>${javafx.min.version}</version>
-            <scope>system</scope>
-            <systemPath>${java.home}\lib\jfxrt.jar</systemPath>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11</version>
         </dependency>
         <!--
          
