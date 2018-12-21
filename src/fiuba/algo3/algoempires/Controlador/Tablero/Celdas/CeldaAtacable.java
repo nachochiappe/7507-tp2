@@ -5,10 +5,7 @@ import java.io.File;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
@@ -44,16 +41,12 @@ public class CeldaAtacable  implements EventHandler<MouseEvent> {
 			ofensiva.atacar(atacado);
 			contenedorPantallaDeJuego.actualizarJugadorHUD();
 			sonidoDeGolpe.play();
-		} catch (ObjetivoFueraDeRangoException | ArmaDeAsedioNoAtacaUnidadesException
-				| ArmaDeAsedioNoMontadaException e) {
-			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
-		}
-		try {
 			contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		} catch (ObjetivoFueraDeRangoException | ArmaDeAsedioNoAtacaUnidadesException | ArmaDeAsedioNoMontadaException | AtaqueAliadoException e) {
+			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
 		} catch (FueraDelMapaException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
 	}
 
 }

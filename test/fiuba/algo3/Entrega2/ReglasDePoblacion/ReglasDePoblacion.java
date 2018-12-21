@@ -28,7 +28,7 @@ public class ReglasDePoblacion {
     }
 
     @Test
-    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException, OroInsuficienteException, ExcedeTopePoblacionalException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, DestinoFueraDelMapaException, PosicionOcupadaException {
+    public void matarUnidadBajaPoblacion() throws ObjetivoFueraDeRangoException, OroInsuficienteException, ExcedeTopePoblacionalException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, DestinoFueraDelMapaException, PosicionOcupadaException, AtaqueAliadoException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
     	Jugador jugador = new Jugador("jugador");
@@ -45,7 +45,7 @@ public class ReglasDePoblacion {
     }
     
     @Test
-    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, CantidadJugadoresIncorrectaException, JugadorYaExisteException, DestinoFueraDelMapaException, PosicionOcupadaException {
+    public void testMatarAldeanoReduceProduccionOro() throws OroInsuficienteException, ExcedeTopePoblacionalException, ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, CantidadJugadoresIncorrectaException, JugadorYaExisteException, DestinoFueraDelMapaException, PosicionOcupadaException, AtaqueAliadoException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
     	AlgoEmpires juego = new AlgoEmpires();

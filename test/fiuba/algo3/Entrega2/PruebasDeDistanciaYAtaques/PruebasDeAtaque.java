@@ -1,5 +1,6 @@
 package fiuba.algo3.Entrega2.PruebasDeDistanciaYAtaques;
 
+import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Castillo;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
@@ -7,13 +8,6 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.*;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
-import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
-import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
-import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
-import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
-import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
-import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import org.junit.Assert;
@@ -25,14 +19,14 @@ public class PruebasDeAtaque {
 
 
 	@Test
-    public void testEspadachinAtacaPlazaCentralYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException, FueraDelMapaException, SoloSePermiteUnAldeanoException{
+    public void testEspadachinAtacaPlazaCentralYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException, FueraDelMapaException, SoloSePermiteUnAldeanoException, AtaqueAliadoException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion pos = new Posicion(3,3);
 		PlazaCentral plaza = new PlazaCentral();
 		plaza.establecerJugador(jugador);
-		plaza.construiteEn(new Aldeano(jugador, new Posicion(2,3)), pos);
+		plaza.construiteEn(new Aldeano(new Jugador("jugador rival"), new Posicion(2,3)), pos);
 
 		Espadachin espadachin = new Espadachin(jugador, pos);
 		espadachin.atacar(plaza);
@@ -40,17 +34,17 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testEspadachinAtacaAOtroEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testEspadachinAtacaAOtroEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, AtaqueAliadoException {
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion pos = new Posicion(4,4);
 		Espadachin espadachin = new Espadachin(jugador, pos);
-		Espadachin espadachinMalo = new Espadachin(jugador, pos);
+		Espadachin espadachinMalo = new Espadachin(new Jugador("Jugador rival"), pos);
 		espadachin.atacar(espadachinMalo);
 		Assert.assertEquals(espadachinMalo.getHp(), 75);
 	}
 
 	@Test(expected = ObjetivoFueraDeRangoException.class)
-    public void testEspadachinAtacaAOtroEspadachinQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testEspadachinAtacaAOtroEspadachinQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, AtaqueAliadoException {
 		Jugador player1 = new Jugador("Pepito");
 		Jugador player2 = new Jugador("Fulanito");
 		Posicion pos1 = new Posicion(0,0);
@@ -61,7 +55,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test(expected = ObjetivoFueraDeRangoException.class)
-    public void testEspadachinAtacaACastilloQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException, FueraDelMapaException, SoloSePermiteUnAldeanoException {
+    public void testEspadachinAtacaACastilloQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException, FueraDelMapaException, SoloSePermiteUnAldeanoException, AtaqueAliadoException {
 		Tablero tablero = Tablero.getInstance();
 		tablero.inicializarTablero();
 		Jugador player1 = new Jugador("Pepito");
@@ -77,41 +71,41 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException, FueraDelMapaException, SoloSePermiteUnAldeanoException{
+    public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException, FueraDelMapaException, SoloSePermiteUnAldeanoException, AtaqueAliadoException {
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion pos = new Posicion(4,4);
 		Cuartel cuartel = new Cuartel();
 		cuartel.establecerJugador(jugador);
 		cuartel.construiteEn(new Aldeano(jugador, new Posicion(3,4)), pos);
-		Arquero arquero = new Arquero(jugador, pos);
+		Arquero arquero = new Arquero(new Jugador("jugador rival"), pos);
 		arquero.atacar(cuartel);
 		Assert.assertEquals(cuartel.obtenerVida(), 40);
 	}
 	
 	@Test
-    public void testArqueroAtacaAOtroArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testArqueroAtacaAOtroArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, AtaqueAliadoException {
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion pos = new Posicion(4,4);
 		Arquero arquero = new Arquero(jugador, pos);
-		Arquero arqueroMalo = new Arquero(jugador, pos);
+		Arquero arqueroMalo = new Arquero(new Jugador("Jugador rival"), pos);
 		arquero.atacar(arqueroMalo);
 		Assert.assertEquals(arqueroMalo.getHp(), 60);
 	}
 	@Test
-    public void testArqueroAtacaAUnEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testArqueroAtacaAUnEspadachinYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, AtaqueAliadoException {
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion pos = new Posicion(4,4);
 		Arquero arquero = new Arquero(jugador, pos);
-		Espadachin espadachinMalo = new Espadachin(jugador, pos);
+		Espadachin espadachinMalo = new Espadachin(new Jugador("jugador test"), pos);
 		arquero.atacar(espadachinMalo);
 		Assert.assertEquals(espadachinMalo.getHp(), 85);
 	}
 	
 	@Test
-    public void testEspadachinAtacaAUnArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testEspadachinAtacaAUnArqueroYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, AtaqueAliadoException {
 		Jugador jugador = new Jugador("JugadorTest");
 		Posicion pos = new Posicion(4,4);
-		Arquero arqueroMalo = new Arquero(jugador, pos);
+		Arquero arqueroMalo = new Arquero(new Jugador("jugador test"), pos);
 		Espadachin espadachin = new Espadachin(jugador, pos);
 		espadachin.atacar(arqueroMalo);
 		Assert.assertEquals(arqueroMalo.getHp(), 50);
