@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class PruebasDeConstruccion {
 	
     @Test
-    public void testAldeanoPuedeConstruirCuartel() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
+    public void testAldeanoPuedeConstruirCuartel() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
@@ -34,7 +34,7 @@ public class PruebasDeConstruccion {
     }
     
     @Test
-    public void testAldeanoPuedeConstruirPlazaCentral() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
+    public void testAldeanoPuedeConstruirPlazaCentral() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
@@ -47,29 +47,31 @@ public class PruebasDeConstruccion {
         Assert.assertTrue(plazaCentral.obtenerPosicionFinal().dentroDe(11,11));
     }
     
-    /*
-    @Test(expected = SoloPuedeRealizarAccionesEnSuTurnoException.class)
-    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws  SoloPuedeRealizarAccionesEnSuTurnoException{
+    
+    @Test(expected = AldeanoOcupadoException.class)
+    public void testAldeanoPuedeConstruirUnicamenteEnSuTurno() throws  SoloPuedeRealizarAccionesEnSuTurnoException, AldeanoOcupadoException, FueraDelMapaException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException{
     	AlgoEmpires juego = new AlgoEmpires();
-    	Tablero tablero = new Tablero();
+        Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
-        JugadorHUD jugador = new JugadorHUD("Jugador1", tablero);
-        JugadorHUD jugador2 = new JugadorHUD("Jugador2", tablero);
+        Jugador jugador = new Jugador("Jugador1");
+        Jugador jugador2 = new Jugador("Jugador2");
         juego.setTurnoActual(jugador);
         ArrayList<Unidad> lista_unidades = jugador.getUnidades();
         Aldeano aldeano = (Aldeano) lista_unidades.get(0);
-        PlazaCentral plazaCentral = new PlazaCentral(tablero);
+        PlazaCentral plazaCentral = new PlazaCentral();
+        plazaCentral.establecerJugador(jugador);
         Posicion posicion = new Posicion(10,10);
         aldeano.construir(plazaCentral, posicion);
         juego.setTurnoActual(jugador2);
-        Cuartel cuartel = new Cuartel(tablero);
+        Cuartel cuartel = new Cuartel();
+        cuartel.establecerJugador(jugador);
         Posicion posicion2 = new Posicion(0,0);
         aldeano.construir(cuartel, posicion2);
     }
-    */
+    
     
     @Test
-    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, CantidadJugadoresIncorrectaException, JugadorYaExisteException {
+    public void testAldeanoNoSumaOroMientrasConstruye() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, CantidadJugadoresIncorrectaException, JugadorYaExisteException, OroInsuficienteException, PosicionOcupadaException {
     	AlgoEmpires juego = new AlgoEmpires();
     	juego.agregarJugador("Jugador1");
     	juego.agregarJugador("Jugador2");
@@ -84,10 +86,10 @@ public class PruebasDeConstruccion {
         aldeano.construir(plazaCentral, posicion);
         juego.pasarTurno();
         juego.pasarTurno();
-        Assert.assertEquals(200, jugador.getOro());
+        Assert.assertEquals(100, jugador.getOro());
     }
 
-    public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException {
+    public void testAldeanoSoloPuedeConstruirUnEdificioALaVez() throws FueraDelMapaException, AldeanoOcupadoException, SoloSePermiteUnAldeanoException, OroInsuficienteException, PosicionOcupadaException {
         Tablero tablero = Tablero.getInstance();
         tablero.inicializarTablero();
         Jugador jugador = new Jugador("JugadorTest");
