@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Model;
 
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
@@ -46,10 +47,6 @@ public class Tablero {
 
     public void poner(Posicionable posicionable, Posicion posicionDeInicio, Posicion posicionDeFin) throws FueraDelMapaException {
         if(!posicionDeFin.dentroDe(ANCHO,ALTO)) throw new FueraDelMapaException("Fuera del mapa!");
-        System.out.println(posicionDeInicio.getPosicionX());
-        System.out.println(posicionDeInicio.getPosicionY());
-        System.out.println(posicionDeFin.getPosicionX());
-        System.out.println(posicionDeFin.getPosicionY());
         for(int i = posicionDeInicio.getPosicionX(); i<=posicionDeFin.getPosicionX(); i++) {
             for(int j = posicionDeInicio.getPosicionY(); j<=posicionDeFin.getPosicionY(); j++) {
                 matriz[i][j] = posicionable;
@@ -107,6 +104,14 @@ public class Tablero {
 
     public void sacar(Unidad unidad) {
         matriz[unidad.getPosicion().getPosicionX()][unidad.getPosicion().getPosicionY()] = new LugarVacio(unidad.getPosicion());
+    }
+
+    public void sacar(Edificio edificio) {
+        for(int i = edificio.obtenerPosicionInicial().getPosicionX(); i<=edificio.obtenerPosicionFinal().getPosicionX(); i++) {
+            for(int j = edificio.obtenerPosicionInicial().getPosicionY(); j<=edificio.obtenerPosicionFinal().getPosicionY(); j++) {
+                matriz[i][j] = new LugarVacio(new Posicion(i,j));
+            }
+        }
     }
     
     public List<Posicionable> obtenerTodosLosPosicionables() {

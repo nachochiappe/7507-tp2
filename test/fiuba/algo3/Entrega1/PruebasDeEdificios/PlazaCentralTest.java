@@ -69,7 +69,7 @@ public class PlazaCentralTest {
 	@Test
     public void testPlazaCentralSeVuelveLugarVacionCuandoQuedaSinVida() {
 		Tablero tablero = Mockito.mock(Tablero.class);
-		PlazaCentral plaza = new PlazaCentral();
+		PlazaCentral plaza = new PlazaCentral(new Posicion(0,0), new Jugador("hola"));
 		Ofensiva espadachin = Mockito.mock(Espadachin.class);
 		Mockito.when(espadachin.cuantoDanioAEdificio()).thenReturn(450);
 		plaza.recibeDanioDe(espadachin);

@@ -113,11 +113,6 @@ public class PlazaCentral extends Edificio {
 
 
 
-	private void estoyDestruido() {
-		if(vida <= 0) {
-			this.mori();
-		}
-	}
 
 	@Override
 	public void atacadoPor(Ofensiva ofensivo) throws ArmaDeAsedioNoAtacaUnidadesException {

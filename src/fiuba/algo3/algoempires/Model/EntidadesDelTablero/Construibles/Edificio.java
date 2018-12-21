@@ -16,6 +16,7 @@ import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorPantallaPrincipal;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.BotoneraAcciones;
+import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
@@ -69,12 +70,9 @@ public abstract class Edificio implements Posicionable, Construible {
 		int danio = ofensivo.cuantoDanioAEdificio();
 		this.vida = this.vida - danio;
 		if(vida <= 0) {
-			this.mori();
+			Tablero.getInstance().sacar(this);
+			this.jugador = null;
 		}
-	}
-	
-	public void mori() {
-		this.jugador = null;
 	}
 
 	public boolean estasEnRango(Posicion posicionAtacante, int rango) {
