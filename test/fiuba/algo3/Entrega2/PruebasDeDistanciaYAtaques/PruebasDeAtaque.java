@@ -10,6 +10,8 @@ import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesExce
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
+import fiuba.algo3.algoempires.Model.Excepciones.OroInsuficienteException;
+import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.SoloSePermiteUnAldeanoException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
@@ -22,7 +24,7 @@ public class PruebasDeAtaque {
 
 
 	@Test
-    public void testEspadachinAtacaPlazaCentralYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
+    public void testEspadachinAtacaPlazaCentralYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(3,3);
 		PlazaCentral plaza = new PlazaCentral();
@@ -58,7 +60,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test(expected = ObjetivoFueraDeRangoException.class)
-    public void testEspadachinAtacaACastilloQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testEspadachinAtacaACastilloQueNoEstaCercaYLevantaExcepcion() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException {
 		Jugador player1 = new Jugador("Pepito");
 		Jugador player2 = new Jugador("Fulanito");
 		Posicion pos1 = new Posicion(0,0);
@@ -76,7 +78,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
+    public void testArqueroAtacaCuartelYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion pos = new Posicion(4,4);
 		Cuartel cuartel = new Cuartel();
@@ -122,7 +124,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testArmaDeAsedioMontadaAtacaCuartelYLeSacaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException{
+    public void testArmaDeAsedioMontadaAtacaCuartelYLeSacaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException{
 		Jugador jugador = Mockito.mock(Jugador.class);
 		Posicion posicionArma = new Posicion(4,4);
 		Posicion posicionCastillo = new Posicion(9,4);
@@ -162,7 +164,7 @@ public class PruebasDeAtaque {
 	}
 	
 	@Test
-    public void testCastilloAtacaArqueroQueTieneEnRangoYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
+    public void testCastilloAtacaArqueroQueTieneEnRangoYLeBajaVida() throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException, OroInsuficienteException, PosicionOcupadaException {
 		Jugador player1 = new Jugador("Pepito");
 		Jugador player2 = new Jugador("Fulanito");
 		Posicion posEsp = new Posicion(0,0);

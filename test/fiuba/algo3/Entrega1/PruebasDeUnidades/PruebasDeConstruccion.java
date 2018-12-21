@@ -14,9 +14,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-//import fiuba.algo3.algoempires.Model.AlgoEmpires;
-//import fiuba.algo3.algoempires.Model.Excepciones.SoloPuedeRealizarAccionesEnSuTurnoException;
-
 public class PruebasDeConstruccion {
 	
     @Test
