@@ -41,7 +41,6 @@ public class CeldaAtacable  implements EventHandler<MouseEvent> {
 	@Override
 	public void handle(MouseEvent arg0) {
 		try {
-			
 			ofensiva.atacar(atacado);
 			contenedorPantallaDeJuego.actualizarJugadorHUD();
 			sonidoDeGolpe.play();
