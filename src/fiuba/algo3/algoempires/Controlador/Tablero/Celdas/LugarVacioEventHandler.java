@@ -1,5 +1,6 @@
 package fiuba.algo3.algoempires.Controlador.Tablero.Celdas;
 
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Vista.MenuPrincipal.ContenedorPantallaPrincipal;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
@@ -21,7 +22,12 @@ public class LugarVacioEventHandler implements EventHandler<MouseEvent>{
 	@Override
 	public void handle(MouseEvent event) {
 		this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD());
-		this.contenedor.vistaTablero.iniciarTablero(contenedor, contenedor.algoEmpires.getJugadorActual());
+		try {
+			this.contenedor.vistaTablero.iniciarTablero(contenedor, contenedor.algoEmpires.getJugadorActual());
+		} catch (FueraDelMapaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

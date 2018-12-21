@@ -30,7 +30,7 @@ public class CeldaConstruirReparar implements EventHandler<MouseEvent>  {
 			this.aldeano.reparar(edificio);
 			this.contenedorPantallaDeJuego.leftBorderPane.setCenter(new SeleccionableHUD(contenedorPantallaDeJuego, aldeano));
 			this.contenedorPantallaDeJuego.vistaTablero.iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
-		} catch (AldeanoOcupadoException | SoloSePermiteUnAldeanoException | EdificioNoNecesitaRepararse e) {
+		} catch (AldeanoOcupadoException | SoloSePermiteUnAldeanoException | EdificioNoNecesitaRepararse | FueraDelMapaException e) {
 			new ContenedorAlerta().display(this.contenedorPantallaDeJuego.rootStage, e.getMessage());
 		}
 	}

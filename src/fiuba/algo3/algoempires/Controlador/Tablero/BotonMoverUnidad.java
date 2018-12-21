@@ -3,6 +3,7 @@ package fiuba.algo3.algoempires.Controlador.Tablero;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
@@ -32,7 +33,7 @@ public class BotonMoverUnidad implements EventHandler<ActionEvent> {
 			this.unidad.mover(this.desplazamiento);
 			this.contenedor.vistaTablero.iniciarTablero(this.contenedor, this.contenedor.algoEmpires.getJugadorActual());
 			this.contenedor.leftBorderPane.setCenter(new SeleccionableHUD(this.contenedor, this.unidad));
-		} catch (UnidadYaSeMovioException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
+		} catch (UnidadYaSeMovioException | DestinoFueraDelMapaException | PosicionOcupadaException | FueraDelMapaException e) {
 			new ContenedorAlerta().display(contenedor.rootStage, "Movimiento inválido");
 		}
 	}

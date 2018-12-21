@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego;
 
 import fiuba.algo3.algoempires.Model.AlgoEmpires;
 import fiuba.algo3.algoempires.Model.Tablero;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Vista.*;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.JugadorHUD.JugadorHUD;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
@@ -49,7 +50,12 @@ public class ContenedorPantallaDeJuego extends BorderPane {
     
     public void setCentro() {
     	
-    	this.vistaTablero.iniciarTablero(this, algoEmpires.getJugadorActual());
+    	try {
+			this.vistaTablero.iniciarTablero(this, algoEmpires.getJugadorActual());
+		} catch (FueraDelMapaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	this.setCenter(vistaTablero);
     }
 

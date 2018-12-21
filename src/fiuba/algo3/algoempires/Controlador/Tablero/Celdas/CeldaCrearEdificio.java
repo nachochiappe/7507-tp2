@@ -34,7 +34,12 @@ public class CeldaCrearEdificio implements EventHandler<MouseEvent>  {
             new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, "No se puede construir aquí");
         }
 
-        contenedorPantallaDeJuego.vistaTablero.iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+        try {
+			contenedorPantallaDeJuego.vistaTablero.iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		} catch (FueraDelMapaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 

@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoAtacaUnidadesException;
 import fiuba.algo3.algoempires.Model.Excepciones.ArmaDeAsedioNoMontadaException;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.ObjetivoFueraDeRangoException;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
@@ -48,7 +49,12 @@ public class CeldaAtacable  implements EventHandler<MouseEvent> {
 				| ArmaDeAsedioNoMontadaException e) {
 			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
 		}
-		contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());	
+		try {
+			contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		} catch (FueraDelMapaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 
 }

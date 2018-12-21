@@ -5,6 +5,7 @@ import java.util.List;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Model.Tablero;
@@ -29,7 +30,7 @@ public class VistaTablero extends GridPane {
         this.vistaPosicionables[i][j] = vistaPosicionable;
     }
 
-    public void iniciarTablero(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) {
+    public void iniciarTablero(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) throws FueraDelMapaException {
         posicionablesDibujados = new ArrayList<>();
         for (int i = 0; i < tablero.getAncho(); i++) {
             for (int j = 0; j < tablero.getAlto(); j++) {

@@ -1,6 +1,7 @@
 package fiuba.algo3.algoempires.Controlador.Tablero;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.ActionEvent;
@@ -19,7 +20,12 @@ public class BotonCancelarAccion implements EventHandler<ActionEvent>  {
 	@Override
 	public void handle(ActionEvent event) {
 		this.contenedorPantallaDeJuego.leftBorderPane.setCenter(new SeleccionableHUD(contenedorPantallaDeJuego, posicionable));
-		this.contenedorPantallaDeJuego.vistaTablero.iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		try {
+			this.contenedorPantallaDeJuego.vistaTablero.iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		} catch (FueraDelMapaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

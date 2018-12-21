@@ -35,7 +35,12 @@ public class CeldaCrearUnidad implements EventHandler<MouseEvent>  {
 		} catch (OroInsuficienteException | ExcedeTopePoblacionalException | DestinoFueraDelMapaException | PosicionOcupadaException e) {
 			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
 		}
-		contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		try {
+			contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+		} catch (FueraDelMapaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
