@@ -16,7 +16,13 @@ public class VistaPlazaCentral extends VistaEdificio {
 
 	public VistaPlazaCentral(ContenedorPantallaDeJuego contenedor, Edificio plazaCentral, Jugador jugadorActual) {
 		super(contenedor, plazaCentral, jugadorActual);
-		this.imagenEdificio = plazaCentral.getSprite();
+		if (plazaCentral.getJugador().equals(contenedor.algoEmpires.getJugadorActual())) {
+			this.imagenEdificio = new Image(plazaCentral.getSpritePath());
+		} else {
+			String imagePath = plazaCentral.getSpritePath().split(".png")[0] + "(Rojo)";
+			imagePath = imagePath.concat(".png");
+			this.imagenEdificio = new Image(imagePath);
+		}
     }
 	
 	@Override

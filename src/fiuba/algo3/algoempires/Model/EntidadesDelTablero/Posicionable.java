@@ -18,6 +18,8 @@ public interface Posicionable {
 
 	Image getSprite();
 
+	String getSpritePath();
+
 	String getNombre();
 
 	int getMaxHp();

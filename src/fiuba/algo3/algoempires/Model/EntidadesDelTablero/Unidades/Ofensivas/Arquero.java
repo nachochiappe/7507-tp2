@@ -56,6 +56,11 @@ public class Arquero extends Unidad implements Ofensiva {
 	}
 
 	@Override
+	public String getSpritePath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Arquero/ArqueroS.png";
+	}
+
+	@Override
 	public String getNombre() {
 		return "Arquero";
 	}

@@ -21,4 +21,6 @@ public interface EstadoEdilicio {
     VBox getBotoneraAcciones(ContenedorPantallaDeJuego contenedorPantallaPrincipal, BotoneraAcciones botoneraAcciones);
 
     Image getSprite();
+
+    String getSpritePath();
 }

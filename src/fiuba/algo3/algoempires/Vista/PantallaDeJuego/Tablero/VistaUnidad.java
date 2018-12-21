@@ -59,7 +59,14 @@ public  class VistaUnidad extends  VistaPosicionable{
 		imageViewPiso.setSmooth(true);
 		imageViewPiso.setCache(true);
 		ImageView imageViewUnidad = new ImageView();
-		imageViewUnidad.setImage(this.unidad.getSprite());
+
+		if (unidad.getJugador().equals(contenedor.algoEmpires.getJugadorActual())) {
+			imageViewUnidad.setImage(new Image(this.unidad.getSpritePath()));
+		} else {
+			String imagePath = this.unidad.getSpritePath().split(".png")[0] + "(Rojo)";
+			imagePath = imagePath.concat(".png");
+			imageViewUnidad.setImage(new Image(imagePath));
+		}
 
 		imageViewUnidad.setFitWidth(40);
 		imageViewUnidad.setPreserveRatio(true);

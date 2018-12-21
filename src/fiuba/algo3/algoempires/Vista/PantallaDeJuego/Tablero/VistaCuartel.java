@@ -17,7 +17,13 @@ public class VistaCuartel extends VistaEdificio {
 
 	public VistaCuartel(ContenedorPantallaDeJuego contenedor, Edificio cuartel, Jugador jugadorActual) {
 		super(contenedor, cuartel, jugadorActual);
-		this.imagenEdificio = cuartel.getSprite();
+		if (cuartel.getJugador().equals(contenedor.algoEmpires.getJugadorActual())) {
+			this.imagenEdificio = new Image(cuartel.getSpritePath());
+		} else {
+			String imagePath = cuartel.getSpritePath().split(".png")[0] + "(Rojo)";
+			imagePath = imagePath.concat(".png");
+			this.imagenEdificio = new Image(imagePath);
+		}
     }
 	
 	@Override

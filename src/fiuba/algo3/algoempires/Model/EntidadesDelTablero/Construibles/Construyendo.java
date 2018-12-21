@@ -38,4 +38,9 @@ public class Construyendo implements EstadoEdilicio{
     public Image getSprite() {
         return this.edificio.getSpriteConstruyendo();
     }
+
+    @Override
+    public String getSpritePath() {
+        return this.edificio.getSpriteConstruyendoPath();
+    }
 }

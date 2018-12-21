@@ -40,4 +40,9 @@ public class Idle implements EstadoEdilicio {
     public Image getSprite() {
         return this.edificio.getSpriteConstruido();
     }
+
+    @Override
+    public String getSpritePath() {
+        return this.edificio.getSpriteConstruidoPath();
+    }
 }

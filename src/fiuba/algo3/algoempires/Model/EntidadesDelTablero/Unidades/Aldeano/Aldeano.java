@@ -73,6 +73,11 @@ public class Aldeano extends Unidad {
 		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png");
 	}
 
+	@Override
+	public String getSpritePath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Aldeano/AldeanoI.png";
+	}
+
 	public void reparar(Edificio edificio) throws AldeanoOcupadoException, SoloSePermiteUnAldeanoException, EdificioNoNecesitaRepararse {
 		this.estado.empezarReparacion(edificio);
 	}

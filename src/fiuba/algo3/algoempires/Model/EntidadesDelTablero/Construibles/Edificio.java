@@ -59,6 +59,8 @@ public abstract class Edificio implements Posicionable, Construible {
 		return this.estadoEdilicio.getSprite();
 	}
 
+	public String getSpritePath() { return this.estadoEdilicio.getSpritePath(); }
+
 	public int obtenerVida() {
 		return this.vida;
 	}
@@ -138,6 +140,9 @@ public abstract class Edificio implements Posicionable, Construible {
 
 	public abstract Image getSpriteConstruido();
 	public abstract Image getSpriteConstruyendo();
+
+	public abstract String getSpriteConstruidoPath();
+	public abstract String getSpriteConstruyendoPath();
 
 
 	//------------GETTERS

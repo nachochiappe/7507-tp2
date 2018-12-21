@@ -100,6 +100,11 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
     }
 
     @Override
+    public String getSpritePath() {
+        return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio.png";
+    }
+
+    @Override
 	public void atacar(Posicionable posicionable)throws ObjetivoFueraDeRangoException, ArmaDeAsedioNoAtacaUnidadesException, ArmaDeAsedioNoMontadaException {
     	if(!posicionable.estasEnRango(this.getPosicion(), this.rango)) throw new ObjetivoFueraDeRangoException();
 			this.estado.atacar(posicionable);

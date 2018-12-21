@@ -42,6 +42,11 @@ public class LugarVacio implements Posicionable{
 	}
 
 	@Override
+	public String getSpritePath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png";
+	}
+
+	@Override
 	public String getNombre() {
 		return null;
 	}

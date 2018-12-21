@@ -54,6 +54,11 @@ public class Espadachin extends Unidad implements Ofensiva {
 		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png");
 	}
 
+	@Override
+	public String getSpritePath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/Espadachin/EspadachinS.png";
+	}
+
 	public int getMaxHp() {
 		return MAX_HP;
 	}

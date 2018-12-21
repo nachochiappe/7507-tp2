@@ -86,6 +86,7 @@ public class Cuartel extends Edificio implements Construible {
 	}
 
 
+
 	@Override
 	public Image getSpriteConstruido() {
 		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Cuartel/CuartelConstruido.png");
@@ -94,6 +95,16 @@ public class Cuartel extends Edificio implements Construible {
 	@Override
 	public Image getSpriteConstruyendo() {
 		return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Cuartel/CuartelEnConstruccion.png");
+	}
+
+	@Override
+	public String getSpriteConstruidoPath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Cuartel/CuartelConstruido.png";
+	}
+
+	@Override
+	public String getSpriteConstruyendoPath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Cuartel/CuartelEnConstruccion.png";
 	}
 
 

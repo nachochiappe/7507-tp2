@@ -21,7 +21,13 @@ public class VistaCastillo extends VistaEdificio {
 
 	public VistaCastillo(ContenedorPantallaDeJuego contenedor, Edificio castillo, Jugador jugadorActual) {
 		super(contenedor, castillo, jugadorActual);
-    	this.imagenEdificio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png");
+		if (castillo.getJugador().equals(contenedor.algoEmpires.getJugadorActual())) {
+			this.imagenEdificio = new Image(castillo.getSpritePath());
+		} else {
+			String imagePath = castillo.getSpritePath().split(".png")[0] + "(Rojo)";
+			imagePath = imagePath.concat(".png");
+			this.imagenEdificio = new Image(imagePath);
+		}
     }
 	
 	@Override

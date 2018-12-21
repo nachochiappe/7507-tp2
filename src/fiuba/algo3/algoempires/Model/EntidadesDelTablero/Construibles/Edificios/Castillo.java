@@ -118,6 +118,16 @@ public class Castillo extends Edificio implements Ofensiva {
         return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloEnConstruccion.png");
     }
 
+    @Override
+    public String getSpriteConstruidoPath() {
+        return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloConstruido.png";
+    }
+
+    @Override
+    public String getSpriteConstruyendoPath() {
+        return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/Castillo/CastilloEnConstruccion.png";
+    }
+
     public ArmaDeAsedio crearArmaDeAsedio(Jugador jugador, Posicion posicion) throws OroInsuficienteException, ExcedeTopePoblacionalException {
         if (jugador.getOro()<200) throw new OroInsuficienteException();
         jugador.modificarOro(-200);

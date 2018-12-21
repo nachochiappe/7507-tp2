@@ -55,6 +55,16 @@ public class PlazaCentral extends Edificio {
 	}
 
 	@Override
+	public String getSpriteConstruidoPath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/PlazaCentral/PlazaCentralConstruida.png";
+	}
+
+	@Override
+	public String getSpriteConstruyendoPath() {
+		return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Edificios/PlazaCentral/PlazaCentralEnConstruccion.png";
+	}
+
+	@Override
 	public int getHpRegen() {
 		return HP_REGEN;
 	}
