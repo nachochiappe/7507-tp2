@@ -14,11 +14,8 @@
         <dependency org="net.sourceforge.cobertura" name="cobertura" rev="2.1.1" conf="build->default"/>
         
         <dependency org="pmd" name="pmd" rev="4.3" conf="analysis->default"/>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>11</version>
-        </dependency>
+        <dependency org="openjfx" name="javafx-controls" rev="11" />
+
         <!--
          
         <dependency org="oro" name="oro" rev="2.0.8"/>  
