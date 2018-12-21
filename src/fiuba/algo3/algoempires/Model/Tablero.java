@@ -95,8 +95,13 @@ public class Tablero {
         }
     }
 
-    public Posicionable obtenerPosicionable(int posicionX, int posicionY) {
-        return matriz[posicionX][posicionY];
+    public Posicionable obtenerPosicionable(int posicionX, int posicionY) throws FueraDelMapaException {
+    	try {
+    		return matriz[posicionX][posicionY];
+    	} catch (ArrayIndexOutOfBoundsException e) {
+    		throw new FueraDelMapaException();
+    	}
+        
     }
     
     public List<Posicionable> obtenerTodosLosPosicionables() {

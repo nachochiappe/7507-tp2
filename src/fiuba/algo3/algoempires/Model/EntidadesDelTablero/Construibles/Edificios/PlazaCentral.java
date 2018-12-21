@@ -94,9 +94,7 @@ public class PlazaCentral extends Edificio {
 		return OCUPA_ANCHO;
 	}
 
-	public void mori() {
-		LugarVacio lugar = LugarVacio.class.cast(this);
-	}
+
 
 	//estos get son para las pruebas...despues los saco
 	public int getCosto() {
@@ -109,7 +107,6 @@ public class PlazaCentral extends Edificio {
 		if(vida <= 0) {
 			this.mori();
 		}
-
 	}
 
 	@Override

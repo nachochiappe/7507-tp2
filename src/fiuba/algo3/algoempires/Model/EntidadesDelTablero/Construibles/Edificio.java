@@ -66,6 +66,13 @@ public abstract class Edificio implements Posicionable, Construible {
 	public void recibeDanioDe(Ofensiva ofensivo) {
 		int danio = ofensivo.cuantoDanioAEdificio();
 		this.vida = this.vida - danio;
+		if(vida <= 0) {
+			this.mori();
+		}
+	}
+	
+	public void mori() {
+		this.jugador = null;
 	}
 
 	public boolean estasEnRango(Posicion posicionAtacante, int rango) {
