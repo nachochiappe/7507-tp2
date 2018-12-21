@@ -101,7 +101,6 @@ public class Jugador {
 
     public void terminarTurno() {
         this.estado = new Deshabilitado();
-        System.out.println("Termina el turno");
     }
 
     public void moverUnidad(Unidad unidad, Desplazamiento desplazamiento) throws DestinoFueraDelMapaException, UnidadYaSeMovioException, PosicionOcupadaException {
