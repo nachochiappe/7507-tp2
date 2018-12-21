@@ -15,9 +15,16 @@ public class JugadorHUD extends VBox {
         this.setPadding(new Insets(20));
         Label nombreJugador = new Label();
         nombreJugador.setText(root.algoEmpires.getJugadorActual().getNombre());
+        Label oro = new Label();
+        oro.setText("Oro:");
         Label oroJugador = new Label();
-        oroJugador.setText(String.valueOf(root.algoEmpires.getJugadorActual().getOro()));
+        oroJugador.setText("$ "+String.valueOf(root.algoEmpires.getJugadorActual().getOro()));
 
+        Label poblacion = new Label();
+        poblacion.setText("Poblacion:");
+        Label poblacionJugador = new Label();
+        poblacionJugador.setText(String.valueOf(root.algoEmpires.getJugadorActual().obtenerPoblacion())+"/50");
+        
         Button button = new Button();
         button.setAlignment(Pos.BOTTOM_CENTER);
         button.setPadding(new Insets(20));
@@ -27,6 +34,6 @@ public class JugadorHUD extends VBox {
         this.setMaxWidth(200);
         this.setMinWidth(200);
         this.setAlignment(Pos.TOP_CENTER);
-        this.getChildren().addAll(nombreJugador, oroJugador, button);
+        this.getChildren().addAll(nombreJugador, oro, oroJugador,poblacion, poblacionJugador, button);
     }
 }
