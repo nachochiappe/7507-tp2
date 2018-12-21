@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Model;
 
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.LugarVacio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Posicionable;
+import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.Excepciones.DestinoFueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.FueraDelMapaException;
 import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
@@ -102,6 +103,10 @@ public class Tablero {
     		throw new FueraDelMapaException();
     	}
         
+    }
+
+    public void sacar(Unidad unidad) {
+        matriz[unidad.getPosicion().getPosicionX()][unidad.getPosicion().getPosicionY()] = new LugarVacio(unidad.getPosicion());
     }
     
     public List<Posicionable> obtenerTodosLosPosicionables() {

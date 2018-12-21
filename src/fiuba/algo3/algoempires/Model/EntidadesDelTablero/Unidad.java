@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.PosicionOcupadaException;
 import fiuba.algo3.algoempires.Model.Excepciones.UnidadYaSeMovioException;
 import fiuba.algo3.algoempires.Model.Jugador.Jugador;
 import fiuba.algo3.algoempires.Model.Movimiento.*;
+import fiuba.algo3.algoempires.Model.Tablero;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaPosicionable;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero.VistaUnidad;
@@ -74,6 +75,7 @@ public abstract class Unidad implements Posicionable {
 		int danio = ofensiva.cuantoDanioAUnidad();
 		this.hp = this.hp - danio;
 		if (this.hp < 1) {
+            Tablero.getInstance().sacar(this);
 		    jugador.getUnidades().remove(this);
 		    this.posicion = null;
         }
