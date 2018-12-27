@@ -67,14 +67,14 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
 			ImageView imageViewPiso = new ImageView();
 			imageViewPiso.setImage(pisoVacio);
-			imageViewPiso.setFitWidth(40);
+			imageViewPiso.setFitWidth(35);
 			imageViewPiso.setPreserveRatio(true);
 			imageViewPiso.setSmooth(true);
 			imageViewPiso.setCache(true);
 			VistaPosicionable vistaPosicionable = this.edificio.getView(contenedor, jugadorActual);
 			ImageView imageView = new ImageView();
 			imageView.setImage(writableImages.get(i));
-			imageView.setFitWidth(40);
+			imageView.setFitWidth(35);
 			imageView.setPreserveRatio(true);
 			imageView.setSmooth(true);
 			imageView.setCache(true);
@@ -119,7 +119,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 		Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 		ImageView imageViewSeleccionado = new ImageView();
 		imageViewSeleccionado.setImage(seleccionado);
-		imageViewSeleccionado.setFitWidth(40);
+		imageViewSeleccionado.setFitWidth(35);
 		imageViewSeleccionado.setPreserveRatio(true);
 		imageViewSeleccionado.setSmooth(true);
 		imageViewSeleccionado.setCache(true);
@@ -127,7 +127,11 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	}
 
 	public void ocultarSeleccionable() {
-		getChildren().remove(2);
+		try {
+			getChildren().remove(2);
+		} catch (IndexOutOfBoundsException e) {
+			e.getMessage();
+		}
 	}
 	
 	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion) {
@@ -136,7 +140,7 @@ public abstract class VistaEdificio extends VistaPosicionable {
 			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 			ImageView imageViewSeleccionado = new ImageView();
 			imageViewSeleccionado.setImage(seleccionado);
-			imageViewSeleccionado.setFitWidth(40);
+			imageViewSeleccionado.setFitWidth(35);
 			imageViewSeleccionado.setPreserveRatio(true);
 			imageViewSeleccionado.setSmooth(true);
 			imageViewSeleccionado.setCache(true);

@@ -1,0 +1,30 @@
+.root{
+    -fx-background-color: "#d7be9f";
+}
+
+.button {
+    -fx-background-color: "#564c3f";
+    -fx-text-fill: "#ffffff";
+    -fx-font-size: 16;
+}
+
+.button:hover {
+    -fx-background-color: "#9a7b55";
+    -fx-cursor: hand;
+}
+
+.textField {
+    -fx-focus-color: "#564c3f";
+    -fx-font-size: 16;
+}
+
+.label {
+      -fx-font-size: 18;
+      -fx-font-weight: 600;
+      -fx-fill-color: "#564c3f";
+      -fx-font-family: "Arial"
+}
+
+.vbox {
+    -fx-fill-width: true
+}

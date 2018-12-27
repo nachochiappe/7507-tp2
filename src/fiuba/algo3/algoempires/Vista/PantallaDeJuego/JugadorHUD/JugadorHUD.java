@@ -30,8 +30,7 @@ public class JugadorHUD extends VBox {
         button.setPadding(new Insets(20));
         button.setText("Terminar Turno");
         button.setOnAction(new BotonPasarTurno(root));
-
-        this.setMaxWidth(200);
+        this.setMaxWidth(300);
         this.setMinWidth(200);
         this.setAlignment(Pos.TOP_CENTER);
         this.getChildren().addAll(nombreJugador, oro, oroJugador,poblacion, poblacionJugador, button);

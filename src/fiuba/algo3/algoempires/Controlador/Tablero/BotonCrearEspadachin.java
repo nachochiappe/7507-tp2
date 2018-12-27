@@ -4,6 +4,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificios.Cuartel;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -22,5 +23,6 @@ public class BotonCrearEspadachin implements EventHandler<ActionEvent>  {
 	@Override
 	public void handle(ActionEvent arg0) {
 		this.contenedorPantallaDeJuego.getVistaTablero().iniciarCreacionUnidad(cuartel, unidad, contenedorPantallaDeJuego);
+		this.contenedorPantallaDeJuego.leftBorderPane.setCenter(new SeleccionableHUD(contenedorPantallaDeJuego, cuartel, "Crear Aldeano"));
 	}
 }

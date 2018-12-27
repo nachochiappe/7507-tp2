@@ -38,7 +38,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 	public void inicializar() {
 		ImageView imageViewPiso = new ImageView();
 		imageViewPiso.setImage(pisoVacio);
-		imageViewPiso.setFitWidth(40);
+		imageViewPiso.setFitWidth(35);
 		imageViewPiso.setPreserveRatio(true);
 		imageViewPiso.setSmooth(true);
 		imageViewPiso.setCache(true);
@@ -91,7 +91,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 			ImageView imageViewSeleccionado = new ImageView();
 			imageViewSeleccionado.setImage(seleccionado);
-			imageViewSeleccionado.setFitWidth(40);
+			imageViewSeleccionado.setFitWidth(35);
 			imageViewSeleccionado.setPreserveRatio(true);
 			imageViewSeleccionado.setSmooth(true);
 			imageViewSeleccionado.setCache(true);
@@ -112,7 +112,7 @@ public class VistaLugarVacio extends VistaPosicionable{
 		Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
 		ImageView imageViewSeleccionado = new ImageView();
 		imageViewSeleccionado.setImage(seleccionado);
-		imageViewSeleccionado.setFitWidth(40);
+		imageViewSeleccionado.setFitWidth(35);
 		imageViewSeleccionado.setPreserveRatio(true);
 		imageViewSeleccionado.setSmooth(true);
 		imageViewSeleccionado.setCache(true);

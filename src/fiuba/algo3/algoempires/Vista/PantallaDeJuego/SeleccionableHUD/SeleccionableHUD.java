@@ -18,8 +18,9 @@ public class SeleccionableHUD extends VBox {
 
     public SeleccionableHUD() {
         this.setPadding(new Insets(20));
-        this.setMinWidth(100);
-        this.setMaxWidth(100);
+        //this.setMaxWidth(200);
+        this.setPrefWidth(150);
+        //this.setMinWidth(150);
     }
 
 
@@ -29,7 +30,7 @@ public class SeleccionableHUD extends VBox {
         Image sprite = posicionable.getSprite();
         ImageView imageView = new ImageView();
         imageView.setImage(sprite);
-        imageView.setFitWidth(40);
+        imageView.setFitWidth(35);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
         imageView.setCache(true);
@@ -39,10 +40,10 @@ public class SeleccionableHUD extends VBox {
         if (contenedor.algoEmpires.getJugadorActual().equals(posicionable.getJugador())) {
             botoneraAcciones= new BotoneraAcciones().generarBotonera(contenedor, posicionable);
         }
-
         this.getChildren().addAll(imageView, nombre, vida, botoneraAcciones);
-        this.setMinWidth(100);
-        this.setMaxWidth(100);
+        //this.setMaxWidth(200);
+        this.setPrefWidth(150);
+        //this.setMinWidth(150);
     }
 
     public SeleccionableHUD(ContenedorPantallaDeJuego contenedor, Posicionable posicionable, String action) {
@@ -51,7 +52,7 @@ public class SeleccionableHUD extends VBox {
         Image sprite = posicionable.getSprite();
         ImageView imageView = new ImageView();
         imageView.setImage(sprite);
-        imageView.setFitWidth(40);
+        imageView.setFitWidth(35);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
         imageView.setCache(true);

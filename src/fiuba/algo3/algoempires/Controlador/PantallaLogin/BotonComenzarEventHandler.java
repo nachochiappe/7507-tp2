@@ -54,7 +54,7 @@ public class BotonComenzarEventHandler implements EventHandler<ActionEvent> {
                 Scene escenaJuego = new Scene(contenedorPantallaDeJuego, 1024, 768);
                 AplicacionOnKeyPressEventHandler aplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPantallaDeJuego.getBarraDeMenu());
                 escenaJuego.setOnKeyPressed(aplicacionOnKeyPressEventHandler);
-
+                escenaJuego.getStylesheets().add("file:src/fiuba/algo3/algoempires/Vista/PantallaDeJuego/ContenedorPantallaDeJuego.css");
                 stage.close();
                 rootStage.setScene(escenaJuego);
                 rootStage.setFullScreenExitHint("");

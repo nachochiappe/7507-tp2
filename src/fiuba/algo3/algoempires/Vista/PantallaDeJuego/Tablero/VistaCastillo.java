@@ -51,14 +51,14 @@ public class VistaCastillo extends VistaEdificio {
 			Image pisoVacio = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/PedazoDePiso.png");
 			ImageView imageViewPiso = new ImageView();
 			imageViewPiso.setImage(pisoVacio);
-			imageViewPiso.setFitWidth(40);
+			imageViewPiso.setFitWidth(35);
 			imageViewPiso.setPreserveRatio(true);
 			imageViewPiso.setSmooth(true);
 			imageViewPiso.setCache(true);
 			VistaPosicionable vistaPosicionable = edificio.getView(contenedor, jugadorActual);
 			ImageView imageView = new ImageView();
 			imageView.setImage(writableImages.get(i));
-			imageView.setFitWidth(40);
+			imageView.setFitWidth(35);
 			imageView.setPreserveRatio(true);
 			imageView.setSmooth(true);
 			imageView.setCache(true);

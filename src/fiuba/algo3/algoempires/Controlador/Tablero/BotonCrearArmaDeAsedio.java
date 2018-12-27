@@ -6,6 +6,7 @@ import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidad;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.ArmaDeAsedio.ArmaDeAsedio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Ofensivas.Espadachin;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -24,5 +25,6 @@ public class BotonCrearArmaDeAsedio implements EventHandler<ActionEvent>  {
 	@Override
 	public void handle(ActionEvent arg0) {
 		this.contenedorPantallaDeJuego.getVistaTablero().iniciarCreacionUnidad(castillo, unidad, contenedorPantallaDeJuego);
+		this.contenedorPantallaDeJuego.leftBorderPane.setCenter(new SeleccionableHUD(contenedorPantallaDeJuego, castillo, "Crear Aldeano"));
 	}
 }
