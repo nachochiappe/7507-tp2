@@ -66,7 +66,6 @@ public class SeleccionableHUD extends VBox {
         botoneraAcciones.getChildren().addAll(label, button);
 
         this.getChildren().addAll(imageView, nombre, vida, botoneraAcciones);
-        this.setMinWidth(100);
-        this.setMaxWidth(100);
+        this.setPrefWidth(150);
     }
 }
