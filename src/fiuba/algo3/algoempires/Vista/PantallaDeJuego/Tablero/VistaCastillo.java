@@ -2,6 +2,7 @@ package fiuba.algo3.algoempires.Vista.PantallaDeJuego.Tablero;
 
 import java.util.List;
 
+import fiuba.algo3.algoempires.Controlador.Tablero.Celdas.CeldaAtacable;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Ofensiva;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Construibles.Edificio;
 import fiuba.algo3.algoempires.Model.EntidadesDelTablero.Unidades.Aldeano.Aldeano;
@@ -10,6 +11,8 @@ import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -62,15 +65,13 @@ public class VistaCastillo extends VistaEdificio {
 			imageView.setPreserveRatio(true);
 			imageView.setSmooth(true);
 			imageView.setCache(true);
-			imageView.setOnMouseClicked(e -> {
-				this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio));
-			});
+			vistaPosicionable.setearClickListener(e -> this.borderPane.setCenter(new SeleccionableHUD(this.contenedor, this.edificio)));
+			vistaPosicionable.setOnMouseEntered(e-> vistaPosicionable.cursorProperty().set(Cursor.HAND));
+			vistaPosicionable.setOnMouseExited(e-> vistaPosicionable.cursorProperty().set(Cursor.DEFAULT));
 			vistaPosicionable.getChildren().addAll(imageViewPiso, imageView);
 			this.vistasPosicionables.add(vistaPosicionable);
 		}
 	}
-
-
 
 
 
@@ -79,12 +80,7 @@ public class VistaCastillo extends VistaEdificio {
 
 	}
 
-	@Override
-	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva,
-			Posicion posicion) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 
 }

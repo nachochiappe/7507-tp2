@@ -9,6 +9,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -42,6 +43,7 @@ public class CeldaAtacable  implements EventHandler<MouseEvent> {
 			contenedorPantallaDeJuego.actualizarJugadorHUD();
 			sonidoDeGolpe.play();
 			contenedorPantallaDeJuego.getVistaTablero().iniciarTablero(contenedorPantallaDeJuego, contenedorPantallaDeJuego.algoEmpires.getJugadorActual());
+			this.contenedorPantallaDeJuego.leftBorderPane.setCenter(new SeleccionableHUD());
 		} catch (ObjetivoFueraDeRangoException | ArmaDeAsedioNoAtacaUnidadesException | ArmaDeAsedioNoMontadaException | AtaqueAliadoException e) {
 			new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, e.getMessage());
 		} catch (FueraDelMapaException e) {

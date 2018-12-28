@@ -7,6 +7,7 @@ import fiuba.algo3.algoempires.Model.Excepciones.*;
 import fiuba.algo3.algoempires.Model.Movimiento.Posicion;
 import fiuba.algo3.algoempires.Vista.Alerts.ContenedorAlerta;
 import fiuba.algo3.algoempires.Vista.PantallaDeJuego.ContenedorPantallaDeJuego;
+import fiuba.algo3.algoempires.Vista.PantallaDeJuego.SeleccionableHUD.SeleccionableHUD;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -30,6 +31,7 @@ public class CeldaCrearEdificio implements EventHandler<MouseEvent>  {
         try {
             this.aldeano.construir(edificio, posicion);
             this.contenedorPantallaDeJuego.actualizarJugadorHUD();
+            this.contenedorPantallaDeJuego.leftBorderPane.setCenter(new SeleccionableHUD());
         } catch (AldeanoOcupadoException | FueraDelMapaException | SoloSePermiteUnAldeanoException | OroInsuficienteException  | PosicionOcupadaException e)  {
             new ContenedorAlerta().display(contenedorPantallaDeJuego.rootStage, "No se puede construir aquí");
         }

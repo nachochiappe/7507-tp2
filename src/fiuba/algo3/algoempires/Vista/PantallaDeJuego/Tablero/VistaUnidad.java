@@ -123,6 +123,10 @@ public  class VistaUnidad extends  VistaPosicionable{
 		});
 	}
 
+	@Override
+	public Posicionable getPosicionable() {
+		return unidad;
+	}
 
 
 	@Override

@@ -135,33 +135,34 @@ public abstract class VistaEdificio extends VistaPosicionable {
 	}
 	
 	public void esperarAtaque(ContenedorPantallaDeJuego contenedorPantallaDeJuego, Ofensiva ofensiva, Posicion posicion) {
-		this.setearClickListener(new CeldaAtacable(contenedor, ofensiva, edificio, posicion));
-		this.setOnMouseEntered(event -> {
-			Image seleccionado = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/selec.png");
-			ImageView imageViewSeleccionado = new ImageView();
-			imageViewSeleccionado.setImage(seleccionado);
-			imageViewSeleccionado.setFitWidth(35);
-			imageViewSeleccionado.setPreserveRatio(true);
-			imageViewSeleccionado.setSmooth(true);
-			imageViewSeleccionado.setCache(true);
-			getChildren().add(imageViewSeleccionado);
-			Image sprite =  new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/SelecAtaque.png");
-			ImageCursor imageCursor = new ImageCursor(sprite);
-			cursorProperty().set(imageCursor);
-	
-		});
-		this.setOnMouseExited(event -> {
-			getChildren().remove(1);
-			cursorProperty().set(Cursor.DEFAULT);
-		});
+		for (VistaPosicionable vistaPosicionable: vistasPosicionables) {
+			vistaPosicionable.setearClickListener(new CeldaAtacable(contenedor, ofensiva, edificio, posicion));
+			vistaPosicionable.setOnMouseEntered(e-> {
+				Image cursor = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/SelecAtaque.png");
+				vistaPosicionable.cursorProperty().set(new ImageCursor(cursor));
+			});
+			vistaPosicionable.setOnMouseExited(e-> {
+				vistaPosicionable.cursorProperty().set(Cursor.DEFAULT);
+			});
+		}
 	}
 
 	public void esperarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego){
 		for (VistaPosicionable vistaPosicionable: vistasPosicionables) {
 			vistaPosicionable.setearClickListener(new CeldaConstruirReparar(contenedorPantallaDeJuego, edificio, aldeano));
+			vistaPosicionable.setOnMouseEntered(e-> {
+				Image cursor = new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Cursors/repair.png");
+				vistaPosicionable.cursorProperty().set(new ImageCursor(cursor));
+			});
+			vistaPosicionable.setOnMouseExited(e-> {
+				vistaPosicionable.cursorProperty().set(Cursor.DEFAULT);
+			});
 		}
 	}
-	
+
+	public Posicionable getPosicionable() {
+		return this.edificio;
+	}
 	
 	public void setearClickListener(EventHandler<MouseEvent> evento) {
 		this.setOnMouseClicked(evento);

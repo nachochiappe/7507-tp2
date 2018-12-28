@@ -16,9 +16,10 @@ import javafx.scene.layout.GridPane;
 
 public class VistaTablero extends GridPane {
 
-    List<Posicionable> posicionablesDibujados;
-    VistaPosicionable[][] vistaPosicionables;
-    Tablero tablero;
+    private List<Posicionable> posicionablesDibujados;
+    private VistaPosicionable[][] vistaPosicionables;
+
+    private Tablero tablero;
 
     public VistaTablero() {
         tablero = Tablero.getInstance();
@@ -32,6 +33,7 @@ public class VistaTablero extends GridPane {
 
     public void iniciarTablero(ContenedorPantallaDeJuego contenedor, Jugador jugadorActual) throws FueraDelMapaException {
         posicionablesDibujados = new ArrayList<>();
+        vistaPosicionables = new VistaPosicionable[tablero.getAncho()][tablero.getAlto()];
         for (int i = 0; i < tablero.getAncho(); i++) {
             for (int j = 0; j < tablero.getAlto(); j++) {
                 Posicionable posicionable = tablero.obtenerPosicionable(i, j);
@@ -76,9 +78,14 @@ public class VistaTablero extends GridPane {
 
 
     public void iniciarAtaque(Ofensiva ofensiva, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
+        posicionablesDibujados = new ArrayList<>();
         for (VistaPosicionable[] row : vistaPosicionables) {
             for (VistaPosicionable cell : row) {
-                cell.esperarAtaque(contenedorPantallaDeJuego, ofensiva, cell.getPosicion());
+                Posicionable posicionable = cell.getPosicionable();
+                if(!posicionablesDibujados.contains(posicionable)) {
+                    cell.esperarAtaque(contenedorPantallaDeJuego, ofensiva, cell.getPosicion());
+                    posicionablesDibujados.add(posicionable);
+                }
             }
         }
     }
@@ -86,9 +93,7 @@ public class VistaTablero extends GridPane {
     public void iniciarConstruccionReparacion(Aldeano aldeano, ContenedorPantallaDeJuego contenedorPantallaDeJuego) {
         for (VistaPosicionable[] row : vistaPosicionables) {
             for (VistaPosicionable cell : row) {
-                if (aldeano.getPosicion().estaEnRango(cell.getPosicion(), 1)) {
-                    cell.esperarConstruccionReparacion(aldeano, contenedorPantallaDeJuego);
-                }
+                cell.esperarConstruccionReparacion(aldeano, contenedorPantallaDeJuego);
             }
         }
     }

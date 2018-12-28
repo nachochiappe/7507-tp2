@@ -82,6 +82,11 @@ public class VistaLugarVacio extends VistaPosicionable{
 		});
 	}
 
+	@Override
+	public Posicionable getPosicionable() {
+		return lugarVacio;
+	}
+
 
 	@Override
 	public void esperarCreacionUnidad(ContenedorPantallaDeJuego contenedor, Edificio edificio, Unidad unidad, Posicion posicion) {
