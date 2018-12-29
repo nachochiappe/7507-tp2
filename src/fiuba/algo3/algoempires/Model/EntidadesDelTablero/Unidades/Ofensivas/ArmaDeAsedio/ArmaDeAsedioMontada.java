@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 public class ArmaDeAsedioMontada implements ArmaDeAsedioEstado {
 
-    ArmaDeAsedio armaDeAsedio;
+    private ArmaDeAsedio armaDeAsedio;
 
     public ArmaDeAsedioMontada(ArmaDeAsedio armaDeAsedio) {
         this.armaDeAsedio = armaDeAsedio;
@@ -25,6 +25,10 @@ public class ArmaDeAsedioMontada implements ArmaDeAsedioEstado {
 
     public void atacar(Posicionable edificio) throws ArmaDeAsedioNoMontadaException, ArmaDeAsedioNoAtacaUnidadesException {
     	edificio.atacadoPor(this.armaDeAsedio);
+    }
+
+    public ArmaDeAsedio getArmaDeAsedio() {
+        return armaDeAsedio;
     }
 
     @Override

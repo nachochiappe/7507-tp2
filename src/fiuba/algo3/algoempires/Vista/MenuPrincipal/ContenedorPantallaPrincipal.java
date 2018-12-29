@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -14,12 +15,22 @@ import javafx.stage.Stage;
 public class ContenedorPantallaPrincipal extends BorderPane {
 
     Stage stage;
+    AudioClip bgm;
 
     public ContenedorPantallaPrincipal(Stage stage) {
 
         super();
+/*
+        boolean audio = true;
+        bgm = new AudioClip("file:src/fiuba/algo3/algoempires/Vista/Sonidos/bgm.mp3");
 
         this.stage = stage;
+
+        bgm.setCycleCount(AudioClip.INDEFINITE);
+
+        bgm.play();
+  */
+
 
         this.setPadding(new Insets(20,0,30,0));
 

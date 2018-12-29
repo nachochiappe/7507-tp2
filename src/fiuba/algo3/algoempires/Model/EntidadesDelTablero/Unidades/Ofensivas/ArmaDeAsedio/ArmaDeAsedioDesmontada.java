@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
 
-    ArmaDeAsedio armaDeAsedio;
+    private ArmaDeAsedio armaDeAsedio;
 
     public ArmaDeAsedioDesmontada(ArmaDeAsedio armaDeAsedio) {
         this.armaDeAsedio = armaDeAsedio;
@@ -35,6 +35,10 @@ public class ArmaDeAsedioDesmontada implements ArmaDeAsedioEstado{
     @Override
     public String getNombre() {
         return "Arma de Asedio (desmontada)";
+    }
+
+    public ArmaDeAsedio getArmaDeAsedio() {
+        return armaDeAsedio;
     }
 
     @Override

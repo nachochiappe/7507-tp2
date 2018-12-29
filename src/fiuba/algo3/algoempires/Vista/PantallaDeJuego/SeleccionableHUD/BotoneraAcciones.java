@@ -91,8 +91,12 @@ public class BotoneraAcciones {
         VBox botonera = new VBox(20);
 
         Button botonAtacar = new Button("Atacar");
+        botonAtacar.setOnAction(new BotonAtacar(contenedor, armaDeAsedioMontada.getArmaDeAsedio()));
         Button botonDesmontar = new Button("Desmontar");
-
+        botonDesmontar.setOnAction(e-> {
+            armaDeAsedioMontada.getArmaDeAsedio().toggleMontar();
+            contenedor.leftBorderPane.setCenter(new SeleccionableHUD(contenedor, armaDeAsedioMontada.getArmaDeAsedio()));
+        });
 
         botonera.getChildren().addAll(botonAtacar, botonDesmontar);
         return botonera;
@@ -101,9 +105,14 @@ public class BotoneraAcciones {
     public VBox generarBotonera(ContenedorPantallaDeJuego contenedor, ArmaDeAsedioDesmontada armaDeAsedioDesmontada) {
         VBox botonera = new VBox(20);
 
-        Button botonMover = new Button("Mover");
+        GridPane botonesMovimiento = generarBotoneraDireccional(contenedor, armaDeAsedioDesmontada.getArmaDeAsedio());
         Button botonMontar = new Button("Montar");
-        botonera.getChildren().addAll(botonMover, botonMontar);
+        botonMontar.setOnAction(e-> {
+            armaDeAsedioDesmontada.getArmaDeAsedio().toggleMontar();
+            contenedor.leftBorderPane.setCenter(new SeleccionableHUD(contenedor, armaDeAsedioDesmontada.getArmaDeAsedio()));
+        });
+
+        botonera.getChildren().addAll(botonesMovimiento, botonMontar);
         return botonera;
     }
 

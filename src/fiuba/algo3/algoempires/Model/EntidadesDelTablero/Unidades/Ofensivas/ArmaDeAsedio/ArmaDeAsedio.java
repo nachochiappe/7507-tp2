@@ -96,12 +96,12 @@ public class ArmaDeAsedio extends Unidad implements Ofensiva {
 
     @Override
     public Image getSprite() {
-        return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio.png");
+        return new Image("file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio/ArmaDeAsedioS.png");
     }
 
     @Override
     public String getSpritePath() {
-        return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio.png";
+        return "file:src/fiuba/algo3/algoempires/Vista/Imagenes/Unidades/ArmaDeAsedio/ArmaDeAsedioS.png";
     }
 
     @Override
